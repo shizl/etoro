@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Schema definition, install, uninstall, and requirements check.
+ */
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function pingan_login_uninstall() {
+  variable_del('pingan_appid');
+  variable_del('pingan_key');
+}

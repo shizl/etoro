@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Allow users to login using an external email account.
+ *
+ * Users can login to the site using an IMAP/POP/NNTP server. If the email
+ * address is associated with a Drupal user, that user is logged in. If not,
+ * a new user is created.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function pingan_login_menu() {
+  $items['admin/config/people/pingan_login'] = array(
+    'title' => 'Pingan Login',
+    'description' => 'Pingan Login settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('pingan_login_settings_form'),
+    'access arguments' => array('administer users'),
+    'file' => 'pingan_login.admin.inc',
+  );
+
+  $items['pingan_login/login'] = array(
+    'title' => 'Pingan Login',
+    'description' => 'Pingan Login page',
+    'page callback' => 'pingan_login_login',
+    'access callback' => true,
+    'menu_name'=>'main-menu',
+  );
+  $items['pingan_login/callback'] = array(
+    'title' => 'Pingan Login',
+    'description' => 'Pingan Login page',
+    'page callback' => 'pingan_login_callback',
+    'access callback' => true,
+    'menu_name'=>'main-menu',
+  );
+   $items['pingan_login/register'] = array(
+    'title' => 'Pingan Login',
+    'description' => 'Pingan Register page',
+    'page callback' => 'pingan_login_register',
+    'access callback' => true,
+    'menu_name'=>'main-menu',
+  );
+
+  return $items;
+}
+
+/**
+  * login page
+  */
+function pingan_login_login(){
+
+
+}
+/**
+  * register page
+  */
+function pingan_login_register(){
+
+
+}
+/**
+  *  callback function 
+  */
+function pingan_login_callback(){
+  print_r($_REQUEST);
+echo 'success';
+exit;
+
+}
