@@ -93,7 +93,7 @@ header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):v
 function pingan_login_register($type=""){
 $time=date("Y-m-d h:i:s");
 
-header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro")."&signtype=MD5");
+header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 
 }
 /**
