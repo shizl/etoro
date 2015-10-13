@@ -22,28 +22,28 @@ function pingan_login_menu() {
     'file' => 'pingan_login.admin.inc',
   );
 
-  $items['pingan_login/login/%type'] = array(
+  $items['pingan_login/%/login'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Login page',
     'page callback' => 'pingan_login_login',
     'page arguments' => array(1),
     'access callback' => true,
-    'menu_name'=>'main-menu',
+    //'menu_name'=>'main-menu',
   );
   $items['pingan_login/callback'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Login page',
     'page callback' => 'pingan_login_callback',
     'access callback' => true,
-    'menu_name'=>'main-menu',
+    //'menu_name'=>'main-menu',
   );
-   $items['pingan_login/register/%type'] = array(
+   $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
     'page arguments' => array(1),
     'page callback' => 'pingan_login_register',
     'access callback' => true,
-    'menu_name'=>'main-menu',
+    //'menu_name'=>'main-menu',
   );
 
   return $items;
