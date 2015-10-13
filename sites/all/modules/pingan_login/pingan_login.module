@@ -53,7 +53,7 @@ function pingan_login_menu() {
 * Implements hook_block_info().
 */
 function pingan_login_block_info() {
-  $blocks['trace_search'] = array(
+  $blocks['pingan_login_box'] = array(
     'info' => t('Pingan Login block'),
     'region'=>'sidebar_first',
   );
@@ -67,12 +67,12 @@ function pingan_login_block_view($delta = '') {
   global $user;
   $block = array();
   switch ($delta) {
-    case 'trace_search':
+    case 'pingan_login_box':
       $block['title'] = t('Pingan Login block');
       if($user->uid>0){
         $block['content'] = t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
       }else{
-        $block['content'] = '<input type="button" value="'.t('Login').'" onclick="location.href=\'pingan_login/login\'"> &nbsp; <input type="button" value="'.t('Register').'" onclick="location.href=\'pingan_login/register\'">';
+        $block['content'] = '<input type="button" value="'.t('Login').'" onclick="location.href=\'pingan_login/login\'"> &nbsp; <input type="button" value="'.t('Register').'" onclick="location.href=\'pingan_login/register\'"><br/><input type="button" value="'.t('Mobile Login').'" onclick="location.href=\'pingan_login/login/mobile\'"> &nbsp; <input type="button" value="'.t('Mobile Register').'" onclick="location.href=\'pingan_login/register/mobile\'">';
 
       }
       
