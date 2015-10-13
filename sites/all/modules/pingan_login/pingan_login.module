@@ -22,10 +22,11 @@ function pingan_login_menu() {
     'file' => 'pingan_login.admin.inc',
   );
 
-  $items['pingan_login/login'] = array(
+  $items['pingan_login/login/%type'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Login page',
     'page callback' => 'pingan_login_login',
+    'page arguments' => array(1),
     'access callback' => true,
     'menu_name'=>'main-menu',
   );
@@ -36,9 +37,10 @@ function pingan_login_menu() {
     'access callback' => true,
     'menu_name'=>'main-menu',
   );
-   $items['pingan_login/register'] = array(
+   $items['pingan_login/register/%type'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
+    'page arguments' => array(1),
     'page callback' => 'pingan_login_register',
     'access callback' => true,
     'menu_name'=>'main-menu',
@@ -48,26 +50,193 @@ function pingan_login_menu() {
 }
 
 /**
+* Implements hook_block_info().
+*/
+function pingan_login_block_info() {
+  $blocks['pingan_login_box'] = array(
+    'info' => t('Pingan Login block'),
+    'region'=>'sidebar_first',
+  );
+
+  return $blocks;
+}
+ /**
+* Implements hook_block_view().
+*/
+function pingan_login_block_view($delta = '') {
+  global $user;
+  $block = array();
+  switch ($delta) {
+    case 'pingan_login_box':
+      $block['title'] = t('Pingan Login block');
+      if($user->uid>0){
+        $block['content'] = t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
+      }else{
+        $block['content'] = '<input type="button" value="'.t('Login').'" onclick="location.href=\'pingan_login/login\'"> &nbsp; <input type="button" value="'.t('Register').'" onclick="location.href=\'pingan_login/register\'"><br/><input type="button" value="'.t('Mobile Login').'" onclick="location.href=\'pingan_login/login/mobile\'"> &nbsp; <input type="button" value="'.t('Mobile Register').'" onclick="location.href=\'pingan_login/register/mobile\'">';
+
+      }
+      
+      break;
+  }
+  return $block;
+}
+/**
   * login page
   */
-function pingan_login_login(){
+function pingan_login_login($type=""){
 
-
+$time=date("Y-m-d h:i:s");
+header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro")."&signtype=MD5");
 }
 /**
   * register page
   */
-function pingan_login_register(){
+function pingan_login_register($type=""){
 $time=date("Y-m-d h:i:s");
-header("Location: ".variable_get('pingan_register_pc_url')."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro")."&signtype=MD5");
+
+header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro")."&signtype=MD5");
 
 }
 /**
-  *  callback function 
+  * ping an  callback function 
   */
 function pingan_login_callback(){
-  print_r($_REQUEST);
-echo 'success';
-exit;
+ // print_r($_REQUEST);
+  
+  $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
 
+  $xmlObject = simplexml_load_string($requestxml);
+
+  if($xmlObject->result=="00"){
+
+    $userdata=array('name'=>(string)$xmlObject->attributes->attribute[0]['value'],
+    'phone'=>(string)$xmlObject->attributes->attribute[1]['value'],
+    'mail'=>(string)$xmlObject->attributes->attribute[2]['value'],'openid'=>md5((string)$xmlObject->attributes->attribute[0]['value'].(string)$xmlObject->attributes->attribute[2]['value']));
+
+      $userid=db_query("SELECT `entity_id` FROM `field_data_field_pingan_openid` WHERE `field_pingan_openid_value`='".$userdata['openid']."'")->fetchField();
+          if(empty($userid) || $userid==""){
+              $name=$userdata['name'];
+              $account = array(
+                  'name' =>$name,
+                  'pass' => '',
+                  'mail' => $userdata['mail'],
+                  'status' => 1,
+                  'init' => $name,
+                  'roles' => 2
+              );
+              user_save(null, $account);
+
+              $accountArray = user_load_multiple(array(), array('name' => $name));
+              //$account=user_load($newaccount->uid);   
+            $edit = array(
+              'field_pingan_openid' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['openid']
+                  )
+                )
+              ),'field_user_phone' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['phone']
+                  )
+                )
+              )
+            );
+
+            foreach ($accountArray as $item) {
+              user_save($item, $edit);
+              $account=$item;
+            }
+            
+           
+         }else{
+
+          $account=user_load($userid);
+
+         }
+        if ($account) {
+          global $user;
+
+          // Call logout hooks.
+          module_invoke_all('user_logout', $user);
+
+          // Switching user.
+          $user = $account;
+          drupal_session_regenerate();
+
+          // Call all login hooks.
+          $edit = array();
+          user_module_invoke('login', $edit, $user);
+        }
+
+        drupal_goto("/user");
+
+    }else{
+      echo '错误代码:'.$xmlObject->result.'<br> 描述:'.$xmlObject->message.'<br>请联系管理员';
+      exit;
+    }
+    
 }
+
+/*pingan 3des decode*/
+function decrypt($encrypted,$key) { //  
+    $encrypted = base64_decode ($encrypted ); 
+    $key = str_pad ( $key, 24, '0' ); 
+    $td = mcrypt_module_open ( MCRYPT_3DES, '', 'ecb', '' ); 
+    $iv = @mcrypt_create_iv ( mcrypt_enc_get_iv_size ( $td ), MCRYPT_RAND ); 
+    $ks = mcrypt_enc_get_key_size ( $td ); 
+    @mcrypt_generic_init ( $td, $key, $iv ); 
+    $decrypted = mdecrypt_generic ( $td, $encrypted ); 
+    mcrypt_generic_deinit ( $td ); 
+    mcrypt_module_close ( $td ); 
+    $y = pkcs5_unpad ( $decrypted ); 
+    $code=urldecode(base64_decode($y));
+    return $code; 
+} 
+
+function pkcs5_unpad($text) { 
+    $pad = ord ( $text {strlen ( $text ) - 1} ); 
+    if ($pad > strlen ( $text )) { 
+        return false; 
+    } 
+    if (strspn ( $text, chr ( $pad ), strlen ( $text ) - $pad ) != $pad) { 
+        return false; 
+    } 
+    return substr ( $text, 0, - 1 * $pad ); 
+} 
+
+function xml_to_array( $xml )
+{
+    $reg = "/<(\\w+)[^>]*?>([\\x00-\\xFF]*?)<\\/\\1>/";
+    if(preg_match_all($reg, $xml, $matches))
+    {
+        $count = count($matches[0]);
+        $arr = array();
+        for($i = 0; $i < $count; $i++)
+        {
+            $key= $matches[1][$i];
+            $val = xml_to_array( $matches[2][$i] );  // 递归
+            if(array_key_exists($key, $arr))
+            {
+                if(is_array($arr[$key]))
+                {
+                    if(!array_key_exists(0,$arr[$key]))
+                    {
+                        $arr[$key] = array($arr[$key]);
+                    }
+                }else{
+                    $arr[$key] = array($arr[$key]);
+                }
+                $arr[$key][] = $val;
+            }else{
+                $arr[$key] = $val;
+            }
+        }
+        return $arr;
+    }else{
+        return $xml;
+    }
+}
+
+?>
