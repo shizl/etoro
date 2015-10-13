@@ -16,4 +16,13 @@ function pingan_login_uninstall() {
   variable_del('pingan_register_mobile_url');
   variable_del('pingan_login_pc_url');
   variable_del('pingan_login_mobile_url');
+	field_delete_field('field_pingan_openid');
+	field_delete_field('field_user_phone');  
+}
+/**
+ * Implements hook_install().
+ */
+function pingan_login_install() {
+	pingan_login_create_field('Pingan openid ','field_pingan_openid',array('type'=>'text','widget'=>"text_textfield","display"=>array("default"=>array("label"=>"inline")),"setting"=>array('max_length'=>50,'text_processing'=>0)));
+	pingan_login_create_field('User phone','field_user_phone',array('type'=>'text','widget'=>"text_textfield","display"=>array("default"=>array("label"=>"inline")),"setting"=>array('max_length'=>50,'text_processing'=>0)));
 }
