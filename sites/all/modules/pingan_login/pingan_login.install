@@ -23,7 +23,7 @@ function pingan_login_uninstall() {
  * Implements hook_install().
  */
 function pingan_login_install() {
-	  $field_name = 'field_pingan_openid';
+	$field_name = 'field_pingan_openid';
   if (!field_info_field($field_name)) {
     $field = array(
       'field_name' => $field_name, 
