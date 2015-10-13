@@ -12,4 +12,8 @@
 function pingan_login_uninstall() {
   variable_del('pingan_appid');
   variable_del('pingan_key');
+  variable_del('pingan_register_pc_url');
+  variable_del('pingan_register_mobile_url');
+  variable_del('pingan_login_pc_url');
+  variable_del('pingan_login_mobile_url');
 }

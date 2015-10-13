@@ -58,7 +58,8 @@ function pingan_login_login(){
   * register page
   */
 function pingan_login_register(){
-
+$time=date("Y-m-d h:i:s");
+header("Location: ".variable_get('pingan_register_pc_url')."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro")."&signtype=MD5");
 
 }
 /**
