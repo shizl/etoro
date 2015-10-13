@@ -30,12 +30,12 @@
               if($node->field_type['und']['0']['taxonomy_term']->name =="eBook"){
                 //echo '<pre>';
                 //print_r($node->field_book_id); exit; 
-                if($node->field_book_id ==null){
+                if($node->field_course_id == null){
                 return;
                         }
                 else{
-                $bookid = $node->field_book_id['und']['0']['value'];
-                $output ="<iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$bookid."&lng=en&ref=83462ba&set=Embed' width='100%' height='370px' ></iframe>";
+                $courseid = $node->field_course_id['und']['0']['value'];
+                $output ="<iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$courseid."&lng=en&ref=83462ba&set=Embed' width='100%' height='370px' ></iframe>";
 		$node->content['book'] = array(
 		   '#markup' => $output,
  		   '#weight'=>-1,
@@ -63,12 +63,12 @@
              }
             if($node->field_type['und']['0']['taxonomy_term']->name =="电子书"){
                  
-                    if($node->field_book_id ==null){
+                    if($node->field_course_id ==null){
                                return;
                               }
                     else{
-                    $bookid = $node->field_book_id['und']['0']['value'];
-                    $output ="<iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$bookid."&lng=cn&ref=83462ba&set=Embed' width='100%' height='370px' ></iframe>";
+                    $courseid = $node->field_course_id['und']['0']['value'];
+                    $output ="<iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$courseid."&lng=cn&ref=83462ba&set=Embed' width='100%' height='370px' ></iframe>";
 		    $node->content['book'] = array(
 		   '#markup' => $output,
  		   '#weight'=>-1,
