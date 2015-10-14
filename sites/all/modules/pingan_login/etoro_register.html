@@ -1,0 +1,33 @@
+<html><head>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script src="https://register.etoro.com/js/production/modularRegistration.min.js"></script>
+<script>
+RegistrationService({
+'isDebug':false,
+'loadCSS':true,
+},
+function(T){
+var registration=new T.RegistrationService.Registration({
+'container':'#form',
+'version':'ver11',
+'culture':'zh­cn',
+'checkUserIP':false,
+'socialConnect':false,
+'funnelFromID':13,
+'successRedirect':false,
+'funnelID':37,    
+});  
+
+registration.on('after:render', function (event) {}); 
+registration.on('before:render', function (event) {});
+registration.on('on:submit', function (event) {}); 
+registration.on('on:error', function (event) {}); 
+registration.on('on:success', function (event) {}); 
+registration.show();
+});
+</script>
+</head>
+<body>
+<form id="form"></form>
+</body>
+</html>
