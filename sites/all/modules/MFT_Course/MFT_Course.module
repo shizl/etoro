@@ -9,8 +9,6 @@
             if($node->field_type ==null){
                    return;
              }
-               echo '<pre>';
-              print_r($node);
             if($node->field_type['und']['0']['taxonomy_term']->name =="eVideo"){
                    if($node->field_course_id&& $node->field_lesson_id == null){
                                return;
