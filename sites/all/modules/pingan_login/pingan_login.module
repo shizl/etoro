@@ -55,7 +55,9 @@ function pingan_login_menu() {
 function pingan_login_block_info() {
   $blocks['pingan_login_box'] = array(
     'info' => t('Pingan Login block'),
-    'region'=>'sidebar_first',
+    'status' => TRUE,
+    'region' => 'sidebar_first',
+    
   );
 
   return $blocks;
@@ -68,17 +70,20 @@ function pingan_login_block_view($delta = '') {
   $block = array();
   switch ($delta) {
     case 'pingan_login_box':
+    drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
+    drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
       $block['title'] = t('Pingan Login block');
       if($user->uid>0){
         $block['content'] = t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
       }else{
-        $block['content'] = '<input type="button" value="'.t('Login').'" onclick="location.href=\'pingan_login/pc/login\'"> &nbsp; <input type="button" value="'.t('Register').'" onclick="location.href=\'pingan_login/pc/register\'"><br/><input type="button" value="'.t('Mobile Login').'" onclick="location.href=\'pingan_login/mobile/login\'"> &nbsp; <input type="button" value="'.t('Mobile Register').'" onclick="location.href=\'pingan_login/mobile/register\'">';
+        $block['content'] = '<button id="popLogin">'.t('Login').'</button> &nbsp; <button id="popRegister">'.t('Register').'</button><div class="loginPop"><div id="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" id="popSrc"></iframe></div></div>';
       }
       
       break;
   }
   return $block;
 }
+
 /**
   * login page
   */
