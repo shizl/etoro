@@ -1,0 +1,84 @@
+
+/* ---------- Basic Layout Styles ----------- */
+
+html,
+body,
+#page  {
+  height: 100%;
+}
+#page-wrapper {
+  min-height: 100%;
+  min-width: 1080px;
+}
+#header div.section,
+#featured div.section,
+#messages div.section,
+#main,
+#triptych,
+#footer-columns,
+#footer ,
+.section{
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1200px){
+#page-wrapper {
+  min-height: 100%;
+  min-width: 90%;
+}
+
+#header div.section,
+#featured div.section,
+#messages div.section,
+#main,
+#triptych,
+#footer-columns,
+#footer {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footer {
+  width: 90%;
+  min-width: 920px;
+}
+}
+#header div.section {
+  position: relative;
+}
+.region-header {
+  float: right; /* LTR */
+  margin: 0 5px 10px;
+}
+.with-secondary-menu .region-header {
+  margin-top: 3em;
+}
+.without-secondary-menu .region-header {
+  margin-top: 15px;
+}
+#secondary-menu {
+  position: absolute;
+  right: 0; /* LTR */
+  top: 0;
+  width: 480px;
+}
+
+
+
+
+
+
+#breadcrumb {
+  margin: 0 15px;
+}
+
+
+
+#footer {
+  width: 1080px;
+  min-width: 920px;
+  
+}
+

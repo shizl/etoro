@@ -1,0 +1,94 @@
+<?php
+
+
+ function MFT_Course_node_view($node,$view_mode,$langcode) {
+
+    if ($node->type=="elesson"){
+       global $language;
+       if($language->language == "en"){
+            if($node->field_type ==null){
+                   return;
+             }
+            if(isset($node->field_type['und']['0']['taxonomy_term'])){
+                  echo'1111111'; exit;
+              }
+              
+            if($node->field_type['und']['0']['taxonomy_term']->name =="eVideo"){
+                   if($node->field_course_id == null || $node->field_lesson_id == null){
+                               return;
+                    }else{
+                   $courseid = $node->field_course_id['und']['0']['value'];
+                   $lessonid = $node->field_lesson_id['und']['0']['value'];
+                   //echo '<pre>';
+                   //print_r($courseid);
+                   //print_r($lessonid); exit;   
+                 $output ="<script src='//www.mte-media.com/admin2/js/mte.js'></script><div id='players'><div id='mfp_player'></div><div id='vid_player_container'></div><div id='ebk_player'></div><div id='cal'></div></div><iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$courseid."&lng=en&ref=83462ba&set=Embed&jtl=".$lessonid."' width='100%' height='420px' ></iframe>";
+		$node->content['video'] = array(
+		   '#markup' => $output,
+ 		   '#weight'=>-1,
+		 );
+
+                 }
+           }
+         
+              if(in_array('taxonomy_term' , $node->field_type['und']['0'])){
+              if($node->field_type['und']['0']['taxonomy_term']->name =="eBook"){
+                //echo '<pre>';
+                //print_r($node->field_book_id); exit; 
+                if($node->field_course_id == null){
+                return;
+                        }
+                else{
+                $courseid = $node->field_course_id['und']['0']['value'];
+                $output ="<iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$courseid."&lng=en&ref=83462ba&set=Embed' width='100%' height='370px' ></iframe>";
+		$node->content['book'] = array(
+		   '#markup' => $output,
+ 		   '#weight'=>-1,
+		 );
+                }
+           }
+       }
+        }
+        if ($language->language == "zh-hans"){
+              if($node->field_type ==null){
+                return;
+              }
+              if(in_array('taxonomy_term' , $node->field_type['und']['0'])){
+              if($node->field_type['und']['0']['taxonomy_term']->name =="电子视频"){
+                 if($node->field_course_id == null || $node->field_lesson_id == null){
+                               return;
+                              }
+                   else{
+                   $courseid = $node->field_course_id['und']['0']['value'];
+                   $lessonid = $node->field_lesson_id['und']['0']['value'];
+                   $output ="<script src='//www.mte-media.com/admin2/js/mte.js'></script><div id='players'><div id='mfp_player'></div><div id='vid_player_container'></div><div id='ebk_player'></div><div id='cal'></div></div><iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$courseid."&lng=cn&ref=83462ba&set=Embed&jtl=".$lessonid."' width='100%' height='420px' ></iframe>";
+		$node->content['video'] = array(
+		   '#markup' => $output,
+ 		   '#weight'=>-1,
+		 );     
+                  }
+             }
+           }
+           if(in_array('taxonomy_term' , $node->field_type['und']['0'])){
+            if($node->field_type['und']['0']['taxonomy_term']->name =="电子书"){
+                 
+                    if($node->field_course_id ==null){
+                               return;
+                              }
+                    else{
+                    $courseid = $node->field_course_id['und']['0']['value'];
+                    $output ="<iframe allowfullscreen frameborder=0 src='//www.mte-media.com/admin2/frames/put_course.php?prd=".$courseid."&lng=cn&ref=83462ba&set=Embed' width='100%' height='370px' ></iframe>";
+		    $node->content['book'] = array(
+		   '#markup' => $output,
+ 		   '#weight'=>-1,
+		    );
+                     
+                }
+          }
+        }
+      }
+
+    }
+}
+
+
