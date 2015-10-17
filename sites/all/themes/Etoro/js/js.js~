@@ -27,10 +27,18 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
        
 });
 
-  jQuery("#block-block-1 .information3 .news").click(function(){
-
+  jQuery("#block-block-4 .information-title .news").click(function(){
+    jQuery(this).addClass("active");
+    
     jQuery("#block-views-information-block").hide();
-    jQuery("#block-views-information2-block").show();
+    jQuery("#block-views-information-block-1").show();
+
+});
+  jQuery("#block-block-4 .information-title .article").click(function(){
+    jQuery(this).addClass("active");
+    
+    jQuery("#block-views-information-block").show();
+    jQuery("#block-views-information-block-1").hide();
 
 });
 

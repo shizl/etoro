@@ -29,6 +29,7 @@ background: #ffffff;
 }
 #header {
  
+}
 a {
   color: #0071B3;
 }
@@ -42,9 +43,7 @@ a {
 #footer-wrapper {
   background: #292929;
 }
-#footer-wrapper{
-min-height:200px;
-}
+
 
 .region-header a,
 .region-header li a.active,

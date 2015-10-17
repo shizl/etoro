@@ -9,9 +9,9 @@ stylesheets[all][] = css/bootstrap.css
 stylesheets[all][] = css/layout.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/colors.css
+stylesheets[all][]  = css/responsive-slider.css
 stylesheets[print][] = css/print.css
 scripts[] = js/js.js
-
 regions[header] = Header
 
 
@@ -28,7 +28,7 @@ regions[content-bottom] = Content-Bottom
 
 
 regions[footer] = Footer
-
+regions[footer-bottom] = Footer-bottom
 settings[shortcut_module_link] = 0
 
 

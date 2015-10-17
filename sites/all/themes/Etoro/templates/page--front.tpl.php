@@ -62,7 +62,41 @@
     <?php endif; ?>
 </div> <!-- /.section, /#header -->
 
-<div id="banner"><?php print render($page['banner']); ?> </div>
+<div id="banner"><?php print render($page['banner']); ?> 
+<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
+        <div class="slides" data-group="slides">
+      		<ul>
+
+	 <?php 
+	   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' ");
+           //echo '<pre>';
+	   //print_r($fids);exit;
+		foreach($fids as $fid){
+		   $file = file_load($fid->field_banner_image_fid);
+		   $url = file_create_url($file->uri);
+
+		   echo '<li>
+              		<div class="slide-body" data-group="slide">
+                	<img src="'.$url.'">
+              		</div>
+  	    		</li>';
+		}
+
+ 	?>
+  	    	</ul>
+        </div>
+
+        <div class="pages">
+          <a class="page" href="#" data-jump-to="1">1</a>
+          <a class="page" href="#" data-jump-to="2">2</a>
+          <a class="page" href="#" data-jump-to="3">3</a>
+        </div>
+    	</div>
+
+
+
+
+</div>
 <div id="feature"><div class="section clearfix"><?php print render($page['feature']); ?> </div></div>
   <?php if ($messages): ?>
     <div id="messages"><div class="section clearfix">
@@ -116,9 +150,14 @@
     <?php if ($page['footer']): ?>
       <div id="footer" class="clearfix">
         <?php print render($page['footer']); ?>
-      </div> <!-- /#footer -->
+      </div> 
+      </div>
+         <div id="footer-bottom"><?php print render($page['footer-bottom']); ?></div>
     <?php endif; ?>
 
-  </div></div> <!-- /.section, /#footer-wrapper -->
+  </div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->
+<script src="/sites/all/themes/Etoro/js/jquery.js"></script>
+ <script src="/sites/all/themes/Etoro/js/jquery.event.move.js"></script>
+    <script src="/sites/all/themes/Etoro/js/responsive-slider.js"></script>

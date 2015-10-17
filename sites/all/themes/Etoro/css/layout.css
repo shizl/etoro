@@ -27,7 +27,10 @@ body,
   min-height: 100%;
   min-width: 90%;
 }
+.section{
+width:90%;
 
+}
 #header div.section,
 #featured div.section,
 #messages div.section,
@@ -42,7 +45,7 @@ body,
 
 #footer {
   width: 90%;
-  min-width: 920px;
+  
 }
 }
 #header div.section {
@@ -76,9 +79,5 @@ body,
 
 
 
-#footer {
-  width: 1050px;
-  min-width: 920px;
-  
-}
+
 
