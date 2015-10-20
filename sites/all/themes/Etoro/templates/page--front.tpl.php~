@@ -8,33 +8,8 @@
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
     <?php endif; ?>
-
-    <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <strong>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </strong>
-            </div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </h1>
-          <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-            <?php print $site_slogan; ?>
-          </div>
-        <?php endif; ?>
-
-      </div> <!-- /#name-and-slogan -->
-    <?php endif; ?>
-
+   <div id="logo2"><img src="/sites/all/themes/Etoro/images/pinan.png"></div>
+    
     <?php print render($page['header']); ?>
 
     
@@ -68,7 +43,10 @@
       		<ul>
 
 	 <?php 
-	   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' ");
+           global $language ;
+          
+           if ($language->language == 'en'){
+	   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'en') ");
            //echo '<pre>';
 	   //print_r($fids);exit;
 		foreach($fids as $fid){
@@ -77,26 +55,37 @@
 
 		   echo '<li>
               		<div class="slide-body" data-group="slide">
-                	<img src="'.$url.'">
+                	<img style="width:100%; height:480px;" src="'.$url.'">
               		</div>
   	    		</li>';
 		}
+                     }
+              if ($language->language == 'zh-hans'){
 
+                   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'zh-hans') ");
+          
+		foreach($fids as $fid){
+		   $file = file_load($fid->field_banner_image_fid);
+		   $url = file_create_url($file->uri);
+
+		   echo '<li>
+              		<div class="slide-body" data-group="slide">
+                	<img style="width:100%; height:480px;" src="'.$url.'">
+              		</div>
+  	    		</li>';
+		}
+                     }
  	?>
   	    	</ul>
         </div>
 
-        <div class="pages">
-          <a class="page" href="#" data-jump-to="1">1</a>
-          <a class="page" href="#" data-jump-to="2">2</a>
-          <a class="page" href="#" data-jump-to="3">3</a>
-        </div>
+      
     	</div>
 
 
 
-
 </div>
+
 <div id="feature"><div class="section clearfix"><?php print render($page['feature']); ?> </div></div>
   <?php if ($messages): ?>
     <div id="messages"><div class="section clearfix">
@@ -104,7 +93,7 @@
     </div></div> <!-- /.section, /#messages -->
   <?php endif; ?>
 
-  
+  <div id="highlighted"><div class="section clearfix"><?php print render($page['highlighted']); ?></div></div>
  <div id="content-top"><div class="section clearfix"><?php print render($page['content-top']); ?></div> </div>
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
 
@@ -151,10 +140,11 @@
       <div id="footer" class="clearfix">
         <?php print render($page['footer']); ?>
       </div> 
+      </div>
          <div id="footer-bottom"><?php print render($page['footer-bottom']); ?></div>
     <?php endif; ?>
 
-  </div></div> <!-- /.section, /#footer-wrapper -->
+  </div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->
 <script src="/sites/all/themes/Etoro/js/jquery.js"></script>

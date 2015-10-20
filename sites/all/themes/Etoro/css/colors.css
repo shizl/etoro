@@ -11,9 +11,11 @@ body.overlay {
 
 #main-wrapper,
 #main-menu-links li a.active,
-#main-menu-links li.active-trail a {
+#main-menu-links li.active-trail a,
+#main-menu-links li a:hover {
   background: #ec8424;
 }
+ 
 #page,
 #main-wrapper{
 

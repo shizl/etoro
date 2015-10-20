@@ -24,3 +24,69 @@
 	width: 40px;height: 30px;
 	cursor: pointer;
 }
+#block-pingan-login-pingan-login-box button{
+
+    width: 33%;
+    height: 30px;
+
+}
+#block-pingan-login-pingan-login-box #popRegister{
+background:#ec7f24;
+border-radius: 4px;
+border: 1px solid wheat;
+color: #ffffff;
+}
+#block-pingan-login-pingan-login-box #popLogin{
+background:#ffffff;
+border-radius: 4px;
+border: 1px solid #D4D2CF;
+}
+#block-pingan-login-pingan-login-box{
+background-color: #ffffff;
+text-align: center;
+float:right;
+width:32%;
+margin-top: 35px;
+margin-bottom: 35px;
+height: 278px;
+}
+#block-pingan-login-pingan-login-box h2{
+font-size: 18px;
+    font-weight: bold;
+    margin-top: 35px;
+
+}
+#block-pingan-login-pingan-login-box .opa{
+margin-left: 45px;
+text-align:left;
+margin-bottom: 35px;
+margin-top: 20px;
+}
+#block-pingan-login-pingan-login-box .opa a{
+text-decoration: underline;
+color:#8b8b8b
+}
+#block-pingan-login-pingan-login-box .gmpa{
+margin-top:25px;
+}
+#block-pingan-login-pingan-login-box #radius{
+    width: 235px;
+    margin: 0 auto;
+    height: 30px;
+    border-bottom: solid 1px;
+}
+#block-pingan-login-pingan-login-box .gmpa a{
+
+    width: 71%;
+    background: #be2b28;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 13px;
+    color: #ffffff;
+    font-size: 16px;
+}
+#block-pingan-login-pingan-login-box p{
+line-height:10px;
+}
