@@ -583,7 +583,7 @@ position: relative;
 }
 #block-views-course-description-block .views-field-nothing-3{
     position: absolute;
-    right: 15%;
+    right: 16%;
     z-index: 4;
     background-color: #bb2a29;
     top: 315%;
@@ -692,7 +692,7 @@ display: block;
 #block-views-course-description-block .views-field-description{
 
     z-index: 2;
-    width: 45%;
+    width: 47%;
     height:340px;
     position: absolute;
     right: 0px;
@@ -847,11 +847,13 @@ margin-top: 15px;
 padding-top: 10px;
 clear:both;
 width: 96%;
+height: 56px;
+    overflow: hidden;
 }
 #block-views-information-block .views-row{
 width: 40%;
 float:left;
-padding: 10px 0px;
+padding: 17px 0px;
 }
 #block-views-information-block .views-row img{
 width: 100%;
@@ -863,8 +865,8 @@ width: 100%;
 width:60%;
 }
 #block-views-information-block .views-row-1 img{
-width: 98%;
-height:270px;
+width: 97%;
+height:250px;
 
 }
 #block-views-information-block .views-row-2 .views-field-field-image,
@@ -920,7 +922,7 @@ color:#bb2a29;
 width:60%;
 }
 #block-views-information-block-1 .views-row-1 img{
-width:98%;
+width:97%;
 height:270px;
 
 }
@@ -1365,7 +1367,7 @@ ul.links {
 #block-block-1 {
 
 float: right;
-    width: 35%;
+    width: 245px;
 }
 #block-block-1 img{
 width:55px;
