@@ -108,7 +108,6 @@ function pingan_login_callback(){
  // print_r($_REQUEST);
   
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
-print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
 
   if($xmlObject->result=="00"){
@@ -153,7 +152,7 @@ print_r($requestxml);exit;
               $account=$item;
             }
             
-           
+           echo '<chi>';exit;
          }else{
 
           $account=user_load($userid);

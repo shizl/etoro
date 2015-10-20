@@ -11,10 +11,10 @@
 <form action="https://test-member.pingan.com.cn/pinganone/pa/complSuppMemberInfo.do" mthod="POST">
 	<input type="hidden" name="type" value="3">
 	<input type="hidden" name="validTime" value="5">
-	<div class="line">Phone:<input type="text" name="mobileN" id="mobileN"></div>
+	<div class="line">Phone:<input type="text" name="mobileNo" id="mobileNo"></div>
 	<div class="line"><input type="text" name="checkCode" id="checkCode"><img src="" id="imageCode" width="70" data="" height="35" style="cursor:pointer"></div>
 	<div class="line">active No:<input type="text" name="activeNo" id="activeNo"> <input type="button" id="sendMobileCode" value="Send sms code" /></div>
-	<div class="line">cnName:<input type="text" name="mobileN"></div>
+	<div class="line">cnName:<input type="text" name="cnName"></div>
 	<div class="line">idType:<input type="text" name="idType"></div>
 	<div class="line">idNo:<input type="text" name="idNo"></div>
 	<div class="line">Sex:<input type="text" name="sex"></div>
@@ -24,12 +24,12 @@
 <script>
 function showCode(){
 	jQuery.ajax({url:'https://test-member.pingan.com.cn/pinganone/pa/paic/common/appvcode.do',
-	data:{userId:jQuery('#mobileN').val(),
+	data:{userId:jQuery('#mobileNo').val(),
 		appid:10354,
 	},
 	type:"POST",
 	dataType:"jsonp",
-	jsonp:"jsonpcallback",
+	jsonp:"callBack",
 	success:function(data){	
 		if(data!=null){
 			jQuery('#imageCode').attr("src",data.img);
@@ -42,12 +42,11 @@ function showCode(){
 	}
 	});
 }
-
 showCode();
 jQuery("#sendMobileCode").click(function(){
 	jQuery.ajax({url:'https://test-member.pingan.com.cn/pinganone/pa/sendShortMessageBfappvcode.do',
 		data:{
-			mobileN:jQuery('#mobileN').val(),
+			mobileNo:jQuery('#mobileNo').val(),
 			validCode:jQuery('#checkCode').val(),
 			validCodeId:jQuery('#imageCode').attr("data"),
 			appid:10354,
@@ -55,10 +54,36 @@ jQuery("#sendMobileCode").click(function(){
 		},
 		type:"POST",
 		dataType:"jsonp",
-		jsonp:"jsonpcallback",
+		jsonp:"callBack",
 		success:function(data){
+		if(data.status=="success"){
+			alert("短信验证码已发送成功。")
+		}else{
+			alert(data.data.errorMessage);
+		}
 		
-		jQuery("#activeNo").val(data);
+		}
+	});
+});
+jQuery("#sendMobileCode").click(function(){
+	jQuery.ajax({url:'https://test-member.pingan.com.cn/pinganone/pa/sendShortMessageBfappvcode.do',
+		data:{
+			mobileNo:jQuery('#mobileNo').val(),
+			validCode:jQuery('#checkCode').val(),
+			validCodeId:jQuery('#imageCode').attr("data"),
+			appid:10354,
+			otpType:'1'
+		},
+		type:"POST",
+		dataType:"jsonp",
+		jsonp:"callBack",
+		success:function(data){
+		if(data.status=="success"){
+			alert("短信验证码已发送成功。")
+		}else{
+			alert(data.data.errorMessage);
+		}
+		
 		}
 	});
 })
