@@ -511,7 +511,7 @@ border-left: solid #ffe7d1 1px;
   float: left; /* LTR */
   
   line-height: 2.4em;
-  padding: 10px 37px 10px 37px;
+ padding: 10px 39px 10px 39px;
   text-decoration: none;
  
 }
@@ -1365,7 +1365,7 @@ ul.links {
 #block-block-1 {
 
 float: right;
-    width: 30%;
+    width: 35%;
 }
 #block-block-1 img{
 width:55px;
@@ -1374,7 +1374,7 @@ margin-top:-10px;
 }
 #footer-wrapper #block-block-2{
 text-align: center;
-border-top: 2px solid red;
+border-top: 2px solid #bb2a29;
     
 
 }
@@ -2178,6 +2178,51 @@ margin-top:15px;
 {
     width: 96%;
 
+}
+
+#block-views-activity-block {
+    width: 85%;
+    float: none;
+    margin-top: 35px;
+    background-color: white;
+    margin-bottom: 35px;
+    position: relative;
+   
+    margin:0 auto;
+}
+#block-pingan-login-pingan-login-box {
+    background-color: #ffffff;
+    text-align: center;
+    float: none;
+    width: 85%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: 278px;
+    
+    margin:0 auto;
+}
+.region-content-bottom{
+
+margin-top:25px;
+margin-bottom:25px;
+}
+#block-pingan-login-pingan-login-box h2{
+
+padding-top:35px;
+}
+#block-block-1{
+
+float:none;
+width:90%;
+margin:0 auto;
+text-align:center;
+}
+#block-menu-menu-ooter-menu {
+
+float:none;
+width:90%;
+margin:0 auto;
+text-align:center;
 }
 }
 
