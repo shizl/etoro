@@ -276,7 +276,7 @@ ul.tips {
 
 /* ------------------ Header ------------------ */
 
-#block-block-5 a,
+#block-block-3 a,
 #block-system-user-menu a{
 float: left;
     border-right: #8b8b8b solid 1px;
@@ -345,7 +345,7 @@ h1#site-name {
   font-style: italic;
 }
 /* Region header blocks. */
-#block-block-5{
+#block-block-3{
 
 margin-top: 41px;
 }
