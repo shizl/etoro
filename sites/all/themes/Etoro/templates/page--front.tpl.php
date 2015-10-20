@@ -43,7 +43,10 @@
       		<ul>
 
 	 <?php 
-	   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' ");
+           global $language ;
+          
+           if ($language->language == 'en'){
+	   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'en') ");
            //echo '<pre>';
 	   //print_r($fids);exit;
 		foreach($fids as $fid){
@@ -52,26 +55,37 @@
 
 		   echo '<li>
               		<div class="slide-body" data-group="slide">
-                	<img src="'.$url.'">
+                	<img style="width:100%; height:480px;" src="'.$url.'">
               		</div>
   	    		</li>';
 		}
+                     }
+              if ($language->language == 'zh-hans'){
 
+                   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'zh-hans') ");
+          
+		foreach($fids as $fid){
+		   $file = file_load($fid->field_banner_image_fid);
+		   $url = file_create_url($file->uri);
+
+		   echo '<li>
+              		<div class="slide-body" data-group="slide">
+                	<img style="width:100%; height:480px;" src="'.$url.'">
+              		</div>
+  	    		</li>';
+		}
+                     }
  	?>
   	    	</ul>
         </div>
 
-        <div class="pages">
-          <a class="page" href="#" data-jump-to="1">1</a>
-          <a class="page" href="#" data-jump-to="2">2</a>
-          <a class="page" href="#" data-jump-to="3">3</a>
-        </div>
+        
     	</div>
 
 
 
-
 </div>
+
 <div id="feature"><div class="section clearfix"><?php print render($page['feature']); ?> </div></div>
   <?php if ($messages): ?>
     <div id="messages"><div class="section clearfix">

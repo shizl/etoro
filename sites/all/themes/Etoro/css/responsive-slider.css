@@ -18,16 +18,16 @@
 }
 .responsive-slider .slides ul li {
   display: inline-block;
-  max-width: 100%;
+  width: 100%;
 }
 .responsive-slider .slides ul li .slide-body {
   display: inline-block;
   position: relative;
-  max-width: 100%;
+  width: 100%;
   font-size: 14px;
 }
 .responsive-slider .slides ul li .slide-body img {
-  max-width: 100%;
+
 }
 .responsive-slider .slides ul li .slide-body .caption {
   position: absolute;

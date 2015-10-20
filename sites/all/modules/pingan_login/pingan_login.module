@@ -72,11 +72,12 @@ function pingan_login_block_view($delta = '') {
     case 'pingan_login_box':
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
-      $block['title'] = t('Pingan Login block');
+      $block['title'] = t('Do You Want to Learn More?');
+      
       if($user->uid>0){
-        $block['content'] = t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
+        $block['content'] = t('<p>Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
       }else{
-        $block['content'] = '<button id="popLogin">'.t('Login').'</button> &nbsp; <button id="popRegister">'.t('Register').'</button><div class="loginPop"><div id="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" id="popSrc"></iframe></div></div>';
+        $block['content'] = '<p>Register to access more materials</p><button id="popLogin">'.t('Login').'</button> &nbsp; <button id="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">Go to my pratice account</a></p><p class="opa"><a>Open practice account</a></p><div class="loginPop"><div id="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" id="popSrc"></iframe></div></div>';
       }
       
       break;

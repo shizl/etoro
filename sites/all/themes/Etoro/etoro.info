@@ -11,12 +11,11 @@ stylesheets[all][] = css/style.css
 stylesheets[all][] = css/colors.css
 stylesheets[all][]  = css/responsive-slider.css
 stylesheets[print][] = css/print.css
+
+scripts[] = js/jquery.overlay.min.js
 scripts[] = js/js.js
+
 regions[header] = Header
-
-
-
-
 regions[banner] = banner
 regions[feature] = Feature
 regions[highlighted] = Highlighted
