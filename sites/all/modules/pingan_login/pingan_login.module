@@ -175,9 +175,9 @@ function pingan_login_callback(){
           user_module_invoke('login', $edit, $user);
         }
         if($isReg){
-          echo t('登陆成功，请关闭窗口。<br>正在提交用户信息到etoro。').'<script language="text/javascript">setTimeout("window.parent.reload()",3000);</script>';
+          echo t('登陆成功，请关闭窗口。<br>正在提交用户信息到etoro。').'<script type="text/javascript">setTimeout("window.parent.location.reload()",3000);</script>';
         }else{
-          echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script language="text/javascript">setTimeout("window.parent.reload()",3000);</script>';
+          echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script type="text/javascript">setTimeout("window.parent.location.reload()",3000);</script>';
         }
         
         //drupal_goto("/user");
