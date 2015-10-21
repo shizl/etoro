@@ -1410,20 +1410,13 @@ ul.links {
     width: 60%;
 }
 #block-block-1 {
-
 float: right;
-    width: 245px;
 }
 #block-block-1 li{
-    margin-top: 8px;
+    float:right;
 }
 #block-block-1 li a.jiathis_button_weixin{
     margin-top: 9px;
-}
-#block-block-1 img{
-width:55px;
-margin-top:-10px;
-
 }
 #footer-wrapper #block-block-2{
 text-align: center;
