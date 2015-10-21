@@ -515,6 +515,9 @@ border-left: solid #ffe7d1 1px;
   text-decoration: none;
  
 }
+.i18n-zh-hans #main-menu-links a{
+padding: 10px 47px 10px 47px;
+}
 
 
 #main-menu-links a:active {
@@ -575,6 +578,48 @@ display:none;
 
     width: 100%;
     height: 450px;
+}
+
+#banner #block-pingan-login-pingan-login-box{
+
+    float: none;
+    width: 320px;
+    background: rgba(245, 239, 239, 0.7);
+    position: absolute;
+    top: 5%;
+    left: 12.5%;
+    z-index: 50;
+    border: solid #b12323;
+    border-radius: 10px;
+    height: 345px !important;
+    
+}
+#banner #block-pingan-login-pingan-login-box #radius1 {
+    width: 230px;
+    margin: 0 auto;
+    height: 30px;
+    border-top: solid 1px #8b8b8b;;
+}
+#banner #block-pingan-login-pingan-login-box button {
+    width: 36%;
+    height: 30px;
+}
+#banner #block-pingan-login-pingan-login-box .gmpa a {
+    width: 74%;
+
+}
+#banner #block-pingan-login-pingan-login-box .opa a {
+    text-decoration: underline;
+    color: #be2b28;
+    font-size: 15px;
+}
+#banner #block-pingan-login-pingan-login-box #radius {
+
+width:230px;
+}
+#banner {
+
+position:relative;
 }
 /* ------------------- Main ------------------- */
 #block-views-course-description-block {

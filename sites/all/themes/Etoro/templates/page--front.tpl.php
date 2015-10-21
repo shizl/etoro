@@ -81,8 +81,12 @@
 
         
     	</div>
+<div id="block-pingan-login-pingan-login-box">
+<h2><?php  $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box');print_r($block['title']);?></h2>
+  <?php print_r($block['content']);  ?>
 
 
+</div>
 
 </div>
 
