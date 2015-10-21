@@ -109,7 +109,7 @@ function pingan_login_callback(){
  // print_r($_REQUEST);
   
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
-print_r($requestxml);exit;
+  //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
 
   if($xmlObject->result=="00"){
@@ -153,10 +153,10 @@ print_r($requestxml);exit;
               user_save($item, $edit);
               $account=$item;
             }
-            
+            $isReg=1;
            
          }else{
-
+           $isReg=0;
           $account=user_load($userid);
 
          }
@@ -174,8 +174,13 @@ print_r($requestxml);exit;
           $edit = array();
           user_module_invoke('login', $edit, $user);
         }
-
-        drupal_goto("/user");
+        if($isReg){
+          echo t('登陆成功，请关闭窗口。<br>正在提交用户信息到etoro。').'<script language="text/javascript">setTimeout("window.parent.reload()",3000);</script>';
+        }else{
+          echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script language="text/javascript">setTimeout("window.parent.reload()",3000);</script>';
+        }
+        
+        //drupal_goto("/user");
 
     }else{
       echo '错误代码:'.$xmlObject->result.'<br> 描述:'.$xmlObject->message.'<br>请联系管理员';
