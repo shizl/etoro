@@ -73,7 +73,7 @@ margin-top:25px;
     width: 235px;
     margin: 0 auto;
     height: 30px;
-    border-bottom: solid 1px;
+    border-bottom: solid 1px #8b8b8b;
 }
 #block-pingan-login-pingan-login-box .gmpa a{
 
@@ -89,4 +89,10 @@ margin-top:25px;
 }
 #block-pingan-login-pingan-login-box p{
 line-height:10px;
+}
+#block-pingan-login-pingan-login-box .description{
+
+font-size:17px;
+color: #8b8b8b;
+
 }
