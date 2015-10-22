@@ -109,9 +109,9 @@ function pingan_login_callback(){
  // print_r($_REQUEST);
   
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
-  print_r($requestxml);exit;
+  //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
-
+print_r($xmlObject);exit;
   if($xmlObject->result=="00"){
 
     $userdata=array('name'=>(string)$xmlObject->attributes->attribute[0]['value'],
@@ -140,13 +140,13 @@ function pingan_login_callback(){
                     'value' => $userdata['openid']
                   )
                 )
-              ),'field_user_phone' => array(
+              ),'field_first_name' => array(
                 'und' => array(
                   0 => array(
                     'value' => $userdata['phone']
                   )
                 )
-              ),'field_user_phone' => array(
+              ),'field_last_name' => array(
                 'und' => array(
                   0 => array(
                     'value' => $userdata['phone']
