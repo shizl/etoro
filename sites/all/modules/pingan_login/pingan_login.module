@@ -109,7 +109,7 @@ function pingan_login_callback(){
  // print_r($_REQUEST);
   
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
-  //print_r($requestxml);exit;
+  print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
 
   if($xmlObject->result=="00"){
@@ -138,6 +138,36 @@ function pingan_login_callback(){
                 'und' => array(
                   0 => array(
                     'value' => $userdata['openid']
+                  )
+                )
+              ),'field_user_phone' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['phone']
+                  )
+                )
+              ),'field_user_phone' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['phone']
+                  )
+                )
+              ),'field_user_phone' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['phone']
+                  )
+                )
+              ),'field_user_phone' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['phone']
+                  )
+                )
+              ),'field_user_phone' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['phone']
                   )
                 )
               ),'field_user_phone' => array(
