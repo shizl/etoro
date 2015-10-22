@@ -111,12 +111,20 @@ function pingan_login_callback(){
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
-print_r($xmlObject);exit;
+//print_r($xmlObject);exit;
   if($xmlObject->result=="00"){
 
     $userdata=array('name'=>(string)$xmlObject->attributes->attribute[0]['value'],
     'phone'=>(string)$xmlObject->attributes->attribute[1]['value'],
-    'mail'=>(string)$xmlObject->attributes->attribute[2]['value'],'openid'=>md5((string)$xmlObject->attributes->attribute[0]['value'].(string)$xmlObject->attributes->attribute[2]['value']));
+    'mail'=>(string)$xmlObject->attributes->attribute[2]['value'],
+    'sex'=>(string)$xmlObject->attributes->attribute[3]['value'],
+    'idNo'=>(string)$xmlObject->attributes->attribute[4]['value'],
+    'idType'=>(string)$xmlObject->attributes->attribute[5]['value'],
+    'birthDate'=>(string)$xmlObject->attributes->attribute[6]['value'],
+    'cnName'=>(string)$xmlObject->attributes->attribute[7]['value'],
+    'customerLevel'=>(string)$xmlObject->attributes->attribute[8]['value'],
+    'toaId'=>$xmlObject->subject,
+    'openid'=>md5((string)$xmlObject->attributes->attribute[0]['value'].(string)$xmlObject->attributes->attribute[2]['value']));
 
       $userid=db_query("SELECT `entity_id` FROM `field_data_field_pingan_openid` WHERE `field_pingan_openid_value`='".$userdata['openid']."'")->fetchField();
           if(empty($userid) || $userid==""){
@@ -143,40 +151,72 @@ print_r($xmlObject);exit;
               ),'field_first_name' => array(
                 'und' => array(
                   0 => array(
-                    'value' => $userdata['phone']
+                    'value' => substr($userdata['cnName'],1,5)
                   )
                 )
               ),'field_last_name' => array(
                 'und' => array(
                   0 => array(
-                    'value' => $userdata['phone']
+                    'value' => substr($userdata['cnName'],0,1)
                   )
                 )
-              ),'field_user_phone' => array(
+              ),'field_gender' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['sex']
+                  )
+                )
+              ),'field_type_of_id' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['customerLevel']
+                  )
+                )
+              ),'field_date_of_birth' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['birthDate']
+                  )
+                )
+              ),'field_toaid' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['toaId']
+                  )
+                )
+              ),'field_toafullname' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['cnName']
+                  )
+                )
+              ),'field_toaphone' => array(
                 'und' => array(
                   0 => array(
                     'value' => $userdata['phone']
                   )
                 )
-              ),'field_user_phone' => array(
+              ),'field_istoaphoneverified' => array(
                 'und' => array(
                   0 => array(
-                    'value' => $userdata['phone']
+                    'value' => 1
                   )
                 )
-              ),'field_user_phone' => array(
+              ),'field_chineseidnumber' => array(
                 'und' => array(
                   0 => array(
-                    'value' => $userdata['phone']
-                  )
-                )
-              ),'field_user_phone' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => $userdata['phone']
+                    'value' => $userdata['idNo']
                   )
                 )
               )
+              ,'field_chineseidtype' => array(
+                'und' => array(
+                  0 => array(
+                    'value' => $userdata['idType']
+                  )
+                )
+              )
+
             );
 
             foreach ($accountArray as $item) {
