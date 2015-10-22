@@ -17,6 +17,7 @@
     
 
   </div>
+
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
         <div class="section clearfix">
@@ -34,8 +35,18 @@
         )); ?>
        </div>
       </div> <!-- /#main-menu -->
+
+<div id="menu-category" style="display:none;">
+<?php
+  $category = module_invoke('views', 'block_view', 'menu_category-block');
+  print render($category['content']);
+ ?>
+</div>
     <?php endif; ?>
+
 </div> <!-- /.section, /#header -->
+
+
 
 <div id="banner"><?php print render($page['banner']); ?> 
 <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">

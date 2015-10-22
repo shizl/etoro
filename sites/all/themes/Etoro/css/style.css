@@ -497,7 +497,7 @@ margin-top: 41px;
   float: left; /* LTR */
   list-style: none;
    border-right: solid #ffe7d1 1px;
- 
+ position: relative;
 }
 #main-menu-links  .first{
 
@@ -2258,3 +2258,54 @@ text-align:center;
 }
 }
 
+#main-menu-links .view-menu-category{
+display:none;
+border: 1px solid #ec8424;
+border-top:none;
+left: -1px;
+position: absolute;
+top: 51px;
+z-index: 1000;
+background:#fff;
+width:350px;
+}
+
+#main-menu-links .view-menu-category .views-field-name a{
+color:#8b8b8b;
+line-height:1.5em;
+font-weight:normal;
+font-size:14px;
+padding:15px 10px 15px 10px;
+border-bottom:1px dotted #ccc;
+width:100px;
+margin-left:20px;
+margin-right:20px;
+float:none;
+display:block;
+}
+
+#main-menu-links .view-menu-category .views-row-last .views-field-name a{
+border-bottom:none;
+}
+
+#main-menu-links .view-menu-category  .views-field-name a:hover{
+color:#666;
+background:#fff;
+}
+
+#main-menu-links .view-menu-category .views-field-field-thumbnail{
+position: absolute;
+right: 10px;
+top: 10px;
+display:none;
+}
+
+#main-menu-links .view-menu-category .views-row-first .views-field-field-thumbnail{
+display:block;
+}
+
+
+#main-menu-links .view-menu-category .views-field-field-thumbnail img{
+width:190px;
+height:190px;
+}

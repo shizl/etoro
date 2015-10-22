@@ -56,7 +56,41 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
 
 
 
-  
+jQuery('#main-menu ul li').each(function(){
+
+  if(jQuery(this).find('a').text().trim()=='Course'){
+      output = jQuery('#menu-category').html();
+      jQuery(this).append(output);
+
+     jQuery(this).mouseover(function(){
+	jQuery('#main-menu-links .view-menu-category').show();
+     });
+     jQuery(this).mouseout(function(){
+	jQuery('#main-menu-links .view-menu-category').hide();
+     });
+
+  }
+
+});  
+
+jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseover(function(){
+
+
+ jQuery('#main-menu-links .view-menu-category .views-row-first .views-field-field-thumbnail').hide();
+ jQuery(this).parent().parent().parent().find('.views-field-field-thumbnail').show();
+
+});
+
+jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseout(function(){
+
+ jQuery(this).parent().parent().parent().find('.views-field-field-thumbnail').hide();
+
+jQuery('#main-menu-links .view-menu-category .views-row-first .views-field-field-thumbnail').show();
+
+
+});
+
+
 
 
 });
