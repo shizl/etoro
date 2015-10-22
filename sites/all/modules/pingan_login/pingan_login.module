@@ -77,7 +77,7 @@ function pingan_login_block_view($delta = '') {
       if($user->uid>0){
         $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
       }else{
-        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button id="popLogin">'.t('Login').'</button> &nbsp; <button id="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">Go to my pratice account</a></p><p class="opa"><a>Open practice account</a></p><div class="loginPop"><div id="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" id="popSrc"></iframe></div></div>';
+        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">Go to my pratice account</a></p><p class="opa"><a>Open practice account</a></p><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div>';
       }
       
       break;
@@ -175,9 +175,9 @@ function pingan_login_callback(){
           user_module_invoke('login', $edit, $user);
         }
         if($isReg){
-          echo t('登陆成功，请关闭窗口。<br>正在提交用户信息到etoro。').'<script language="text/javascript">setTimeout("window.parent.reload()",3000);</script>';
+          echo t('登陆成功，请关闭窗口。<br>正在提交用户信息到etoro。').'<script type="text/javascript">setTimeout("window.parent.location.reload()",3000);</script>';
         }else{
-          echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script language="text/javascript">setTimeout("window.parent.reload()",3000);</script>';
+          echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script type="text/javascript">setTimeout("window.parent.location.reload()",3000);</script>';
         }
         
         //drupal_goto("/user");
