@@ -114,6 +114,12 @@ header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'
   * ping an  callback function 
   */
 function pingan_login_etoro_register(){
+  global $user;
+  $userBirthdate="";
+if($user->field_toaid['und'][0]['value']!=""){
+  $userBirthdate=date("[d, m, Y]",strtotime($user->field_toaid['und'][0]['value']));
+}
+
   echo '<html><head>
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script src="http://184.170.226.76/js/production/modularRegistration.min.js"></script>
@@ -132,14 +138,23 @@ var registration=new T.RegistrationService.Registration({
 "socialConnect":false,
 "funnelFromID":12,
 "successRedirect":false,
-"funnelID":12,    
+"funnelID":12,  
+"overriddenValues":{"toa_id": "'.$user->field_toaid['und'][0]['value'].'",
+       "gender": "'.$user->field_gender['und'][0]['value'].'",
+       "birth_date": "'.$userBirthdate.'",
+       "toaPhone": "'.$user->field_toaphone['und'][0]['value'].'",
+       "is_toa_phone_verified": true,
+       "toaFullname": "'.$user->field_toafullname['und'][0]['value'].'",
+       "chinese_id_number": "'.$user->field_chineseidnumber['und'][0]['value'].'",
+       "chinese_id_type": "'.$user->field_chineseidtype['und'][0]['value'].'"
+      }  
 });  
 
 registration.on("after:render", function (event) {}); 
 registration.on("before:render", function (event) {});
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
-  $("#regbox").html("注册失败，网络连接错误。请联系管理员。")
+  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
 $("#regbox").html(\'<div style="text-align:center">'.t('注册成功，欢迎您成为etoro会员').'</div><br><input type="button" value="'.t('跳转到etoro会员中心').'" onclick="https://www.baidu.com"> <input type="button" value="'.t('关闭窗口').'" onclick="window.parent.location.reload();">\')
@@ -179,9 +194,8 @@ function pingan_login_callback(){
     'birthDate'=>(string)$xmlObject->attributes->attribute[6]['value'],
     'cnName'=>(string)$xmlObject->attributes->attribute[7]['value'],
     'customerLevel'=>(string)$xmlObject->attributes->attribute[8]['value'],
-    'toaId'=>$xmlObject->subject,
-    'openid'=>md5((string)$xmlObject->attributes->attribute[0]['value'].(string)$xmlObject->attributes->attribute[2]['value']));
-
+    'toaId'=>(string)$xmlObject->subject,
+    'openid'=>md5('etoro'.(string)$xmlObject->attributes->attribute[1]['value'].'etoro'));
       $userid=db_query("SELECT `entity_id` FROM `field_data_field_pingan_openid` WHERE `field_pingan_openid_value`='".$userdata['openid']."'")->fetchField();
           if(empty($userid) || $userid==""){
               $name=$userdata['name'];
@@ -194,21 +208,20 @@ function pingan_login_callback(){
                   'roles' => 2
               );
               $userReg=user_save(null, $account);
-              $account=user_load($userReg['uid']);
-
+              $account=user_load($userReg->uid);
               $edit=array();
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
-              /*$edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
+              $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
               $edit['field_toaid']['und'][0]['value']=!empty($userdata['toaId']) ? $userdata['toaId']:"";
               $edit['field_toafullname']['und'][0]['value']=!empty($userdata['cnName']) ? $userdata['cnName']:"";
               $edit['field_toaphone']['und'][0]['value']=!empty($userdata['phone']) ? $userdata['phone']:"";
               $edit['field_istoaphoneverified']['und'][0]['value']=1;
               $edit['field_chineseidnumber']['und'][0]['value']=!empty($userdata['idNo']) ? $userdata['idNo']:"";
-              $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";*/
+              $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
 
               user_save($account, $edit);
              
@@ -217,22 +230,24 @@ function pingan_login_callback(){
          }else{
            $isReg=0;
           $account=user_load($userid);
-           $edit=array();
+          if(count($userdata)>2){
+            $edit=array();
+           
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
-              /*$edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
+              $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
               $edit['field_toaid']['und'][0]['value']=!empty($userdata['toaId']) ? $userdata['toaId']:"";
               $edit['field_toafullname']['und'][0]['value']=!empty($userdata['cnName']) ? $userdata['cnName']:"";
               $edit['field_toaphone']['und'][0]['value']=!empty($userdata['phone']) ? $userdata['phone']:"";
               $edit['field_istoaphoneverified']['und'][0]['value']=1;
               $edit['field_chineseidnumber']['und'][0]['value']=!empty($userdata['idNo']) ? $userdata['idNo']:"";
-              $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";*/
+              $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
 
               user_save($account, $edit);
-
+            }    
          }
         if ($account) {
           global $user;
