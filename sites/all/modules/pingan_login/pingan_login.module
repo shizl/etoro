@@ -228,6 +228,21 @@ print_r($user);exit;
          }else{
            $isReg=0;
           $account=user_load($userid);
+           $edit=array();
+              $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
+              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
+              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
+              $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
+              /*$edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
+              $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
+              $edit['field_toaid']['und'][0]['value']=!empty($userdata['toaId']) ? $userdata['toaId']:"";
+              $edit['field_toafullname']['und'][0]['value']=!empty($userdata['cnName']) ? $userdata['cnName']:"";
+              $edit['field_toaphone']['und'][0]['value']=!empty($userdata['phone']) ? $userdata['phone']:"";
+              $edit['field_istoaphoneverified']['und'][0]['value']=1;
+              $edit['field_chineseidnumber']['und'][0]['value']=!empty($userdata['idNo']) ? $userdata['idNo']:"";
+              $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";*/
+
+              user_save($account, $edit);
 
          }
         if ($account) {
