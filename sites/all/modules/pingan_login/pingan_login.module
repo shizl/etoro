@@ -230,8 +230,9 @@ function pingan_login_callback(){
          }else{
            $isReg=0;
           $account=user_load($userid);
-           $edit=array();
-           if()
+          if(count($userdata)>2){
+            $edit=array();
+           
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
@@ -246,7 +247,7 @@ function pingan_login_callback(){
               $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
 
               user_save($account, $edit);
-
+            }    
          }
         if ($account) {
           global $user;
