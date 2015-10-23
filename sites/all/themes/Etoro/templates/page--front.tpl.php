@@ -10,6 +10,23 @@
     <?php endif; ?>
    <div id="logo2"><img src="/sites/all/themes/Etoro/images/toro.png"></div>
     
+ <?php if ($site_name || $site_slogan): ?>
+      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+
+        
+
+        <?php if ($site_slogan): ?>
+          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+            <?php print $site_slogan; ?>
+          </div>
+        <?php endif; ?>
+
+      </div> <!-- /#name-and-slogan -->
+    <?php endif; ?>
+
+
+
+
     <?php print render($page['header']); ?>
 
     
