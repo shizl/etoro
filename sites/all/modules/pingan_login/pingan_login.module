@@ -116,7 +116,7 @@ header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'
 function pingan_login_etoro_register(){
   global $user;
   $userBirthdate="";
-if($user->field_toaid['und'][0]['value']!=""){
+if($user->field_date_of_birth['und'][0]['value']!=""){
   $userBirthdate=date("[d, m, Y]",strtotime($user->field_toaid['und'][0]['value']));
 }
 
@@ -212,7 +212,7 @@ function pingan_login_callback(){
               $edit=array();
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
-              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
+              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
@@ -234,7 +234,7 @@ function pingan_login_callback(){
               $edit=array();
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
-              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
+              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
