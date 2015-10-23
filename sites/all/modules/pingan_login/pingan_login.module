@@ -126,13 +126,13 @@ RegistrationService({
 function(T){
 var registration=new T.RegistrationService.Registration({
 "container":"#form",
-"version":"ver11",
+"version":"ver16",
 "culture":"zh-cn",
 "checkUserIP":false,
 "socialConnect":false,
-"funnelFromID":13,
+"funnelFromID":12,
 "successRedirect":false,
-"funnelID":37,    
+"funnelID":12,    
 });  
 
 registration.on("after:render", function (event) {}); 
