@@ -9,7 +9,7 @@ body,
 }
 #page-wrapper {
   min-height: 100%;
-  min-width: 1050px;
+  min-width: 1000px;
   max-width:1372px;
   margin:0 auto;
  
@@ -26,7 +26,7 @@ background-color: #f6f6f6;
 #footer-columns,
 #footer ,
 .section{
-  width: 1050px;
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }

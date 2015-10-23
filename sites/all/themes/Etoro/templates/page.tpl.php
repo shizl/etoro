@@ -1,14 +1,14 @@
 
 <div id="page-wrapper"><div id="page">
-
-  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div class="section clearfix">
+<div id="header-top"><div class="section clearfix" > <?php print render($page['header-top']); ?></div>  </div>
+  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div style="height:90px;" class="section clearfix">
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
     <?php endif; ?>
-   <div id="logo2"><img src="/sites/all/themes/Etoro/images/pinan.png"></div>
+   <div id="logo2"><img src="/sites/all/themes/Etoro/images/toro.png"></div>
     
     <?php print render($page['header']); ?>
   </div>
