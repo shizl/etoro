@@ -163,18 +163,7 @@ registration.show();
   */
 function pingan_login_callback(){
  // print_r($_REQUEST);
-  //$name=$userdata['name'];
-              $account = array(
-                  'name' =>'111',
-                  'pass' => '',
-                  'mail' => '111@qq.com',
-                  'status' => 1,
-                  'init' => '1111',
-                  'roles' => 2
-              );
-              $user=user_save(null, $account);
-echo "<pre>";
-print_r($user);exit;
+  
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
