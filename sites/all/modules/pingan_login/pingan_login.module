@@ -196,84 +196,21 @@ function pingan_login_callback(){
               user_save(null, $account);
 
               $accountArray = user_load_multiple(array(), array('name' => $name));
-              //$account=user_load($newaccount->uid);   
-            $edit = array(
-              'field_pingan_openid' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => $userdata['openid']
-                  )
-                )
-              ),'field_first_name' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):""
-                  )
-                )
-              ),'field_last_name' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['cnName']) ? substr($userdata['cnName'],0,1):""
-                  )
-                )
-              ),'field_gender' => array(
-                'und' => !empty($userdata['sex']) ? $userdata['sex']:""
-                  
-                
-              ),'field_type_of_id' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['customerLevel']) ? $userdata['customerLevel']:""
-                  )
-                )
-              ),'field_date_of_birth' => array(
-                'und' => array(
-                  0 => array(
-                    'value' =>array(
-                        'date'=> !empty($userdata['birthDate']) ? $userdata['birthDate']:""
-                        )
-                    )
-                )
-              ),'field_toaid' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['toaId']) ? $userdata['toaId']:""
-                  )
-                )
-              ),'field_toafullname' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['cnName']) ? $userdata['cnName']:""
-                  )
-                )
-              ),'field_toaphone' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['phone']) ? $userdata['phone']:""
-                  )
-                )
-              ),'field_istoaphoneverified' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => '1'
-                  )
-                )
-              ),'field_chineseidnumber' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['idNo']) ? $userdata['idNo']:""
-                  )
-                )
-              )
-              ,'field_chineseidtype' => array(
-                'und' => array(
-                  0 => array(
-                    'value' => !empty($userdata['idType']) ? $userdata['idType']:""
-                  )
-                )
-              )
+              //$account=user_load($newaccount->uid);  
 
-            );
+              $edit=array();
+              $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
+              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
+              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
+              $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
+              $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
+              $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
+              $edit['field_toaid']['und'][0]['value']=!empty($userdata['toaId']) ? $userdata['toaId']:"";
+              $edit['field_toafullname']['und'][0]['value']=!empty($userdata['cnName']) ? $userdata['cnName']:"";
+              $edit['field_toaphone']['und'][0]['value']=!empty($userdata['phone']) ? $userdata['phone']:"";
+              $edit['field_istoaphoneverified']['und'][0]['value']=1;
+              $edit['field_chineseidnumber']['und'][0]['value']=!empty($userdata['idNo']) ? $userdata['idNo']:"";
+              $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
 
             foreach ($accountArray as $item) {
               user_save($item, $edit);
