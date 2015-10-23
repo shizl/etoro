@@ -2292,6 +2292,11 @@ border-bottom:none;
 color:#666;
 background:#fff;
 }
+#main-menu-links .view-menu-category  .views-field-name a.active{
+color:#666;
+background:#fff;
+}
+
 
 #main-menu-links .view-menu-category .views-field-field-thumbnail{
 position: absolute;

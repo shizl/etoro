@@ -11,11 +11,6 @@
    <div id="logo2"><img src="/sites/all/themes/Etoro/images/pinan.png"></div>
     
     <?php print render($page['header']); ?>
-
-    
-
-    
-
   </div>
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
@@ -33,6 +28,14 @@
           ),
         )); ?>
        </div>
+
+<div id="menu-category" style="display:none;">
+<?php
+  $category = module_invoke('views', 'block_view', 'menu_category-block');
+  print render($category['content']);
+ ?>
+</div>
+
       </div> <!-- /#main-menu -->
     <?php endif; ?>
 </div> <!-- /.section, /#header -->
