@@ -211,8 +211,8 @@ function pingan_login_callback(){
               $account=user_load($userReg->uid);
               $edit=array();
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
-              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
-              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
+              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
+              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
@@ -231,11 +231,10 @@ function pingan_login_callback(){
            $isReg=0;
           $account=user_load($userid);
           if(count($userdata)>2){
-            $edit=array();
-           
+              $edit=array();
               $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
-              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
-              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? substr($userdata['cnName'],1,5):"";
+              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
+              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
