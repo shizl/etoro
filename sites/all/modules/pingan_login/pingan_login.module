@@ -198,14 +198,14 @@ function pingan_login_callback(){
     'openid'=>md5('etoro'.(string)$xmlObject->attributes->attribute[1]['value'].'etoro'));
       $userid=db_query("SELECT `entity_id` FROM `field_data_field_pingan_openid` WHERE `field_pingan_openid_value`='".$userdata['openid']."'")->fetchField();
           if(empty($userid) || $userid==""){
-              $name=$userdata['name'];
+              $name=!empty($userdata['name']) ? $userdata['name']:$userdata['phone'];
               $account = array(
                   'name' =>$name,
                   'pass' => '',
-                  'mail' => $userdata['mail'],
+                  'mail' => !empty($userdata['mail']) ? $userdata['mail']:$name.'@etoro.com',
                   'status' => 1,
                   'init' => $name,
-                  'roles' => 2
+                  'roles' => array(2),
               );
               $userReg=user_save(null, $account);
               $account=user_load($userReg->uid);
