@@ -26,12 +26,12 @@
 }
 #block-pingan-login-pingan-login-box button{
 
-    width: 33%;
-    height: 30px;
+    width: 40%;
+    height: 31px;
 
 }
 #block-pingan-login-pingan-login-box .popRegister{
-background:#ec7f24;
+background:#e9821d;
 border-radius: 4px;
 border: 1px solid wheat;
 color: #ffffff;
@@ -45,54 +45,55 @@ border: 1px solid #D4D2CF;
 background-color: #ffffff;
 text-align: center;
 float:right;
-width:32%;
-margin-top: 35px;
+width:31%;
+margin-top: 40px;
 margin-bottom: 35px;
-height: 278px;
+height: 248px;
 }
 #block-pingan-login-pingan-login-box h2{
-font-size: 18px;
+font-size: 14px;
     font-weight: bold;
-    margin-top: 35px;
+    margin-top: 30px;
 
 }
 #block-pingan-login-pingan-login-box .opa{
-margin-left: 45px;
+margin-left: 25px;
 text-align:left;
 margin-bottom: 35px;
 margin-top: 20px;
+font-size: 15px
 }
 #block-pingan-login-pingan-login-box .opa a{
 text-decoration: underline;
 color:#8b8b8b
 }
 #block-pingan-login-pingan-login-box .gmpa{
-margin-top:25px;
+margin-top:19px;
 }
 #block-pingan-login-pingan-login-box #radius{
-    width: 235px;
+    width: 255px;
     margin: 0 auto;
-    height: 30px;
+    height: 19px;
     border-bottom: solid 1px #8b8b8b;
 }
 #block-pingan-login-pingan-login-box .gmpa a{
 
-    width: 71%;
-    background: #be2b28;
+    width: 83%;
+    background: #c5271e;
     display: block;
-    padding: 10px;
+   
     border-radius: 5px;
     margin: 0 auto;
-    padding: 13px;
+    padding: 9px;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
 }
 #block-pingan-login-pingan-login-box p{
-line-height:10px;
+line-height:18px;
 }
 #block-pingan-login-pingan-login-box .description{
 
-font-size:17px;
+font-size:14px;
 color: #8b8b8b;
 
 }

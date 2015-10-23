@@ -309,6 +309,7 @@ float: left;
     font-size: 14px;
     color:#8b8b8b;
 }
+
 #block-system-user-menu {
 float:right;
 margin-top: 10px;
@@ -346,7 +347,8 @@ margin-left:15px;
 
 }
 #name-and-slogan {
-  float: left; /* LTR */
+   float:right;
+  color:#c5271e !important;
   padding-top: 34px;
   margin: 0 0 30px 15px; /* LTR */
 }
@@ -365,7 +367,7 @@ h1#site-name {
   font-size: 0.929em;
   margin-top: 7px;
   word-spacing: 0.1em;
-  font-style: italic;
+ 
 }
 /* Region header blocks. */
 #block-block-3{
