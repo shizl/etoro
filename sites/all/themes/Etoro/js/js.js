@@ -58,7 +58,7 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
 
 jQuery('#main-menu ul li').each(function(){
 
-  if(jQuery(this).find('a').text().trim()=='Course' || jQuery(this).find('a').text().trim()=='课程简介'){
+  if(jQuery(this).find('a').text().trim()=='Courses' || jQuery(this).find('a').text().trim()=='课程简介'){
       output = jQuery('#menu-category').html();
       jQuery(this).append(output);
 
