@@ -122,7 +122,7 @@ if($user->field_date_of_birth['und'][0]['value']!=""){
 
   echo '<html><head>
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-<script src="http://184.170.226.76/js/production/modularRegistration.min.js"></script>
+<script src="'.variable_get('pingan_login_etoro_url').'"></script>
 <!--<script src="https://register.etoro.com/js/production/modularRegistration.min.js"></script>-->
 <script>
 RegistrationService({
