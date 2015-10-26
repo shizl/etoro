@@ -120,7 +120,6 @@ function pingan_login_etoro_register(){
 if($user->field_date_of_birth['und'][0]['value']!=""){
   $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
 }
-
   echo '<html><head>
 <script type="text/javascript" src="../'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
@@ -133,7 +132,7 @@ function(T){
 var registration=new T.RegistrationService.Registration({
 "container":"#form",
 "version":"ver16",
-"culture":"zh-cn",
+"culture":"'.($GLOBALS['language']->language=='en' ? "en-gb":"zh-cn").'",
 "checkUserIP":false,
 "socialConnect":false,
 "funnelFromID":12,
@@ -157,7 +156,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
-$("#regbox").html(\'<div style="text-align:center">'.t('注册成功，欢迎您成为etoro会员').'</div><br><input type="button" value="'.t('跳转到etoro会员中心').'" onclick="https://www.baidu.com"> <input type="button" value="'.t('关闭窗口').'" onclick="window.parent.location.reload();">\')
+$("#regbox").html(\'<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">\')
 
 }); 
 registration.show();
@@ -264,7 +263,7 @@ function pingan_login_callback(){
         }
         echo '<div class="success_msg">';
         if($isReg){
-          echo '<div style="text-align:center">'.t('注册成功，欢迎您成为etoro中国会员').'</div><br><input type="button" value="'.t('跳转到etoro注册').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" value="'.t('关闭窗口').'" onclick="window.parent.location.reload();">';
+          echo '<input type="button" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
         }else{
           echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script type="text/javascript">setTimeout("window.parent.location.reload()",3000);</script>';
         }
