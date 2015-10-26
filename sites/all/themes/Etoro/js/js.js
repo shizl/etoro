@@ -73,6 +73,10 @@ jQuery('#main-menu ul li').each(function(){
 
 });  
 
+
+if(jQuery("body").width()>361){
+
+
 jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseover(function(){
 
 
@@ -87,9 +91,9 @@ jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseout(fun
 
 jQuery('#main-menu-links .view-menu-category .views-row-first .views-field-field-thumbnail').show();
 
-
 });
 
+}
 
 
 

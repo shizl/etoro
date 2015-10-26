@@ -1,0 +1,181 @@
+@media (max-width: 361px) {
+
+#header-top{
+display:none;
+}
+
+#logo {
+width:78%;
+margin-top:0px;
+margin-bottom:5px;
+}
+#logo img{
+width:100%;
+}
+#logo2 {
+width:18%;
+margin-left:4%;
+margin-bottom:5px;
+}
+
+
+#header #logo2 img{
+width:100%;
+margin-top:-8px;
+}
+
+#header .section{
+height:auto !important;
+margin-top:20px;
+}
+
+#name-and-slogan{
+padding:0px;
+margin: 0px 0px 10px 0px;
+border-top:1px solid #f3f4f5;
+float:none;
+clear: both;
+text-align:center;
+}
+
+#mobile-menu{
+background:#c5271e;
+}
+#mobile-menu {
+color:#fff;
+height:40px;
+line-height:40px;
+}
+#mobile-menu a{
+color:#fff;
+display:inline-block;
+width:30%;
+text-align:center;
+}
+
+#main-menu{
+background:#f3f4f5;
+}
+#main-menu .section{
+margin-top:0px;
+}
+
+
+#main-menu li{
+float:none;
+width:100%;
+border-right:none;
+border-bottom:1px solid #ccc;
+}
+
+#main-menu li.last{
+border-bottom:none;
+}
+
+#main-menu li a{
+color:#666;
+font-weight:normal;
+padding:0px;
+display:block;
+float:none;
+}
+#main-menu li a:hover,
+#main-menu li a.active{
+background:#f3f4f5;
+color:#c5271e;
+}
+
+#main-menu-links .view-menu-category{
+position: initial;
+border:0px;
+background:none;
+width:auto;
+}
+
+#main-menu-links .view-menu-category .views-row-first .views-field-field-thumbnail {
+display:none;
+}
+
+#main-menu-links .view-menu-category .views-field-name a{
+padding:10px;
+border-bottom:1px solid #ccc;
+margin-right:0px;
+width:auto;
+}
+#main-menu-links .view-menu-category .views-row-first .views-field-name a{
+border-top:1px solid #ccc;
+}
+
+#main-menu-links .view-menu-category .views-field-name a:hover{
+background:none;
+}
+#banner #block-pingan-login-pingan-login-box{
+right:9%;
+display:none;
+}
+
+#block-views-social-trading-block h2 ,#block-views-course-description-block h2{
+height:70px;
+background: rgba(0, 0, 0, 0) url("../images/hengxian.png") no-repeat scroll center 60px;
+font-size:12px;
+}
+#block-views-social-trading-block h2 img ,#block-views-course-description-block h2 img{
+width:34px;
+height:30px;
+display: block;
+margin-bottom:7px;
+margin-left:45%;
+margin-top:0px;
+margin-right:0px;
+}
+.jcarousel-skin-tango{
+position:relative;
+}
+.jcarousel-skin-tango .jcarousel-next-horizontal{
+top:40%;
+right:0;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-horizontal {
+left:0;
+top:40%;
+}
+
+#block-views-course-description-block .views-field-description{
+width:100%;
+}
+#block-views-course-description-block .views-field-nothing-2 {
+width:100%;
+}
+
+#block-views-course-description-block span {
+font-size:14px;
+}
+#block-views-course-description-block .views-field-nothing-2 .name{
+ background: rgba(0, 0, 0, 0) url("../images/heng.png") no-repeat scroll 8px 31px;
+}
+#block-views-course-description-block h2{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+#block-views-course-description-block .views-field-nothing-2 .icon, #block-views-course-description-block .views-field-nothing-2 .name{
+margin:0px;
+padding:8px;
+}
+#block-views-course-description-block .views-field-nothing-2 .icon {
+width:auto;
+}
+
+#block-views-course-description-block .views-field-nothing-2 .enter {
+padding:0px;
+}
+#block-views-course-description-block .views-field-nothing-2 .enter a{
+padding:4px 20px;
+ margin-top: 5px;
+}
+#block-block-4 {
+margin-top:0px;
+}
+
+}
