@@ -122,7 +122,7 @@ if($user->field_date_of_birth['und'][0]['value']!=""){
 }
 
   echo '<html><head>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
 <script>
 RegistrationService({
@@ -141,7 +141,7 @@ var registration=new T.RegistrationService.Registration({
 "funnelID":12,  
 "overriddenValues":{"toa_id": "'.$user->field_toaid['und'][0]['value'].'",
        "gender": "'.($user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
-       "birth_date": "'.$userBirthdate.'",
+       "birth_date": '.$userBirthdate.',
        "toaPhone": "'.$user->field_toaphone['und'][0]['value'].'",
        "is_toa_phone_verified": true,
        "toaFullname": "'.$user->field_toafullname['und'][0]['value'].'",
