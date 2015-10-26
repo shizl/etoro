@@ -54,6 +54,12 @@ function pingan_login_settings_form($form, &$form_state) {
     '#description' => t('Pingan login mobile url'),
     '#default_value' => variable_get('pingan_login_mobile_url',0),
   );
+    $form['pingan_login_etoro_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pingan etoro register url'),
+    '#description' => t('Pingan etoro register url'),
+    '#default_value' => variable_get('pingan_login_etoro_url',0),
+  );
 
   $form['submit'] = array(
     '#type' => 'submit',
@@ -73,6 +79,7 @@ function pingan_login_settings_form_submit($form, &$form_state) {
   variable_set('pingan_register_mobile_url', $form_state['values']['pingan_register_mobile_url']);
   variable_set('pingan_login_pc_url', $form_state['values']['pingan_login_pc_url']);
   variable_set('pingan_login_mobile_url', $form_state['values']['pingan_login_mobile_url']);
+  variable_set('pingan_login_etoro_url', $form_state['values']['pingan_login_etoro_url']);
   drupal_set_message(t('Settings saved.'));
 }
 
