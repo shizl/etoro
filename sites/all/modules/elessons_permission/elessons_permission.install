@@ -1,0 +1,151 @@
+<?php 
+
+function elessons_permission_install(){
+
+
+ //add vocabulary and taxonomy term
+
+
+ if(taxonomy_vocabulary_get_names('access_level')==null){
+
+    $vocabulary = new stdClass();
+    $vocabulary->name = 'Access Level';
+    $vocabulary->machine_name = 'access_level';
+    taxonomy_vocabulary_save($vocabulary);
+    $vid = $vocabulary->vid;
+
+	$everyone = new stdClass();
+	$everyone->name = 'Everyone';  
+	$everyone->vid = $vid;
+	taxonomy_term_save($everyone);
+
+	$subscribed = new stdClass();
+	$subscribed->name = 'Subscribed to Local Site'; 
+	$subscribed->vid = $vid;
+	taxonomy_term_save($subscribed);
+
+	$registered = new stdClass();
+	$registered->name = 'Registered to eToro Practice Account';
+	$registered->vid = $vid;
+	taxonomy_term_save($registered);
+
+	$ftd = new stdClass();
+	$ftd->name = 'FTD with eToro';
+	$ftd->vid = $vid;           
+	taxonomy_term_save($ftd);
+
+	$plat = new stdClass();
+	$plat->name = 'Plat eToro';
+	$plat->vid = $vid;
+	taxonomy_term_save($plat);
+
+   }
+//add field 
+$field_name  = 'field_elessn_permission';
+  if (!field_info_field($field_name)) {
+    $field = array(
+      'field_name' => $field_name, 
+      'type' => 'taxonomy_term_reference',
+      'settings' => array(
+        'allowed_values' => array(
+         array('vocabulary' => 'access_level','parent' => 0),
+        ),
+      ),
+    );
+
+
+    field_create_field($field);
+
+    $instance = array(
+      'field_name' => $field_name, 
+      'entity_type' => 'node', 
+      'label' => 'Elessn permission', 
+      'bundle' => 'elesson', 
+      'required' => false,
+      'widget' => array(
+        'type' => 'options_select',
+      ), 
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+        ),
+      ),
+    );
+    field_create_instance($instance);
+  }
+
+
+$field_name  = 'field_practice_account_date';
+  if (!field_info_field($field_name)) {
+    $field = array(
+      'field_name' => $field_name, 
+      'type' => 'text',
+      'settings' => array(
+
+      ),
+    );
+
+
+    field_create_field($field);
+
+    $instance = array(
+      'field_name' => $field_name, 
+      'entity_type' => 'node', 
+      'label' => 'Practice Account Date', 
+      'bundle' => 'elesson', 
+      'required' => false,
+      'widget' => array(
+        'type' => 'text_textfield',
+      ), 
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+        ),
+      ),
+    );
+    field_create_instance($instance);
+  }
+
+
+
+$field_name  = 'field_ftd_date';
+  if (!field_info_field($field_name)) {
+    $field = array(
+      'field_name' => $field_name, 
+      'type' => 'text',
+      'settings' => array(
+
+      ),
+    );
+
+    field_create_field($field);
+
+    $instance = array(
+      'field_name' => $field_name, 
+      'entity_type' => 'node', 
+      'label' => 'FTD Date', 
+      'bundle' => 'elesson', 
+      'required' => false,
+      'widget' => array(
+        'type' => 'text_textfield',
+      ), 
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+        ),
+      ),
+    );
+    field_create_instance($instance);
+  }
+
+
+}
+
+
+
+function elessons_permission_uninstall(){
+
+
+}
+
+
