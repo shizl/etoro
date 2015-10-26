@@ -1,4 +1,4 @@
-@media (max-width: 361px) {
+@media (max-width: 481px) {
 
 #header-top{
 display:none;
@@ -40,6 +40,7 @@ text-align:center;
 
 #mobile-menu{
 background:#c5271e;
+display:block;
 }
 #mobile-menu {
 color:#fff;
@@ -76,7 +77,7 @@ border-bottom:none;
 color:#666;
 font-weight:normal;
 padding:0px;
-display:block;
+
 float:none;
 }
 #main-menu li a:hover,
@@ -143,6 +144,8 @@ top:40%;
 
 #block-views-course-description-block .views-field-description{
 width:100%;
+background:#fff;
+border:none;
 }
 #block-views-course-description-block .views-field-nothing-2 {
 width:100%;
@@ -177,5 +180,82 @@ padding:4px 20px;
 #block-block-4 {
 margin-top:0px;
 }
+
+#block-views-course-description-block .views-field-field-thumbnail{
+left: 0;
+position: absolute;
+right: 0;
+top: 24%;
+width: auto;
+text-align: center;
+margin:0px !important;
+border:none;
+}
+#block-views-course-description-block img{
+height: 100px;
+width: auto;
+}
+#block-views-course-description-block .views-field-description .field-content{
+float:none;
+width:auto;
+margin-top:40%;
+height:60%;
+}
+#block-views-course-description-block .views-field-nothing-3 {
+ width:auto;
+bottom:10%;
+right:0;
+left:0;
+background:none;
+height:auto;
+}
+#block-views-course-description-block .views-field-nothing-3 a {
+background: #bb2a29 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
+display:inline-table;
+border-radius: 5px;
+padding:5px 20px;
+}
+
+#block-views-course-description-block .views-field-description{
+line-height:1.523em;
+}
+#block-views-activity-block{
+width:100%;
+}
+#block-pingan-login-pingan-login-box {
+width:100%;
+}
+#block-views-activity-block .views-field-nothing-1{
+left:65%;
+}
+#block-views-activity-block .views-field-title {
+width:75%;
+}
+#block-block-1{
+width:100%;
+}
+#block-block-1 ul li{
+display:inline-table;
+float:none;
+}
+#footer #block-block-1 a{
+float:none;
+}
+#footer {
+height:auto;
+}
+#footer .block {
+margin-top:0px;
+}
+#block-menu-menu-ooter-menu {
+width:100%;
+}
+#block-menu-menu-ooter-menu ul li{
+display:inline-table;
+}
+#block-menu-menu-ooter-menu ul li a{
+float:none;
+}
+
 
 }

@@ -2431,3 +2431,7 @@ display:block;
 width:190px;
 height:190px;
 }
+
+#mobile-menu{
+display:none;
+}
