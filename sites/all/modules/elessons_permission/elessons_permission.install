@@ -5,9 +5,6 @@ function elessons_permission_install(){
 
  //add vocabulary and taxonomy term
 
-
- if(taxonomy_vocabulary_get_names('access_level')==null){
-
     $vocabulary = new stdClass();
     $vocabulary->name = 'Access Level';
     $vocabulary->machine_name = 'access_level';
@@ -39,7 +36,7 @@ function elessons_permission_install(){
 	$plat->vid = $vid;
 	taxonomy_term_save($plat);
 
-   }
+   
 //add field 
 $field_name  = 'field_elessn_permission';
   if (!field_info_field($field_name)) {
