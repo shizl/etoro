@@ -614,7 +614,7 @@ display:none;
 
     float: none;
     width: 295px;
-    background: rgba(247, 247, 247, 0.7);
+    background: rgba(247, 247, 247, 0.98);
     position: absolute;
     top: 3%;
     right: 14%;
@@ -883,21 +883,12 @@ padding: 0px 0px 20px;
 position: relative;
 
 }
-#block-views-course-description-block .views-row-1:hover{
+#block-views-course-description-block .views-row-1{
 
 background:url(../images/jiantou0.png) no-repeat 490px 38px;
 
 }
-#block-views-course-description-block .views-row-2:hover{
 
-background:url(../images/jiantou1.png) no-repeat 490px 38px;
-
-}
-#block-views-course-description-block .views-row-3:hover{
-
-background:url(../images/jiantou2.png) no-repeat 490px 38px;
-
-}
 #block-views-course-description-block h2{
 
 font-size: 20px;
@@ -1085,6 +1076,10 @@ display:none;
     margin-right: 10px;
     margin-top: -5px;
 }
+.i18n-zh-hans #block-views-activity-block .view-id-activity{
+margin-top:12px;
+
+}
 #block-views-activity-block{
 width:67%;
 float:left;
@@ -1097,6 +1092,15 @@ position: relative;
 
 color:#000000;
 font-size:12px;
+}
+.i18n-zh-hans #block-views-activity-block .views-field-nothing-1{
+
+position: absolute;
+    left: 87%;
+    top: 20px;
+    background: url(../images/heisanjiao.png) no-repeat 52px 12px;
+    width: 80px;
+
 }
 #block-views-activity-block .views-field-nothing-1{
 
@@ -1168,10 +1172,14 @@ padding:5px 0px 5px 0px;
 }
 #block-views-activity-block .views-field-view-node{
 margin-bottom: 18px;
-margin-top:-16px;
+margin-top:3px;
+
 }
 #block-views-activity-block .views-field-body{
-clear: both;
+
+    clear: both;
+    height:47px;
+    overflow:hidden;
 }
 
 #block-block-4 {
@@ -1233,6 +1241,11 @@ font-size:14px;
 #block-block-4 .information{
 
 font-weight:bold;
+}
+.i18n-zh-hans #block-block-4 .read-more{
+
+    background: url(../images/heisanjiao.png) no-repeat 82px 18px;
+    float: right;
 }
 #block-block-4 .read-more{
 background:url(../images/heisanjiao.png) no-repeat 95px 20px;
