@@ -140,7 +140,7 @@ var registration=new T.RegistrationService.Registration({
 "successRedirect":false,
 "funnelID":12,  
 "overriddenValues":{"toa_id": "'.$user->field_toaid['und'][0]['value'].'",
-       "gender": "'.$user->field_gender['und'][0]['value'].'",
+       "gender": "'.($user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
        "birth_date": "'.$userBirthdate.'",
        "toaPhone": "'.$user->field_toaphone['und'][0]['value'].'",
        "is_toa_phone_verified": true,
