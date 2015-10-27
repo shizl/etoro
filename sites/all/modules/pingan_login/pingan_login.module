@@ -44,13 +44,13 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
- /*  $items['api/v1/toaFtd'] = array(
+ $items['api/v1/toaFtd'] = array(
     'title' => 'etoro toaFtd',
     'description' => 'etoro toaFtd',
     'page callback' => 'etoro_toaFtd',
     'access callback' => true,
     
-  );*/
+  );
    $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
@@ -81,19 +81,36 @@ function pingan_login_block_info() {
 * update toaid from etoro
 */
 function etoro_toaFtd() {
-  $param=$_REQUEST;
-  if(empty($param['appId'])){
-
-    echo t("appId is request param");
+  $param=$_POST;
+  $data=array();
+//  print_r($param);
+  if(empty($param['key'])  || $param['key']!=md5('etoro_toaftd')){
+	   $data=array("status"=>"0","message"=>t("Key is not correct"));
   }elseif(empty($param['toaId'])){
-    echo t("appId is request param");
-  }elseif($param['appId']!=md5('etoro_toaftd')){
-    echo t("appid is not fond");
-    $userarray=user_load_multiple(array(),array('field_toaid'=>$param['toaId']));
+	  $data=array("status"=>"0","message"=>t("Requird the toaId"));
   }else{
-
-    
+	   $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
+          if(empty($userid) || $userid==""){
+			   $data=array("status"=>"0","message"=>t("User don't exist"));
+			  }
+          else{
+      $account=user_load($userid);
+              $edit=array();
+              if(!empty($param['deposit_amount']) ){
+              $edit['field_deposit_amount']['und'][0]['value']= $param['deposit_amount'];
+              }
+              if(!empty($param['payment_date'])){
+              $edit['field_paymentdate']['und'][0]['value']= $param['payment_date'];
+		    }
+		    if(count($edit)>0){
+		    user_save($account, $edit);
+		    $data=array("status"=>"1","message"=>t("Data update success"));
+		}else{
+			$data=array("status"=>"0","message"=>t("Data construction is not correct"));
+			}
+	  }     
   }
+  echo json_encode($data);
   exit;
 }
  /**

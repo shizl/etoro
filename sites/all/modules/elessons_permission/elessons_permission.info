@@ -1,0 +1,8 @@
+name = Elessons Permission
+core = 7.x
+description = Create elessons access.
+; Information added by Drupal.org packaging script on 2015-05-28
+version = "7.x-1.0"
+core = "7.x"
+datestamp = "1432824803"
+
