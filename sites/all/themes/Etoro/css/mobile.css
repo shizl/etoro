@@ -114,13 +114,19 @@ background:none;
 right:9%;
 display:none;
 }
+#block-views-social-trading-block{
+display:none;
+}
+#block-views-social-trading-block-1{
+display:block;
+}
 
-#block-views-social-trading-block h2 ,#block-views-course-description-block h2{
+#block-views-social-trading-block-1 h2 ,#block-views-course-description-block h2{
 height:70px;
 background: rgba(0, 0, 0, 0) url("../images/hengxian.png") no-repeat scroll center 60px;
 font-size:12px;
 }
-#block-views-social-trading-block h2 img ,#block-views-course-description-block h2 img{
+#block-views-social-trading-block-1 h2 img ,#block-views-course-description-block h2 img{
 width:34px;
 height:30px;
 display: block;
@@ -129,6 +135,11 @@ margin-left:45%;
 margin-top:0px;
 margin-right:0px;
 }
+
+#block-views-social-trading-block-1 img{
+width:70%;
+}
+
 .jcarousel-skin-tango{
 position:relative;
 }

@@ -50,11 +50,19 @@ margin-top: 40px;
 margin-bottom: 35px;
 height: 248px;
 }
+.i18n-zh-hans #block-pingan-login-pingan-login-box{
+
+height:260px;
+}
 #block-pingan-login-pingan-login-box h2{
 font-size: 14px;
     font-weight: bold;
     margin-top: 30px;
 
+}
+.i18n-zh-hans #block-pingan-login-pingan-login-box h2{
+
+font-size:20px;
 }
 #block-pingan-login-pingan-login-box .opa{
 margin-left: 25px;

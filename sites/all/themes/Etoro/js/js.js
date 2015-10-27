@@ -35,6 +35,38 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
 		}	
 
             });
+               if (nid == "1"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou0.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+               if (nid == "2"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou1.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+               if (nid == "3"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou2.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                              }
+                
+              if (nid == "11"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou0.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+              if (nid == "12"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou1.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+              if (nid == "13"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou2.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                              }
+                
 });
        
 });
