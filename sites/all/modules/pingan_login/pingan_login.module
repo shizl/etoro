@@ -44,6 +44,13 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
+ /*  $items['api/v1/toaFtd'] = array(
+    'title' => 'etoro toaFtd',
+    'description' => 'etoro toaFtd',
+    'page callback' => 'etoro_toaFtd',
+    'access callback' => true,
+    
+  );*/
    $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
@@ -68,6 +75,26 @@ function pingan_login_block_info() {
   );
 
   return $blocks;
+}
+
+/**
+* update toaid from etoro
+*/
+function etoro_toaFtd() {
+  $param=$_REQUEST;
+  if(empty($param['appId'])){
+
+    echo t("appId is request param");
+  }elseif(empty($param['toaId'])){
+    echo t("appId is request param");
+  }elseif($param['appId']!=md5('etoro_toaftd')){
+    echo t("appid is not fond");
+    $userarray=user_load_multiple(array(),array('field_toaid'=>$param['toaId']));
+  }else{
+
+    
+  }
+  exit;
 }
  /**
 * Implements hook_block_view().
@@ -171,8 +198,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
-$("#regbox").html(\'<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">\')
-
+location.href="/pingan_login/pingan_login_etoro_callback"
 }); 
 registration.show();
 });
@@ -185,6 +211,20 @@ registration.show();
 </body>
 </html>
 ';
+  exit;
+}
+/**
+  * ping an  callback function 
+  */
+function pingan_login_etoro_callback(){
+  global $user;
+  $user=user_load($user->uid);
+$edit=array();
+$edit['field_chineseidtype']['und'][0]['value']=time();
+
+ user_save($user, $edit);
+
+  echo '<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
   exit;
 }
 /**
