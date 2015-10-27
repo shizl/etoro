@@ -190,7 +190,86 @@ padding:4px 20px;
 }
 #block-block-4 {
 margin-top:0px;
+height:auto;
+border:0px;
+border-bottom:0px;
+margin-bottom:0px;
 }
+
+#block-block-4 .information-title{
+height:auto;
+position: relative;
+margin-bottom:0px;
+border-radius:0px;
+}
+#block-block-4 .information-title p{
+margin:0px 0px 10px 0px;
+}
+#block-block-4 .information-title .more{
+position:absolute;
+right:0;
+top:0;
+margin:0px;
+padding:0px;
+}
+
+#block-block-4 .article ,#block-block-4 .news{
+border:1px solid #d11211;
+border-radius:0px;
+height:30px;
+width:50% !important;
+}
+#block-block-4 .article a ,#block-block-4 .news a{
+display:block;
+}
+
+#block-views-information-block .views-row, #block-views-information-block-1 .views-row {
+width:100%;
+float:none;
+overflow: hidden;
+clear:both;
+}
+#block-views-information-block .views-row .views-field-body{
+width:100%;
+}
+#block-views-information-block .views-row .views-field-field-image{
+width:32%;
+float:left;
+}
+
+#block-views-information-block .views-row .views-field-created{
+display:none;
+}
+#block-views-information-block .views-row .views-field-title{
+width:64%;
+margin-left:3%;
+float:left;
+}
+
+#block-views-information-block .views-row .views-field-body{
+width:64%;
+margin-left:3%;
+float:left;
+}
+
+#block-views-information-block .views-row-first .views-field-created{
+display:block;
+float:none;
+margin-top:0px;
+}
+#block-views-information-block .views-row-first .views-field-field-image{
+width:100%;
+float:none;
+}
+#block-views-information-block .views-row-first .views-field-body , #block-views-information-block .views-row-first .views-field-title{
+width:100%;
+float:none;
+margin-left:0px;
+}
+
+
+
+
 
 #block-views-course-description-block .views-field-field-thumbnail{
 left: 0;
@@ -203,7 +282,7 @@ margin:0px !important;
 border:none;
 }
 #block-views-course-description-block img{
-height: 100px;
+height: 85px;
 width: auto;
 }
 #block-views-course-description-block .views-field-description .field-content{
