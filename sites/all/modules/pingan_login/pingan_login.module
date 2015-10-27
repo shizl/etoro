@@ -44,6 +44,13 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
+ $items['api/v1/toaFtd'] = array(
+    'title' => 'etoro toaFtd',
+    'description' => 'etoro toaFtd',
+    'page callback' => 'etoro_toaFtd',
+    'access callback' => true,
+    
+  );
    $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
@@ -69,40 +76,62 @@ function pingan_login_block_info() {
 
   return $blocks;
 }
+
+/**
+* update toaid from etoro
+*/
+function etoro_toaFtd() {
+  $param=$_POST;
+  $data=array();
+//  print_r($param);
+  if(empty($param['key'])  || $param['key']!=md5('etoro_toaftd')){
+	   $data=array("status"=>"0","message"=>t("Key is not correct"));
+  }elseif(empty($param['toaId'])){
+	  $data=array("status"=>"0","message"=>t("Requird the toaId"));
+  }else{
+	   $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
+          if(empty($userid) || $userid==""){
+			   $data=array("status"=>"0","message"=>t("User don't exist"));
+			  }
+          else{
+      $account=user_load($userid);
+              $edit=array();
+              if(!empty($param['deposit_amount']) ){
+              $edit['field_deposit_amount']['und'][0]['value']= $param['deposit_amount'];
+              }
+              if(!empty($param['payment_date'])){
+              $edit['field_paymentdate']['und'][0]['value']= $param['payment_date'];
+		    }
+		    if(count($edit)>0){
+		    user_save($account, $edit);
+		    $data=array("status"=>"1","message"=>t("Data update success"));
+		}else{
+			$data=array("status"=>"0","message"=>t("Data construction is not correct"));
+			}
+	  }     
+  }
+  echo json_encode($data);
+  exit;
+}
  /**
 * Implements hook_block_view().
 */
 function pingan_login_block_view($delta = '') {
   global $user;
-  global $language;
   $block = array();
   switch ($delta) {
     case 'pingan_login_box':
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
-      if($language->language == "en"){
-      $block['title'] = t('DO YOU WANT TO LEARN MORE?');
+      $block['title'] = t('Do You Want to Learn More?');
       
       if($user->uid>0){
-        $block['content'] = t('<p class="description">Sign in to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
+        $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
       }else{
-        $block['content'] = '<p class="description">sign in to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">Go to my pratice account</a></p><p class="opa"><a>Open practice account</a></p><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div>';
+        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><p class="opa"><a href="/user">'.t('Open practice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div></div>';
       }
       
       break;
-     }
-          else{
-              $block['title'] = t('想跟我们学习更多吗?');
-      
-      if($user->uid>0){
-        $block['content'] = t('<p class="description">登陆访问更多资料</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
-      }else{
-        $block['content'] = '<p class="description">登陆访问更多资料</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">去我的模拟投资帐号</a></p><p class="opa"><a>创建模拟投资帐号</a></p><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div>';
-      }
-      
-      break;
-         
-              }
   }
   return $block;
 }
@@ -171,8 +200,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
-$("#regbox").html(\'<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">\')
-
+location.href="/pingan_login/pingan_login_etoro_callback"
 }); 
 registration.show();
 });
@@ -185,6 +213,20 @@ registration.show();
 </body>
 </html>
 ';
+  exit;
+}
+/**
+  * ping an  callback function 
+  */
+function pingan_login_etoro_callback(){
+  global $user;
+  $user=user_load($user->uid);
+$edit=array();
+$edit['field_chineseidtype']['und'][0]['value']=time();
+
+ user_save($user, $edit);
+
+  echo '<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
   exit;
 }
 /**

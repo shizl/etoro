@@ -1,4 +1,4 @@
-@media (max-width: 481px) {
+@media (max-width:1150px){
 
 #header-top{
 display:none;
@@ -10,7 +10,7 @@ margin-top:0px;
 margin-bottom:5px;
 }
 #logo img{
-width:100%;
+max-width:100%;
 }
 #logo2 {
 width:18%;
@@ -20,7 +20,7 @@ margin-bottom:5px;
 
 
 #header #logo2 img{
-width:100%;
+max-width:100%;
 margin-top:-8px;
 }
 
@@ -77,9 +77,15 @@ border-bottom:none;
 color:#666;
 font-weight:normal;
 padding:0px;
-
 float:none;
 }
+
+.i18n-zh-hans #main-menu-links a {
+    font-weight: normal;
+    padding: 0px;
+}
+
+
 #main-menu li a:hover,
 #main-menu li a.active{
 background:#f3f4f5;
@@ -110,6 +116,13 @@ border-top:1px solid #ccc;
 #main-menu-links .view-menu-category .views-field-name a:hover{
 background:none;
 }
+
+
+}
+
+
+@media (max-width: 481px) {
+
 #banner #block-pingan-login-pingan-login-box{
 right:9%;
 display:none;
@@ -190,7 +203,92 @@ padding:4px 20px;
 }
 #block-block-4 {
 margin-top:0px;
+height:auto;
+border:0px;
+border-bottom:0px;
+margin-bottom:0px;
 }
+
+#block-block-4 .information-title{
+height:auto;
+position: relative;
+margin-bottom:0px;
+border-radius:0px;
+}
+
+#block-block-4 .information-title p{
+margin:0px 0px 10px 0px;
+}
+#block-block-4 .information-title .more{
+position:absolute;
+right:0;
+top:0;
+margin:0px;
+padding:0px;
+}
+
+#block-block-4 .information-title .title{
+text-align:left;
+width:100%;
+}
+
+#block-block-4 .article ,#block-block-4 .news{
+border:1px solid #d11211;
+border-radius:0px;
+height:30px;
+width:50% !important;
+}
+#block-block-4 .article a ,#block-block-4 .news a{
+display:block;
+}
+
+#block-views-information-block .views-row, #block-views-information-block-1 .views-row {
+width:100%;
+float:none;
+overflow: hidden;
+clear:both;
+}
+#block-views-information-block .views-row .views-field-body{
+width:100%;
+}
+#block-views-information-block .views-row .views-field-field-image{
+width:32%;
+float:left;
+}
+
+#block-views-information-block .views-row .views-field-created{
+display:none;
+}
+#block-views-information-block .views-row .views-field-title{
+width:64%;
+margin-left:3%;
+float:left;
+}
+
+#block-views-information-block .views-row .views-field-body{
+width:64%;
+margin-left:3%;
+float:left;
+}
+
+#block-views-information-block .views-row-first .views-field-created{
+display:block;
+float:none;
+margin-top:0px;
+}
+#block-views-information-block .views-row-first .views-field-field-image{
+width:100%;
+float:none;
+}
+#block-views-information-block .views-row-first .views-field-body , #block-views-information-block .views-row-first .views-field-title{
+width:100%;
+float:none;
+margin-left:0px;
+}
+
+
+
+
 
 #block-views-course-description-block .views-field-field-thumbnail{
 left: 0;
@@ -203,7 +301,7 @@ margin:0px !important;
 border:none;
 }
 #block-views-course-description-block img{
-height: 100px;
+height: 85px;
 width: auto;
 }
 #block-views-course-description-block .views-field-description .field-content{
@@ -221,7 +319,7 @@ background:none;
 height:auto;
 }
 #block-views-course-description-block .views-field-nothing-3 a {
-background: #bb2a29 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
+background: #ff6707 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
 display:inline-table;
 border-radius: 5px;
 padding:5px 20px;
@@ -238,9 +336,10 @@ width:100%;
 #block-pingan-login-pingan-login-box {
 width:100%;
 }
-#block-views-activity-block .views-field-nothing-1{
-left:65%;
-}
+
+
+
+
 #block-views-activity-block .views-field-title {
 width:75%;
 }

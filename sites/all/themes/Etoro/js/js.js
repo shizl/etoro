@@ -94,7 +94,7 @@ jQuery('#main-menu ul li').each(function(){
       output = jQuery('#menu-category').html();
       jQuery(this).append(output);
 
-if(jQuery("body").width()>481){
+if(jQuery("body").width()>1150){
 
      jQuery(this).mouseover(function(){
 	jQuery('#main-menu-links .view-menu-category').show();
@@ -105,9 +105,20 @@ if(jQuery("body").width()>481){
 
 }else{
 
+ jQuery(this).css({'background':'url("/sites/all/themes/Etoro/images/xia.png") no-repeat scroll right 13px'});
+
   jQuery(this).click(function(){
 
    jQuery('#main-menu-links .view-menu-category').toggle();
+
+   if(jQuery('#main-menu-links .view-menu-category').is(':visible')){
+
+ 	jQuery(this).css({'background':'url("/sites/all/themes/Etoro/images/shang.png") no-repeat scroll right 13px'});
+   
+   }else{
+ 	jQuery(this).css({'background':'url("/sites/all/themes/Etoro/images/xia.png") no-repeat scroll right 13px'});
+   }
+
 
   });
 }
@@ -117,7 +128,7 @@ if(jQuery("body").width()>481){
 });  
 
 
-if(jQuery("body").width()>481){
+if(jQuery("body").width()>1150){
 
 
 jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseover(function(){

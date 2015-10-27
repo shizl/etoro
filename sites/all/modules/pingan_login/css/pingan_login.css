@@ -1,16 +1,30 @@
-.loginPop{position:fixed;
-	top:50px;
-	left:450px;
+.loginBody{
+	position: fixed;
+	top:0;
+	left:0;
 	display: none;
-	width: 690px;
-	height: 720px;
-	border:1px #ccc solid;
-	background: #eee;
-	padding: 10px;
-	z-index: 999
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgba(0,0,0,0.7);
+	filter:alpha(opacity=70);
+	z-index:999; 
+	
+}
+.loginPop{ 
+position: relative; 
+  top: 30%;
+  left: 450px;
+  width: 615px;
+  height: 335px;
+  border: 1px #ccc solid;
+  background: #eee;
+  padding: 10px;
+
 }
 .titleLogin,.titleRegister{
 	text-align: center;
+	display: none;
 	height: 30px;
 	font-size: 20px;
 	font-weight: bold;
@@ -102,6 +116,6 @@ line-height:18px;
 #block-pingan-login-pingan-login-box .description{
 
 font-size:14px;
-color: #8b8b8b;
+color: #999;
 
 }
