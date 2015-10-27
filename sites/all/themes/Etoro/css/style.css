@@ -61,6 +61,11 @@ h2 {
   font-size: 1.143em;
   font-family: comic sans ms;
 }
+ body.i18n-zh-hans h2{
+  font-family: "黑体";
+}
+
+
 p {
   margin: 0 0 1.2em;
   color: #666666;
@@ -135,6 +140,11 @@ body,
 .comment-form label {
   font-family: Arial;
 }
+
+ body.i18n-zh-hans{
+font-family:"黑体";
+}
+
 #header,
 #footer-wrapper,
 #skip-link,
@@ -307,7 +317,7 @@ float: left;
     line-height: 0px;
     height: 10px;
     font-size: 14px;
-    color:#8b8b8b;
+    color:#666;
 }
 
 #block-system-user-menu {
@@ -321,7 +331,7 @@ margin-top: 11px;
 
 }
 #block-locale-language a{
-color:#8b8b8b;
+color:#666;
 font-size:14px;
 font-family: Arial !important;
 
@@ -533,16 +543,14 @@ margin-top: -3px;
   color: #ffffff;
   font-size: 14px;
   font-weight: bold;
-  
   float: left; /* LTR */
-  
   line-height: 2.4em;
   padding: 10px 33px 10px 34px;
   text-decoration: none;
- 
 }
 .i18n-zh-hans #main-menu-links a{
 padding: 10px 42px 10px 43px;
+font-weight:normal;
 }
 
 
@@ -684,7 +692,7 @@ position: relative;
     height:34px;
 }
 #block-views-course-description-block .views-field-nothing-3 a{
-
+    font-family:Arial;
     font-size: 15px;
     margin-top: 7px;
     display: block;
@@ -714,8 +722,9 @@ font-weight:bold;
 }
 #block-views-course-description-block span{
    display:block;
-   font-size:20px;
+   font-size:18px;
    font-weight:bold;
+   font-family: comic sans ms;
 }
 
 #block-views-course-description-block .views-field-tid,
@@ -782,7 +791,9 @@ display: block;
     border: solid 2px;
     margin-top: 10px;
     font-size: 14px;
-    background:url(../images/sanjiao.png) no-repeat 70px 11px;;
+    background:url(../images/sanjiao.png) no-repeat 70px 11px;
+font-family:Arial;
+
 }
 #block-views-course-description-block .views-field-name{
 
@@ -1103,8 +1114,8 @@ font-size:12px;
 .i18n-zh-hans #block-views-activity-block .views-field-nothing-1{
 
 position: absolute;
-    left: 87%;
-    top: 20px;
+    right: 8px;
+    top: 29px;
     background: url(../images/heisanjiao.png) no-repeat 52px 12px;
     width: 80px;
 
@@ -1112,8 +1123,8 @@ position: absolute;
 #block-views-activity-block .views-field-nothing-1{
 
    position: absolute;
-    left: 83.7%;
-    top: 20px;
+    right:25px;
+    top: 25px;
     background: url(../images/heisanjiao.png) no-repeat 75px 13px;
     width: 80px;
 }
@@ -1170,8 +1181,9 @@ width:85%;
 
 }
 #block-views-activity-block .views-field-title a{
-font-size: 16px;
+font-size: 14px;
 font-weight:bold;
+color:#333;
 }
 #block-views-activity-block .views-field{
 

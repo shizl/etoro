@@ -77,9 +77,15 @@ border-bottom:none;
 color:#666;
 font-weight:normal;
 padding:0px;
-
 float:none;
 }
+
+.i18n-zh-hans #main-menu-links a {
+    font-weight: normal;
+    padding: 0px;
+}
+
+
 #main-menu li a:hover,
 #main-menu li a.active{
 background:#f3f4f5;
@@ -112,15 +118,10 @@ background:none;
 }
 
 
-
-
 }
 
 
 @media (max-width: 481px) {
-
-
-
 
 #banner #block-pingan-login-pingan-login-box{
 right:9%;
@@ -214,6 +215,7 @@ position: relative;
 margin-bottom:0px;
 border-radius:0px;
 }
+
 #block-block-4 .information-title p{
 margin:0px 0px 10px 0px;
 }
@@ -223,6 +225,11 @@ right:0;
 top:0;
 margin:0px;
 padding:0px;
+}
+
+#block-block-4 .information-title .title{
+text-align:left;
+width:100%;
 }
 
 #block-block-4 .article ,#block-block-4 .news{
@@ -312,7 +319,7 @@ background:none;
 height:auto;
 }
 #block-views-course-description-block .views-field-nothing-3 a {
-background: #bb2a29 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
+background: #ff6707 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
 display:inline-table;
 border-radius: 5px;
 padding:5px 20px;
@@ -329,9 +336,10 @@ width:100%;
 #block-pingan-login-pingan-login-box {
 width:100%;
 }
-#block-views-activity-block .views-field-nothing-1{
-left:65%;
-}
+
+
+
+
 #block-views-activity-block .views-field-title {
 width:75%;
 }
