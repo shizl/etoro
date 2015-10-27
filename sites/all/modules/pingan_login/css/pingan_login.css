@@ -1,13 +1,22 @@
-.loginPop{position:fixed;
-	top:50px;
-	left:450px;
-	display: none;
-	width: 690px;
-	height: 720px;
-	border:1px #ccc solid;
-	background: #eee;
-	padding: 10px;
-	z-index: 999
+.loginBody{
+	position: fixed;
+	width: 100%;
+	overflow: hidden;
+	background: rgba(0,0,0,0.7);
+	filter:alpha(opacity=70);
+	z-index:999; 
+	height: 100%;
+}
+.loginPop{  
+  margin-top: 30%;
+  left: 450px;
+  display: none;
+  width: 615px;
+  height: 335px;
+  border: 1px #ccc solid;
+  background: #eee;
+  padding: 10px;
+
 }
 .titleLogin,.titleRegister{
 	text-align: center;
