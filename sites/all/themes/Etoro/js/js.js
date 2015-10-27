@@ -35,6 +35,38 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
 		}	
 
             });
+               if (nid == "1"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou0.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+               if (nid == "2"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou1.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+               if (nid == "3"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou2.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                              }
+                
+              if (nid == "11"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou0.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+              if (nid == "12"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou1.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-3').css({'background':'none'});
+                              }
+              if (nid == "13"){
+                   jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou2.png) no-repeat 490px 38px'});  
+                   jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
+                   jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
+                              }
+                
 });
        
 });
@@ -62,6 +94,8 @@ jQuery('#main-menu ul li').each(function(){
       output = jQuery('#menu-category').html();
       jQuery(this).append(output);
 
+if(jQuery("body").width()>481){
+
      jQuery(this).mouseover(function(){
 	jQuery('#main-menu-links .view-menu-category').show();
      });
@@ -69,9 +103,22 @@ jQuery('#main-menu ul li').each(function(){
 	jQuery('#main-menu-links .view-menu-category').hide();
      });
 
+}else{
+
+  jQuery(this).click(function(){
+
+   jQuery('#main-menu-links .view-menu-category').toggle();
+
+  });
+}
+
   }
 
 });  
+
+
+if(jQuery("body").width()>481){
+
 
 jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseover(function(){
 
@@ -87,11 +134,15 @@ jQuery('#main-menu-links .view-menu-category  .views-field-name a').mouseout(fun
 
 jQuery('#main-menu-links .view-menu-category .views-row-first .views-field-field-thumbnail').show();
 
-
 });
 
+}
 
+jQuery('.reorder').click(function(){
 
+ jQuery('#main-menu').toggle();
+
+});
 
 });
 

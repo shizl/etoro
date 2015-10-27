@@ -10,6 +10,7 @@ stylesheets[all][] = css/layout.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/colors.css
 stylesheets[all][]  = css/responsive-slider.css
+stylesheets[all][]  = css/mobile.css
 stylesheets[print][] = css/print.css
 
 scripts[] = js/jquery.overlay.min.js

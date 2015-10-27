@@ -101,20 +101,35 @@ function etoro_toaFtd() {
 */
 function pingan_login_block_view($delta = '') {
   global $user;
+  global $language;
   $block = array();
   switch ($delta) {
     case 'pingan_login_box':
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
-      $block['title'] = t('Do You Want to Learn More?');
+      if($language->language == "en"){
+      $block['title'] = t('DO YOU WANT TO LEARN MORE?');
       
       if($user->uid>0){
-        $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
+        $block['content'] = t('<p class="description">Sign in to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
       }else{
-        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">Go to my pratice account</a></p><p class="opa"><a>Open practice account</a></p><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div>';
+        $block['content'] = '<p class="description">sign in to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">Go to my pratice account</a></p><p class="opa"><a>Open practice account</a></p><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div>';
       }
       
       break;
+     }
+          else{
+              $block['title'] = t('想跟我们学习更多吗?');
+      
+      if($user->uid>0){
+        $block['content'] = t('<p class="description">登陆访问更多资料</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
+      }else{
+        $block['content'] = '<p class="description">登陆访问更多资料</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account">去我的模拟投资帐号</a></p><p class="opa"><a>创建模拟投资帐号</a></p><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="660" style="border: 0;" height="650" src="" class="popSrc"></iframe></div></div>';
+      }
+      
+      break;
+         
+              }
   }
   return $block;
 }
