@@ -14,6 +14,6 @@ jQuery(window).load(function(){
 		jQuery(this).parent().find(".loginBody").show();
 	});
 	jQuery(".popClose").click(function(){
-		jQuery(this).parent(".loginBody").hide();
+		jQuery(this).parent().parent(".loginBody").hide();
 	});
 })
