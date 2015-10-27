@@ -1,4 +1,4 @@
-@media (max-width: 481px) {
+@media (max-width:1150px){
 
 #header-top{
 display:none;
@@ -10,7 +10,7 @@ margin-top:0px;
 margin-bottom:5px;
 }
 #logo img{
-width:100%;
+max-width:100%;
 }
 #logo2 {
 width:18%;
@@ -20,7 +20,7 @@ margin-bottom:5px;
 
 
 #header #logo2 img{
-width:100%;
+max-width:100%;
 margin-top:-8px;
 }
 
@@ -110,6 +110,18 @@ border-top:1px solid #ccc;
 #main-menu-links .view-menu-category .views-field-name a:hover{
 background:none;
 }
+
+
+
+
+}
+
+
+@media (max-width: 481px) {
+
+
+
+
 #banner #block-pingan-login-pingan-login-box{
 right:9%;
 display:none;
