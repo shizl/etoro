@@ -1589,7 +1589,7 @@ margin-right:5px;
 }
 #block-block-1 .toro{
 
-
+    margin-top: -8px;
 }
 #block-block-1 .contact {
 
@@ -1611,9 +1611,7 @@ margin-right: 6px;
     float:right;
     
 }
-#block-block-1 li a.jiathis_button_weixin{
-    margin-top: 9px;
-}
+
 #footer-wrapper #block-block-2{
 text-align: center;
 border-top: 2px solid #d11211;
