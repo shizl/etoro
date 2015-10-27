@@ -1,11 +1,8 @@
 name = MFT_Course
 description = Allows to edit content with client-side editors.
 package = User interface
-
-
-
 core = 7.x
-
+configure = admin/config/people/MFT_Course
 
 
 ; Information added by drupal.org packaging script on 2012-10-02
