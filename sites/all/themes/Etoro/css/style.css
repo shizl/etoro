@@ -60,6 +60,7 @@ h1 {
 h2 {
   font-size: 1.143em;
   font-family: comic sans ms;
+  color:#333;
 }
  body.i18n-zh-hans h2{
   font-family: "黑体";
