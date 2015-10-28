@@ -375,7 +375,7 @@ h1#site-name {
   font-weight: normal;
 }
 #site-slogan {
-  font-size: 0.929em;
+  font-size: 12px;
   margin-top: 7px;
   word-spacing: 0.1em;
  
@@ -759,7 +759,7 @@ background:#f7c33d;
 }
 #block-views-course-description-block .views-row-3 .views-field-nothing-2{
 
-background:#94cb55;
+ background:#a0d550;
 }
 #block-views-course-description-block .views-row-4 .views-field-nothing-2{
 
@@ -1042,7 +1042,7 @@ width: 95%;
 #block-views-information-block-1 .views-row .views-field-view-node a,
 #block-views-information-block .views-row .views-field-view-node a{
 
-color:#bb2a29;
+color:#c5271e;
 }
 #block-views-information-block-1 .views-row-1{
 
@@ -1132,6 +1132,7 @@ position: absolute;
 font-size: 20px;
     font-weight: bold;
    font-family: comic sans ms;
+ color: #333;
 
 }
 #block-views-activity-block .views-field-field-activity-date span,
@@ -1257,6 +1258,10 @@ font-family:Arial;
 
 font-size:14px;
 }
+#block-block-4 .news a{
+color: #343434;
+}
+
 #block-block-4 .information{
 
 font-weight:bold;
