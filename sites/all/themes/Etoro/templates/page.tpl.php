@@ -78,8 +78,14 @@
 
    
     <div id="content-top"><div class="section clearfix"><?php print render($page['content-top']); ?></div> </div>
-    <div id="content" class="column"><div class="section">
+    <div id="sidebar-first" class="column sidebar">
+        <?php print render($page['sidebar-first']); ?>
+      </div> 
+
+   <div id="content" class="column">
+
       
+    
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
@@ -102,7 +108,7 @@
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
 
-    </div></div> <!-- /.section, /#content -->
+    </div> <!-- /.section, /#content -->
 
     
 
@@ -117,7 +123,10 @@
     <?php if ($page['footer']): ?>
       <div id="footer" class="clearfix">
         <?php print render($page['footer']); ?>
-      </div> <!-- /#footer -->
+      </div> 
+      </div>
+<div id="footer-bottom"><?php print render($page['footer-bottom']); ?></div>
+
     <?php endif; ?>
 
   </div></div> <!-- /.section, /#footer-wrapper -->
