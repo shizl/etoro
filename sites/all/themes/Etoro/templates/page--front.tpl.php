@@ -133,11 +133,15 @@
     <?php if ($breadcrumb): ?>
       <div id="breadcrumb"><?php print $breadcrumb; ?></div>
     <?php endif; ?>
-
    
-    
-    <div id="content" class="column"><div class="section">
+   
+    <div id="sidebar-first" class="column sidebar">
+        <?php print render($page['sidebar-first']); ?>
+      </div> 
+    <div id="content" class="column">
       
+      
+    
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
@@ -157,7 +161,7 @@
       <?php endif; ?>
       
 
-    </div></div> <!-- /.section, /#content -->
+    </div> <!-- /.section, /#content -->
 
     
 
