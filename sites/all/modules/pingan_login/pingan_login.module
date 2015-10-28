@@ -230,7 +230,7 @@ function pingan_login_etoro_callback(){
   global $user;
   $user=user_load($user->uid);
   $edit=array();
-  $edit['field_practice_account_date']['und'][0]['value']=time();
+  $edit['field_practice_account_date']['und'][0]['value']=date('Y-m-d h:m:s');
  user_save($user, $edit);
 
   echo '<html><head><style>.go_etoro {
