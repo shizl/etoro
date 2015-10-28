@@ -4,6 +4,8 @@ function elessons_permission_install(){
 
 
  //add vocabulary and taxonomy term
+  $elessons=taxonomy_vocabulary_machine_name_load("access_level")
+if(!$elessons){
 
     $vocabulary = new stdClass();
     $vocabulary->name = 'Access Level';
@@ -35,7 +37,7 @@ function elessons_permission_install(){
 	$plat->name = 'Plat eToro';
 	$plat->vid = $vid;
 	taxonomy_term_save($plat);
-
+}
    
 //add field 
 $field_name  = 'field_elessn_permission';
@@ -127,8 +129,11 @@ $field_name  = 'field_ftd_date';
 
 
 function elessons_permission_uninstall(){
-
-field_delete_field('field_elessn_permission');
-field_delete_field('field_practice_account_date');
-field_delete_field('field_ftd_date');
+  $elessons=taxonomy_vocabulary_machine_name_load("access_level");
+  if(!$elessons){
+    taxonomy_vocabulary_delete($elessons->vid);
+  }
+  field_delete_field('field_elessn_permission');
+  field_delete_field('field_practice_account_date');
+  field_delete_field('field_ftd_date');
 }
