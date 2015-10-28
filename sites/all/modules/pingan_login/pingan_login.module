@@ -342,7 +342,7 @@ function pingan_login_callback(){
           user_module_invoke('login', $edit, $user);
         }
         $html='<div class="success_msg">';
-        if($isReg || $account->field_practice_account_date['und'][0]['value']==null ){
+        if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
           $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="window.parent.location.reload();">';
