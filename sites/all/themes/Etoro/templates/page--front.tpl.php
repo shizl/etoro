@@ -78,7 +78,7 @@
 
 		   echo '<li>
               		<div class="slide-body" data-group="slide">
-                	<img style="width:100%; height:480px;" src="'.$url.'">
+                	<img style="width:100%;" src="'.$url.'">
               		</div>
   	    		</li>';
 		}
@@ -93,7 +93,7 @@
 
 		   echo '<li>
               		<div class="slide-body" data-group="slide">
-                	<img style="width:100%; height:480px;" src="'.$url.'">
+                	<img style="width:100%;" src="'.$url.'">
               		</div>
   	    		</li>';
 		}
