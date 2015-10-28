@@ -140,6 +140,7 @@ function pingan_login_block_view($delta = '') {
   * login page
   */
 function pingan_login_login($type=""){
+
 $time=date("Y-m-d h:i:s");
 header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 }
@@ -220,9 +221,8 @@ registration.show();
 function pingan_login_etoro_callback(){
   global $user;
   $user=user_load($user->uid);
-$edit=array();
-$edit['field_chineseidtype']['und'][0]['value']=time();
-
+  $edit=array();
+  $edit['field_practice_account_date']['und'][0]['value']=time();
  user_save($user, $edit);
 
   echo '<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
