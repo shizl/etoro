@@ -5,6 +5,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 	
    global $user;
 
+    $account = user_load($user->uid);
 
 	 if(!empty($node->field_elessn_permission['und'][0]['tid']) && $node->field_elessn_permission['und'][0]['tid'] == 19){
 
@@ -20,7 +21,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		}
          }elseif(!empty($node->field_elessn_permission['und'][0]['tid']) && $node->field_elessn_permission['und'][0]['tid'] == 21){
 		
-   		if(!empty($node->field_practice_account_date['und'][0]['value']) && $node->field_practice_account_date['und'][0]['value']!=''){
+   		if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
 			return true;
 		}else{
 		drupal_access_denied();
@@ -29,7 +30,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 
          }elseif(!empty($node->field_elessn_permission['und'][0]['tid']) && $node->field_elessn_permission['und'][0]['tid'] == 22){
 
-   		if(!empty($node->field_ftd_date['und'][0]['value']) && $node->field_ftd_date['und'][0]['value']!=''){
+   		if(!empty($account->field_ftd_date['und'][0]['value']) && $account->field_ftd_date['und'][0]['value']!=''){
 			return true;
 		}else{
 		drupal_access_denied();

@@ -133,7 +133,28 @@ function elessons_permission_uninstall(){
   if(!$elessons){
     taxonomy_vocabulary_delete($elessons->vid);
   }
-  field_delete_field('field_elessn_permission');
-  field_delete_field('field_practice_account_date');
-  field_delete_field('field_ftd_date');
+
+  $field_name = 'field_elessn_permission';
+  if (field_info_field($field_name)) {
+    field_delete_field($field_name);
+    if ($instance = field_info_instance('node', $field_name, 'elesson')) {
+      field_delete_instance($instance);
+    }
+  }
+  $field_name = 'field_practice_account_date';
+  if (field_info_field($field_name)) {
+    field_delete_field($field_name);
+    if ($instance = field_info_instance('user', $field_name, 'user')) {
+      field_delete_instance($instance);
+    }
+  }
+
+  $field_name = 'field_ftd_date';
+  if (field_info_field($field_name)) {
+    field_delete_field($field_name);
+    if ($instance = field_info_instance('user', $field_name, 'user')) {
+      field_delete_instance($instance);
+    }
+  }
+
 }
