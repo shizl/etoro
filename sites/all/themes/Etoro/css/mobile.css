@@ -126,6 +126,7 @@ display:none;
 
 @media (max-width: 481px) {
 
+
 #block-views-social-trading-block{
 display:none;
 }
@@ -200,6 +201,7 @@ padding:0px;
 #block-views-course-description-block .views-field-nothing-2 .enter a{
 padding:4px 20px;
  margin-top: 5px;
+ background: url(../images/sanjiao.png) no-repeat 60px 11px;
 }
 #block-block-4 {
 margin-top:0px;
@@ -362,6 +364,7 @@ width:100%;
 }
 #block-menu-menu-ooter-menu ul li{
 display:inline-table;
+width:32%;
 }
 #block-menu-menu-ooter-menu ul li a{
 float:none;

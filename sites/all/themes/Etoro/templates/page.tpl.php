@@ -78,8 +78,8 @@
 
    
     <div id="content-top"><div class="section clearfix"><?php print render($page['content-top']); ?></div> </div>
-    <div id="sidebar-first" class="column sidebar">
-        <?php print render($page['sidebar-first']); ?>
+    <div id="Right-Sidebar" class="column sidebar">
+        <?php print render($page['Right-Sidebar']); ?>
       </div> 
 
    <div id="content" class="column">
