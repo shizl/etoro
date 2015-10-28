@@ -233,7 +233,17 @@ function pingan_login_etoro_callback(){
   $edit['field_practice_account_date']['und'][0]['value']=time();
  user_save($user, $edit);
 
-  echo '<input type="button" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
+  echo '<html><head><style>.go_etoro {
+  background: #ffffff;
+  border-radius: 4px;
+    color: #c5271e;
+  border: 1px solid #D4D2CF;
+}
+.go_account{  background: #e9821d;
+  border-radius: 4px;
+  border: 1px solid wheat;
+  color: #ffffff;}
+</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();"></body></html>';
   exit;
 }
 /**
@@ -325,19 +335,32 @@ function pingan_login_callback(){
           $edit = array();
           user_module_invoke('login', $edit, $user);
         }
-        echo '<div class="success_msg">';
-        if($isReg){
-          echo '<input type="button" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
+        $html='<div class="success_msg">';
+        if($isReg || $account->field_practice_account_date['und'][0]['value']==null ){
+          $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
+        }else if($account->field_practice_account_date['und'][0]['value']!=null && $account->field_ftd_date['und'][0]['value']==null){
+           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="window.parent.location.reload();">';
         }else{
-          echo t('登陆成功，请关闭窗口。系统将在3s内关闭窗口<br>').'<script type="text/javascript">setTimeout("window.parent.location.reload()",3000);</script>';
+          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'http://cn.etoro.com\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
         }
-        echo '</div>';
+        $html.='</div>';
         //drupal_goto("/user");
 
     }else{
-      echo '<div class="error_msg">'.t('登陆失败，请联系管理员。<br>错误信息:').$xmlObject->message.' '.$xmlObject->message.'</div>';
+      $html.='<div class="error_msg">'.t('登陆失败，请联系管理员。<br>错误信息:').$xmlObject->message.' '.$xmlObject->message.'</div>';
      
     }
+    echo '<html><head><style>.go_etoro {
+  background: #ffffff;
+  border-radius: 4px;
+    color: #c5271e;
+  border: 1px solid #D4D2CF;
+}
+.go_account{  background: #e9821d;
+  border-radius: 4px;
+  border: 1px solid wheat;
+  color: #ffffff;}
+</style></head><body>'.$html.'</body></html>';
      exit;
     
 }
