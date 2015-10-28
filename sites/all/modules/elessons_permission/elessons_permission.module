@@ -1,6 +1,4 @@
-<?php
-
-   
+<?php  
 function elessons_permission_node_view($node, $view_mode, $langcode){
 
    if($node->type=="elesson"){
