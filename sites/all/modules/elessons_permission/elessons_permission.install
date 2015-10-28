@@ -4,7 +4,7 @@ function elessons_permission_install(){
 
 
  //add vocabulary and taxonomy term
-  $elessons=taxonomy_vocabulary_machine_name_load("access_level")
+  $elessons=taxonomy_vocabulary_machine_name_load("access_level");
 if(!$elessons){
 
     $vocabulary = new stdClass();
