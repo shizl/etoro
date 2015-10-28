@@ -44,6 +44,14 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
+    $items['pingan_login/etoro_callback'] = array(
+    'title' => 'etoro Register',
+    'description' => 'Pingan Login etoro Register',
+    'page callback' => 'pingan_login_etoro_callback',
+    'access callback' => true,
+    
+  );
+  
  $items['api/v1/toaFtd'] = array(
     'title' => 'etoro toaFtd',
     'description' => 'etoro toaFtd',
@@ -200,7 +208,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
-location.href="/pingan_login/pingan_login_etoro_callback"
+location.href="/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
