@@ -32,16 +32,15 @@ background-color: #f6f6f6;
 }
 #sidebar-first {
 
-width: 30%;
-float:left;
+width: 28%;
+float:right;
 position: relative;
 display: inline;
-padding-right:5%;
+
 }
 .sidebar .block {
     border: 1px solid;
-    padding: 15px 20px;
-    margin: 0 0 20px;
+    
 }
 #content {
 width:70%;

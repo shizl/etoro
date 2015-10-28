@@ -1539,7 +1539,12 @@ ul.links {
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }
+.region-sidebar-first #block-pingan-login-pingan-login-box{
 
+width:100%;
+float:none;
+box-shadow: 0px 3px 10px -5px #333;
+}
 #footer {
 
 height:65px;
@@ -2558,18 +2563,66 @@ font-size:16px;
 line-height:1.8em;
 
 }
+.view-course-details .view-content .views-row .views-field-body,
+.view-course-details .view-content .views-row .views-field-title,
+.view-course-details .view-content .views-row .views-field-field-image,
+.view-course-details .view-content .views-row .views-field-nid{
+display:none;
+
+}
 .view-course-details .view-content .views-row{
-width:20%;
-display:inline-table;
-margin-left:4%;
+
+border:solid 1px #333333;
+overflow: hidden;
+
 margin-top:20px;
 }
-.view-course-details .view-content .views-field-field-image img{
+.view-course-details .view-content .views-field-nothing img{
 width:100%;
 height: auto;
+
 }
- .view-course-details .view-content .views-field-title{
-line-height:40px;
-border-bottom:1px solid #f3f4f5;
+ .view-course-details .view-content .views-field-nothing .img {
+
+
+float:left;
+height:120px;
+width:20%;
 }
 
+.view-course-details .view-content .views-field-nothing{
+
+width:100%;
+overflow: hidden;
+height: 120px;
+}
+.view-course-details .view-content .views-field-nothing .all{
+
+width:75%;
+float:left;
+margin-top: 10px;
+
+}
+.view-course-details .view-content .views-field-nothing .all .body{
+
+margin:0px 10px;
+
+}
+.view-course-details .view-content .views-field-nothing .last{
+
+width:5%;
+height:120px;
+float:right;
+background:#a8d16a;
+}
+.view-course-details .view-content .views-field-nothing .title{
+
+text-align:center;
+}
+.view-course-details .view-content .views-field-nothing-1{
+    display:none;
+    width: 5%;
+    float: right;
+    height: 100px;
+    background: orange;
+}
