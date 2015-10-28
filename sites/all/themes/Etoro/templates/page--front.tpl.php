@@ -135,10 +135,7 @@
     <?php endif; ?>
    
    
-    <div id="sidebar-first" class="column sidebar">
-        <?php print render($page['sidebar-first']); ?>
-      </div> 
-    <div id="content" class="column">
+   
       
       
     
@@ -167,7 +164,16 @@
 
   </div></div> <!-- /#main, /#main-wrapper -->
 
- <div id="content-bottom"><div class="section clearfix"><?php print render($page['content-bottom']); ?></div> </div>
+ <div id="content-bottom"><div class="section clearfix">
+<?php print render($page['content-bottom']); ?>
+
+<div id="block-pingan-login-pingan-login-box">
+<h2><?php  $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box');print_r($block['title']);?></h2>
+  <?php print_r($block['content']);  ?>
+
+
+</div>
+</div> </div>
 
   <div id="footer-wrapper"><div class="section">
 
