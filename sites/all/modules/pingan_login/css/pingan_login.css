@@ -12,11 +12,11 @@
 	
 }
 .loginPop{ 
-position: relative; 
-  top: 30%;
-  left: 450px;
+	position: relative; 
+  	top: 30%;
+    margin: auto;
   width: 615px;
-  height: 335px;
+  height: 370px;
   border: 1px #ccc solid;
   background: #eee;
   padding: 10px;

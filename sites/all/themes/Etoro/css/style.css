@@ -749,7 +749,7 @@ padding: 17px;
 }
 #block-views-course-description-block .views-row-1 .views-field-nothing-2{
 
-background:#f8750e;
+background-color:#f8750e;
  
 }
 
@@ -2494,6 +2494,7 @@ background:#fff;
 width:350px;
 }
 
+
 #main-menu-links .view-menu-category .views-field-name a{
 color:#8b8b8b;
 line-height:1.5em;
@@ -2544,5 +2545,31 @@ display:none;
 }
 #block-views-social-trading-block-1 {
 display:none;
+}
+
+.views-widget-filter-title{
+float:left;
+clear:both;
+}
+.view-course-details .view-content  h3{
+
+font-weight:normal;
+font-size:16px;
+line-height:1.8em;
+
+}
+.view-course-details .view-content .views-row{
+width:20%;
+display:inline-table;
+margin-left:4%;
+margin-top:20px;
+}
+.view-course-details .view-content .views-field-field-image img{
+width:100%;
+height: auto;
+}
+ .view-course-details .view-content .views-field-title{
+line-height:40px;
+border-bottom:1px solid #f3f4f5;
 }
 
