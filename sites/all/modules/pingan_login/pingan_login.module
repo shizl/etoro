@@ -169,8 +169,8 @@ function pingan_login_redirect($type=""){
 
   if(module_exists('mixpanel')){
     if($type=="toetoro"){
-      $values = array('title'=>'Login Using TOA - Click');
-      mixpanel_track("toa_login_click", $values);
+      $values = array('title'=>'Local Site - Access Practice Account - Click');
+      mixpanel_track("etoro_register_practice", $values);
     }else{
       $values = array('title'=>'Local Site - eToro - Redirect Click');
       mixpanel_track("user_lesson_practice", $values);
@@ -178,7 +178,7 @@ function pingan_login_redirect($type=""){
     
   }
  
-  echo '<srcript>'.($type=="toetoro" ? 'window.parent.location.reload();':'window.parent.location.href=\'http://cn.etoro.com\';').'</script>';
+  echo '<srcript>'.($type!="toetoro" ? 'window.parent.location.reload();':'window.parent.location.href=\'http://cn.etoro.com\';').'</script>';
 }
 /**
   * login page
