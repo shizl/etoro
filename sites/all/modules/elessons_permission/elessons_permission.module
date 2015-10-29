@@ -16,8 +16,6 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		if($user->uid !=0){
 		return true;
 		}else{
-			return false;
-	 	exit;
 		drupal_access_denied();
 		exit;
 		}
@@ -26,8 +24,6 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
    		if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
 			return true;
 		}else{
-			return false;
-	 	exit;
 		drupal_access_denied();
 		exit;
 		}
@@ -37,14 +33,10 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
    		if(!empty($account->field_ftd_date['und'][0]['value']) && $account->field_ftd_date['und'][0]['value']!=''){
 			return true;
 		}else{
-			return false;
-	 	exit;
 		drupal_access_denied();
 		exit;		
 		}		
 	 }else{
-	 	return false;
-	 	exit;
 		drupal_access_denied();
 		exit;
 	 }
