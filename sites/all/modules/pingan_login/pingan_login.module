@@ -216,7 +216,7 @@ function pingan_login_etoro_register(){
   global $user;
   $user=user_load($user->uid);
   $userBirthdate="";
-  if($user->field_date_of_birth['und'][0]['value']!=""){
+  if(!empty($user->field_date_of_birth['und'][0]['value'])){
     $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
   }
   if(module_exists('mixpanel')){
@@ -242,13 +242,13 @@ var registration=new T.RegistrationService.Registration({
 "successRedirect":false,
 "funnelID":12,  
 "overriddenValues":{"toa_id": "'.$user->field_toaid['und'][0]['value'].'",
-       "gender": "'.($user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
+       "gender": "'.(!empty($user->field_gender['und'][0]['value']) && $user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
        '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
-       "toaPhone": "'.$user->field_toaphone['und'][0]['value'].'",
+       "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
        "is_toa_phone_verified": true,
-       "toaFullname": "'.$user->field_toafullname['und'][0]['value'].'",
-       "chinese_id_number": "'.$user->field_chineseidnumber['und'][0]['value'].'",
-       "chinese_id_type": "'.$user->field_chineseidtype['und'][0]['value'].'"
+       "toaFullname": "'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'",
+       "chinese_id_number": "'.(!empty($user->field_chineseidnumber['und'][0]['value']) ?$user->field_chineseidnumber['und'][0]['value']:'').'",
+       "chinese_id_type": "'.(!empty($user->field_chineseidtype['und'][0]['value']) ?$user->field_chineseidtype['und'][0]['value']:'').'"
       }  
 });  
 
