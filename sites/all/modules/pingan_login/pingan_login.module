@@ -168,7 +168,8 @@ function pingan_login_redirect($type=""){
   global $user;
   if(module_exists('mixpanel')){
      if(empty($_SESSSION['refurl'])){
-      $_SESSSION['refurl']=drupal_get_path("");
+      global $base_url;
+      $_SESSSION['refurl']=$base_url;
     }
     if($type=="toetoro"){
       $values = array('title'=>'Local Site - Access Practice Account - Click','username'=>$user->name,
@@ -193,7 +194,8 @@ function pingan_login_login($type=""){
     if(!empty($_REQUEST['refurl'])){
       $_SESSSION['refurl']=$_REQUEST['refurl'];
     }else{
-      $_SESSSION['refurl']=drupal_get_path("");
+      global $base_url;
+      $_SESSSION['refurl']=$base_url;
     }
     $values = array('title'=>'Login Using TOA - Click',
                     'source_page_url'=>$_SESSSION['refurl']);
@@ -214,7 +216,8 @@ function pingan_login_register($type=""){
     if(!empty($_REQUEST['refurl'])){
       $_SESSSION['refurl']=$_REQUEST['refurl'];
     }else{
-      $_SESSSION['refurl']=drupal_get_path("");
+      global $base_url;
+      $_SESSSION['refurl']=$base_url;
     }
     $values = array('title'=>'Registration Using TOA - Click',
                     'source_page_url'=>$_SESSSION['refurl']);
@@ -234,7 +237,8 @@ function pingan_login_etoro_register(){
   if(!empty($_REQUEST['refurl'])){
     $_SESSSION['refurl']=$_REQUEST['refurl'];
   }else{
-    $_SESSSION['refurl']=drupal_get_path("");
+    global $base_url;
+    $_SESSSION['refurl']=$base_url;
   }
   $user=user_load($user->uid);
   $userBirthdate="";
@@ -303,7 +307,8 @@ registration.show();
 function pingan_login_etoro_callback(){
   global $user;
   if(empty($_SESSSION['refurl'])){
-    $_SESSSION['refurl']=drupal_get_path("");
+    global $base_url;
+    $_SESSSION['refurl']=$base_url;
   }
   $user=user_load($user->uid);
   $edit=array();
@@ -389,7 +394,8 @@ function pingan_login_callback(){
             $isReg=1;
               if(module_exists('mixpanel')){
                 if(empty($_SESSSION['refurl'])){
-                  $_SESSSION['refurl']=drupal_get_path("");
+                  global $base_url;
+                  $_SESSSION['refurl']=$base_url;
                 }
                 $values = array('title'=>'Registration - TOA Success','username'=>$account->name,
                     'source_page_url'=>$_SESSSION['refurl']);
@@ -417,7 +423,8 @@ function pingan_login_callback(){
             } 
             if(module_exists('mixpanel')){
               if(empty($_SESSSION['refurl'])){
-                  $_SESSSION['refurl']=drupal_get_path("");
+                  global $base_url;
+                  $_SESSSION['refurl']=$base_url;
                 }
                 $values = array('title'=>'Login - TOA Success','username'=>$account->name,
                     'source_page_url'=>$_SESSSION['refurl']);
