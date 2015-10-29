@@ -78,9 +78,7 @@
 
    
     <div id="content-top"><div class="section clearfix"><?php print render($page['content-top']); ?></div> </div>
-    <div id="Right-Sidebar" class="column sidebar">
-        <?php print render($page['Right-Sidebar']); ?>
-      </div> 
+    
 
    <div id="content" class="column">
 
@@ -109,7 +107,9 @@
       <?php print $feed_icons; ?>
 
     </div> <!-- /.section, /#content -->
-
+<div id="Right-Sidebar" class="column sidebar">
+        <?php print render($page['Right-Sidebar']); ?>
+      </div> 
     
 
   </div></div> <!-- /#main, /#main-wrapper -->
