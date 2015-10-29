@@ -15,6 +15,12 @@ jQuery(window).load(function(){
 		jQuery(this).parent().find(".loginBody").show();
 		
 	});
+	jQuery(".go_etoro_register").click(function(){
+		jQuery('.titleRegister').show();
+		jQuery("body").css("overflow","hidden");
+		jQuery(this).parent().find(".loginBody").show();
+	});
+	
 	jQuery(".popClose").click(function(){
 		jQuery("body").css("overflow","auto");
 		jQuery(this).parent().parent(".loginBody").hide();

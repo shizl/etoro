@@ -30,10 +30,19 @@ function pingan_login_menu() {
     'access callback' => true,
     //'menu_name'=>'main-menu',
   );
+  
   $items['pingan_login/callback'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Login page',
     'page callback' => 'pingan_login_callback',
+    'access callback' => true,
+   
+  );
+  $items['pingan_login/redirect/%'] = array(
+    'title' => 'Pingan Login redirect',
+    'description' => 'Pingan Login redirect',
+    'page callback' => 'pingan_login_redirect',
+    'page arguments' => array(2),
     'access callback' => true,
    
   );
@@ -134,9 +143,18 @@ function pingan_login_block_view($delta = '') {
       $block['title'] = t('Do You Want to Learn More?');
       
       if($user->uid>0){
-        $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail;
+         $html='<div class="success_msg">';
+        if(empty($account->field_practice_account_date['und'][0]['value'])){
+          $html.='<input type="button" class="go_etoro_register" value="'.t('Open practice account').'" >';
+        }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
+           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick="">';
+        }else{
+          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'http://cn.etoro.com\'">';
+        }
+        $html.='</div><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="/pingan_login/etoro_register" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail.'<br>'.$html;
       }else{
-        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><p class="opa"><a href="/user">'.t('Open practice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="430" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><p class="opa"><a href="/user">'.t('Open practice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
       }
       
       break;
@@ -147,18 +165,47 @@ function pingan_login_block_view($delta = '') {
 /**
   * login page
   */
+function pingan_login_redirect($type=""){
+
+  if(module_exists('mixpanel')){
+    if($type=="toetoro"){
+      $values = array('title'=>'Login Using TOA - Click');
+      mixpanel_track("toa_login_click", $values);
+    }else{
+      $values = array('title'=>'Local Site - eToro - Redirect Click');
+      mixpanel_track("user_lesson_practice", $values);
+    }
+    
+  }
+ 
+  echo '<srcript>'.($type=="toetoro" ? 'window.parent.location.reload();':'window.parent.location.href=\'http://cn.etoro.com\';').'</script>';
+}
+/**
+  * login page
+  */
 function pingan_login_login($type=""){
 
-$time=date("Y-m-d h:i:s");
-header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
+  if(module_exists('mixpanel')){
+    $values = array('title'=>'Login Using TOA - Click');
+    mixpanel_track("toa_login_click", $values);
+  }
+
+
+  $time=date("Y-m-d h:i:s");
+  header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 }
 /**
   * register page
   */
 function pingan_login_register($type=""){
-$time=date("Y-m-d h:i:s");
 
-header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
+ if(module_exists('mixpanel')){
+    $values = array('title'=>'Registration Using TOA - Click');
+    mixpanel_track("toa_register_click", $values);
+  } 
+
+  $time=date("Y-m-d h:i:s");
+  header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 
 }
 
@@ -169,9 +216,13 @@ function pingan_login_etoro_register(){
   global $user;
   $user=user_load($user->uid);
   $userBirthdate="";
-if($user->field_date_of_birth['und'][0]['value']!=""){
-  $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
-}
+  if($user->field_date_of_birth['und'][0]['value']!=""){
+    $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
+  }
+  if(module_exists('mixpanel')){
+    $values = array('title'=>'Registration - eToro Click','user-toaid'=>$user->field_toaid['und'][0]['value']);
+    mixpanel_track("etoro_register_click", $values);
+  }
   echo '<html><head>
 <script type="text/javascript" src="../'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
@@ -232,7 +283,10 @@ function pingan_login_etoro_callback(){
   $edit=array();
   $edit['field_practice_account_date']['und'][0]['value']=date('Y-m-d h:m:s');
  user_save($user, $edit);
-
+  if(module_exists('mixpanel')){
+    $values = array('title'=>'Registration - eToro Success','user-toaid'=>$user->field_toaid['und'][0]['value']);
+    mixpanel_track("etoro_register_success", $values);
+  }
   echo '<html><head><style>.go_etoro {
   background: #ffffff;
   border-radius: 4px;
@@ -249,7 +303,7 @@ function pingan_login_etoro_callback(){
   cursor:pointer;
   height:31px;
   }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="http://cn.etoro.com"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();"></body></html>';
+</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'pingan_login/redirect/tohome\'"></body></html>';
   exit;
 }
 /**
@@ -305,7 +359,10 @@ function pingan_login_callback(){
               user_save($account, $edit);
              
             $isReg=1;
-           
+              if(module_exists('mixpanel')){
+                $values = array('title'=>'Registration - TOA Success');
+                mixpanel_track("toa_register_success", $values);
+              }
          }else{
            $isReg=0;
           $account=user_load($userid);
@@ -325,7 +382,11 @@ function pingan_login_callback(){
               $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
 
               user_save($account, $edit);
-            }    
+            } 
+            if(module_exists('mixpanel')){
+                $values = array('title'=>'Login - TOA Success');
+                mixpanel_track("toa_login_success", $values);
+              }   
          }
         if ($account) {
           global $user;
@@ -347,7 +408,7 @@ function pingan_login_callback(){
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="window.parent.location.reload();">';
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'http://cn.etoro.com\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
         }
         $html.='</div>';
         //drupal_goto("/user");
