@@ -16,9 +16,9 @@
   	top: 30%;
     margin: auto;
   width: 615px;
-  height: 490px;
+  height: 370px;
   border: 1px #ccc solid;
-  background: #eee;
+  background: #fff;
   padding: 10px;
 
 }
@@ -99,7 +99,6 @@ margin-top:19px;
     border-bottom: solid 1px #8b8b8b;
 }
 #block-pingan-login-pingan-login-box .gmpa a{
-
     width: 83%;
     background: #c5271e;
     display: block;
@@ -119,3 +118,19 @@ font-size:14px;
 color: #999;
 
 }
+.go_etoro_register {
+  background: #ffffff;
+  border-radius: 4px;
+    color: #c5271e;
+  border: 1px solid #D4D2CF;
+  height:31px;
+  cursor:pointer;
+  margin-right:20px;
+}
+.go_account{  background: #e9821d;
+  border-radius: 4px;
+  border: 1px solid wheat;
+  color: #ffffff;
+  cursor:pointer;
+  height:31px;
+  }
