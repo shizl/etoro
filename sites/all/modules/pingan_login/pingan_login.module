@@ -83,10 +83,10 @@ function etoro_toaFtd() {
 //  print_r($param);
   if(empty($param['token'])  || $param['token']!=md5('etoro_toaftd')){
      $data=array("status"=>"0","message"=>t("token is not correct"));
-  }elseif(empty($param['toaId'])){
-    $data=array("status"=>"0","message"=>t("Requird the toaId"));
+  }elseif(empty($param['toaid'])){
+    $data=array("status"=>"0","message"=>t("Requird the toaid"));
   }else{
-     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
+     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaid']."'")->fetchField();
       if(empty($userid) || $userid==""){
          $data=array("status"=>"0","message"=>t("User don't exist"));
       }else{
@@ -103,9 +103,9 @@ function etoro_toaFtd() {
            user_save($account, $edit);
            $data=array("status"=>"1",
                       "message"=>t("Data update success"),
-                      "toaid"=>$param['toaId'],
-                      "amount": $param['amount'],
-                      "date":$param['date']);
+                      "toaid"=>$param['toaid'],
+                      "amount"=>$param['amount'],
+                      "date"=>$param['date']);
         }else{
            $data=array("status"=>"0","message"=>t("Data construction is not correct"));
         }
