@@ -143,11 +143,11 @@ function pingan_login_block_view($delta = '') {
       if($user->uid>0){
          $html='<div class="success_msg">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro_register" value="'.t('Open practice account').'" >';
+          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" >';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick="">';
+           $html.='<input type="button" class="go_etoro practice-account" value="'.t('Access Practice Account').'" onclick=""> <br><p class="opa"><a href="http://cn.etoro.com">'.t('Make First Time Deposit').'</a></p>';
         }else{
-          $html.='<input type="button" class="go_etoro_account" value="'.t('Go to my practice account').'" >';
+          $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Go to my practice account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
         $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail.'<br>'.$html;
@@ -172,13 +172,13 @@ function pingan_login_redirect($type=""){
       $_SESSSION['refurl']=$base_url;
     }
     if($type=="toetoro"){
-      $values = array('title'=>'Local Site - Access Practice Account - Click','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
-      mixpanel_track("etoro_register_practice", $values);
-    }else{
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
                     'source_page_url'=>$_SESSSION['refurl']);
-      mixpanel_track("user_lesson_practice", $values);
+      mixpanel_track("user_etoro_redirect", $values);
+    }else{
+      $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click','username'=>$user->name,
+                    'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_skip_register", $values);
     }
     
   }
@@ -234,22 +234,29 @@ function pingan_login_register($type=""){
   */
 function pingan_login_etoro_register(){
   global $user;
-  if(!empty($_REQUEST['refurl'])){
-    $_SESSSION['refurl']=$_REQUEST['refurl'];
-  }else{
-    global $base_url;
-    $_SESSSION['refurl']=$base_url;
+  if(module_exists('mixpanel')){
+    if(!empty($_REQUEST['refurl'])){
+      $_SESSSION['refurl']=$_REQUEST['refurl'];
+      $values = array('title'=>'Local Site - Registration - Skipped eToro','username'=>$user->name,
+                    'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_register_skip", $values);
+   
+    }else{
+      global $base_url;
+      $_SESSSION['refurl']=$base_url;
+
+      $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
+                    'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_register_click", $values);
+    }
   }
+
   $user=user_load($user->uid);
   $userBirthdate="";
   if(!empty($user->field_date_of_birth['und'][0]['value'])){
     $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
   }
-  if(module_exists('mixpanel')){
-    $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
-    mixpanel_track("etoro_register_click", $values);
-  }
+  
   echo '<html><head>
 <script type="text/javascript" src="../'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
