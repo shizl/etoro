@@ -41,6 +41,8 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		exit;
 	 }
 
+   }else{
+   	return true;
    }
 
 }
