@@ -2750,3 +2750,51 @@ padding-top:10px;
 
 border-top:solid 1px #D6D6D6;
 }
+/* -----------------course-list-search  ------------------ */
+#views-exposed-form-course-details-page #edit-combine-wrapper,
+#views-exposed-form-course-details-page .views-submit-button{
+
+position: absolute;
+
+}
+#views-exposed-form-course-details-page .views-submit-button{
+
+right: -21px;
+top: -19px;
+}
+#views-exposed-form-course-details-page .views-submit-button input{
+
+background:rgb(110, 179, 10);
+border-radius: 0px;
+border: 1px solid rgb(110, 179, 10);
+padding: 4px 0px;
+color:rgb(110, 179, 10);
+}
+
+#views-exposed-form-course-details-page #edit-combine-wrapper {
+
+top: -1px;
+    right: 20px;
+
+}
+
+#views-exposed-form-course-details-page #edit-field-level-tid-wrapper,
+#views-exposed-form-course-details-page #edit-field-topic-tid-wrapper,
+#views-exposed-form-course-details-page #edit-tid-wrapper{
+padding: 0px;
+width: 33.3%;
+background:#f6f6f6;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+#views-exposed-form-course-details-page select{
+margin: 22px 0px 22px 0px;
+width: 87%;
+background-color: #ffffff;
+}
+#views-exposed-form-course-details-page .form-type-select{
+
+text-align:center;
+
+}
+/* -----------------course-list-search ------------------ */
