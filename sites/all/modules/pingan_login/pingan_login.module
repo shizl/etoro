@@ -52,7 +52,7 @@ function pingan_login_menu() {
     
   );
   
- $items['api/v1/toaFtd'] = array(
+ $items['etoro/ftd_update'] = array(
     'title' => 'etoro toaFtd',
     'description' => 'etoro toaFtd',
     'page callback' => 'etoro_toaFtd',
