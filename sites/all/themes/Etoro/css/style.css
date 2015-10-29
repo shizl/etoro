@@ -60,6 +60,7 @@ h1 {
 h2 {
   font-size: 1.143em;
   font-family: comic sans ms;
+  color:#333;
 }
  body.i18n-zh-hans h2{
   font-family: "黑体";
@@ -304,10 +305,9 @@ overflow:hidden;
 list-style:none;
 }
 /* ------------------ Header ------------------ */
-#block-block-5{
+#block-block-5 .content{
+padding:20px;
 
-float: right;
-    margin-top: 47px;
 }
 #block-block-3 a,
 #block-system-user-menu a{
@@ -375,7 +375,7 @@ h1#site-name {
   font-weight: normal;
 }
 #site-slogan {
-  font-size: 0.929em;
+  font-size: 12px;
   margin-top: 7px;
   word-spacing: 0.1em;
  
@@ -759,7 +759,7 @@ background:#f7c33d;
 }
 #block-views-course-description-block .views-row-3 .views-field-nothing-2{
 
-background:#94cb55;
+ background:#a0d550;
 }
 #block-views-course-description-block .views-row-4 .views-field-nothing-2{
 
@@ -1042,7 +1042,7 @@ width: 95%;
 #block-views-information-block-1 .views-row .views-field-view-node a,
 #block-views-information-block .views-row .views-field-view-node a{
 
-color:#bb2a29;
+color:#c5271e;
 }
 #block-views-information-block-1 .views-row-1{
 
@@ -1132,6 +1132,7 @@ position: absolute;
 font-size: 20px;
     font-weight: bold;
    font-family: comic sans ms;
+ color: #333;
 
 }
 #block-views-activity-block .views-field-field-activity-date span,
@@ -1257,6 +1258,10 @@ font-family:Arial;
 
 font-size:14px;
 }
+#block-block-4 .news a{
+color: #343434;
+}
+
 #block-block-4 .information{
 
 font-weight:bold;
@@ -2353,7 +2358,20 @@ margin-top: 15px !important;
 
 @media (max-width: 800px){
 
+.page-node-254 #content,
+.page-node-254 #Right-Sidebar{
 
+width:85%;
+float:none;
+margin:0 auto;
+}
+input.form-autocomplete, 
+input.form-text, 
+input.form-file, 
+textarea.form-textarea, 
+select.form-select {
+    width: 95%;
+}
 #block-views-course-description-block .views-field-description {
     z-index: 2;
     width: 80%;
@@ -2570,14 +2588,23 @@ display:none;
 }
 .view-course-details .view-content .views-row{
 
-border:solid 1px #ffffff;
+border:solid 0px #ffffff;
 overflow: hidden;
 box-shadow: 0px 8px 10px -5px #333;
 margin-top:20px;
+cursor: pointer;
+}
+.view-course-details .view-content .views-row :hover {
+
+opacity: 0.9;
+
 }
 .view-course-details .view-content .views-field-nothing img{
-width:100%;
-height: auto;
+    width: 70%;
+    height: 90px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10%;
 
 }
  .view-course-details .view-content .views-field-nothing .img {
@@ -2611,11 +2638,19 @@ margin:0px 10px;
 width:5%;
 height:120px;
 float:right;
-background:#a8d16a;
+
+background:url(../images/play22.png) no-repeat center  rgb(110, 179, 10);
 }
 .view-course-details .view-content .views-field-nothing .title{
 
+
 text-align:center;
+
+}
+.view-course-details .view-content .views-field-nothing .title a{
+
+font-size:16px;
+color:#000000;
 }
 .view-course-details .view-content .views-field-nothing-1{
     display:none;
