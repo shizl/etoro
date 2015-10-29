@@ -37,8 +37,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		exit;		
 		}		
 	 }else{
-		drupal_access_denied();
-		exit;
+		return true;
 	 }
 
    }
