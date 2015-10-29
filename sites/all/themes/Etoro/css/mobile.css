@@ -362,7 +362,9 @@ width:75%;
 #footer li a {
 padding:0px;
 }
-
+#footer li{
+padding-top:10px;
+}
 #block-block-1{
 width:100%;
 }

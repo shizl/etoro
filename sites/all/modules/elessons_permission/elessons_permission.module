@@ -44,3 +44,38 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 
 }
 
+
+function elessons_permission_block_view_alter(&$data, $block){
+
+  switch ($block->delta) {
+    case 'outline':
+       $data['content'] = overrite_outline();	
+    break;
+  }
+
+}
+
+function overrite_outline(){
+
+$node = course_get_context();
+  $item = ''; 
+  if(isset($node->course['objects'])){
+
+    foreach($node->course['objects'] as $courseObject ){
+      $lessonid = $courseObject->instance;
+      $lesson = node_load($lessonid);
+       $cid = $courseObject->coid;
+
+       $title = '<div class="title">Course '.$cid.': <a href="/node/'.$lesson->nid.'">'.$lesson->title.'</a></div>';
+	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
+	$url = file_create_url($uri);
+        $img =  '<img src="'.$url.'">';
+	$item .= '<div class="item">'.$img.$title.'</div>';
+
+    }
+  }
+
+
+ return $item;
+}
+
