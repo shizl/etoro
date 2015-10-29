@@ -1295,8 +1295,11 @@ background:#f6f6f6;
   margin-top: 0px;
 }
 h1#page-title {
-  font-size: 2em;
+  font-size: 17px;
   line-height: 1;
+  font-family: comic sans ms;
+  font-weight:bold;
+  color:#666666;
 }
 #content h2 {
   margin-bottom: 2px;
@@ -1912,7 +1915,7 @@ select.form-select {
 input.form-text,
 textarea.form-textarea,
 select.form-select {
-  border: 1px solid #ccc;
+  border: 1px solid #E4E3E3;
 }
 input.form-submit:hover,
 input.form-submit:focus {
@@ -2356,7 +2359,7 @@ margin-top: 15px !important;
 .page-node-254 #content,
 .page-node-254 #Right-Sidebar{
 
-width:85%;
+width:100% !important;
 float:none;
 margin:0 auto;
 }
@@ -2653,4 +2656,52 @@ color:#000000;
     float: right;
     height: 100px;
     background: orange;
+}
+.page-node-254 #content {
+width:72%;
+
+}
+.page-node-254 #Right-Sidebar{
+width:25%;
+
+}
+.page-node-254 .region-content{
+
+background:#f7f7f7;
+
+}
+.page-node-254 .region-content .content{
+
+padding:15px;
+}
+.webform-client-form-254 .form-item label {
+
+    font-size: 0.929em;
+    width: 85px;
+    font-weight:normal;
+    color: #666666;
+}
+.webform-client-form-254 .webform-component-textarea label{
+
+float:left;
+
+}
+.webform-client-form-254 .form-textarea-wrapper {
+float:left;
+margin-left:4px;
+
+}
+.webform-client-form-254 .webform-component-textarea {
+
+overflow:hidden;
+
+}
+.webform-client-form-254 input.form-submit {
+
+background:#c5271e;
+color:#ffffff;
+font-size:18px;
+border-radius:5px;
+padding: 11px 35px;
+margin-left: 13.5%;
 }
