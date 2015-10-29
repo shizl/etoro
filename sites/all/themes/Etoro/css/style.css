@@ -562,7 +562,7 @@ margin-top: -3px;
   font-weight: bold;
   float: left; /* LTR */
   line-height: 2.4em;
-  padding: 10px 33px 10px 34px;
+  padding: 10px 33px 10px 30px;
   text-decoration: none;
 }
 .i18n-zh-hans #main-menu-links a{
@@ -2537,7 +2537,7 @@ border: 1px solid #ec8424;
 border-top:none;
 left: -1px;
 position: absolute;
-top: 51px;
+top: 53px;
 z-index: 1000;
 background:#fff;
 width:350px;
@@ -2791,3 +2791,42 @@ text-align:center;
 
 }
 /* -----------------course-list-search ------------------ */
+.sidebar #block-course-outline{
+background:#fff;
+border:none;
+}
+#block-course-outline  h2{
+display:none;
+}
+#block-course-outline .item{
+overflow:hidden;
+margin-bottom:15px;
+padding-bottom:15px;
+border-bottom:1px solid #ccc;
+}
+
+#block-course-outline .item img{
+width:120px;
+height:auto;
+float:left;
+margin-right:10px;
+}
+#block-course-outline .item .title{
+color:#666;
+ font-size:14px;
+}
+#block-course-outline .item .title a{
+
+ color:#666;
+}
+#block-course-outline .item:last-child{
+border-bottom:none;
+}
+
+body.node-type-course .node .field-name-field-image .field-label{
+ display:none;
+}
+body.node-type-course .node .field-name-field-image img{
+width:100%;
+
+}
