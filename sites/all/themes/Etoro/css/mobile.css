@@ -120,12 +120,68 @@ background:none;
 right:9%;
 display:none;
 }
-
+#block-views-information-block .views-row .views-field-created ,#block-views-information-block-1 .views-row .views-field-created{
+display:none;
+}
 }
 
 
-@media (max-width: 481px) {
 
+
+@media(max-width: 830px){
+#block-views-course-description-block .views-field-field-thumbnail{
+left: 0;
+position: absolute;
+right: 0;
+top: 24%;
+width: auto;
+text-align: center;
+margin:0px !important;
+border:none;
+}
+#block-views-course-description-block img{
+height: 125px;
+width: auto;
+}
+#block-views-course-description-block .views-field-description .field-content{
+float:none;
+width:auto;
+margin-top:40%;
+height:60%;
+}
+#block-views-course-description-block .views-field-nothing-3 {
+ width:auto;
+bottom:10%;
+right:0;
+left:0;
+background:none;
+height:auto;
+}
+#block-views-course-description-block .views-field-nothing-3 a {
+background: #ff6707 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
+display:inline-table;
+border-radius: 5px;
+padding:5px 20px;
+}
+
+
+
+#block-views-course-description-block .views-field-description{
+line-height:1.523em;
+}
+
+.jcarousel-skin-tango{
+position:relative;
+}
+.jcarousel-skin-tango .jcarousel-next-horizontal{
+top:40%;
+right:0;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-horizontal {
+left:0;
+top:40%;
+}
 
 #block-views-social-trading-block{
 display:none;
@@ -153,18 +209,13 @@ margin-right:0px;
 width:70%;
 }
 
-.jcarousel-skin-tango{
-position:relative;
-}
-.jcarousel-skin-tango .jcarousel-next-horizontal{
-top:40%;
-right:0;
+
+
 }
 
-.jcarousel-skin-tango .jcarousel-prev-horizontal {
-left:0;
-top:40%;
-}
+@media (max-width: 481px) {
+
+
 
 #block-views-course-description-block .views-field-description{
 width:100%;
@@ -203,6 +254,13 @@ padding:4px 20px;
  margin-top: 5px;
  background: url(../images/sanjiao.png) no-repeat 60px 11px;
 }
+
+#block-views-course-description-block img{
+height: 85px;
+width: auto;
+}
+
+
 #block-block-4 {
 margin-top:0px;
 height:auto;
@@ -258,9 +316,7 @@ width:32%;
 float:left;
 }
 
-#block-views-information-block .views-row .views-field-created ,#block-views-information-block-1 .views-row .views-field-created{
-display:none;
-}
+
 #block-views-information-block .views-row .views-field-title ,#block-views-information-block-1 .views-row .views-field-title {
 width:64%;
 margin-left:3%;
@@ -288,46 +344,6 @@ float:none;
 margin-left:0px;
 }
 
-#block-views-course-description-block .views-field-field-thumbnail{
-left: 0;
-position: absolute;
-right: 0;
-top: 24%;
-width: auto;
-text-align: center;
-margin:0px !important;
-border:none;
-}
-#block-views-course-description-block img{
-height: 85px;
-width: auto;
-}
-#block-views-course-description-block .views-field-description .field-content{
-float:none;
-width:auto;
-margin-top:40%;
-height:60%;
-}
-#block-views-course-description-block .views-field-nothing-3 {
- width:auto;
-bottom:10%;
-right:0;
-left:0;
-background:none;
-height:auto;
-}
-#block-views-course-description-block .views-field-nothing-3 a {
-background: #ff6707 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
-display:inline-table;
-border-radius: 5px;
-padding:5px 20px;
-}
-
-
-
-#block-views-course-description-block .views-field-description{
-line-height:1.523em;
-}
 #block-views-activity-block{
 width:100%;
 }
@@ -343,6 +359,10 @@ margin:0 auto;
 #block-views-activity-block .views-field-title {
 width:75%;
 }
+#footer li a {
+padding:0px;
+}
+
 #block-block-1{
 width:100%;
 }
@@ -353,6 +373,11 @@ float:none;
 #footer #block-block-1 a{
 float:none;
 }
+
+#block-block-1 li img{
+margin-top:0px !important;
+}
+
 #footer {
 height:auto;
 }
