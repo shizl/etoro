@@ -7,10 +7,7 @@ body,
   height: 100%;
   
 }
-label{
 
-display:block;
-}
 #page-wrapper {
   min-height: 100%;
   min-width: 1000px;
@@ -36,18 +33,18 @@ background-color: #f6f6f6;
 }
 #Right-Sidebar {
 
-width: 28%;
+width:25%;
 float:right;
 position: relative;
 display: inline;
-
+margin-top:14px;
 }
 .sidebar .block {
     border: 1px solid;
-    
+    margin-top: 20px;
 }
 #content {
-width:70%;
+width:72%;
 float:left;
 
 }
