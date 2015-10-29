@@ -86,7 +86,7 @@ function etoro_toaFtd() {
   }elseif(empty($param['toaid'])){
     $data=array("status"=>"0","message"=>t("Requird the toaid"));
   }else{
-     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaid']."'")->fetchField();
+     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
       if(empty($userid) || $userid==""){
          $data=array("status"=>"0","message"=>t("User don't exist"));
       }else{
