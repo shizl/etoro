@@ -61,23 +61,58 @@ function pingan_login_menu() {
     
   );
   
- $items['etoro/ftd_update'] = array(
-    'title' => 'etoro toaFtd',
-    'description' => 'etoro toaFtd',
-    'page callback' => 'etoro_toaFtd',
-    'access callback' => true,
-    
-  );
-   $items['pingan_login/%/register'] = array(
+ $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
     'page arguments' => array(1),
     'page callback' => 'pingan_login_register',
     'access callback' => true,
-    
   );
 
   return $items;
+}
+
+
+
+/**
+* update toaid from etoro
+*/
+function etoro_toaFtd() {
+  $param=$_REQUEST;
+  $data=array();
+//  print_r($param);
+  if(empty($param['token'])  || $param['token']!=md5('etoro_toaftd')){
+     $data=array("status"=>"0","message"=>t("token is not correct"));
+  }elseif(empty($param['toaId'])){
+    $data=array("status"=>"0","message"=>t("Requird the toaId"));
+  }else{
+     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
+      if(empty($userid) || $userid==""){
+         $data=array("status"=>"0","message"=>t("User don't exist"));
+      }else{
+
+        $account=user_load($userid);
+        $edit=array();
+        if(!empty($param['amount'])){
+          $edit['field_deposit_amount']['und'][0]['value']= $param['amount'];
+        }
+        if(!empty($param['date'])){
+          $edit['field_paymentdate']['und'][0]['value']= $param['date'];
+        }
+        if(count($edit)>0){
+           user_save($account, $edit);
+           $data=array("status"=>"1",
+                      "message"=>t("Data update success"),
+                      "toaid"=>$param['toaId'],
+                      "amount": $param['amount'],
+                      "date":$param['date']);
+        }else{
+           $data=array("status"=>"0","message"=>t("Data construction is not correct"));
+        }
+      }     
+  }
+  echo json_encode($data);
+  exit;
 }
 
 /**
@@ -92,43 +127,6 @@ function pingan_login_block_info() {
   );
 
   return $blocks;
-}
-
-/**
-* update toaid from etoro
-*/
-function etoro_toaFtd() {
-  $param=$_POST;
-  $data=array();
-//  print_r($param);
-  if(empty($param['key'])  || $param['key']!=md5('etoro_toaftd')){
-	   $data=array("status"=>"0","message"=>t("Key is not correct"));
-  }elseif(empty($param['toaId'])){
-	  $data=array("status"=>"0","message"=>t("Requird the toaId"));
-  }else{
-	   $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
-          if(empty($userid) || $userid==""){
-			   $data=array("status"=>"0","message"=>t("User don't exist"));
-			  }
-          else{
-      $account=user_load($userid);
-              $edit=array();
-              if(!empty($param['deposit_amount']) ){
-              $edit['field_deposit_amount']['und'][0]['value']= $param['deposit_amount'];
-              }
-              if(!empty($param['payment_date'])){
-              $edit['field_paymentdate']['und'][0]['value']= $param['payment_date'];
-		    }
-		    if(count($edit)>0){
-		    user_save($account, $edit);
-		    $data=array("status"=>"1","message"=>t("Data update success"));
-		}else{
-			$data=array("status"=>"0","message"=>t("Data construction is not correct"));
-			}
-	  }     
-  }
-  echo json_encode($data);
-  exit;
 }
  /**
 * Implements hook_block_view().
