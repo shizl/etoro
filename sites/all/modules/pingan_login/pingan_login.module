@@ -220,7 +220,7 @@ function pingan_login_etoro_register(){
     $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
   }
   if(module_exists('mixpanel')){
-    $values = array('title'=>'Registration - eToro Click','user-toaid'=>$user->field_toaid['und'][0]['value']);
+    $values = array('title'=>'Registration - eToro Click','user-toaid'=>!empty($user->field_toaid['und'][0]['value']) ? $user->field_toaid['und'][0]['value']:'');
     mixpanel_track("etoro_register_click", $values);
   }
   echo '<html><head>
@@ -241,7 +241,7 @@ var registration=new T.RegistrationService.Registration({
 "funnelFromID":12,
 "successRedirect":false,
 "funnelID":12,  
-"overriddenValues":{"toa_id": "'.$user->field_toaid['und'][0]['value'].'",
+"overriddenValues":{"toa_id": "'.(!empty($user->field_toaid['und'][0]['value']) ? $user->field_toaid['und'][0]['value']:'').'",
        "gender": "'.(!empty($user->field_gender['und'][0]['value']) && $user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
        '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
        "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
