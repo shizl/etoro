@@ -123,6 +123,11 @@ display:none;
 #block-views-information-block .views-row .views-field-created ,#block-views-information-block-1 .views-row .views-field-created{
 display:none;
 }
+
+#block-views-course-description-block .views-row{
+background:none;
+}
+
 }
 
 
@@ -209,7 +214,44 @@ margin-right:0px;
 width:70%;
 }
 
+#block-views-course-description-block .views-row .views-field-nothing-2 {
+width:100%;
+padding:0px;
+}
+#block-views-course-description-block .views-row-1 .views-field-nothing-2 {
+background-color:#e26f00;
+background-position: 99% center;
+background-repeat: no-repeat;
+background-image: url("/sites/all/themes/Etoro/images/shang1.png");
+}
+#block-views-course-description-block .views-row-2 .views-field-nothing-2 {
+background-color:#e5b000;
+background-position: 98% center;
+background-repeat: no-repeat;
+background-image: url("/sites/all/themes/Etoro/images/shang1.png");
+}
+#block-views-course-description-block .views-row-3 .views-field-nothing-2 {
+background-color:#84bc3f;
+background-position: 98% center;
+background-repeat: no-repeat;
+background-image: url("/sites/all/themes/Etoro/images/shang1.png");
+}
 
+#block-views-course-description-block .views-field-nothing-2  span{
+display:block;
+overflow:hidden;
+padding:17px 10px;
+margin-right:30px;
+}
+#block-views-course-description-block .views-row-1 .views-field-nothing-2  span{
+background:#f8750e;
+}
+#block-views-course-description-block .views-row-2 .views-field-nothing-2  span{
+background:#f7c33d;
+}
+#block-views-course-description-block .views-row-3 .views-field-nothing-2  span{
+background:#a0d550;
+}
 
 }
 
@@ -221,10 +263,6 @@ width:70%;
 width:100%;
 background:#fff;
 border:none;
-}
-#block-views-course-description-block .views-field-nothing-2 {
-width:100%;
-
 }
 
 #block-views-course-description-block span {
