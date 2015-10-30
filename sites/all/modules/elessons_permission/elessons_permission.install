@@ -73,57 +73,6 @@ $field_name  = 'field_elessn_permission';
     field_create_instance($instance);
   }
 
-$field_name  = 'field_practice_account_date';
-  if (!field_info_field($field_name)) {
-    $field = array(
-      'field_name' => $field_name, 
-      'type' => 'text',
-      'settings' => array(
-
-      ),
-    );
-
-
-    field_create_field($field);
-
-    $instance = array(
-      'field_name' => $field_name, 
-      'entity_type' => 'user', 
-      'label' => 'Practice Account Date', 
-      'bundle' => 'user', 
-      'required' => false,
-      'widget' => array(
-        'type' => 'text_textfield',
-      ), 
-     
-    );
-    field_create_instance($instance);
-  }
-$field_name  = 'field_ftd_date';
-  if (!field_info_field($field_name)) {
-    $field = array(
-      'field_name' => $field_name, 
-      'type' => 'text',
-      'settings' => array(
-
-      ),
-    );
-
-    field_create_field($field);
-
-    $instance = array(
-      'field_name' => $field_name, 
-      'entity_type' => 'user', 
-      'label' => 'FTD Date', 
-      'bundle' => 'user', 
-      'required' => false,
-      'widget' => array(
-        'type' => 'text_textfield',
-      ), 
-      
-    );
-    field_create_instance($instance);
-  }
 }
 
 
@@ -141,20 +90,6 @@ function elessons_permission_uninstall(){
       field_delete_instance($instance);
     }
   }
-  $field_name = 'field_practice_account_date';
-  if (field_info_field($field_name)) {
-    field_delete_field($field_name);
-    if ($instance = field_info_instance('user', $field_name, 'user')) {
-      field_delete_instance($instance);
-    }
-  }
-
-  $field_name = 'field_ftd_date';
-  if (field_info_field($field_name)) {
-    field_delete_field($field_name);
-    if ($instance = field_info_instance('user', $field_name, 'user')) {
-      field_delete_instance($instance);
-    }
-  }
+ 
 
 }

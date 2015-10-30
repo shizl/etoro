@@ -97,7 +97,7 @@ function etoro_toaFtd() {
           $edit['field_deposit_amount']['und'][0]['value']= $param['amount'];
         }
         if(!empty($param['date'])){
-          $edit['field_paymentdate']['und'][0]['value']= $param['date'];
+          $edit['field_ftd_date']['und'][0]['value']= $param['date'];
         }
         if(count($edit)>0){
            user_save($account, $edit);
@@ -152,9 +152,8 @@ function pingan_login_block_view($delta = '') {
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
         $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail.'<br>'.$html;
       }else{
-        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><p class="opa"><a href="/pingan_login/redirect/tohome">'.t('Open practice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
       }
-      
       break;
   }
   return $block;
@@ -367,9 +366,8 @@ function pingan_login_callback(){
     'birthDate'=>(string)$xmlObject->attributes->attribute[6]['value'],
     'cnName'=>(string)$xmlObject->attributes->attribute[7]['value'],
     'customerLevel'=>(string)$xmlObject->attributes->attribute[8]['value'],
-    'toaId'=>(string)$xmlObject->subject,
-    'openid'=>md5('etoro'.(string)$xmlObject->attributes->attribute[1]['value'].'etoro'));
-      $userid=db_query("SELECT `entity_id` FROM `field_data_field_pingan_openid` WHERE `field_pingan_openid_value`='".$userdata['openid']."'")->fetchField();
+    'toaId'=>(string)$xmlObject->subject);
+      $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$userdata['toaId']."'")->fetchField();
           if(empty($userid) || $userid==""){
               $name=!empty($userdata['name']) ? $userdata['name']:$userdata['phone'];
               $account = array(
@@ -383,7 +381,7 @@ function pingan_login_callback(){
               $userReg=user_save(null, $account);
               $account=user_load($userReg->uid);
               $edit=array();
-              $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
+             
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
@@ -413,7 +411,7 @@ function pingan_login_callback(){
           $account=user_load($userid);
           if(count($userdata)>2){
               $edit=array();
-              $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
+              
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
