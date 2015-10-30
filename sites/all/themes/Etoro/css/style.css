@@ -1683,7 +1683,7 @@ border:none;
 .tabs ul.primary li.active{
 
 border-top:solid 2px #e1822a;
-background:url(../images/1.png) no-repeat center 0px;
+background:url(../images/1122.png) no-repeat center 0px;
 }
 .tabs ul.primary li.active a {
  
@@ -2652,12 +2652,12 @@ opacity: 0.9;
 }
 .view-course-details .view-content .views-field-nothing img{
    width: 100%;
-    height: 171px;
+    height: 170px;
 
 }
  .view-course-details .view-content .views-field-nothing .img {
 
-background-color: black;
+
 float:left;
 height:170px;
 width:30%;
@@ -2747,7 +2747,7 @@ body.node-type-course .node .field-name-field-image .field-label{
 body.node-type-course .node .field-name-field-image img{
 width:100%;
 }
->>>>>>> a19b13b065045cd027d7823021004c9e1e522595
+
 
 .page-node-254 .region-content,
 .page-node-255 .region-content{
@@ -2859,6 +2859,31 @@ background-color: #ffffff;
 text-align:center;
 
 }
+.pager li > a, 
+.pager li > span{
+
+display: inline-block;
+    padding: 2px 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius:0px;
+    color: #666666;
+}
+.pager .pager-current{
+
+    display: inline-block !important;
+    padding: 2px 8px !important;
+    background-color: #c5271e;
+    border: 1px solid #c5271e;
+    border-radius: 0px;
+    font-weight: normal;
+    color: #ffffff;
+
+}
+.item-list .pager{
+
+margin-top:55px !important;
+}
 /* -----------------course-list-search ------------------ */
 .sidebar #block-course-outline{
 background:#fff;
@@ -2897,14 +2922,15 @@ body.node-type-course .node .field-name-field-image .field-label{
 }
 body.node-type-course .node .field-name-field-image img{
 width:100%;
+}
 .page-activity .views-row,
 .page-information .views-row{
 
 
-height:130px;
+height:170px;
 overflow:hidden;
-margin-top: 20px;
-border: 1px solid;
+margin-top: 30px;
+
 }
 
 .page-activity .views-field-field-activity-image,
@@ -2922,35 +2948,46 @@ float:left;
 margin: 0px 12px 0px 12px;
 
 }
-.page-activity .views-field-nothing .title,
-.page-information .views-field-nothing .title{
-text-align:center;
 
-}
 .page-activity .views-field-nothing .body a,
 .page-information .views-field-nothing .body a{
 
-float:right;
-margin-right:20px;
+    float:right;
+    margin-top: 35px;
+    font-size: 13px;
+    color: #c5271e;
+
+}
+.page-activity .views-field-nothing .date,
+.page-information .views-field-nothing .date{
+
+font-size:13px;
+color:#666666;
+}
+.page-activity .views-field-nothing .title a,
+.page-information .views-field-nothing .title a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
 
 }
 .page-activity .views-field-field-activity-image,
 .page-information .views-field-field-image{
 
-width:20%;
-height:130px;
-background:orange;
+width:30%;
+height:170px;
+
 }
 .page-activity .views-field-field-activity-image img,
 .page-information .views-field-field-image img{
 
 width:100%;
-height:auto;
+height:170px;
 
 }
 
 .page-activity .views-field-nothing,
 .page-information .views-field-nothing{
-height:130px;
-width:80%;
+height:170px;
+width:70%;
 }
