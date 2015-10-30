@@ -40,7 +40,7 @@ if(!$elessons){
 }
    
 //add field 
-$field_name  = 'field_elessn_permission';
+$field_name  = 'field_permission';
   if (!field_info_field($field_name)) {
     $field = array(
       'field_name' => $field_name, 
@@ -58,7 +58,7 @@ $field_name  = 'field_elessn_permission';
     $instance = array(
       'field_name' => $field_name, 
       'entity_type' => 'node', 
-      'label' => 'Elessn permission', 
+      'label' => 'Permission', 
       'bundle' => 'elesson', 
       'required' => false,
       'widget' => array(
@@ -134,7 +134,7 @@ function elessons_permission_uninstall(){
     taxonomy_vocabulary_delete($elessons->vid);
   }
 
-  $field_name = 'field_elessn_permission';
+  $field_name = 'field_permission';
   if (field_info_field($field_name)) {
     field_delete_field($field_name);
     if ($instance = field_info_instance('node', $field_name, 'elesson')) {
