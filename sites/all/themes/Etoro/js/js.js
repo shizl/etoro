@@ -5,6 +5,9 @@ jQuery(document).ready(function(){
 
 jQuery("#block-views-course-description-block .views-row ").each(function(){
 
+
+ if(jQuery("body").width()>830){
+
      jQuery("#block-views-course-description-block .views-row .views-field-nothing-2").mouseover(function(){
           nid =  jQuery(this).parent().find('.views-field-tid').find('.field-content').text();
           //alert(nid);
@@ -35,6 +38,10 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
 		}	
 
             });
+
+
+
+if(jQuery("body").width()>1150){
                if (nid == "1"){
                    jQuery(this).parent().css({'background': 'url(sites/all/themes/Etoro/images/jiantou0.png) no-repeat 490px 38px'});  
                    jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
@@ -66,9 +73,32 @@ jQuery("#block-views-course-description-block .views-row ").each(function(){
                    jQuery(this).parent().parent().find('.views-row-1').css({'background':'none'});
                    jQuery(this).parent().parent().find('.views-row-2').css({'background':'none'});
                               }
-                
+      }         
 });
        
+}else{
+
+     jQuery("#block-views-course-description-block .views-row .views-field-nothing-2").click(function(){
+
+   	jQuery(this).parent().find('.views-field-description').toggle();
+   	jQuery(this).parent().find('.views-field-field-thumbnail').toggle();
+   	jQuery(this).parent().find('.views-field-nothing-3').toggle();
+
+
+    if(jQuery(this).parent().find('.views-field-description').is(':visible')){
+
+ 	jQuery(this).css({'background-image':'url("/sites/all/themes/Etoro/images/shang1.png")','background-position': '98% center','background-repeat': 'no-repeat'});
+   
+   }else{
+ 	jQuery(this).css({'background-image':'url("/sites/all/themes/Etoro/images/xia1.png")','background-position':'98% center','background-repeat':'no-repeat'});
+   }
+
+
+     });
+
+}
+
+
 });
 
   jQuery("#block-block-4 .information-title .news").click(function(){
