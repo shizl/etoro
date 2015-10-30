@@ -2792,3 +2792,17 @@ padding-top:10px;
 
 border-top:solid 1px #D6D6D6;
 }
+.jcarousel-container  li{
+position:relative;
+}
+.jcarousel-container .views-field-php{
+text-indent: -9999px;
+    display: block;
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    top: 29%;
+    left: 39%;
+
+}
+
