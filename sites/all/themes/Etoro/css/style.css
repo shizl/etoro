@@ -1653,6 +1653,7 @@ margin-top:10px;
 .tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 20px;
+ padding-top: 20px;
 }
 .tabs ul.primary {
   padding: 0 3px;
@@ -1665,30 +1666,40 @@ margin-top:10px;
   display: block;
   float: left; /* LTR */
   vertical-align: bottom;
-  margin: 0 5px 0 0; /* LTR */
+  min-height:50px;
+  width:99px;
+  border-top: solid 1px #999999;
+  border-bottom: solid 1px #e1822a;
+  text-align: center;
+}
+.tabs .primary li:last-child {
+
+width:120px;
+}
+.tabs .primary li:last-child a{
+
+border:none;
+}
+.tabs ul.primary li.active{
+
+border-top:solid 2px #e1822a;;
+
 }
 .tabs ul.primary li.active a {
-  border-bottom: 1px solid #ffffff;
+ 
+  color:#e1822a;
+  border-color:#999999;
 }
 .tabs ul.primary li a {
-  color: #000;
-  background-color: #ededed;
-  height: 1.8em;
-  line-height: 1.9;
-  display: block;
-  font-size: 0.929em;
-  float: left; /* not LTR */
-  padding: 0 10px 3px;
-  margin: 0;
-  text-shadow: 0 1px 0 #fff;
-  -khtml-border-radius-topleft: 6px;
-  -moz-border-radius-topleft: 6px;
-  -webkit-border-top-left-radius: 6px;
-  border-top-left-radius: 6px;
-  -khtml-border-radius-topright: 6px;
-  -moz-border-radius-topright: 6px;
-  -webkit-border-top-right-radius: 6px;
-  border-top-right-radius: 6px;
+  background: #ffffff;
+   border:none;
+    display: block;
+  padding:0px;
+  margin:0px;
+   margin-top: 18px;
+   border-right:1px solid #999999;
+       color: #000000;
+   font-size:13px;
 }
 .tabs ul.primary li.active a {
   background-color: #ffffff;
@@ -1696,6 +1707,8 @@ margin-top:10px;
 .tabs ul.secondary {
   border-bottom: none;
   padding: 0.5em 0;
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
 .tabs ul.secondary li {
   display: block;
@@ -1711,19 +1724,19 @@ margin-top:10px;
 }
 .tabs ul.secondary li a {
   padding: 0.58em 1.6em;
-  border: solid 1px #e1822a;
-    color: #e1822a;
+  border: solid 1px #a0d550;
+    color: #a0d550;
   font-size: 13px;
 }
 .tabs ul.secondary li a.active {
-  background: #e1822a;
+  background: #a0d550;
   border-bottom: none;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 3px;
   color: #ffffff;
-  border: solid 1px #e1822a;
+  border: solid 1px #a0d550;
 }
 ul.action-links {
   list-style: none;
@@ -2877,4 +2890,59 @@ body.node-type-course .node .field-name-field-image .field-label{
 }
 body.node-type-course .node .field-name-field-image img{
 width:100%;
+.page-activity .views-row,
+.page-information .views-row{
+
+
+height:130px;
+overflow:hidden;
+margin-top: 20px;
+border: 1px solid;
+}
+
+.page-activity .views-field-field-activity-image,
+.page-activity .views-field-nothing,
+.page-information .views-field-field-image,
+.page-information .views-field-nothing{
+
+
+float:left;
+
+}
+.page-activity .views-field-nothing .all,
+.page-information .views-field-nothing .all{
+
+margin: 0px 12px 0px 12px;
+
+}
+.page-activity .views-field-nothing .title,
+.page-information .views-field-nothing .title{
+text-align:center;
+
+}
+.page-activity .views-field-nothing .body a,
+.page-information .views-field-nothing .body a{
+
+float:right;
+margin-right:20px;
+
+}
+.page-activity .views-field-field-activity-image,
+.page-information .views-field-field-image{
+
+width:20%;
+height:130px;
+background:orange;
+}
+.page-activity .views-field-field-activity-image img,
+.page-information .views-field-field-image img{
+
+width:100%;
+height:auto;
+
+}
+.page-activity .views-field-nothing,
+.page-information .views-field-nothing{
+height:130px;
+width:80%;
 }
