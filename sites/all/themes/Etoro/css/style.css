@@ -1688,8 +1688,8 @@ border:none;
 }
 .tabs ul.primary li.active{
 
-border-top:solid 2px #e1822a;;
-
+border-top:solid 2px #e1822a;
+background:url(../images/1.png) no-repeat center 0px;
 }
 .tabs ul.primary li.active a {
  
@@ -2638,7 +2638,7 @@ display:none;
 
 border:solid 0px #ffffff;
 overflow: hidden;
-box-shadow: 0px 8px 10px -5px #333;
+
 margin-top:20px;
 cursor: pointer;
 }
@@ -2648,57 +2648,56 @@ opacity: 0.9;
 
 }
 .view-course-details .view-content .views-field-nothing img{
-    width: 70%;
-    height: 90px;
-    margin: 0 auto;
-    display: block;
-    margin-top: 10%;
+   width: 100%;
+    height: 171px;
 
 }
  .view-course-details .view-content .views-field-nothing .img {
 
 background-color: black;
 float:left;
-height:120px;
-width:20%;
+height:170px;
+width:30%;
 }
 
 .view-course-details .view-content .views-field-nothing{
 
 width:100%;
 overflow: hidden;
-height: 120px;
+height: 170px;
 }
 .view-course-details .view-content .views-field-nothing .all{
 
-width:75%;
+width:70%;
 float:left;
 margin-top: 10px;
 
 }
 .view-course-details .view-content .views-field-nothing .all .body{
 
-margin:0px 10px;
-
+margin:0px 18px;
+border-bottom: solid 1px #999999;
 }
 .view-course-details .view-content .views-field-nothing .last{
 
 width:5%;
 height:120px;
 float:right;
+display:none;
 
 background:url(../images/play22.png) no-repeat center  rgb(110, 179, 10);
 }
 .view-course-details .view-content .views-field-nothing .title{
 
 
-text-align:center;
+margin: 0px 18px;
 
 }
 .view-course-details .view-content .views-field-nothing .title a{
 
-font-size:16px;
-color:#000000;
+font-size: 15px;
+    color: #565656;
+    font-weight: bolder;
 }
 .view-course-details .view-content .views-field-nothing-1{
     display:none;
@@ -2775,13 +2774,21 @@ position: absolute;
 right: -21px;
 top: -19px;
 }
+#views-exposed-form-course-details-page .views-submit-button input.value{
+
+display:none;
+
+}
 #views-exposed-form-course-details-page .views-submit-button input{
 
-background:rgb(110, 179, 10);
+background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 border-radius: 0px;
 border: 1px solid rgb(110, 179, 10);
 padding: 4px 0px;
 color:rgb(110, 179, 10);
+width: 35px;
+height: 28px;
+text-indent: 99999px;
 }
 
 #views-exposed-form-course-details-page #edit-combine-wrapper {

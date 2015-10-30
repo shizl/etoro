@@ -154,3 +154,31 @@ function etoro_field__taxonomy_term_reference($variables) {
 
   return $output;
 }
+
+ function etoro_form_alter(&$form, $form_state, $form_id) {
+	if($form['#id'] == 'views-exposed-form-course-details-page') {
+		foreach ($form['field_level_tid']['#options'] as $key => &$option) {
+			if ($key == 'All') {
+				$option = 'Select Level';
+			} else {
+				$option = $option . '';
+			}
+		}
+                foreach ($form['field_topic_tid']['#options'] as $key => &$option) {
+			if ($key == 'All') {
+				$option = 'Select Topic';
+			} else {
+				$option = $option . '';
+			}
+		}
+                 foreach ($form['tid']['#options'] as $key => &$option) {
+			if ($key == 'All') {
+				$option = 'Select Type';
+			} else {
+				$option = $option . '';
+			}
+		}
+                
+	}
+}
+
