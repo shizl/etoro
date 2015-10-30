@@ -421,11 +421,14 @@ function course_outline_list($node) {
 
   $course = course_get_course($node, $user, TRUE);
 
+
+
   // Iterate over objects.
   $workflow = array();
   $prev_obj = NULL;
   $img = NULL;
   foreach ($course->getObjects() as $key => $courseObject) {
+
     $step = array();
     $step['id'] = 'course-object-' . $courseObject->getId();
     $step['image'] = 'misc/menu-collapsed.png';
@@ -465,6 +468,7 @@ function course_outline_list($node) {
       $step['class'][] = 'required';
     }
 
+
     $step['class'][] = drupal_html_class($courseObject->getComponent() . '_' . $courseObject->getModule());
 
     $img = theme('image', array('path' => $step['image']));
@@ -477,6 +481,7 @@ function course_outline_list($node) {
       'class' => $step['class'],
     );
 
+
     // Allow other modules to modify this list item.
     $courseObject->overrideOutlineListItem($item);
 
@@ -485,6 +490,9 @@ function course_outline_list($node) {
 
     // We have to clone it, otherwise $courseObject becomes the next object.
     $prev_obj = clone $courseObject;
+
+
+
   }
 
   if ($course->getTracker()->getOption('complete')) {
@@ -493,7 +501,6 @@ function course_outline_list($node) {
       'id' => 'complete',
     );
   }
-
   $output = '';
   if ($workflow) {
     return theme('course_outline', array('node' => $node, 'items' => $workflow));
