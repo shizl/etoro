@@ -26,8 +26,6 @@ jQuery(window).load(function(){
 	jQuery(".go_etoro").click(function(){
 		document.location.href="/pingan_login/etoro_register?refurl="+document.location.href
 	});
-	
-	
 	jQuery(".go_etoro_account").click(function(){
 		document.location.href="/pingan_login/redirect/toetoro?refurl="+document.location.href
 	});
