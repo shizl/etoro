@@ -141,6 +141,7 @@ function pingan_login_block_view($delta = '') {
       $block['title'] = t('Do You Want to Learn More?');
       
       if($user->uid>0){
+        $account=user_load($user->uid);
          $html='<div class="success_msg">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
           $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" >';
@@ -184,7 +185,7 @@ function pingan_login_redirect($type=""){
     
   }
 
-  echo '<srcript>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com\'').';</script>';
+  echo '<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com\'').'\';</script>';
 }
 /**
   * login page
