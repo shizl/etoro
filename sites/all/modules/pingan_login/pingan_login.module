@@ -184,7 +184,7 @@ function pingan_login_redirect($type=""){
     
   }
 
-  echo '<srcript>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com\'').';</script>';
+  echo '<srcript>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com\'').'\';</script>';
 }
 /**
   * login page
