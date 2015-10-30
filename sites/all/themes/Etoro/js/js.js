@@ -3,6 +3,19 @@
 
 jQuery(document).ready(function(){
 
+
+  jQuery('.jcarousel-container .views-field-php').each(function(){
+
+
+   if(jQuery(this).find('.field-content').text()=='lock'){
+     jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
+   }
+
+  });
+
+
+
+
 jQuery("#block-views-course-description-block .views-row ").each(function(){
 
 
