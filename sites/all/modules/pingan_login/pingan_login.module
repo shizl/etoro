@@ -170,14 +170,16 @@ function pingan_login_redirect($type=""){
       global $base_url;
       $_SESSSION['refurl']=$base_url;
     }
+
     if($type=="toetoro"){
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
                     'source_page_url'=>$_SESSSION['refurl']);
       mixpanel_track("user_etoro_redirect", $values);
-    }else{
-      $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click','username'=>$user->name,
+    }elseif($type=="tohome"){
+      $values = array('title'=>'Local Site - Registration - Skipped eToro',
+                    'username'=>$user->name,
                     'source_page_url'=>$_SESSSION['refurl']);
-      mixpanel_track("etoro_skip_register", $values);
+      mixpanel_track("etoro_register_skip", $values);
     }
     
   }
@@ -236,9 +238,10 @@ function pingan_login_etoro_register(){
   if(module_exists('mixpanel')){
     if(!empty($_REQUEST['refurl'])){
       $_SESSSION['refurl']=$_REQUEST['refurl'];
-      $values = array('title'=>'Local Site - Registration - Skipped eToro','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
-      mixpanel_track("etoro_register_skip", $values);
+      $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
+        'username'=>$user->name,
+        'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_skip_register", $values);
    
     }else{
       global $base_url;
@@ -342,7 +345,7 @@ function pingan_login_etoro_callback(){
   cursor:pointer;
   height:31px;
   }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/tohome\'"></body></html>';
+</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/torefurl\'"></body></html>';
   exit;
 }
 /**
@@ -454,9 +457,9 @@ function pingan_login_callback(){
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
           $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/tohome\'">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/pingan_login/redirect/tohome\'">';
+           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/pingan_login/redirect/torefurl\'">';
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/tohome\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/torefurl\'">';
         }
         $html.='</div>';
         //drupal_goto("/user");
