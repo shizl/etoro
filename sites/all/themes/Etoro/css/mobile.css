@@ -403,6 +403,7 @@ padding:0px;
 
 #block-block-1{
 width:100%;
+border-top: 1px solid #ccc !important;
 }
 #block-block-1 ul li{
 display:inline-table;
