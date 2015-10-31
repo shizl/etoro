@@ -2673,6 +2673,7 @@ margin-top:20px;
 float:left;
 height:170px;
 width:30%;
+overflow: hidden;
 }
 
 .view-course-details .view-content .views-field-nothing{
@@ -3011,7 +3012,7 @@ float:left;
 
 width:30%;
 height:170px;
-
+overflow: hidden;
 }
 .page-activity .views-field-field-activity-image img,
 .page-information .views-field-field-image img{
