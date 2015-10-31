@@ -2645,11 +2645,7 @@ overflow: hidden;
 margin-top:20px;
 cursor: pointer;
 }
-.view-course-details .view-content .views-row :hover {
 
-opacity: 0.9;
-
-}
 .view-course-details .view-content .views-field-nothing img{
    width: 100%;
     height: 170px;
@@ -2673,13 +2669,14 @@ height: 170px;
 
 width:70%;
 float:left;
-margin-top: 10px;
+
 
 }
 .view-course-details .view-content .views-field-nothing .all .body{
 
 margin:0px 18px;
-border-bottom: solid 1px #999999;
+border-bottom: solid 1px #DEDEDE;
+margin-top: 8px;
 }
 .view-course-details .view-content .views-field-nothing .last{
 
@@ -2923,8 +2920,8 @@ body.node-type-course .node .field-name-field-image .field-label{
 body.node-type-course .node .field-name-field-image img{
 width:100%;
 }
-.page-activity .views-row,
-.page-information .views-row{
+.page-activity #content .views-row,
+.page-information #content .views-row{
 
 
 height:170px;
