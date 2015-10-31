@@ -1,6 +1,6 @@
 name = "Pingan Login"
 description = "pingan user login our systerm."
-package = Pingan
+package = eToro Features
 core = 7.x
 configure = admin/config/people/pingan_login
 

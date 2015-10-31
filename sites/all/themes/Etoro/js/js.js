@@ -3,6 +3,19 @@
 
 jQuery(document).ready(function(){
 
+
+  jQuery('.jcarousel-container .views-field-php').each(function(){
+
+
+   if(jQuery(this).find('.field-content').text()=='lock'){
+     jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
+   }
+
+  });
+
+
+
+
 jQuery("#block-views-course-description-block .views-row ").each(function(){
 
 
@@ -87,10 +100,10 @@ if(jQuery("body").width()>1150){
 
     if(jQuery(this).parent().find('.views-field-description').is(':visible')){
 
- 	jQuery(this).css({'background-image':'url("/sites/all/themes/Etoro/images/shang1.png")','background-position': '98% center','background-repeat': 'no-repeat'});
+ 	jQuery(this).css({'background-image':'url("/sites/all/themes/Etoro/images/shang1.png")','background-position': '99% center','background-repeat': 'no-repeat'});
    
    }else{
- 	jQuery(this).css({'background-image':'url("/sites/all/themes/Etoro/images/xia1.png")','background-position':'98% center','background-repeat':'no-repeat'});
+ 	jQuery(this).css({'background-image':'url("/sites/all/themes/Etoro/images/xia1.png")','background-position':'99% center','background-repeat':'no-repeat'});
    }
 
 
