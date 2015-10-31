@@ -1680,6 +1680,10 @@ margin-top:10px;
 
 width:120px;
 }
+.not-logged-in .tabs .primary li:last-child{
+
+width:175px;
+}
 .tabs .primary li:last-child a{
 
 border:none;
@@ -1959,9 +1963,9 @@ textarea.form-textarea,
 select.form-select {
   border: 1px solid #E4E3E3;
 }
- #edit-submitted-qq{
-width:391px;
+ .webform-client-form input{
 
+width:60%;
 }
 input.form-submit:hover,
 input.form-submit:focus {
@@ -2660,7 +2664,7 @@ margin-top:20px;
 
 .view-course-details .view-content .views-field-nothing img{
    width: 100%;
-    height: 170px;
+    height:auto;
 
 }
  .view-course-details .view-content .views-field-nothing .img {
