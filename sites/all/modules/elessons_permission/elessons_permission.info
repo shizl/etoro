@@ -1,4 +1,5 @@
 name = Elessons Permission
+package = eToro Features
 core = 7.x
 description = Create elessons access.
 ; Information added by Drupal.org packaging script on 2015-05-28
