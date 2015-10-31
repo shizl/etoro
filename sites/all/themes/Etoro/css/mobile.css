@@ -258,7 +258,19 @@ background:#a0d550;
 @media (max-width: 481px) {
 
 
+#edit-combine-wrapper{
+     top: 30px;
+     left: 0px;
+}
+#edit-combine-wrapper input.form-text{
 
+width:auto;
+}
+.views-submit-button {
+    
+    top: 11px;
+    left: 54%;
+}
 #block-views-course-description-block .views-field-description{
 width:100%;
 background:#fff;

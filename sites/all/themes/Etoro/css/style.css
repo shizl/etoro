@@ -1317,6 +1317,7 @@ h1#page-title {
   font-family: comic sans ms;
   font-weight:bold;
   color:#666666;
+  margin-top:0px;
 }
 #content h2 {
   margin-bottom: 2px;
@@ -1566,6 +1567,7 @@ ul.links {
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }
+
 .region-right-sidebar #block-pingan-login-pingan-login-box{
 
 width:100%;
@@ -1573,6 +1575,7 @@ float:none;
 box-shadow: 0px 3px 10px -5px #333;
 min-height:248px;
 height:auto;
+margin-top:0px;
 }
 
 #footer ul,
@@ -2651,7 +2654,7 @@ border:solid 0px #ffffff;
 overflow: hidden;
 
 margin-top:20px;
-cursor: pointer;
+
 }
 
 .view-course-details .view-content .views-field-nothing img{
@@ -2699,7 +2702,7 @@ background:url(../images/play22.png) no-repeat center  rgb(110, 179, 10);
 .view-course-details .view-content .views-field-nothing .title{
 
 
-margin: 0px 18px;
+margin: -2px 18px;
 
 }
 .view-course-details .view-content .views-field-nothing .title a{
@@ -2819,7 +2822,7 @@ position: absolute;
 }
  .views-submit-button{
 
-right: -21px;
+right: -8px;
 top: -19px;
 }
 .views-submit-button input.value{
@@ -2838,14 +2841,20 @@ width: 35px;
 height: 28px;
 text-indent: 99999px;
 }
+.views-submit-button input:hover{
 
+background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
+}
  #edit-combine-wrapper {
 
     top: -1px;
     right: 20px;
 
 }
+.views-exposed-form .views-exposed-widget{
 
+padding:0px;
+}
  #edit-field-level-tid-wrapper,
  #edit-field-topic-tid-wrapper,
  #edit-tid-wrapper,
@@ -2982,7 +2991,7 @@ border-bottom: solid 1px #DEDEDE;
 }
 .page-activity .views-field-nothing .title ,
 .page-information .views-field-nothing .title {
-
+margin-top:-2px;
 float:left;
 }
 .page-activity .views-field-nothing .title a,
