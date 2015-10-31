@@ -1955,6 +1955,10 @@ textarea.form-textarea,
 select.form-select {
   border: 1px solid #E4E3E3;
 }
+ #edit-submitted-qq{
+width:391px;
+
+}
 input.form-submit:hover,
 input.form-submit:focus {
   background: #dedede;
@@ -2414,6 +2418,10 @@ textarea.form-textarea,
 select.form-select {
     width: 95%;
 }
+#edit-submitted-qq{
+
+  width:95%;
+}
 #block-views-course-description-block .views-field-description {
     z-index: 2;
     width: 100%;
@@ -2645,11 +2653,7 @@ overflow: hidden;
 margin-top:20px;
 cursor: pointer;
 }
-.view-course-details .view-content .views-row :hover {
 
-opacity: 0.9;
-
-}
 .view-course-details .view-content .views-field-nothing img{
    width: 100%;
     height: 170px;
@@ -2673,13 +2677,15 @@ height: 170px;
 
 width:70%;
 float:left;
-margin-top: 10px;
+
 
 }
 .view-course-details .view-content .views-field-nothing .all .body{
 
 margin:0px 18px;
-border-bottom: solid 1px #999999;
+border-bottom: solid 1px #DEDEDE;
+margin-top: 8px;
+line-height: 23px;
 }
 .view-course-details .view-content .views-field-nothing .last{
 
@@ -2764,7 +2770,7 @@ padding:15px;
 .webform-client-form-255 .form-item label {
 
     font-size: 0.929em;
-    width: 85px;
+    width: 120px;
     font-weight:normal;
     color: #666666;
 }
@@ -2805,23 +2811,23 @@ padding-top:10px;
 border-top:solid 1px #D6D6D6;
 }
 /* -----------------course-list-search  ------------------ */
-#views-exposed-form-course-details-page #edit-combine-wrapper,
-#views-exposed-form-course-details-page .views-submit-button{
+ #edit-combine-wrapper,
+ .views-submit-button{
 
 position: absolute;
 
 }
-#views-exposed-form-course-details-page .views-submit-button{
+ .views-submit-button{
 
 right: -21px;
 top: -19px;
 }
-#views-exposed-form-course-details-page .views-submit-button input.value{
+.views-submit-button input.value{
 
 display:none;
 
 }
-#views-exposed-form-course-details-page .views-submit-button input{
+.views-submit-button input{
 
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 border-radius: 0px;
@@ -2833,28 +2839,29 @@ height: 28px;
 text-indent: 99999px;
 }
 
-#views-exposed-form-course-details-page #edit-combine-wrapper {
+ #edit-combine-wrapper {
 
-top: -1px;
+    top: -1px;
     right: 20px;
 
 }
 
-#views-exposed-form-course-details-page #edit-field-level-tid-wrapper,
-#views-exposed-form-course-details-page #edit-field-topic-tid-wrapper,
-#views-exposed-form-course-details-page #edit-tid-wrapper{
+ #edit-field-level-tid-wrapper,
+ #edit-field-topic-tid-wrapper,
+ #edit-tid-wrapper,
+ #edit-field-categories-tid-wrapper{
 padding: 0px;
 width: 33.3%;
 background:#f6f6f6;
     margin-top: 10px;
     margin-bottom: 15px;
 }
-#views-exposed-form-course-details-page select{
+ select{
 margin: 22px 0px 22px 0px;
 width: 87%;
 background-color: #ffffff;
 }
-#views-exposed-form-course-details-page .form-type-select{
+.form-type-select{
 
 text-align:center;
 
@@ -2923,8 +2930,8 @@ body.node-type-course .node .field-name-field-image .field-label{
 body.node-type-course .node .field-name-field-image img{
 width:100%;
 }
-.page-activity .views-row,
-.page-information .views-row{
+.page-activity #content .views-row,
+.page-information #content .views-row{
 
 
 height:170px;
@@ -2945,7 +2952,7 @@ float:left;
 .page-activity .views-field-nothing .all,
 .page-information .views-field-nothing .all{
 
-margin: 0px 12px 0px 12px;
+margin: 0px 0px 0px 20px;
 
 }
 
@@ -2953,7 +2960,7 @@ margin: 0px 12px 0px 12px;
 .page-information .views-field-nothing .body a{
 
     float:right;
-    margin-top: 35px;
+    margin-top: 50px;
     font-size: 13px;
     color: #c5271e;
 
@@ -2961,8 +2968,22 @@ margin: 0px 12px 0px 12px;
 .page-activity .views-field-nothing .date,
 .page-information .views-field-nothing .date{
 
-font-size:13px;
+
 color:#666666;
+float: right;
+}
+.page-activity .views-field-nothing .body ,
+.page-information .views-field-nothing .body{
+
+clear:both;
+line-height: 23px;
+border-bottom: solid 1px #DEDEDE;
+
+}
+.page-activity .views-field-nothing .title ,
+.page-information .views-field-nothing .title {
+
+float:left;
 }
 .page-activity .views-field-nothing .title a,
 .page-information .views-field-nothing .title a{

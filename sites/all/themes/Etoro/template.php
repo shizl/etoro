@@ -157,6 +157,9 @@ function etoro_field__taxonomy_term_reference($variables) {
 
  function etoro_form_alter(&$form, $form_state, $form_id) {
 	if($form['#id'] == 'views-exposed-form-course-details-page') {
+
+                 global $language;
+                if ($language->language == "en"){
 		foreach ($form['field_level_tid']['#options'] as $key => &$option) {
 			if ($key == 'All') {
 				$option = 'Select Level';
@@ -178,6 +181,37 @@ function etoro_field__taxonomy_term_reference($variables) {
 				$option = $option . '';
 			}
 		}
+
+             }else{
+                    
+               foreach ($form['field_level_tid']['#options'] as $key => &$option) {
+			if ($key == 'All') {
+				$option = '选择等级';
+			} else {
+				$option = $option . '';
+			}
+		}
+                foreach ($form['field_topic_tid']['#options'] as $key => &$option) {
+			if ($key == 'All') {
+				$option = '选择议题';
+			} else {
+				$option = $option . '';
+			}
+		}
+                 foreach ($form['tid']['#options'] as $key => &$option) {
+			if ($key == 'All') {
+				$option = '选择內型';
+			} else {
+				$option = $option . '';
+			}
+		}
+
+
+
+
+
+            }
+
                 
 	}
 }
