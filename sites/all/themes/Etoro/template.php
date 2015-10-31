@@ -200,7 +200,7 @@ function etoro_field__taxonomy_term_reference($variables) {
 		}
                  foreach ($form['tid']['#options'] as $key => &$option) {
 			if ($key == 'All') {
-				$option = '选择內型';
+				$option = '选择类型';
 			} else {
 				$option = $option . '';
 			}
