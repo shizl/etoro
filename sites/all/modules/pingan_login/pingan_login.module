@@ -53,6 +53,13 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
+    $items['etoro/ftd_update'] = array(
+    'title' => 'FTD update',
+    'description' => 'FTD update',
+    'page callback' => 'etoro_toaFtd',
+    'access callback' => true,
+    
+  );
     $items['pingan_login/etoro_callback'] = array(
     'title' => 'etoro Register',
     'description' => 'Pingan Login etoro Register',
