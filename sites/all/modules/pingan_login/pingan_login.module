@@ -178,6 +178,12 @@ function pingan_login_redirect($type=""){
       global $base_url;
       $_SESSSION['refurl']=$base_url;
     }
+    if(!empty($_GET['refurl'])){
+      $_SESSSION['refurl']=$_GET['refurl'];
+      $goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com').'\';</script>';
+    }else{
+       $goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com').'\';</script>';
+    }
 
     if($type=="toetoro"){
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
@@ -192,7 +198,7 @@ function pingan_login_redirect($type=""){
     
   }
 
-  echo '<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com\'').'\';</script>';
+  echo $goUrl;
 }
 /**
   * login page
