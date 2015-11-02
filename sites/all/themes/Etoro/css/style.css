@@ -578,6 +578,12 @@ font-weight:normal;
 #main-menu-links li a.active {
   border-bottom: none;
 }
+
+#main-menu-links .view-menu-category .views-field-name a:hover,
+#main-menu-links .view-menu-category .views-field-name a.active{
+background:none;
+}
+
 .featured #main-menu-links li a:active,
 .featured #main-menu-links li a.active {
   background: #f0f0f0;

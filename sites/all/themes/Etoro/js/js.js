@@ -222,12 +222,22 @@ if(item_height-16 < items || item_height == items ){
 
 jQuery('#block-course-outline #prve').click(function(){
  
+   h = jQuery('#block-course-outline .item:eq(0)').css("marginTop").replace('px', '');
+
+   if(h<1){
    top += 113;
    jQuery('#block-course-outline .item:eq(0)').css({'margin-top':top+'px'});
+
+    }
+    
 
  });
 
 jQuery('#block-course-outline #next').click(function(){
+
+   h = jQuery('#block-course-outline .item:eq(0)').css("marginTop").replace('px', '');
+
+
 top  -= 113;
    jQuery('#block-course-outline .item:eq(0)').css({'margin-top':top+'px'});
 
