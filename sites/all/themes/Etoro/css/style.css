@@ -2589,14 +2589,9 @@ border-bottom:none;
 }
 
 #main-menu-links .view-menu-category  .views-field-name a:hover{
-color:#666;
+color:#808080;
 background:#fff;
 }
-#main-menu-links .view-menu-category  .views-field-name a.active{
-color:#666;
-background:#fff;
-}
-
 
 #main-menu-links .view-menu-category .views-field-field-thumbnail{
 position: absolute;
@@ -2889,7 +2884,15 @@ margin-top:55px !important;
 .sidebar #block-course-outline{
 background:#fff;
 border:none;
+
 }
+
+
+#block-course-outline #items{
+height:549px;
+overflow:hidden;
+}
+
 #block-course-outline  h2{
 display:none;
 }
@@ -2898,7 +2901,10 @@ overflow:hidden;
 margin-bottom:15px;
 padding-bottom:15px;
 border-bottom:1px solid #ccc;
+height:98px;
 }
+
+
 
 #block-course-outline .item img{
 width:120px;
@@ -3020,4 +3026,6 @@ text-indent: -9999px;
     left: 39%;
 
 }
+
+
 
