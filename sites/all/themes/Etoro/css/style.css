@@ -1317,6 +1317,7 @@ h1#page-title {
   font-family: comic sans ms;
   font-weight:bold;
   color:#666666;
+  margin-top:0px;
 }
 #content h2 {
   margin-bottom: 2px;
@@ -1566,6 +1567,7 @@ ul.links {
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }
+
 .region-right-sidebar #block-pingan-login-pingan-login-box{
 
 width:100%;
@@ -1573,6 +1575,7 @@ float:none;
 box-shadow: 0px 3px 10px -5px #333;
 min-height:248px;
 height:auto;
+margin-top:0px;
 }
 
 #footer ul,
@@ -1653,6 +1656,7 @@ margin-top:10px;
 .tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 20px;
+ padding-top: 20px;
 }
 .tabs ul.primary {
   padding: 0 3px;
@@ -1660,35 +1664,50 @@ margin-top:10px;
   overflow: hidden;
   border: none;
   background: transparent url(../images/tabs-border.png) repeat-x left bottom;
+  border-top: solid 1px #999999;
+  border-bottom: solid 1px #e1822a;
 }
 .tabs ul.primary li {
   display: block;
   float: left; /* LTR */
   vertical-align: bottom;
-  margin: 0 5px 0 0; /* LTR */
+  min-height:50px;
+  width:99px;
+  
+  text-align: center;
+}
+.tabs .primary li:last-child {
+
+width:120px;
+}
+.not-logged-in .tabs .primary li:last-child{
+
+width:175px;
+}
+.tabs .primary li:last-child a{
+
+border:none;
+}
+.tabs ul.primary li.active{
+
+border-top:solid 1px #e1822a;
+background:url(../images/1122.png) no-repeat center 0px;
 }
 .tabs ul.primary li.active a {
-  border-bottom: 1px solid #ffffff;
+ 
+  color:#e1822a;
+  border-color:#999999;
 }
 .tabs ul.primary li a {
-  color: #000;
-  background-color: #ededed;
-  height: 1.8em;
-  line-height: 1.9;
-  display: block;
-  font-size: 0.929em;
-  float: left; /* not LTR */
-  padding: 0 10px 3px;
-  margin: 0;
-  text-shadow: 0 1px 0 #fff;
-  -khtml-border-radius-topleft: 6px;
-  -moz-border-radius-topleft: 6px;
-  -webkit-border-top-left-radius: 6px;
-  border-top-left-radius: 6px;
-  -khtml-border-radius-topright: 6px;
-  -moz-border-radius-topright: 6px;
-  -webkit-border-top-right-radius: 6px;
-  border-top-right-radius: 6px;
+  background: #ffffff;
+   border:none;
+    display: block;
+  padding:0px;
+  margin:0px;
+   margin-top: 18px;
+   border-right:1px solid #999999;
+       color: #000000;
+   font-size:13px;
 }
 .tabs ul.primary li.active a {
   background-color: #ffffff;
@@ -1696,6 +1715,8 @@ margin-top:10px;
 .tabs ul.secondary {
   border-bottom: none;
   padding: 0.5em 0;
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
 .tabs ul.secondary li {
   display: block;
@@ -1711,19 +1732,19 @@ margin-top:10px;
 }
 .tabs ul.secondary li a {
   padding: 0.58em 1.6em;
-  border: solid 1px #e1822a;
-    color: #e1822a;
+  border: solid 1px #a0d550;
+    color: #a0d550;
   font-size: 13px;
 }
 .tabs ul.secondary li a.active {
-  background: #e1822a;
+  background: #a0d550;
   border-bottom: none;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 3px;
   color: #ffffff;
-  border: solid 1px #e1822a;
+  border: solid 1px #a0d550;
 }
 ul.action-links {
   list-style: none;
@@ -1941,6 +1962,10 @@ input.form-text,
 textarea.form-textarea,
 select.form-select {
   border: 1px solid #E4E3E3;
+}
+ .webform-client-form input{
+
+width:60%;
 }
 input.form-submit:hover,
 input.form-submit:focus {
@@ -2401,6 +2426,10 @@ textarea.form-textarea,
 select.form-select {
     width: 95%;
 }
+#edit-submitted-qq{
+
+  width:95%;
+}
 #block-views-course-description-block .views-field-description {
     z-index: 2;
     width: 100%;
@@ -2628,67 +2657,65 @@ display:none;
 
 border:solid 0px #ffffff;
 overflow: hidden;
-box-shadow: 0px 8px 10px -5px #333;
+
 margin-top:20px;
-cursor: pointer;
-}
-.view-course-details .view-content .views-row :hover {
-
-opacity: 0.9;
 
 }
+
 .view-course-details .view-content .views-field-nothing img{
-    width: 70%;
-    height: 90px;
-    margin: 0 auto;
-    display: block;
-    margin-top: 10%;
+   width: 100%;
+    height:auto;
 
 }
  .view-course-details .view-content .views-field-nothing .img {
 
-background-color: black;
+
 float:left;
-height:120px;
-width:20%;
+height:170px;
+width:30%;
+overflow: hidden;
 }
 
 .view-course-details .view-content .views-field-nothing{
 
 width:100%;
 overflow: hidden;
-height: 120px;
+height: 170px;
 }
 .view-course-details .view-content .views-field-nothing .all{
 
-width:75%;
+width:70%;
 float:left;
-margin-top: 10px;
+
 
 }
 .view-course-details .view-content .views-field-nothing .all .body{
 
-margin:0px 10px;
-
+margin:0px 18px;
+border-bottom: solid 1px #DEDEDE;
+margin-top: 8px;
+line-height: 23px;
 }
 .view-course-details .view-content .views-field-nothing .last{
 
 width:5%;
 height:120px;
 float:right;
+display:none;
 
 background:url(../images/play22.png) no-repeat center  rgb(110, 179, 10);
 }
 .view-course-details .view-content .views-field-nothing .title{
 
 
-text-align:center;
+margin: -2px 18px;
 
 }
 .view-course-details .view-content .views-field-nothing .title a{
 
-font-size:16px;
-color:#000000;
+font-size: 15px;
+    color: #565656;
+    font-weight: bolder;
 }
 .view-course-details .view-content .views-field-nothing-1{
     display:none;
@@ -2697,7 +2724,6 @@ color:#000000;
     height: 100px;
     background: orange;
 }
-
 .sidebar #block-course-outline{
 background:#fff;
 border:none;
@@ -2737,6 +2763,7 @@ body.node-type-course .node .field-name-field-image img{
 width:100%;
 }
 
+
 .page-node-254 .region-content,
 .page-node-255 .region-content{
 
@@ -2752,7 +2779,7 @@ padding:15px;
 .webform-client-form-255 .form-item label {
 
     font-size: 0.929em;
-    width: 85px;
+    width: 120px;
     font-weight:normal;
     color: #666666;
 }
@@ -2791,6 +2818,214 @@ padding-top:10px;
 .page-user #footer-wrapper{
 
 border-top:solid 1px #D6D6D6;
+}
+/* -----------------course-list-search  ------------------ */
+ #edit-combine-wrapper,
+ .views-submit-button{
+
+position: absolute;
+
+}
+ .views-submit-button{
+
+right: -8px;
+top: -19px;
+}
+.views-submit-button input.value{
+
+display:none;
+
+}
+.views-submit-button input{
+
+background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
+border-radius: 0px;
+border: 1px solid rgb(110, 179, 10);
+padding: 4px 0px;
+color:rgb(110, 179, 10);
+width: 35px;
+height: 28px;
+text-indent: 99999px;
+}
+.views-submit-button input:hover{
+
+background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
+}
+ #edit-combine-wrapper {
+
+    top: -1px;
+    right: 20px;
+
+}
+.views-exposed-form .views-exposed-widget{
+
+padding:0px;
+}
+ #edit-field-level-tid-wrapper,
+ #edit-field-topic-tid-wrapper,
+ #edit-tid-wrapper,
+ #edit-field-categories-tid-wrapper{
+padding: 0px;
+width: 33.3%;
+background:#f6f6f6;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+ select{
+margin: 22px 0px 22px 0px;
+width: 87%;
+background-color: #ffffff;
+}
+.form-type-select{
+
+text-align:center;
+
+}
+.pager li > a, 
+.pager li > span{
+
+display: inline-block;
+    padding: 2px 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius:0px;
+    color: #666666;
+}
+.pager .pager-current{
+
+    display: inline-block !important;
+    padding: 2px 8px !important;
+    background-color: #c5271e;
+    border: 1px solid #c5271e;
+    border-radius: 0px;
+    font-weight: normal;
+    color: #ffffff;
+
+}
+.item-list .pager{
+
+margin-top:55px !important;
+}
+/* -----------------course-list-search ------------------ */
+.sidebar #block-course-outline{
+background:#fff;
+border:none;
+}
+#block-course-outline  h2{
+display:none;
+}
+#block-course-outline .item{
+overflow:hidden;
+margin-bottom:15px;
+padding-bottom:15px;
+border-bottom:1px solid #ccc;
+}
+
+#block-course-outline .item img{
+width:120px;
+height:auto;
+float:left;
+margin-right:10px;
+}
+#block-course-outline .item .title{
+color:#666;
+ font-size:14px;
+}
+#block-course-outline .item .title a{
+
+ color:#666;
+}
+#block-course-outline .item:last-child{
+border-bottom:none;
+}
+
+body.node-type-course .node .field-name-field-image .field-label{
+ display:none;
+}
+body.node-type-course .node .field-name-field-image img{
+width:100%;
+}
+.page-activity #content .views-row,
+.page-information #content .views-row{
+
+
+height:170px;
+overflow:hidden;
+margin-top: 30px;
+
+}
+
+.page-activity .views-field-field-activity-image,
+.page-activity .views-field-nothing,
+.page-information .views-field-field-image,
+.page-information .views-field-nothing{
+
+
+float:left;
+
+}
+.page-activity .views-field-nothing .all,
+.page-information .views-field-nothing .all{
+
+margin: 0px 0px 0px 20px;
+
+}
+
+.page-activity .views-field-nothing .body a,
+.page-information .views-field-nothing .body a{
+
+    float:right;
+    margin-top: 50px;
+    font-size: 13px;
+    color: #c5271e;
+
+}
+.page-activity .views-field-nothing .date,
+.page-information .views-field-nothing .date{
+
+
+color:#666666;
+float: right;
+}
+.page-activity .views-field-nothing .body ,
+.page-information .views-field-nothing .body{
+
+clear:both;
+line-height: 23px;
+border-bottom: solid 1px #DEDEDE;
+
+}
+.page-activity .views-field-nothing .title ,
+.page-information .views-field-nothing .title {
+margin-top:-2px;
+float:left;
+}
+.page-activity .views-field-nothing .title a,
+.page-information .views-field-nothing .title a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+
+}
+.page-activity .views-field-field-activity-image,
+.page-information .views-field-field-image{
+
+width:30%;
+height:170px;
+overflow: hidden;
+}
+.page-activity .views-field-field-activity-image img,
+.page-information .views-field-field-image img{
+
+width:100%;
+height:auto;
+
+}
+
+.page-activity .views-field-nothing,
+.page-information .views-field-nothing{
+height:170px;
+width:70%;
 }
 .jcarousel-container  li{
 position:relative;

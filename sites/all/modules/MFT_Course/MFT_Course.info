@@ -1,6 +1,6 @@
 name = MFT_Course
 description = Allows to edit content with client-side editors.
-package = User interface
+package = eToro Features
 core = 7.x
 configure = admin/config/people/MFT_Course
 

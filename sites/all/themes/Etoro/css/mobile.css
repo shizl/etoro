@@ -222,7 +222,7 @@ padding:0px;
 background-color:#e26f00;
 background-position: 99% center;
 background-repeat: no-repeat;
-background-image: url("/sites/all/themes/Etoro/images/shang1.png");
+background-image: url("/sites/all/themes/Etoro/images/xia1.png");
 }
 #block-views-course-description-block .views-row-2 .views-field-nothing-2 {
 background-color:#e5b000;
@@ -258,7 +258,19 @@ background:#a0d550;
 @media (max-width: 481px) {
 
 
+#edit-combine-wrapper{
+     top: 30px;
+     left: 0px;
+}
+#edit-combine-wrapper input.form-text{
 
+width:auto;
+}
+.views-submit-button {
+    
+    top: 11px;
+    left: 54%;
+}
 #block-views-course-description-block .views-field-description{
 width:100%;
 background:#fff;

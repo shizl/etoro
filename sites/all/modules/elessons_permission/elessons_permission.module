@@ -7,14 +7,21 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 
     $account = user_load($user->uid);
 
-	 if(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 19){
 
+	 if(!empty($node->field_elessn_permission['und'][0]['tid']) && $node->field_elessn_permission['und'][0]['tid'] == 19){
+	 	$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
+                    'source_page_url'=>current_path());
+      	mixpanel_track("user_lesson_view", $values);
+	 	
 	   return true;
 
 	 }elseif(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 20){
 		
 		if($user->uid !=0){
-		return true;
+			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
+                    'source_page_url'=>current_path());
+      		mixpanel_track("user_lesson_view", $values);
+			return true;
 		}else{
 		drupal_access_denied();
 		exit;
@@ -22,6 +29,9 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
          }elseif(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 21){
 		
    		if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
+   			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
+                    'source_page_url'=>current_path());
+      		mixpanel_track("user_lesson_view", $values);
 			return true;
 		}else{
 		drupal_access_denied();
@@ -31,12 +41,18 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
          }elseif(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 22){
 
    		if(!empty($account->field_ftd_date['und'][0]['value']) && $account->field_ftd_date['und'][0]['value']!=''){
+   			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
+                    'source_page_url'=>current_path());
+      		mixpanel_track("user_lesson_view", $values);
 			return true;
 		}else{
 		drupal_access_denied();
 		exit;		
 		}		
 	 }else{
+	 	$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
+                    'source_page_url'=>current_path());
+      	mixpanel_track("user_lesson_view", $values);
 		return true;
 	 }
 

@@ -16,19 +16,19 @@ function MFT_Course_menu() {
 
  function MFT_Course_node_view($node,$view_mode,$langcode) {
 
+
     if ($node->type=="elesson"){
        global $language;
        if($language->language == "en"){
             if($node->field_type ==null){
                    return;
              }
-            if(isset($node->field_type['und']['0']['taxonomy_term'])){
-                 
-              
-              
-            if($node->field_type['und']['0']['taxonomy_term']->name =="eVideo"){
+
+            if(isset($node->field_type['und']['0']['tid'])){
+             $term = taxonomy_term_load($node->field_type['und']['0']['tid']);   
+            if($term->name =="eVideo"){
                    if($node->field_course_id == null || $node->field_lesson_id == null){
-                               return;
+                      return;
                     }else{
                    $courseid = $node->field_course_id['und']['0']['value'];
                    $lessonid = $node->field_lesson_id['und']['0']['value'];
@@ -51,8 +51,9 @@ function MFT_Course_menu() {
                  }
            }
          }
-              if(isset($node->field_type['und']['0']['taxonomy_term'])){
-              if($node->field_type['und']['0']['taxonomy_term']->name =="eBook"){
+              if(isset($node->field_type['und']['0']['tid'])){
+               $term = taxonomy_term_load($node->field_type['und']['0']['tid']); 
+              if($term->name =="ebook"){
                 //echo '<pre>';
                 //print_r($node->field_book_id); exit; 
                 if($node->field_course_id == null){
@@ -77,8 +78,9 @@ function MFT_Course_menu() {
               if($node->field_type ==null){
                 return;
               }
-              if(isset($node->field_type['und']['0']['taxonomy_term'])){
-              if($node->field_type['und']['0']['taxonomy_term']->name =="电子视频"){
+              if(isset($node->field_type['und']['0']['tid'])){
+               $term = taxonomy_term_load($node->field_type['und']['0']['tid']); 
+              if($term->name =="电子视频"){
                  if($node->field_course_id == null || $node->field_lesson_id == null){
                                return;
                               }
@@ -98,8 +100,9 @@ function MFT_Course_menu() {
                   }
              }
            }
-           if(isset($node->field_type['und']['0']['taxonomy_term'])){
-            if($node->field_type['und']['0']['taxonomy_term']->name =="电子书"){
+           if(isset($node->field_type['und']['0']['tid'])){
+           $term = taxonomy_term_load($node->field_type['und']['0']['tid']); 
+            if($term->name =="电子书"){
                  
                     if($node->field_course_id ==null){
                                return;

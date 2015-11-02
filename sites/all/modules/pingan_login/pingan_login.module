@@ -53,6 +53,13 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
+    $items['etoro/ftd_update'] = array(
+    'title' => 'FTD update',
+    'description' => 'FTD update',
+    'page callback' => 'etoro_toaFtd',
+    'access callback' => true,
+    
+  );
     $items['pingan_login/etoro_callback'] = array(
     'title' => 'etoro Register',
     'description' => 'Pingan Login etoro Register',
@@ -86,7 +93,7 @@ function etoro_toaFtd() {
   }elseif(empty($param['toaid'])){
     $data=array("status"=>"0","message"=>t("Requird the toaid"));
   }else{
-     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaId']."'")->fetchField();
+     $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$param['toaid']."'")->fetchField();
       if(empty($userid) || $userid==""){
          $data=array("status"=>"0","message"=>t("User don't exist"));
       }else{
@@ -97,7 +104,7 @@ function etoro_toaFtd() {
           $edit['field_deposit_amount']['und'][0]['value']= $param['amount'];
         }
         if(!empty($param['date'])){
-          $edit['field_paymentdate']['und'][0]['value']= $param['date'];
+          $edit['field_ftd_date']['und'][0]['value']= $param['date'];
         }
         if(count($edit)>0){
            user_save($account, $edit);
@@ -141,20 +148,20 @@ function pingan_login_block_view($delta = '') {
       $block['title'] = t('Do You Want to Learn More?');
       
       if($user->uid>0){
+        $account=user_load($user->uid);
          $html='<div class="success_msg">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro_register" value="'.t('Open practice account').'" >';
+          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" >';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick="">';
+           $html.='<input type="button" class=" practice-account" value="'.t('Access Practice Account').'" > <br><p class="opa"><a class="go_etoro_account" href="####">'.t('Make First Time Deposit').'</a></p>';
         }else{
-          $html.='<input type="button" class="go_etoro_account" value="'.t('Go to my practice account').'" >';
+          $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Go to my practice account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
         $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp; '.t('Email').':'.$user->mail.'<br>'.$html;
       }else{
-        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><p class="opa"><a href="/user">'.t('Open practice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
       }
-      
       break;
   }
   return $block;
@@ -171,19 +178,21 @@ function pingan_login_redirect($type=""){
       global $base_url;
       $_SESSSION['refurl']=$base_url;
     }
+
     if($type=="toetoro"){
-      $values = array('title'=>'Local Site - Access Practice Account - Click','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
-      mixpanel_track("etoro_register_practice", $values);
-    }else{
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
                     'source_page_url'=>$_SESSSION['refurl']);
-      mixpanel_track("user_lesson_practice", $values);
+      mixpanel_track("user_etoro_redirect", $values);
+    }elseif($type=="tohome"){
+      $values = array('title'=>'Local Site - Registration - Skipped eToro',
+                    'username'=>$user->name,
+                    'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_register_skip", $values);
     }
     
   }
- 
-  echo '<srcript>'.($type!="toetoro" ? 'window.parent.location.reload();':'window.parent.location.href=\'http://cn.etoro.com\';').'</script>';
+
+  echo '<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com\'').'\';</script>';
 }
 /**
   * login page
@@ -234,22 +243,30 @@ function pingan_login_register($type=""){
   */
 function pingan_login_etoro_register(){
   global $user;
-  if(!empty($_REQUEST['refurl'])){
-    $_SESSSION['refurl']=$_REQUEST['refurl'];
-  }else{
-    global $base_url;
-    $_SESSSION['refurl']=$base_url;
+  if(module_exists('mixpanel')){
+    if(!empty($_REQUEST['refurl'])){
+      $_SESSSION['refurl']=$_REQUEST['refurl'];
+      $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
+        'username'=>$user->name,
+        'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_skip_register", $values);
+   
+    }else{
+      global $base_url;
+      $_SESSSION['refurl']=$base_url;
+
+      $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
+                    'source_page_url'=>$_SESSSION['refurl']);
+      mixpanel_track("etoro_register_click", $values);
+    }
   }
+
   $user=user_load($user->uid);
   $userBirthdate="";
   if(!empty($user->field_date_of_birth['und'][0]['value'])){
     $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
   }
-  if(module_exists('mixpanel')){
-    $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
-    mixpanel_track("etoro_register_click", $values);
-  }
+  
   echo '<html><head>
 <script type="text/javascript" src="../'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
@@ -336,7 +353,7 @@ function pingan_login_etoro_callback(){
   cursor:pointer;
   height:31px;
   }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'pingan_login/redirect/tohome\'"></body></html>';
+</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/torefurl\'"></body></html>';
   exit;
 }
 /**
@@ -360,9 +377,8 @@ function pingan_login_callback(){
     'birthDate'=>(string)$xmlObject->attributes->attribute[6]['value'],
     'cnName'=>(string)$xmlObject->attributes->attribute[7]['value'],
     'customerLevel'=>(string)$xmlObject->attributes->attribute[8]['value'],
-    'toaId'=>(string)$xmlObject->subject,
-    'openid'=>md5('etoro'.(string)$xmlObject->attributes->attribute[1]['value'].'etoro'));
-      $userid=db_query("SELECT `entity_id` FROM `field_data_field_pingan_openid` WHERE `field_pingan_openid_value`='".$userdata['openid']."'")->fetchField();
+    'toaId'=>(string)$xmlObject->subject);
+      $userid=db_query("SELECT `entity_id` FROM `field_data_field_toaid` WHERE `field_toaid_value`='".$userdata['toaId']."'")->fetchField();
           if(empty($userid) || $userid==""){
               $name=!empty($userdata['name']) ? $userdata['name']:$userdata['phone'];
               $account = array(
@@ -376,7 +392,7 @@ function pingan_login_callback(){
               $userReg=user_save(null, $account);
               $account=user_load($userReg->uid);
               $edit=array();
-              $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
+             
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
@@ -406,7 +422,7 @@ function pingan_login_callback(){
           $account=user_load($userid);
           if(count($userdata)>2){
               $edit=array();
-              $edit['field_pingan_openid']['und'][0]['value']=$userdata['openid'];
+              
               $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
               $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
@@ -447,17 +463,17 @@ function pingan_login_callback(){
         }
         $html='<div class="success_msg">';
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="window.parent.location.reload();">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/tohome\'">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="window.parent.location.reload();">';
+           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/pingan_login/redirect/torefurl\'">';
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'pingan_login/redirect/tohome\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/torefurl\'">';
         }
         $html.='</div>';
         //drupal_goto("/user");
 
     }else{
-      $html.='<div class="error_msg">'.t('登陆失败，请联系管理员。<br>错误信息:').$xmlObject->message.' '.$xmlObject->message.'</div>';
+      $html.='<div class="error_msg">'.t('Login failse.<br>error code:').$xmlObject->message.' '.$xmlObject->message.'</div>';
      
     }
     echo '<html><head><style>.go_etoro {

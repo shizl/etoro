@@ -37,7 +37,11 @@ width:25%;
 float:right;
 position: relative;
 display: inline;
-margin-top:14px;
+margin-top: 65px;
+}
+.page-course-list #Right-Sidebar{
+
+margin-top:0px;
 }
 .sidebar .block {
     border: 1px solid;
@@ -46,7 +50,7 @@ margin-top:14px;
 #content {
 width:72%;
 float:left;
-
+position: relative;
 }
 @media (max-width: 1200px){
 #page-wrapper {
