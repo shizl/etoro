@@ -2944,6 +2944,7 @@ body.node-type-course .node .field-name-field-image .field-label{
 }
 body.node-type-course .node .field-name-field-image img{
 width:100%;
+height:auto;
 }
 .page-activity #content .views-row,
 .page-information #content .views-row{
