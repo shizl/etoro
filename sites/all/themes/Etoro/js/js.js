@@ -1,9 +1,5 @@
 
 
-window.onresize = function(){
-window.location.reload();
-}
-
 jQuery(document).ready(function(){
 
 
@@ -201,7 +197,14 @@ jQuery('.reorder').click(function(){
 
 });
 
+jQuery(window).resize(function(){
+    location.href=location.href;
 });
+
+});
+
+
+
 
 
 
