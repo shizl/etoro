@@ -144,6 +144,11 @@ text-align: center;
 margin:0px !important;
 border:none;
 }
+
+#block-views-course-description-block .views-row{
+position: relative;
+}
+
 #block-views-course-description-block img{
 height: 125px;
 width: auto;
@@ -421,6 +426,11 @@ border-top: 1px solid #ccc !important;
 display:inline-table;
 float:none;
 }
+
+#block-block-1 ul li:last-child{
+width:100%;
+}
+
 #footer #block-block-1 a{
 float:none;
 }

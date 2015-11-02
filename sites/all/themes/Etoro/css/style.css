@@ -695,14 +695,19 @@ position:relative;
 /* ------------------- Main ------------------- */
 #block-views-course-description-block {
 margin-bottom: 25px;
+
+}
+
+#block-views-course-description-block .content{
 position: relative;
 }
+
 #block-views-course-description-block .views-field-nothing-3{
     position: absolute;
     right: 14.5%;
     z-index: 4;
     background-color: #ff6707;
-    top: 225%;
+    bottom: 10%;
     width: 14%;
     text-align: center;
     border-radius: 5px;
@@ -825,6 +830,7 @@ font-family:Arial;
     height: 310px;
     position: absolute;
     right: 0px;
+   top:0px;
     border: 2px solid #ffffff;
     border-radius: 10px;
     letter-spacing: 0.5px;
@@ -833,7 +839,7 @@ font-family:Arial;
     background: #ffffff;
 }
 #block-views-course-description-block .views-field-field-thumbnail{
-float: right;
+    float: right;
     margin-top: -15px;
     z-index: 3;
     position: absolute;
@@ -841,11 +847,11 @@ float: right;
     width: 15%;
     border-right: solid 1px  #ffdbc3;
     height:150px;
+    top:27%;
     
 }
 #block-views-course-description-block .views-field-description{
     padding: 8px 25px 0px 25px;
-    margin-top: -90px;
 
 }
 #block-views-course-description-block .views-field-description .field-content{
@@ -855,35 +861,7 @@ height: 65%;
     float: right;
   margin-top: 20px;
 }
-#block-views-course-description-block .views-row-2 .views-field-description
-{
-margin-top: -201px;
-}
-#block-views-course-description-block .views-row-2 .views-field-field-thumbnail{
- margin-top: -126px;
-}
-#block-views-course-description-block .views-row-3 .views-field-description{
-margin-top: -312px;
-}
-#block-views-course-description-block .views-row-3 .views-field-field-thumbnail{
-margin-top: -237px;
-}
-#block-views-course-description-block .views-row-4 .views-field-description
-{
-margin-top: -356px;
-}
-#block-views-course-description-block .views-row-4 .views-field-field-thumbnail{
-margin-top: -330px;
-}
-#block-views-course-description-block .views-row-2 .views-field-nothing-3{
-top: 125%;
-}
-#block-views-course-description-block .views-row-3 .views-field-nothing-3{
-top:25%;
-}
-#block-views-course-description-block .views-row-4 .views-field-nothing-3{
-top: 0;
-}
+
 #block-views-course-description-block .views-row-2 .views-field-field-thumbnail,
 #block-views-course-description-block .views-row-3 .views-field-field-thumbnail,
 #block-views-course-description-block .views-row-4 .views-field-field-thumbnail{
@@ -915,7 +893,7 @@ display:none;
 }
 #block-views-course-description-block .views-row{
 padding: 0px 0px 20px;
-position: relative;
+
 
 }
 #block-views-course-description-block .views-row-1{
@@ -1141,7 +1119,7 @@ position: absolute;
 
    position: absolute;
     right:25px;
-    top: 25px;
+    top: 20px;
     background: url(../images/heisanjiao.png) no-repeat 75px 13px;
     width: 80px;
 }
@@ -1584,6 +1562,11 @@ margin-top:0px;
   margin: 0;
   padding: 0;
 }
+#footer li{
+margin-top:5px;
+}
+
+
 #footer li a {
   float: left; /* LTR */
   padding: 0 12px;
@@ -2593,7 +2576,7 @@ display:block;
 }
 
 
-body.i18n-zh-hans #main-menu-links #main-menu-links .view-menu-category .views-field-name a{
+body.i18n-zh-hans #main-menu-links .view-menu-category .views-field-name a{
 margin-left:31px;
 }
 
