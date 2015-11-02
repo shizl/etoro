@@ -2828,7 +2828,7 @@ padding: 4px 0px;
 color:rgb(110, 179, 10);
 width: 35px;
 height: 28px;
-text-indent: 99999px;
+text-indent: -9999px;
 }
 .views-submit-button input:hover{
 
