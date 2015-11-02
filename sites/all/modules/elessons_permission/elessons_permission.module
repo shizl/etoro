@@ -65,7 +65,7 @@ function elessons_permission_block_view_alter(&$data, $block){
 
   switch ($block->delta) {
     case 'outline':
-       $data['content'] = '<div id="items">'.overrite_outline().'</div><div class="control"><a  href="javascript:" id="prve"><img src="/sites/all/themes/Etoro/images/shang.png" /></a> <a href="javascript:" id="next"><img src="/sites/all/themes/Etoro/images/xia.png" /></a></div>';	
+       $data['content'] = overrite_outline();	
     break;
   }
 
@@ -91,7 +91,12 @@ $node = course_get_context();
     }
   }
 
+ if($item!=''){
+    return '<div id="items">'.$item.'</div><div class="control"><a  href="javascript:" id="prve"><img src="/sites/all/themes/Etoro/images/shang.png" /></a> <a href="javascript:" id="next"><img src="/sites/all/themes/Etoro/images/xia.png" /></a></div>';
+ }else{
+  return $item;
+ }
 
- return $item;
+
 }
 
