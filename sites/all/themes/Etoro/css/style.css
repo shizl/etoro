@@ -2409,6 +2409,10 @@ textarea.form-textarea,
 select.form-select {
     width: 95%;
 }
+#edit-combine-wrapper input.form-text{
+
+width:auto;
+}
 #edit-submitted-qq{
 
   width:95%;
@@ -2803,20 +2807,15 @@ padding-top:10px;
 border-top:solid 1px #D6D6D6;
 }
 /* -----------------course-list-search  ------------------ */
- #edit-combine-wrapper,
- .views-submit-button{
+ 
+.page-information .views-exposed-form #edit-combine-wrapper{
 
-position: absolute;
-
+    margin-left: 20px;
+    margin-top: 23px;
 }
- .views-submit-button{
+.page-information .views-exposed-form .views-exposed-widget .form-submit{
 
-right: -8px;
-top: -19px;
-}
-.views-submit-button input.value{
-
-display:none;
+margin-top: 25px;
 
 }
 .views-submit-button input{
@@ -2834,11 +2833,8 @@ text-indent: -9999px;
 
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
- #edit-combine-wrapper {
-
-    top: -1px;
-    right: 20px;
-
+ .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 2px;
 }
 .views-exposed-form .views-exposed-widget{
 
