@@ -8,6 +8,9 @@ jQuery(window).load(function(){
 
    if(jQuery(this).find('.field-content').text()=='lock'){
      jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
+     jQuery(this).parent().append('<div style="background:rgba(0,0,0,0.3); width:100%;height:85%;position: absolute;top:0px;"></div>');
+
+
    }
 
   });
@@ -215,7 +218,7 @@ jQuery('#block-course-outline .item').each(function(){
 
  items  =  jQuery('#block-course-outline #items').height();
 
-if(parseInt(item_height-16 < items) || parseInt(item_height-16) == items ){
+if(parseInt(item_height)-16 < items || parseInt(item_height)-16 == items ){
   jQuery('#block-course-outline #next').hide();
   jQuery('#block-course-outline #prve').hide();
 }

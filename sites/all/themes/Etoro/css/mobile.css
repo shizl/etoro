@@ -5,24 +5,16 @@ display:none;
 }
 
 #logo {
-width:78%;
+width:100%;
 margin-top:0px;
 margin-bottom:5px;
 }
 #logo img{
 max-width:100%;
 }
-#logo2 {
-width:18%;
-margin-left:4%;
-margin-bottom:5px;
-}
 
 
-#header #logo2 img{
-max-width:100%;
-margin-top:-8px;
-}
+
 
 #header .section{
 height:auto !important;
@@ -61,7 +53,9 @@ background:#f3f4f5;
 margin-top:0px;
 }
 
-
+#main-menu-links{
+text-align:left;
+}
 #main-menu li{
 float:none;
 width:100%;
@@ -78,6 +72,7 @@ color:#666;
 font-weight:normal;
 padding:0px;
 float:none;
+display:inline;
 }
 
 .i18n-zh-hans #main-menu-links a {
@@ -129,7 +124,16 @@ background:none;
 }
 
 }
+@media(max-width: 950px){
+#block-menu-menu-ooter-menu ul{
+text-align:center;
+}
 
+#block-block-1{
+text-align:center;
+}
+
+}
 
 
 
@@ -227,7 +231,7 @@ padding:0px;
 background-color:#e26f00;
 background-position: 99% center;
 background-repeat: no-repeat;
-background-image: url("/sites/all/themes/Etoro/images/xia1.png");
+background-image: url("/sites/all/themes/Etoro/images/shang1.png");
 }
 #block-views-course-description-block .views-row-2 .views-field-nothing-2 {
 background-color:#e5b000;

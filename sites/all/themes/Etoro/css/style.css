@@ -367,7 +367,7 @@ float:left;
 }
 #logo {
   float: left; /* LTR */
-  margin-top: 37px;
+  margin-top: 27px;
 }
 #logo2{
 float:left;
@@ -397,6 +397,12 @@ h1#site-name {
   word-spacing: 0.1em;
  
 }
+
+body.i18n-zh-hans #site-slogan{
+font-size:16px;
+margin-top:3px;
+}
+
 /* Region header blocks. */
 #block-block-3{
 
@@ -544,26 +550,25 @@ margin-top: -3px;
 }
 #main-menu-links {
   font-size: 0.929em;
-  margin: 0;
-  margin-left: -41px
-  
+ margin: 0;
+padding: 0;
+ text-align:center; 
 }
 
 #main-menu-links li {
-  float: left; /* LTR */
   list-style: none;
-   
  position: relative;
+display:inline-table;
 }
 
 #main-menu-links a {
   color: #ffffff;
   font-size: 14px;
   font-weight: bold;
-  float: left; /* LTR */
   line-height: 2.4em;
   padding: 10px 33px 10px 30px;
   text-decoration: none;
+display:block;
 }
 .i18n-zh-hans #main-menu-links a{
 padding: 10px 42px 10px 43px;
@@ -831,7 +836,7 @@ font-family:Arial;
 #block-views-course-description-block .views-field-description{
     z-index: 2;
     width: 48%;
-    height: 310px;
+    height: 301px;
     position: absolute;
     right: 0px;
    top:0px;
@@ -950,7 +955,7 @@ margin-top: 14px;
 #block-views-information-block .views-row-1 .views-field-created,
 #block-views-information-block-1 .views-row-1 .views-field-created{
 float: right;
-    margin-right: 10px;
+    margin-right: 22px;
     margin-top: 18px;
     font-size: 12px;
     color:#999999;
@@ -1489,7 +1494,7 @@ ul.links {
 }
 #footer-columns .block-menu,
 #footer .block {
-  margin: 0;
+
   padding: 0;
   border: none;
 }
@@ -1541,11 +1546,17 @@ ul.links {
 }
 #footer {
   letter-spacing: 0.2px;
-  
+  height:60px;
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }
+#block-block-5{
 
+    background-color: #ffffff;
+    box-shadow: 0px 3px 10px -5px #333;
+    min-height: 248px;
+
+}
 .region-right-sidebar #block-pingan-login-pingan-login-box{
 
 width:100%;
@@ -1589,12 +1600,12 @@ margin-top:5px;
   background-color: rgba(0, 0, 0, 0.15);
 }
 #block-menu-menu-ooter-menu {
-  
+   margin-top:10px;
    float: left;
     width: 50%;
 }
 #block-menu-menu-ooter-menu ul{
-text-align:center;
+text-align:left;
 }
 #block-menu-menu-ooter-menu li{
 display:inline-table;
@@ -1603,7 +1614,8 @@ display:inline-table;
 #block-block-1 {
 float: right;
 width:50%;
-text-align:center;
+text-align:right;
+   margin-top:10px;
 }
 #block-block-1 a{
 color:#999999;
@@ -1638,16 +1650,16 @@ margin-top:10px;
 
 .tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 20px;
- padding-top: 20px;
+ margin-bottom: 20px;
 }
+
 .tabs ul.primary {
   padding: 0 3px;
   margin: 0;
   overflow: hidden;
   border: none;
   background: transparent url(../images/tabs-border.png) repeat-x left bottom;
-  border-top: solid 1px #999999;
+  border-top: solid 1px #dedede;
   border-bottom: solid 1px #e1822a;
 }
 .tabs ul.primary li {
@@ -1673,7 +1685,7 @@ border:none;
 }
 .tabs ul.primary li.active{
 
-border-top:solid 1px #e1822a;
+border-top:solid 2px #e1822a;
 background:url(../images/1122.png) no-repeat center 0px;
 }
 .tabs ul.primary li.active a {
@@ -2558,6 +2570,7 @@ top: 53px;
 z-index: 1000;
 background:#fff;
 width:350px;
+text-align: left;
 }
 
 body.i18n-zh-hans #main-menu-links .view-menu-category{
@@ -2789,9 +2802,10 @@ overflow:hidden;
 background:#c5271e;
 color:#ffffff;
 font-size:18px;
-border-radius:5px;
+border-radius:4px;
 padding: 11px 35px;
-margin-left: 13.5%;
+margin-left: 18.5%;
+width:auto;
 }
 .view-id-transcript{
 
@@ -2884,7 +2898,7 @@ margin-top:55px !important;
 .sidebar #block-course-outline{
 background:#fff;
 border:none;
-
+margin-top: 35px;
 }
 
 
@@ -2895,6 +2909,7 @@ overflow:hidden;
 
 #course-nav {
  list-style:none;
+ overflow: hidden;
 }
 #course-nav li{
  list-style:none;
@@ -3043,6 +3058,7 @@ text-indent: -9999px;
     position: absolute;
     top: 29%;
     left: 39%;
+z-index:1;
 
 }
 
@@ -3101,3 +3117,20 @@ border-top:1px solid #ccc;
 }
 
 }
+
+
+.pages a.page{
+ width:12px !important;
+height:12px !important;
+background:#fff;
+opacity:1 !important;
+margin-left:5px;
+border:2px solid #fff !important;
+}
+.pages a.active{
+background:#d11211;
+ width:14px !important;
+height:14px !important;
+}
+
+

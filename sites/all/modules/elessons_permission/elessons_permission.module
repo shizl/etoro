@@ -64,13 +64,47 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 
 function elessons_permission_block_view_alter(&$data, $block){
 
+if($block->module=='course'){
+
   switch ($block->delta) {
     case 'outline':
        $data['content'] = overrite_outline();	
     break;
+    case 'navigation':
+       $data['content'] = overrite_navigation();
+    break;
   }
+  
+ }
+
 
 }
+
+function overrite_navigation(){
+  
+  global $user;
+  $node = course_get_context();
+  if ($node) {
+    $course = course_get_course($node, $user, TRUE);
+    $links = $course->getNavigation();
+
+    $links['back'] = '<a href="/en/node/'.$node->nid.'">Back to course</a>';
+    $items = array();
+    foreach($links as $key => $value) {
+      $items[] = array(
+        'class' => array('course-nav-' . $key),
+        'data' => $value,
+      );
+    }
+
+    // Add javascript poller to update the next step button.
+    drupal_add_js(drupal_get_path('module', 'course') . '/js/nav.js', array('cache' => FALSE, 'preprocess' => FALSE));
+
+    return theme('item_list', array('items' => $items, 'title' => NULL, 'type' => 'ul', 'attributes' => array('id' => 'course-nav')));
+  }
+  
+}
+
 
 function overrite_outline(){
 
