@@ -397,6 +397,12 @@ h1#site-name {
   word-spacing: 0.1em;
  
 }
+
+body.i18n-zh-hans #site-slogan{
+font-size:16px;
+margin-top:3px;
+}
+
 /* Region header blocks. */
 #block-block-3{
 
@@ -544,26 +550,25 @@ margin-top: -3px;
 }
 #main-menu-links {
   font-size: 0.929em;
-  margin: 0;
-  margin-left: -41px
-  
+ margin: 0;
+padding: 0;
+ text-align:center; 
 }
 
 #main-menu-links li {
-  float: left; /* LTR */
   list-style: none;
-   
  position: relative;
+display:inline-table;
 }
 
 #main-menu-links a {
   color: #ffffff;
   font-size: 14px;
   font-weight: bold;
-  float: left; /* LTR */
   line-height: 2.4em;
   padding: 10px 33px 10px 30px;
   text-decoration: none;
+display:block;
 }
 .i18n-zh-hans #main-menu-links a{
 padding: 10px 42px 10px 43px;
@@ -2555,6 +2560,7 @@ top: 53px;
 z-index: 1000;
 background:#fff;
 width:350px;
+text-align: left;
 }
 
 body.i18n-zh-hans #main-menu-links .view-menu-category{
