@@ -855,7 +855,6 @@ font-family:Arial;
     right: 32%;
     width: 15%;
     border-right: solid 1px  #ffdbc3;
-    height:150px;
     top:27%;
     
 }
@@ -865,7 +864,7 @@ font-family:Arial;
 }
 #block-views-course-description-block .views-field-description .field-content{
 height: 65%;
-    overflow: hidden;
+    overflow: auto;
     width: 60%;
     float: right;
   margin-top: 20px;
@@ -1546,7 +1545,7 @@ ul.links {
 }
 #footer {
   letter-spacing: 0.2px;
-  height:60px;
+  min-height:60px;
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }

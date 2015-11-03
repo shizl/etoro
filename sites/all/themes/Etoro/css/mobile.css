@@ -160,8 +160,8 @@ width: auto;
 #block-views-course-description-block .views-field-description .field-content{
 float:none;
 width:auto;
-margin-top:40%;
-height:60%;
+margin-top:27%;
+height:45%;
 }
 #block-views-course-description-block .views-field-nothing-3 {
  width:auto;
@@ -221,6 +221,15 @@ margin-right:0px;
 
 #block-views-social-trading-block-1 img{
 width:70%;
+}
+
+#block-views-social-trading-block-1 .bg{
+width:70% !important;
+left:15%;
+}
+
+#block-views-social-trading-block-1 .jcarousel-container .views-field-php {
+ left: 45%;
 }
 
 #block-views-course-description-block .views-row .views-field-nothing-2 {
@@ -284,6 +293,11 @@ width:auto;
 width:100%;
 background:#fff;
 border:none;
+}
+
+
+#block-views-course-description-block .views-field-description .field-content{
+margin-top:35%;
 }
 
 #block-views-course-description-block span {
@@ -407,6 +421,7 @@ width:100%;
 }
 #block-pingan-login-pingan-login-box {
 width:100%;
+margin-bottom:30px;
 }
 
 #block-views-activity-block .views-field-view-node a {
@@ -471,3 +486,13 @@ background-image:none;
 background-image:none;
 }
 }
+
+@media (max-width: 321px) {
+#block-views-course-description-block .views-field-description .field-content{
+margin-top:40%;
+height:50%;
+}
+
+
+}
+
