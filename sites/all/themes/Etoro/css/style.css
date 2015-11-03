@@ -1768,6 +1768,11 @@ div.messages {
 
 .breadcrumb {
   font-size: 0.929em;
+  padding: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color:#ffffff;
+    border-radius: 0px;
 }
 
 /* -------------- User Profile   -------------- */
@@ -2812,12 +2817,12 @@ border-top:solid 1px #D6D6D6;
  
 .page-information .views-exposed-form #edit-combine-wrapper{
 
-    margin-left: 20px;
-    margin-top: 23px;
+    margin-left: 0px;
+    margin-top: 4px;
 }
 .page-information .views-exposed-form .views-exposed-widget .form-submit{
 
-margin-top: 25px;
+margin-top: 26px;
 
 }
 .views-submit-button input{
@@ -2836,11 +2841,18 @@ text-indent: -9999px;
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
  .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 2px;
+    margin-top: 22px;
+    margin-left: -43px;
 }
 .views-exposed-form .views-exposed-widget{
 
 padding:0px;
+background:#f6f6f6;
+}
+.views-exposed-form .views-exposed-widget .form-item-combine{
+
+padding: 20px 40px 20px 20px;
+
 }
  #edit-field-level-tid-wrapper,
  #edit-field-topic-tid-wrapper,
