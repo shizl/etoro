@@ -724,7 +724,6 @@ position: relative;
     font-size: 15px;
     margin-top: 7px;
     display: block;
-    background: url(../images/sanjiao.png) no-repeat 122px 8px;
 }
 #block-views-course-description-block h2{
 
@@ -819,7 +818,6 @@ display: block;
     border: solid 2px;
     margin-top: 10px;
     font-size: 14px;
-    background:url(../images/sanjiao.png) no-repeat 70px 11px;
 font-family:Arial;
 
 }
@@ -1115,10 +1113,8 @@ font-size:12px;
 .i18n-zh-hans #block-views-activity-block .views-field-nothing-1{
 
 position: absolute;
-    right: 8px;
+    right: 30px;
     top: 29px;
-    background: url(../images/heisanjiao.png) no-repeat 52px 12px;
-    width: 80px;
 
 }
 #block-views-activity-block .views-field-nothing-1{
@@ -1126,8 +1122,6 @@ position: absolute;
    position: absolute;
     right:25px;
     top: 20px;
-    background: url(../images/heisanjiao.png) no-repeat 75px 13px;
-    width: 80px;
 }
 #block-views-activity-block .views-field-type-1 span{
 font-size: 20px;
@@ -3036,6 +3030,11 @@ text-indent: -9999px;
     left: 39%;
 
 }
+
+.course-bottom {
+width:100% !important;
+}
+
 
 
 

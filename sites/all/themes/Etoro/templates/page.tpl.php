@@ -114,7 +114,17 @@
 
   </div></div> <!-- /#main, /#main-wrapper -->
 
- <div id="content-bottom"><div class="section clearfix"><?php print render($page['content-bottom']); ?></div> </div>
+ <div id="content-bottom"><div class="section clearfix">
+<?php print render($page['content-bottom']); ?>
+
+<?php  $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box') ; ?>
+<div id="block-pingan-login-pingan-login-box" class="course-bottom">
+<h2><?php print render($block['title']); ?></h2>
+<?php print render($block['content']); ?> 
+</div>
+
+</div>
+</div>
 
   <div id="footer-wrapper"><div class="section">
 
