@@ -168,7 +168,7 @@ background:none;
 height:auto;
 }
 #block-views-course-description-block .views-field-nothing-3 a {
-background: #ff6707 url("../images/sanjiao.png") no-repeat scroll 110px 12px;
+background: #ff6707;
 display:inline-table;
 border-radius: 5px;
 padding:5px 20px;
@@ -314,7 +314,6 @@ padding:0px;
 #block-views-course-description-block .views-field-nothing-2 .enter a{
 padding:4px 20px;
  margin-top: 5px;
- background: url(../images/sanjiao.png) no-repeat 60px 11px;
 }
 
 #block-views-course-description-block img{
