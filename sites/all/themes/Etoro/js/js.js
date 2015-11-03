@@ -215,7 +215,7 @@ jQuery('#block-course-outline .item').each(function(){
 
  items  =  jQuery('#block-course-outline #items').height();
 
-if(parseInt(item_height-16 < items) || parseInt(item_height-16) == items ){
+if(parseInt(item_height)-16 < items || parseInt(item_height)-16 == items ){
   jQuery('#block-course-outline #next').hide();
   jQuery('#block-course-outline #prve').hide();
 }
