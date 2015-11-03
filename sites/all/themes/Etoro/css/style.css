@@ -831,7 +831,7 @@ font-family:Arial;
 #block-views-course-description-block .views-field-description{
     z-index: 2;
     width: 48%;
-    height: 310px;
+    height: 301px;
     position: absolute;
     right: 0px;
    top:0px;
@@ -3049,6 +3049,7 @@ text-indent: -9999px;
     position: absolute;
     top: 29%;
     left: 39%;
+z-index:1;
 
 }
 
