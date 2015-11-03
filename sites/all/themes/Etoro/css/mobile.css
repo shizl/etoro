@@ -129,7 +129,16 @@ background:none;
 }
 
 }
+@media(max-width: 950px){
+#block-menu-menu-ooter-menu ul{
+text-align:center;
+}
 
+#block-block-1{
+text-align:center;
+}
+
+}
 
 
 
