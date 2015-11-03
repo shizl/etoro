@@ -578,6 +578,12 @@ font-weight:normal;
 #main-menu-links li a.active {
   border-bottom: none;
 }
+
+#main-menu-links .view-menu-category .views-field-name a:hover,
+#main-menu-links .view-menu-category .views-field-name a.active{
+background:none;
+}
+
 .featured #main-menu-links li a:active,
 .featured #main-menu-links li a.active {
   background: #f0f0f0;
@@ -2409,6 +2415,10 @@ textarea.form-textarea,
 select.form-select {
     width: 95%;
 }
+#edit-combine-wrapper input.form-text{
+
+width:auto;
+}
 #edit-submitted-qq{
 
   width:95%;
@@ -2585,14 +2595,9 @@ border-bottom:none;
 }
 
 #main-menu-links .view-menu-category  .views-field-name a:hover{
-color:#666;
+color:#808080;
 background:#fff;
 }
-#main-menu-links .view-menu-category  .views-field-name a.active{
-color:#666;
-background:#fff;
-}
-
 
 #main-menu-links .view-menu-category .views-field-field-thumbnail{
 position: absolute;
@@ -2803,20 +2808,15 @@ padding-top:10px;
 border-top:solid 1px #D6D6D6;
 }
 /* -----------------course-list-search  ------------------ */
- #edit-combine-wrapper,
- .views-submit-button{
+ 
+.page-information .views-exposed-form #edit-combine-wrapper{
 
-position: absolute;
-
+    margin-left: 20px;
+    margin-top: 23px;
 }
- .views-submit-button{
+.page-information .views-exposed-form .views-exposed-widget .form-submit{
 
-right: -8px;
-top: -19px;
-}
-.views-submit-button input.value{
-
-display:none;
+margin-top: 25px;
 
 }
 .views-submit-button input{
@@ -2828,17 +2828,14 @@ padding: 4px 0px;
 color:rgb(110, 179, 10);
 width: 35px;
 height: 28px;
-text-indent: 99999px;
+text-indent: -9999px;
 }
 .views-submit-button input:hover{
 
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
- #edit-combine-wrapper {
-
-    top: -1px;
-    right: 20px;
-
+ .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 2px;
 }
 .views-exposed-form .views-exposed-widget{
 
@@ -2851,7 +2848,7 @@ padding:0px;
 padding: 0px;
 width: 33.3%;
 background:#f6f6f6;
-    margin-top: 10px;
+    margin-top: 4px;
     margin-bottom: 15px;
 }
  select{
@@ -2893,7 +2890,15 @@ margin-top:55px !important;
 .sidebar #block-course-outline{
 background:#fff;
 border:none;
+
 }
+
+
+#block-course-outline #items{
+height:549px;
+overflow:hidden;
+}
+
 #block-course-outline  h2{
 display:none;
 }
@@ -2902,7 +2907,10 @@ overflow:hidden;
 margin-bottom:15px;
 padding-bottom:15px;
 border-bottom:1px solid #ccc;
+height:98px;
 }
+
+
 
 #block-course-outline .item img{
 width:120px;
@@ -3024,4 +3032,6 @@ text-indent: -9999px;
     left: 39%;
 
 }
+
+
 

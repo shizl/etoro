@@ -76,22 +76,27 @@ function overrite_outline(){
 $node = course_get_context();
   $item = ''; 
   if(isset($node->course['objects'])){
-
+      $num = 1;
     foreach($node->course['objects'] as $courseObject ){
       $lessonid = $courseObject->instance;
       $lesson = node_load($lessonid);
-       $cid = $courseObject->coid;
+     //$cid = $courseObject->coid;
+       $title = '<div class="title">Course '.$num.': <a href="/node/'.$lesson->nid.'">'.$lesson->title.'</a></div>';
 
-       $title = '<div class="title">Course '.$cid.': <a href="/node/'.$lesson->nid.'">'.$lesson->title.'</a></div>';
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
 	$item .= '<div class="item">'.$img.$title.'</div>';
-
+      $num++;
     }
   }
 
+ if($item!=''){
+    return '<div id="items">'.$item.'</div><div class="control"><a  href="javascript:" id="prve"><img src="/sites/all/themes/Etoro/images/shang.png" /></a> <a href="javascript:" id="next"><img src="/sites/all/themes/Etoro/images/xia.png" /></a></div>';
+ }else{
+  return $item;
+ }
 
- return $item;
+
 }
 
