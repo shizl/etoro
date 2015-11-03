@@ -8,7 +8,6 @@
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
     <?php endif; ?>
-   <div id="logo2"><img src="/sites/all/themes/Etoro/images/toro.png"></div>
     
  <?php if ($site_name || $site_slogan): ?>
       <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
