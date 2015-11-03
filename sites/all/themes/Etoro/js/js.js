@@ -215,7 +215,7 @@ jQuery('#block-course-outline .item').each(function(){
 
  items  =  jQuery('#block-course-outline #items').height();
 
-if(item_height-16 < items || item_height == items ){
+if(parseInt(item_height-16 < items) || parseInt(item_height-16) == items ){
   jQuery('#block-course-outline #next').hide();
   jQuery('#block-course-outline #prve').hide();
 }
@@ -223,23 +223,26 @@ if(item_height-16 < items || item_height == items ){
 jQuery('#block-course-outline #prve').click(function(){
  
    h = jQuery('#block-course-outline .item:eq(0)').css("marginTop").replace('px', '');
-
-   if(h<1){
+  
+   if(h<0){
    top += 113;
    jQuery('#block-course-outline .item:eq(0)').css({'margin-top':top+'px'});
 
     }
-    
-
  });
 
 jQuery('#block-course-outline #next').click(function(){
 
-   h = jQuery('#block-course-outline .item:eq(0)').css("marginTop").replace('px', '');
+h = jQuery('#block-course-outline .item:eq(0)').css("marginTop").replace('px', '');
 
+
+if(parseInt(item_height-16) + parseInt(h) > items ){
 
 top  -= 113;
    jQuery('#block-course-outline .item:eq(0)').css({'margin-top':top+'px'});
+
+}
+
 
  });
 
