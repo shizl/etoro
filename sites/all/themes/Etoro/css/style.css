@@ -1638,8 +1638,11 @@ margin-top:10px;
 
 .tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 20px;
  padding-top: 20px;
+}
+body.page-node-254 .tabs,
+body.page-node-255 .tabs{
+margin-bottom:20px;
 }
 .tabs ul.primary {
   padding: 0 3px;
