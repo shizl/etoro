@@ -276,13 +276,20 @@ background:#a0d550;
 @media (max-width: 481px) {
 
 
-#edit-combine-wrapper{
-     top: 30px;
-     left: 0px;
+.page-information .views-exposed-form #edit-combine-wrapper{
+     
+    margin-left: 0px;
 }
 #edit-combine-wrapper input.form-text{
 
-width:auto;
+width:100%;
+}
+#edit-field-level-tid-wrapper, #edit-field-topic-tid-wrapper, #edit-tid-wrapper, #edit-field-categories-tid-wrapper {
+    padding: 0px;
+    width: 50%;
+    background: #f6f6f6;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 .views-submit-button {
     

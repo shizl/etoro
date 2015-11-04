@@ -43,7 +43,7 @@ function MFT_Course_settings_form($form, &$form_state) {
 function MFT_Course_settings_form_submit($form, &$form_state) {
   variable_set('evideo', $form_state['values']['evideo']);
   variable_set('ebook', $form_state['values']['ebook']);
-  variable_set('language', $form_state['values']['language']);
+  variable_set('calender', $form_state['values']['calender']);
   drupal_set_message(t('Settings saved.'));
 }
 

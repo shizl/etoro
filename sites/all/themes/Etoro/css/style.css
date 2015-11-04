@@ -1549,7 +1549,13 @@ ul.links {
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }
+#block-block-5{
 
+    background-color: #ffffff;
+    box-shadow: 0px 3px 10px -5px #333;
+    min-height: 248px;
+
+}
 .region-right-sidebar #block-pingan-login-pingan-login-box{
 
 width:100%;
@@ -1643,16 +1649,16 @@ margin-top:10px;
 
 .tabs {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 20px;
- padding-top: 20px;
+ margin-bottom: 20px;
 }
+
 .tabs ul.primary {
   padding: 0 3px;
   margin: 0;
   overflow: hidden;
   border: none;
   background: transparent url(../images/tabs-border.png) repeat-x left bottom;
-  border-top: solid 1px #999999;
+  border-top: solid 1px #dedede;
   border-bottom: solid 1px #e1822a;
 }
 .tabs ul.primary li {
@@ -1678,7 +1684,7 @@ border:none;
 }
 .tabs ul.primary li.active{
 
-border-top:solid 1px #e1822a;
+border-top:solid 2px #e1822a;
 background:url(../images/1122.png) no-repeat center 0px;
 }
 .tabs ul.primary li.active a {
@@ -2414,6 +2420,10 @@ textarea.form-textarea,
 select.form-select {
     width: 95%;
 }
+#edit-combine-wrapper input.form-text{
+
+width:auto;
+}
 #edit-submitted-qq{
 
   width:95%;
@@ -2791,9 +2801,10 @@ overflow:hidden;
 background:#c5271e;
 color:#ffffff;
 font-size:18px;
-border-radius:5px;
+border-radius:4px;
 padding: 11px 35px;
-margin-left: 13.5%;
+margin-left: 18.5%;
+width:auto;
 }
 .view-id-transcript{
 
@@ -2804,20 +2815,15 @@ padding-top:10px;
 border-top:solid 1px #D6D6D6;
 }
 /* -----------------course-list-search  ------------------ */
- #edit-combine-wrapper,
- .views-submit-button{
+ 
+.page-information .views-exposed-form #edit-combine-wrapper{
 
-position: absolute;
-
+    margin-left: 20px;
+    margin-top: 23px;
 }
- .views-submit-button{
+.page-information .views-exposed-form .views-exposed-widget .form-submit{
 
-right: -8px;
-top: -19px;
-}
-.views-submit-button input.value{
-
-display:none;
+margin-top: 25px;
 
 }
 .views-submit-button input{
@@ -2835,11 +2841,8 @@ text-indent: -9999px;
 
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
- #edit-combine-wrapper {
-
-    top: -1px;
-    right: 20px;
-
+ .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 2px;
 }
 .views-exposed-form .views-exposed-widget{
 
@@ -2852,7 +2855,7 @@ padding:0px;
 padding: 0px;
 width: 33.3%;
 background:#f6f6f6;
-    margin-top: 10px;
+    margin-top: 4px;
     margin-bottom: 15px;
 }
  select{
@@ -2894,7 +2897,7 @@ margin-top:55px !important;
 .sidebar #block-course-outline{
 background:#fff;
 border:none;
-
+margin-top: 35px;
 }
 
 
@@ -2942,11 +2945,14 @@ height:auto;
 float:left;
 margin-right:10px;
 }
-#block-course-outline .item .title{
+#block-course-outline .item a{
 color:#666;
  font-size:14px;
 }
-
+#block-course-outline .item .time{
+color:#808080;
+font-size:12px;
+}
 #block-course-outline .item a.active .title{
 color:#c5271e;
 }
