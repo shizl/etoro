@@ -85,7 +85,6 @@ margin-top: 20px;
 font-size: 15px
 }
 #block-pingan-login-pingan-login-box .practice-account{
-text-decoration: underline;
 color:#c5271e;
 }
 #block-pingan-login-pingan-login-box .gmpa{
@@ -97,15 +96,16 @@ margin-top:19px;
     height: 19px;
     border-bottom: solid 1px #ccc;
 }
-#block-pingan-login-pingan-login-box .gmpa .practice-account{
+#block-pingan-login-pingan-login-box .practice-account{
     width: 83%;
     background: #c5271e;
     display: block;
-   
+    height:20px; 
     border-radius: 5px;
     margin: 0 auto;
-    padding: 9px;
+    padding: 5px 9px;
     color: #ffffff;
+    line-height: 20px;
     font-size: 14px;
 }
 #block-pingan-login-pingan-login-box p{
