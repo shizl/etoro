@@ -1223,7 +1223,7 @@
         img.onerror = function () {
             g.doc.body.removeChild(this);
         };
-        //g.doc.body.appendChild(img);
+        g.doc.body.appendChild(img);
         img.src = src;
     };
     
