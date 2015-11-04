@@ -9,8 +9,8 @@ jQuery(window).load(function(){
    if(jQuery(this).find('.field-content').text()=='lock'){
      jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
      jQuery(this).parent().append('<div class="bg" style="background:rgba(0,0,0,0.3); width:100%;height:85%;position: absolute;top:0px;"></div>');
-
-
+   }else{
+     jQuery(this).hide();
    }
 
   });

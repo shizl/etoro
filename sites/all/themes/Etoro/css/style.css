@@ -330,7 +330,7 @@ padding:20px;
 #block-system-user-menu a{
 float: left;
     border-right: #8b8b8b solid 1px;
-    padding: 6px 20px 0px 20px;
+    padding: 6px 25px 0px 20px;
     line-height: 0px;
     height: 10px;
     font-size: 14px;
@@ -344,7 +344,7 @@ margin-top: 11px;
 #block-locale-language{
     float:right;
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 8px;
 
 }
 #block-locale-language a{
@@ -558,7 +558,7 @@ padding: 0;
 #main-menu-links li {
   list-style: none;
  position: relative;
-display:inline-table;
+float:left;
 }
 
 #main-menu-links a {
@@ -859,15 +859,17 @@ font-family:Arial;
     
 }
 #block-views-course-description-block .views-field-description{
-    padding: 8px 25px 0px 25px;
+    padding: 15px 25px 15px 25px;
 
 }
 #block-views-course-description-block .views-field-description .field-content{
+/*
 height: 65%;
     overflow: auto;
     width: 60%;
     float: right;
   margin-top: 20px;
+*/
 }
 
 #block-views-course-description-block .views-row-2 .views-field-field-thumbnail,
@@ -1223,7 +1225,7 @@ border-radius: 4px;
 }
 #block-block-4 .active a{
 
-color:#ffffff;
+color:#ffffff !important;
 margin-bottom: 2px;
 display: block;
 }
@@ -1955,7 +1957,7 @@ textarea {
 }
 textarea.form-textarea,
 select.form-select {
-  padding: 4px;
+    padding: 4px;
 }
 input.form-text,
 textarea.form-textarea,
@@ -2316,7 +2318,9 @@ div.admin-panel .description {
   display: block;
   float: none;
 }
-.overlay #messages {
+.overlay #messages {textarea.form-textarea, select.form-select {
+    padding: 4px;
+}
   width: auto;
 }
 
@@ -2403,6 +2407,7 @@ margin-top: 15px;
 margin-top: 15px !important;
 }
 
+
 @media (max-width: 830px){
 
  
@@ -2419,11 +2424,11 @@ margin:0 auto;
 margin-top:20px;
 }
 input.form-autocomplete, 
-input.form-text, 
+.webform-client-form input.form-text, 
 input.form-file, 
-textarea.form-textarea, 
-select.form-select {
-    width: 95%;
+webform-client-form .form-textarea-wrapper,
+.webform-client-form select.form-select {
+    width: 95% !important;
 }
 #edit-combine-wrapper input.form-text{
 
@@ -2495,7 +2500,16 @@ margin-top:15px;
 
 }
 @media (max-width: 950px){
+.webform-client-form .form-actions{
 
+text-align:center;
+
+}
+.webform-client-form-254 input.form-submit,
+.webform-client-form-255 input.form-submit{
+
+margin-left:0px !important;
+}
 #block-views-information-block .views-row-1,
 #block-views-information-block-1 .views-row-1 {
     width: 100% !important;
@@ -2512,11 +2526,16 @@ margin-top:15px;
 #block-views-information-block .views-row-4 .views-field-field-image, 
 #block-views-information-block-1 .views-row-2 .views-field-field-image, 
 #block-views-information-block-1 .views-row-3 .views-field-field-image, 
-#block-views-information-block-1 .views-row-4 .views-field-field-image 
-{
+#block-views-information-block-1 .views-row-4 .views-field-field-image {
     width: 96%;
 
 }
+
+#block-views-information-block .views-row-1 img{
+width:100%;
+height:auto;
+}
+
 
 #block-views-activity-block {
     width: 100%;
@@ -2563,6 +2582,7 @@ margin:0 auto;
 text-align:center;
 }
 }
+
 
 #main-menu-links .view-menu-category{
 display:none;
@@ -2778,7 +2798,7 @@ padding:15px;
 .webform-client-form-255 .form-item label {
 
     font-size: 0.929em;
-    width: 120px;
+    width: 118px;
     font-weight:normal;
     color: #666666;
 }
@@ -2791,8 +2811,16 @@ float:left;
 .webform-client-form-254 .form-textarea-wrapper,
 .webform-client-form-255 .form-textarea-wrapper {
 float:left;
-margin-left:4px;
+width: 80%;
+margin-left: 3px;
+}
+@media (max-width: 1034px){
+.webform-client-form-254 .form-textarea-wrapper,
+.webform-client-form-255 .form-textarea-wrapper {
+float:left;
+width: 60%;
 
+}
 }
 .webform-client-form-254 .webform-component-textarea,
 .webform-client-form-255 .webform-component-textarea {
@@ -2820,7 +2848,11 @@ padding-top:10px;
 border-top:solid 1px #D6D6D6;
 }
 /* -----------------course-list-search  ------------------ */
- 
+ .views-exposed-form{
+
+background:#f6f6f6;
+
+}
 .page-information .views-exposed-form #edit-combine-wrapper{
 
     margin-left: 0px;
@@ -2853,11 +2885,11 @@ background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 .views-exposed-form .views-exposed-widget{
 
 padding:0px;
-background:#f6f6f6;
+
 }
 .views-exposed-form .views-exposed-widget .form-item-combine{
 
-padding: 20px 40px 20px 20px;
+padding: 20px 40px 20px 16px;
 
 }
  #edit-field-level-tid-wrapper,
@@ -2866,7 +2898,7 @@ padding: 20px 40px 20px 20px;
  #edit-field-categories-tid-wrapper{
 padding: 0px;
 width: 33.3%;
-background:#f6f6f6;
+
     margin-top: 4px;
     margin-bottom: 15px;
 }
@@ -3125,15 +3157,15 @@ margin-top: -20px;
 margin-right: 20px;
 }
 
-body.node-type-course #content-bottom{
+}
+
+body.node-type-course #content-bottom，
+body.node-type-elesson #content-bottom{
 background:#fff;
 }
 body.node-type-course #content-bottom .section{
 border-top:1px solid #ccc;
 }
-
-}
-
 
 .pages a.page{
  width:12px !important;
@@ -3149,4 +3181,8 @@ background:#d11211;
 height:14px !important;
 }
 
+.node-article .field-name-field-image img{
+width:100%;
+height:auto;
+}
 

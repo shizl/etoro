@@ -89,37 +89,6 @@ width:90%;
 margin-bottom:25px;
 }
 
-#breadcrumb {
-  margin: 0 15px;
-}
-
-.overlay345{
-
-opacity: 0.6;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 2000px;
-    position: absolute;
-    z-index: 1000;
-    overflow: hidden;
-    background: rgb(0, 0, 0);
-    
-
-}
-.model{
-
-position: fixed;
-    z-index: 1001;
-    left: 15%;
-    top: 20%;
-    width: 70%;
-background:#fff;
-}
-.close234 {
-
-    font-size: 21px;
 
 
-}
 
