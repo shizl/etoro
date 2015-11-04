@@ -558,7 +558,7 @@ padding: 0;
 #main-menu-links li {
   list-style: none;
  position: relative;
-display:inline-table;
+float:left;
 }
 
 #main-menu-links a {
@@ -859,15 +859,17 @@ font-family:Arial;
     
 }
 #block-views-course-description-block .views-field-description{
-    padding: 8px 25px 0px 25px;
+    padding: 15px 25px 15px 25px;
 
 }
 #block-views-course-description-block .views-field-description .field-content{
+/*
 height: 65%;
     overflow: auto;
     width: 60%;
     float: right;
   margin-top: 20px;
+*/
 }
 
 #block-views-course-description-block .views-row-2 .views-field-field-thumbnail,
@@ -2507,11 +2509,16 @@ margin-top:15px;
 #block-views-information-block .views-row-4 .views-field-field-image, 
 #block-views-information-block-1 .views-row-2 .views-field-field-image, 
 #block-views-information-block-1 .views-row-3 .views-field-field-image, 
-#block-views-information-block-1 .views-row-4 .views-field-field-image 
-{
+#block-views-information-block-1 .views-row-4 .views-field-field-image {
     width: 96%;
 
 }
+
+#block-views-information-block .views-row-1 img{
+width:100%;
+height:auto;
+}
+
 
 #block-views-activity-block {
     width: 100%;
@@ -3115,7 +3122,8 @@ margin-right: 20px;
 
 }
 
-body.node-type-course #content-bottom{
+body.node-type-course #content-bottom，
+body.node-type-elesson #content-bottom{
 background:#fff;
 }
 body.node-type-course #content-bottom .section{
@@ -3136,4 +3144,8 @@ background:#d11211;
 height:14px !important;
 }
 
+.node-article .field-name-field-image img{
+width:100%;
+height:auto;
+}
 
