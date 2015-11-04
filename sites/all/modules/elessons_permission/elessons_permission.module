@@ -88,7 +88,7 @@ function overrite_navigation(){
     $course = course_get_course($node, $user, TRUE);
     $links = $course->getNavigation();
 
-    $links['back'] = '<a href="/en/node/'.$node->nid.'">Back to course</a>';
+    $links['back'] = '<a href="/en/node/'.$node->nid.'">'.t('Back to course').'</a>';
     $items = array();
     foreach($links as $key => $value) {
       $items[] = array(
@@ -115,14 +115,17 @@ function overrite_outline(){
     foreach($node->course['objects'] as $courseObject ){
       $lessonid = $courseObject->instance;
       $lesson = node_load($lessonid);
-     //$cid = $courseObject->coid;
-       $title = '<div class="title">Course '.$num.': <a href="/node/'.$lesson->nid.'">'.$lesson->title.'</a></div>';
 
-    	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
-    	$url = file_create_url($uri);
-            $img =  '<img src="'.$url.'">';
-    	$item .= '<div class="item">'.$img.$title.'</div>';
-          $num++;
+      $time = !empty($lesson->field_time_length['und'][0]['value'])?$lesson->field_time_length['und'][0]['value']:'0';
+      $min = Intval($time/60);
+      $sec = $time%60;
+       $title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div><div class="time">'.t('Time').': '.$min.t(' minutes ').$sec.t('   seconds').'</div>';
+	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
+	$url = file_create_url($uri);
+        $img =  '<img src="'.$url.'">';
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$lesson->language.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$lesson->language.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a></div>';
+      $num++;
+
     }
   }
  if($item!=''){
