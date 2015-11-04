@@ -853,7 +853,7 @@ $.fn.cycle.createPagerAnchor = function(i, el, $p, els, opts) {
 	var $a = $(a);
 	// don't reparent if anchor is in the dom
 	if ($a.parents('body').length === 0) {
-		var arr = [];
+		/*var arr = [];
 		if ($p.length > 1) {
 			$p.each(function() {
 				var $clone = $a.clone(true);
@@ -864,7 +864,7 @@ $.fn.cycle.createPagerAnchor = function(i, el, $p, els, opts) {
 		}
 		else {
 			$a.appendTo($p);
-		}
+		}*/
 	}
 
 	opts.pagerAnchors =  opts.pagerAnchors || [];
