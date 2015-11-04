@@ -457,12 +457,12 @@ function _mixpanel_track($event, $properties) {
 function _mixpanel_track_queue_callback($item) {
   // Actually send the request to the Mixpanel API.
   $success = _mixpanel_track($item['event'], $item['properties']);
-return $sucess;
+
   // If it was unsuccessful, we re-queue the item.
-  /*if (!$success) {
+  if (!$success) {
     $queue = drupal_queue_get('mixpanel_track');
     $queue->createItem($item);
-  }*/
+  }
 }
 
 /**
