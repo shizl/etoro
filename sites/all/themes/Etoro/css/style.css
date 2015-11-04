@@ -859,17 +859,17 @@ font-family:Arial;
     
 }
 #block-views-course-description-block .views-field-description{
-    padding: 15px 25px 15px 25px;
+    padding: 7px 25px 0px 25px;
 
 }
 #block-views-course-description-block .views-field-description .field-content{
-/*
+
 height: 65%;
     overflow: auto;
     width: 60%;
     float: right;
   margin-top: 20px;
-*/
+
 }
 
 #block-views-course-description-block .views-row-2 .views-field-field-thumbnail,
@@ -1054,8 +1054,8 @@ color:#c5271e;
 width: 51%;
 }
 #block-views-information-block-1 .views-row-1 img{
-width: 95.5%;
-    height: 230px;
+width: 100%;
+height: auto;
 
 }
 #block-views-information-block-1 .views-row-2 .views-field-field-image,
@@ -2853,6 +2853,14 @@ border-top:solid 1px #D6D6D6;
 background:#f6f6f6;
 
 }
+.views-exposed-form #edit-tid{
+margin-right:15px;
+
+}
+.views-exposed-form #edit-field-level-tid{
+
+margin-left:15px
+}
 .page-information .views-exposed-form #edit-combine-wrapper{
 
     margin-left: 0px;
@@ -2904,7 +2912,7 @@ width: 33.3%;
 }
  select{
 margin: 22px 0px 22px 0px;
-width: 87%;
+width: 90%;
 background-color: #ffffff;
 }
 .form-type-select{
@@ -2970,6 +2978,24 @@ float:right;
 
 #block-course-outline .control{
 text-align:right;
+}
+#block-course-outline .control a{
+width:33px;
+height:19px;
+display:inline-block;
+}
+#block-course-outline .control #prve{
+background:url('../images/control_prve.png') no-repeat 0 0;
+}
+#block-course-outline .control #next{
+background:url('../images/control_next.png') no-repeat 0 0;
+}
+
+#block-course-outline .control #prve:hover{
+background:url('../images/control_prve_hover.png') no-repeat 0 0;
+}
+#block-course-outline .control #next:hover{
+background:url('../images/control_next_hover.png') no-repeat 0 0;
 }
 #block-course-outline  h2{
 display:none;
@@ -3139,7 +3165,7 @@ margin-top: -20px !important;
 margin-left:20px;
 
 }
-.course-bottom .gmpa a{
+.course-bottom .gmpa input{
 width:auto !important;
 padding:7px !important;
 }
@@ -3157,15 +3183,27 @@ margin-top: -20px;
 margin-right: 20px;
 }
 
+.course-bottom .user_name{
+float:left;
+margin-top:-15px;
+}
+.course-bottom .user_mail{
+float:left;
+margin-left:20px;
+margin-top:-15px;
 }
 
-body.node-type-course #content-bottom，
+body.node-type-course #content-bottom,
 body.node-type-elesson #content-bottom{
 background:#fff;
 }
 body.node-type-course #content-bottom .section{
 border-top:1px solid #ccc;
 }
+
+}
+
+
 
 .pages a.page{
  width:12px !important;

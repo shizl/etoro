@@ -149,6 +149,7 @@ width: auto;
 text-align: center;
 margin:0px !important;
 border:none;
+display:none;
 }
 
 #block-views-course-description-block .views-row{
@@ -164,6 +165,7 @@ float:none;
 width:auto;
 /*margin-top:27%;
 height:45%;*/
+height:80%;
 }
 #block-views-course-description-block .views-field-nothing-3 {
  width:auto;
@@ -172,6 +174,8 @@ right:0;
 left:0;
 background:none;
 height:auto;
+display:none;
+
 }
 #block-views-course-description-block .views-field-nothing-3 a {
 background: #ff6707;

@@ -96,8 +96,8 @@ if(jQuery("body").width()>1150){
      jQuery("#block-views-course-description-block .views-row .views-field-nothing-2").click(function(){
 
    	jQuery(this).parent().find('.views-field-description').toggle();
-   	jQuery(this).parent().find('.views-field-field-thumbnail').toggle();
-   	jQuery(this).parent().find('.views-field-nothing-3').toggle();
+   	//jQuery(this).parent().find('.views-field-field-thumbnail').toggle();
+   	//jQuery(this).parent().find('.views-field-nothing-3').toggle();
 
 
     if(jQuery(this).parent().find('.views-field-description').is(':visible')){
