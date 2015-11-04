@@ -859,17 +859,17 @@ font-family:Arial;
     
 }
 #block-views-course-description-block .views-field-description{
-    padding: 15px 25px 15px 25px;
+    padding: 7px 25px 0px 25px;
 
 }
 #block-views-course-description-block .views-field-description .field-content{
-/*
+
 height: 65%;
     overflow: auto;
     width: 60%;
     float: right;
   margin-top: 20px;
-*/
+
 }
 
 #block-views-course-description-block .views-row-2 .views-field-field-thumbnail,
@@ -1054,8 +1054,8 @@ color:#c5271e;
 width: 51%;
 }
 #block-views-information-block-1 .views-row-1 img{
-width: 95.5%;
-    height: 230px;
+width: 100%;
+height: auto;
 
 }
 #block-views-information-block-1 .views-row-2 .views-field-field-image,
