@@ -303,17 +303,16 @@ var registration=new T.RegistrationService.Registration({
 });  
 
 registration.on("after:render", function (event) {
-$(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
-$(".username input").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
-$(".phoneprefixes select").val("86");
 
 }); 
 registration.on("before:render", function (event) {
-$(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
-$(".username input").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
-$(".phoneprefixes select").val("86");
-
 });
+registration.on("rendered", function(event) {
+  $("#field-etoro_1209").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+   $("#field-etoro_1132").val("'.(!empty($user->mail) ? $user->mail:'').'");
+$("#field-etoro_1093").val("'.(!empty($user->name) ? $user->name:'').'");
+$("#field-etoro_1171").val("86");
+})
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
