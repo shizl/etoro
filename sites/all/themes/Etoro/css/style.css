@@ -945,7 +945,7 @@ font-weight:bold;
 }
 #block-views-information-block .views-row-1 .views-field-title a,
 #block-views-information-block-1 .views-row-1 .views-field-title a{
-font-size:20px;
+
 
 }
 #block-views-information-block .views-row-1 .views-field-title,
@@ -966,8 +966,6 @@ float: right;
 padding-top: 5px;
 clear:both;
 width: 96%;
-height: 48px;
-    overflow: hidden;
 line-height: 21px;
 }
 #block-views-information-block .views-row-1{
@@ -1015,10 +1013,12 @@ height: 42px;
 overflow: hidden;
 margin-top:5px;
 }
-#block-views-information-block .views-field.views-field-view-node,
-#block-views-information-block-1 .views-field.views-field-view-node{
+#block-views-information-block .views-field-view-node,
+#block-views-information-block-1 .views-field-view-node{
 margin-top: 15px;
 }
+
+
 #block-views-information-block .views-row-2 .views-field-created,
 #block-views-information-block .views-row-3 .views-field-created,
 #block-views-information-block .views-row-4 .views-field-created{
@@ -1126,8 +1126,8 @@ position: absolute;
 #block-views-activity-block .views-field-nothing-1{
 
    position: absolute;
-    right:25px;
-    top: 20px;
+    right:31px;
+    top: 15px;
 }
 #block-views-activity-block .views-field-type-1 span{
 font-size: 20px;
@@ -3193,7 +3193,8 @@ margin-top:-15px;
 
 .course-bottom .opa{
 float:left;
-margin-left:20px;
+margin-left:20px !important;
+margin-top: 10px !important;
 }
 
 body.node-type-course #content-bottom,
