@@ -129,7 +129,7 @@ function overrite_outline(){
     }
   }
  if($item!=''){
-    return '<div id="items">'.$item.'</div><div class="control"><a href="javascript:void(0);" id="prve"><img src="/sites/all/themes/Etoro/images/shang.png" /></a> <a href="javascript:void(0);" id="next"><img src="/sites/all/themes/Etoro/images/xia.png" /></a></div>';
+    return '<div id="items">'.$item.'</div><div class="control"><a href="javascript:void(0);" id="prve"><img src="/sites/all/themes/Etoro/images/control_prve.png" /></a> <a href="javascript:void(0);" id="next"><img src="/sites/all/themes/Etoro/images/control_next.png" /></a></div>';
  }else{
     return $item;
  }

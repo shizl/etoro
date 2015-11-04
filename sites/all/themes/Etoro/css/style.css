@@ -718,7 +718,7 @@ position: relative;
     right: 14.5%;
     z-index: 4;
     background-color: #ff6707;
-    bottom: 10%;
+    bottom: 13%;
     width: 14%;
     text-align: center;
     border-radius: 5px;
@@ -2909,6 +2909,7 @@ overflow:hidden;
 #course-nav {
  list-style:none;
  overflow: hidden;
+padding:0px;
 }
 #course-nav li{
  list-style:none;
