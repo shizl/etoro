@@ -1219,7 +1219,7 @@ border-radius: 4px;
 }
 #block-block-4 .active a{
 
-color:#ffffff;
+color:#ffffff !important;
 margin-bottom: 2px;
 display: block;
 }
