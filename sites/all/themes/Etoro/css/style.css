@@ -3157,7 +3157,7 @@ margin-top: -20px !important;
 margin-left:20px;
 
 }
-.course-bottom .gmpa a{
+.course-bottom .gmpa input{
 width:auto !important;
 padding:7px !important;
 }
@@ -3175,6 +3175,14 @@ margin-top: -20px;
 margin-right: 20px;
 }
 
+.course-bottom .user_name{
+float:left;
+margin-top:-15px;
+}
+.course-bottom .user_mail{
+float:left;
+margin-left:20px;
+margin-top:-15px;
 }
 
 body.node-type-course #content-bottom,
@@ -3184,6 +3192,10 @@ background:#fff;
 body.node-type-course #content-bottom .section{
 border-top:1px solid #ccc;
 }
+
+}
+
+
 
 .pages a.page{
  width:12px !important;
