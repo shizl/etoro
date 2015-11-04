@@ -207,9 +207,6 @@ function etoro_field__taxonomy_term_reference($variables) {
 		}
 
 
-
-
-
             }
 
                 

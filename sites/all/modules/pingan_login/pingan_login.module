@@ -149,18 +149,18 @@ function pingan_login_block_view($delta = '') {
       
       if($user->uid>0){
         $account=user_load($user->uid);
-         $html='<div class="success_msg">';
+         $html='<div class="gmpa">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" >';
+          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" ><p class="opa"><a class="go_etoro_account" href="####">'.t('Go to my pratice account').'</a></p>';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class=" practice-account" value="'.t('Access Practice Account').'" > <br><p class="opa"><a class="go_etoro_account" href="####">'.t('Make First Time Deposit').'</a></p>';
+           $html.='<input type="button" class="practice-account" value="'.t('Access Practice Account').'" > <p class="opa"><a class="go_etoro_account" href="####">'.t('Make First Time Deposit').'</a></p>';
         }else{
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Go to my practice account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p>'.t('Username').':'.$user->name.'  &nbsp;<br> '.t('Email').':'.$user->mail.'<br>'.$html;
+        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="user_name">'.t('Username').':'.$user->name.'</div><div class="user_mail"> '.t('Email').':'.$user->mail.'</div>'.$html;
       }else{
-        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" onclick="location.href=\'http://cn.etoro.com\'" value="'.t('Go to my pratice account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
       }
       break;
   }
@@ -303,12 +303,17 @@ var registration=new T.RegistrationService.Registration({
 });  
 
 registration.on("after:render", function (event) {
-$("#phone").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
-$("#username").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
-$("#phone").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+$(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+$(".username input").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
+$(".phoneprefixes select").val("86");
 
 }); 
-registration.on("before:render", function (event) {});
+registration.on("before:render", function (event) {
+$(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+$(".username input").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
+$(".phoneprefixes select").val("86");
+
+});
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
