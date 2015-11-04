@@ -87,7 +87,7 @@ function overrite_navigation(){
     $course = course_get_course($node, $user, TRUE);
     $links = $course->getNavigation();
 
-    $links['back'] = '<a href="/en/node/'.$node->nid.'">Back to course</a>';
+    $links['back'] = '<a href="/en/node/'.$node->nid.'">'.t('Back to course').'</a>';
     $items = array();
     foreach($links as $key => $value) {
       $items[] = array(
@@ -114,13 +114,14 @@ $node = course_get_context();
     foreach($node->course['objects'] as $courseObject ){
       $lessonid = $courseObject->instance;
       $lesson = node_load($lessonid);
+
      //$cid = $courseObject->coid;
-       $title = '<div class="title">Course '.$num.': <a href="/node/'.$lesson->nid.'">'.$lesson->title.'</a></div>';
+       $title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div>';
 
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
-	$item .= '<div class="item">'.$img.$title.'</div>';
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$lesson->language.'/node/'.$lesson->nid?"active":"").'"  href="/'.$lesson->language.'/node/'.$lesson->nid.'">'.$img.$title.'</a></div>';
       $num++;
     }
   }

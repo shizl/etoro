@@ -2946,10 +2946,11 @@ margin-right:10px;
 color:#666;
  font-size:14px;
 }
-#block-course-outline .item .title a{
 
- color:#666;
+#block-course-outline .item a.active .title{
+color:#c5271e;
 }
+
 #block-course-outline .item:last-child{
 border-bottom:none;
 }
