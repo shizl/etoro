@@ -59,7 +59,6 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 
    }
 
-
 }
 
 
@@ -135,4 +134,6 @@ function overrite_outline(){
     return $item;
  }
 
+
 }
+
