@@ -2934,6 +2934,24 @@ float:right;
 #block-course-outline .control{
 text-align:right;
 }
+#block-course-outline .control a{
+width:33px;
+height:19px;
+display:inline-block;
+}
+#block-course-outline .control #prve{
+background:url('../images/control_prve.png') no-repeat 0 0;
+}
+#block-course-outline .control #next{
+background:url('../images/control_next.png') no-repeat 0 0;
+}
+
+#block-course-outline .control #prve:hover{
+background:url('../images/control_prve_hover.png') no-repeat 0 0;
+}
+#block-course-outline .control #next:hover{
+background:url('../images/control_next_hover.png') no-repeat 0 0;
+}
 #block-course-outline  h2{
 display:none;
 }
@@ -3122,7 +3140,7 @@ margin-right: 20px;
 
 }
 
-body.node-type-course #content-bottom，
+body.node-type-course #content-bottom,
 body.node-type-elesson #content-bottom{
 background:#fff;
 }
