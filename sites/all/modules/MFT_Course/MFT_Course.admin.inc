@@ -23,12 +23,7 @@ function MFT_Course_settings_form($form, &$form_state) {
     '#description' => t('ebook'),
     '#default_value' => variable_get('ebook',0),
   );
-  $form['calender'] = array(
-    '#type' => 'textarea',
-    '#title' => t('calender'),
-    '#description' => t('calender'),
-    '#default_value' => variable_get('calender',0),
-  );
+  
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Save settings'),
@@ -43,7 +38,7 @@ function MFT_Course_settings_form($form, &$form_state) {
 function MFT_Course_settings_form_submit($form, &$form_state) {
   variable_set('evideo', $form_state['values']['evideo']);
   variable_set('ebook', $form_state['values']['ebook']);
-  variable_set('calender', $form_state['values']['calender']);
+  
   drupal_set_message(t('Settings saved.'));
 }
 
