@@ -157,10 +157,10 @@ function pingan_login_block_view($delta = '') {
         }else{
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Go to my practice account').'" >';
         }
-        $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = t('<p class="description">Register to access more materials</p>').t('Username').':'.$user->name.'  &nbsp;<br> '.t('Email').':'.$user->mail.'<br>'.$html;
+        $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p>'.t('Username').':'.$user->name.'  &nbsp;<br> '.t('Email').':'.$user->mail.'<br>'.$html;
       }else{
-        $block['content'] = '<p class="description">Register to access more materials</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">Close</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><a class="practice-account" href="http://cn.etoro.com" >'.t('Go to my pratice account').'</a></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
       }
       break;
   }
@@ -274,7 +274,7 @@ function pingan_login_etoro_register(){
   }
   
   echo '<html><head>
-<script type="text/javascript" src="../'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
 <script>
 RegistrationService({
@@ -302,7 +302,12 @@ var registration=new T.RegistrationService.Registration({
       }  
 });  
 
-registration.on("after:render", function (event) {}); 
+registration.on("after:render", function (event) {
+$(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+$(".username imput").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
+$(".phoneprefixes select").val("86");
+
+}); 
 registration.on("before:render", function (event) {});
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {

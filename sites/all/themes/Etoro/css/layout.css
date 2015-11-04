@@ -37,11 +37,7 @@ width:25%;
 float:right;
 position: relative;
 display: inline;
-margin-top: 65px;
-}
-.page-course-list #Right-Sidebar{
-
-margin-top:0px;
+margin-top: 0px;
 }
 .sidebar .block {
     border: 1px solid;
