@@ -718,7 +718,7 @@ position: relative;
     right: 14.5%;
     z-index: 4;
     background-color: #ff6707;
-    bottom: 10%;
+    bottom: 13%;
     width: 14%;
     text-align: center;
     border-radius: 5px;
@@ -855,7 +855,6 @@ font-family:Arial;
     right: 32%;
     width: 15%;
     border-right: solid 1px  #ffdbc3;
-    height:150px;
     top:27%;
     
 }
@@ -865,7 +864,7 @@ font-family:Arial;
 }
 #block-views-course-description-block .views-field-description .field-content{
 height: 65%;
-    overflow: hidden;
+    overflow: auto;
     width: 60%;
     float: right;
   margin-top: 20px;
@@ -1546,7 +1545,7 @@ ul.links {
 }
 #footer {
   letter-spacing: 0.2px;
-  height:60px;
+  min-height:60px;
   border-top: 1px solid #555;
   border-color: rgba(255, 255, 255, 0.15);
 }
@@ -1774,6 +1773,11 @@ div.messages {
 
 .breadcrumb {
   font-size: 0.929em;
+  padding: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color:#ffffff;
+    border-radius: 0px;
 }
 
 /* -------------- User Profile   -------------- */
@@ -2819,12 +2823,12 @@ border-top:solid 1px #D6D6D6;
  
 .page-information .views-exposed-form #edit-combine-wrapper{
 
-    margin-left: 20px;
-    margin-top: 23px;
+    margin-left: 0px;
+    margin-top: 4px;
 }
 .page-information .views-exposed-form .views-exposed-widget .form-submit{
 
-margin-top: 25px;
+margin-top: 26px;
 
 }
 .views-submit-button input{
@@ -2843,11 +2847,18 @@ text-indent: -9999px;
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
  .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 2px;
+    margin-top: 22px;
+    margin-left: -43px;
 }
 .views-exposed-form .views-exposed-widget{
 
 padding:0px;
+background:#f6f6f6;
+}
+.views-exposed-form .views-exposed-widget .form-item-combine{
+
+padding: 20px 40px 20px 20px;
+
 }
  #edit-field-level-tid-wrapper,
  #edit-field-topic-tid-wrapper,
@@ -2910,6 +2921,7 @@ overflow:hidden;
 #course-nav {
  list-style:none;
  overflow: hidden;
+padding:0px;
 }
 #course-nav li{
  list-style:none;
@@ -2946,14 +2958,18 @@ height:auto;
 float:left;
 margin-right:10px;
 }
-#block-course-outline .item .title{
+#block-course-outline .item a{
 color:#666;
  font-size:14px;
 }
-#block-course-outline .item .title a{
-
- color:#666;
+#block-course-outline .item .time{
+color:#808080;
+font-size:12px;
 }
+#block-course-outline .item a.active .title{
+color:#c5271e;
+}
+
 #block-course-outline .item:last-child{
 border-bottom:none;
 }
