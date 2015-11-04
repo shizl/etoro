@@ -1054,8 +1054,8 @@ color:#c5271e;
 width: 51%;
 }
 #block-views-information-block-1 .views-row-1 img{
-width: 100%;
-height: auto;
+   height: 230px;
+    width: 95.5%;
 
 }
 #block-views-information-block-1 .views-row-2 .views-field-field-image,
@@ -2536,6 +2536,10 @@ width:100%;
 height:auto;
 }
 
+#block-views-information-block-1 .views-row-1 img{
+width:100%;
+height:auto;
+}
 
 #block-views-activity-block {
     width: 100%;
@@ -2861,12 +2865,20 @@ margin-right:15px;
 
 margin-left:15px
 }
-.page-information .views-exposed-form #edit-combine-wrapper{
+.page-information .views-exposed-form #edit-combine-wrapper,
+.page-activity .views-exposed-form #edit-combine-wrapper{
 
     margin-left: 0px;
     margin-top: 4px;
 }
-.page-information .views-exposed-form .views-exposed-widget .form-submit{
+.page-information .views-exposed-form .views-exposed-widget .form-item-combine,
+.page-activity .views-exposed-form .views-exposed-widget .form-item-combine{
+
+padding: 20px 40px 20px 16px;
+}
+
+.page-information .views-exposed-form .views-exposed-widget .form-submit,
+.page-activity .views-exposed-form .views-exposed-widget .form-submit{
 
 margin-top: 26px;
 
@@ -2887,7 +2899,7 @@ text-indent: -9999px;
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
  .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 22px;
+    margin-top: 2px;
     margin-left: -43px;
 }
 .views-exposed-form .views-exposed-widget{
@@ -2897,7 +2909,7 @@ padding:0px;
 }
 .views-exposed-form .views-exposed-widget .form-item-combine{
 
-padding: 20px 40px 20px 16px;
+padding: 0px 40px 20px 18px;
 
 }
  #edit-field-level-tid-wrapper,
@@ -2908,7 +2920,7 @@ padding: 0px;
 width: 33.3%;
 
     margin-top: 4px;
-    margin-bottom: 15px;
+    
 }
  select{
 margin: 22px 0px 22px 0px;
@@ -3168,6 +3180,7 @@ margin-left:20px;
 .course-bottom .gmpa input{
 width:auto !important;
 padding:7px !important;
+float:left;
 }
 .course-bottom #radius{
 width:1px !important;
@@ -3181,6 +3194,7 @@ float:left;
 width:100px!important;
 margin-top: -20px;
 margin-right: 20px;
+
 }
 
 .course-bottom .user_name{
@@ -3191,6 +3205,11 @@ margin-top:-15px;
 float:left;
 margin-left:20px;
 margin-top:-15px;
+}
+
+.course-bottom .opa{
+float:left;
+margin-left:20px;
 }
 
 body.node-type-course #content-bottom,
