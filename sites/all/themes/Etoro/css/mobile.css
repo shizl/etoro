@@ -275,6 +275,19 @@ background:#a0d550;
 
 width:100%;
 }
+.views-exposed-form .views-exposed-widget .form-submit{
+
+margin-top: 2px;
+}
+select {
+    margin: 0px 0px 0px 0px;
+    width: 90%;
+    background-color: #ffffff;
+}
+.views-exposed-form #edit-tid {
+     margin-right: 0px; 
+    margin-left: 15px;
+}
 #edit-field-level-tid-wrapper, #edit-field-topic-tid-wrapper, #edit-tid-wrapper, #edit-field-categories-tid-wrapper {
     padding: 0px;
     width: 50%;
