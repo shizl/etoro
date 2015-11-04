@@ -151,9 +151,9 @@ function pingan_login_block_view($delta = '') {
         $account=user_load($user->uid);
          $html='<div class="gmpa">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" >';
+          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" ><p class="opa"><a class="go_etoro_account" href="####">'.t('Go to my pratice account').'</a></p>';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="practice-account" value="'.t('Access Practice Account').'" > <br><p class="opa"><a class="go_etoro_account" href="####">'.t('Make First Time Deposit').'</a></p>';
+           $html.='<input type="button" class="practice-account" value="'.t('Access Practice Account').'" > <p class="opa"><a class="go_etoro_account" href="####">'.t('Make First Time Deposit').'</a></p>';
         }else{
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Go to my practice account').'" >';
         }
