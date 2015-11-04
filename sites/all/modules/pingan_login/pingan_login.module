@@ -303,9 +303,9 @@ var registration=new T.RegistrationService.Registration({
 });  
 
 registration.on("after:render", function (event) {
-$("#phone").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
-$("#username").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
-$("#phone").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+$(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+$(".username imput").val("'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'");
+$(".phoneprefixes select").val("86");
 
 }); 
 registration.on("before:render", function (event) {});
