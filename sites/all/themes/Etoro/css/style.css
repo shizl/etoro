@@ -2853,6 +2853,14 @@ border-top:solid 1px #D6D6D6;
 background:#f6f6f6;
 
 }
+.views-exposed-form #edit-tid{
+margin-right:15px;
+
+}
+.views-exposed-form #edit-field-level-tid{
+
+margin-left:15px
+}
 .page-information .views-exposed-form #edit-combine-wrapper{
 
     margin-left: 0px;
@@ -2904,7 +2912,7 @@ width: 33.3%;
 }
  select{
 margin: 22px 0px 22px 0px;
-width: 87%;
+width: 90%;
 background-color: #ffffff;
 }
 .form-type-select{
