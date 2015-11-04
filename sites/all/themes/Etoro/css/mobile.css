@@ -270,7 +270,9 @@ background:#f7c33d;
 #block-views-course-description-block .views-row-3 .views-field-nothing-2  span{
 background:#a0d550;
 }
-
+#block-pingan-login-pingan-login-box {
+margin-bottom:30px;
+}
 }
 
 @media (max-width: 481px) {
@@ -428,7 +430,6 @@ width:100%;
 }
 #block-pingan-login-pingan-login-box {
 width:100%;
-margin-bottom:30px;
 }
 
 #block-views-activity-block .views-field-view-node a {

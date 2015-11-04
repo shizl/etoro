@@ -3150,15 +3150,14 @@ margin-top: -20px;
 margin-right: 20px;
 }
 
+}
+
 body.node-type-course #content-bottom{
 background:#fff;
 }
 body.node-type-course #content-bottom .section{
 border-top:1px solid #ccc;
 }
-
-}
-
 
 .pages a.page{
  width:12px !important;
