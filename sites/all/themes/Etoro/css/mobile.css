@@ -295,6 +295,20 @@ background:#f7c33d;
 background:#a0d550;
 }
 
+
+.page-activity #content .view-activity .views-row, .page-information #content .view-information .views-row{
+height:auto;
+}
+.page-activity .view-activity .views-field-nothing, .page-information .view-information .views-field-nothing{
+height:auto;
+}
+.page-activity .view-activity .views-field-nothing .title, .page-information .view-information .views-field-nothing .title{
+ float:none;
+}
+.page-activity .view-activity .views-field-nothing .date, .page-information .view-information .views-field-nothing .date{
+float:none;
+}
+
 }
 
 @media (max-width: 481px) {
