@@ -256,7 +256,7 @@ function pingan_login_login($type=""){
                     'source_page_url'=>$_SESSSION['refurl']);
     mixpanel_track("toa_login_click", $values);
   }
-
+  $_SESSSION['user_lan']=$GLOBALS['language']->language;
 
   $time=date("Y-m-d h:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
@@ -265,7 +265,6 @@ function pingan_login_login($type=""){
   * register page
   */
 function pingan_login_register($type=""){
-
 
  if(module_exists('mixpanel')){
     if(!empty($_REQUEST['refurl'])){
@@ -278,7 +277,7 @@ function pingan_login_register($type=""){
                     'source_page_url'=>$_SESSSION['refurl']);
     mixpanel_track("toa_register_click", $values);
   } 
-
+  $_SESSSION['user_lan']=$GLOBALS['language']->language;
   $time=date("Y-m-d h:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 
@@ -358,7 +357,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
-location.href="/pingan_login/etoro_callback"
+location.href="/'.$GLOBALS['language']->language.'/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
@@ -416,7 +415,7 @@ function pingan_login_etoro_callback(){
   */
 function pingan_login_callback(){
  // print_r($_REQUEST);
-  
+  $GLOBALS['language']->language= $_SESSSION['user_lan'];
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
