@@ -214,25 +214,25 @@ function pingan_login_redirect($type=""){
 
   global $user;
   if(module_exists('mixpanel')){
-     if(empty($_SESSSION['refurl'])){
+     if(empty($_SESSION['refurl'])){
       global $base_url;
-      $_SESSSION['refurl']=$base_url;
+      $_SESSION['refurl']=$base_url;
     }
     if(!empty($_GET['refurl'])){
-      $_SESSSION['refurl']=$_GET['refurl'];
-      $goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com').'\';</script>';
+      $_SESSION['refurl']=$_GET['refurl'];
+      $goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }else{
-       $goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSSION['refurl']:'http://cn.etoro.com').'\';</script>';
+       $goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
 
     if($type=="toetoro"){
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
       mixpanel_track("user_etoro_redirect", $values);
     }elseif($type=="tohome"){
       $values = array('title'=>'Local Site - Registration - Skipped eToro',
                     'username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
       mixpanel_track("etoro_register_skip", $values);
     }
     
@@ -247,16 +247,16 @@ function pingan_login_login($type=""){
 
   if(module_exists('mixpanel')){
     if(!empty($_REQUEST['refurl'])){
-      $_SESSSION['refurl']=$_REQUEST['refurl'];
+      $_SESSION['refurl']=$_REQUEST['refurl'];
     }else{
       global $base_url;
-      $_SESSSION['refurl']=$base_url;
+      $_SESSION['refurl']=$base_url;
     }
     $values = array('title'=>'Login Using TOA - Click',
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
     mixpanel_track("toa_login_click", $values);
   }
-  $_SESSSION['user_lan']=$GLOBALS['language']->language;
+  $_SESSION['user_lan']=$GLOBALS['language']->language;
 
   $time=date("Y-m-d h:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
@@ -268,16 +268,16 @@ function pingan_login_register($type=""){
 
  if(module_exists('mixpanel')){
     if(!empty($_REQUEST['refurl'])){
-      $_SESSSION['refurl']=$_REQUEST['refurl'];
+      $_SESSION['refurl']=$_REQUEST['refurl'];
     }else{
       global $base_url;
-      $_SESSSION['refurl']=$base_url;
+      $_SESSION['refurl']=$base_url;
     }
     $values = array('title'=>'Registration Using TOA - Click',
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
     mixpanel_track("toa_register_click", $values);
   } 
-  $_SESSSION['user_lan']=$GLOBALS['language']->language;
+  $_SESSION['user_lan']=$GLOBALS['language']->language;
   $time=date("Y-m-d h:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 
@@ -290,18 +290,18 @@ function pingan_login_etoro_register(){
   global $user;
   if(module_exists('mixpanel')){
     if(!empty($_REQUEST['refurl'])){
-      $_SESSSION['refurl']=$_REQUEST['refurl'];
+      $_SESSION['refurl']=$_REQUEST['refurl'];
       $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
         'username'=>$user->name,
-        'source_page_url'=>$_SESSSION['refurl']);
+        'source_page_url'=>$_SESSION['refurl']);
       mixpanel_track("etoro_skip_register", $values);
    
     }else{
       global $base_url;
-      $_SESSSION['refurl']=$base_url;
+      $_SESSION['refurl']=$base_url;
 
       $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
       mixpanel_track("etoro_register_click", $values);
     }
   }
@@ -377,9 +377,9 @@ registration.show();
   */
 function pingan_login_etoro_callback(){
   global $user;
-  if(empty($_SESSSION['refurl'])){
+  if(empty($_SESSION['refurl'])){
     global $base_url;
-    $_SESSSION['refurl']=$base_url;
+    $_SESSION['refurl']=$base_url;
   }
   $user=user_load($user->uid);
   $edit=array();
@@ -388,7 +388,7 @@ function pingan_login_etoro_callback(){
 
   if(module_exists('mixpanel')){
     $values = array('title'=>'Registration - eToro Success','username'=>$user->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
     mixpanel_track("etoro_register_success", $values);
   }
   echo '<html><head><style>.go_etoro {
@@ -415,7 +415,7 @@ function pingan_login_etoro_callback(){
   */
 function pingan_login_callback(){
  // print_r($_REQUEST);
-  $GLOBALS['language']->language= $_SESSSION['user_lan'];
+  $GLOBALS['language']->language= $_SESSION['user_lan'];
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
@@ -463,12 +463,12 @@ function pingan_login_callback(){
              
             $isReg=1;
               if(module_exists('mixpanel')){
-                if(empty($_SESSSION['refurl'])){
+                if(empty($_SESSION['refurl'])){
                   global $base_url;
-                  $_SESSSION['refurl']=$base_url;
+                  $_SESSION['refurl']=$base_url;
                 }
                 $values = array('title'=>'Registration - TOA Success','username'=>$account->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
                 mixpanel_track("toa_register_success", $values);
               }
          }else{
@@ -492,12 +492,12 @@ function pingan_login_callback(){
               user_save($account, $edit);
             } 
             if(module_exists('mixpanel')){
-              if(empty($_SESSSION['refurl'])){
+              if(empty($_SESSION['refurl'])){
                   global $base_url;
-                  $_SESSSION['refurl']=$base_url;
+                  $_SESSION['refurl']=$base_url;
                 }
                 $values = array('title'=>'Login - TOA Success','username'=>$account->name,
-                    'source_page_url'=>$_SESSSION['refurl']);
+                    'source_page_url'=>$_SESSION['refurl']);
                 mixpanel_track("toa_login_success", $values);
               }   
          }
@@ -517,7 +517,7 @@ function pingan_login_callback(){
         }
         $html='<div class="success_msg">';
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/tohome\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Create practice account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/tohome\'">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
         }else{
