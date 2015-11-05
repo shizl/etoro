@@ -301,12 +301,31 @@ background:#a0d550;
 
 width:220px;
 }
+#views-exposed-form-course-report-page-1 #edit-submit-course-report{
+
+margin-top:72px;
+}
 #edit-date-completed-wrapper label{
 
 display:block;
 }
-}
+label{
+margin-top:0px;
+margin-bottom:0px;
 
+}
+}
+@media (max-width: 490px){
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-mail-wrapper{
+
+margin-top:-20px;
+
+}
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-submit-course-enrollment-vbo-admin{
+
+margin-top:2px;
+}
+}
 @media (max-width: 481px) {
 .views-exposed-form .views-exposed-widget .form-item-combine{
 
@@ -332,6 +351,15 @@ margin-top: 10px;
 }
 .view-course-enrollment-vbo-admin #edit-submit-course-enrollment-vbo-admin,
 .view-course-report #edit-submit-course-report{
+
+margin-top:22px;
+}
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-mail-wrapper{
+
+margin-top:-20px;
+
+}
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-submit-course-enrollment-vbo-admin{
 
 margin-top:2px;
 }
