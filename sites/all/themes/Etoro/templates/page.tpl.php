@@ -1,6 +1,6 @@
 
 <div id="page-wrapper"><div id="page">
-<div id="header-top"><div class="section clearfix" > <?php print render($page['header-top']); ?></div>  </div>
+<!-- <div id="header-top"><div class="section clearfix" > <?php print render($page['header-top']); ?></div>  </div> -->
   <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div style="height:90px;" class="section clearfix">
 
     <?php if ($logo): ?>
