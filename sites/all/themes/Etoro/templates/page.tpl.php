@@ -49,6 +49,13 @@
             'class' => array('element-invisible'),
           ),
         )); ?>
+
+<?php 
+	$language_block = module_invoke('locale', 'block_view', 'language'); 
+	print render($language_block['content']);
+	
+ ?>
+
        </div>
 
 <div id="menu-category" style="display:none;">
