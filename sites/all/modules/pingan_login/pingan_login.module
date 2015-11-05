@@ -146,6 +146,9 @@ function pingan_login_block_view($delta = '') {
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     //drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
      drupal_add_js('jQuery(window).load(function(){
+      if(jQuery(window).height()<550){
+        jQuery(".loginPop").css("margin","1% auto");
+      }
   jQuery(".popRegister").click(function(){
     jQuery(".titleRegister").show();
     jQuery(".titleLogin").hide();
@@ -199,7 +202,7 @@ function pingan_login_block_view($delta = '') {
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
         $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="user_name">'.t('Username').':'.$user->name.'</div><div class="user_mail"> '.t('Email').':'.$user->mail.'</div>'.$html;
       }else{
-        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="360" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="90%" style="border: 0;" height="350" src="" class="popSrc"></iframe></div></div></div>';
       }
 
       break;
