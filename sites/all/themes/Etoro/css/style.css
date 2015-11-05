@@ -2499,6 +2499,13 @@ margin-top:15px;
 
 }
 @media (max-width: 950px){
+#block-pingan-login-pingan-login-box .opa{
+text-align:center;
+margin-left:0px;
+}
+#content-bottom #block-pingan-login-pingan-login-box .opa {
+    margin-left: 0px;
+}
 .webform-client-form .form-actions{
 
 text-align:center;
