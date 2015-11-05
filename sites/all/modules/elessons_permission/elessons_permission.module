@@ -27,6 +27,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		  //exit;
 
 		      $term = taxonomy_term_load($node->field_permission['und'][0]['tid']);
+		      $term = i18n_taxonomy_localize_terms($term);
 		      $message = $term->description==''?t('You are not authorized to access this page.'):$term->description;
 		      $node->content['message'] = array(
 			'#markup' =>$message,
@@ -45,6 +46,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
   			return true;
   		}else{
 		      $term = taxonomy_term_load($node->field_permission['und'][0]['tid']);
+		      $term = i18n_taxonomy_localize_terms($term);
 		      $message = $term->description==''?t('You are not authorized to access this page.'):$term->description;
 		      $node->content['message'] = array(
 			'#markup' =>$message,
@@ -63,6 +65,8 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		}else{
 
 		      $term = taxonomy_term_load($node->field_permission['und'][0]['tid']);
+		      $term = i18n_taxonomy_localize_terms($term);
+
 		      $message = $term->description==''?t('You are not authorized to access this page.'):$term->description;
 		      $node->content['message'] = array(
 			'#markup' =>$message,
