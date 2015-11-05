@@ -56,6 +56,11 @@ margin-top:0px;
 
 #main-menu-links{
 text-align:left;
+float:none;
+}
+
+.language-switcher-locale-url{
+display:none;
 }
 #main-menu li{
 float:none;
@@ -200,7 +205,7 @@ padding:5px 20px;
 
 #block-views-course-description-block .views-field-description{
 line-height:1.523em;
-height:220px;
+height:auto;
 }
 
 .jcarousel-skin-tango{
@@ -526,6 +531,12 @@ background-image:none;
 }
 #block-views-activity-block .views-field-type-1 span {
 font-size:14px;
+}
+#block-course-outline #items{
+ height:auto;
+}
+#block-course-outline #items .control{
+display:none;
 }
 
 }

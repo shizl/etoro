@@ -549,10 +549,10 @@ margin-top: -3px;
   background:#c5271e;
 }
 #main-menu-links {
-  font-size: 0.929em;
- margin: 0;
-padding: 0;
- text-align:center; 
+font-size: 0.929em;
+margin: 0;
+padding:0;
+float:left;
 }
 
 #main-menu-links li {
@@ -566,12 +566,12 @@ float:left;
   font-size: 14px;
   font-weight: bold;
   line-height: 2.4em;
-  padding: 10px 33px 10px 30px;
+  padding: 10px 25px 10px 25px;
   text-decoration: none;
 display:block;
 }
 .i18n-zh-hans #main-menu-links a{
-padding: 10px 42px 10px 43px;
+padding: 10px 35px 10px 35px;
 font-weight:normal;
 }
 
@@ -803,7 +803,8 @@ width:55px;
 #block-views-course-description-block .views-field-nothing-2 .name{
 
 margin-top:5px;
-background:url(../images/heng.png) no-repeat 8px 42px;;
+background:url(../images/heng.png) no-repeat 8px 42px;
+color:#fff;
 }
 
 #block-views-course-description-block .views-field-nothing-2 .icon,
@@ -2614,7 +2615,7 @@ font-size:14px;
 padding:15px 10px 15px 10px;
 border-bottom:1px dotted #ccc;
 width:100px;
-margin-left:20px;
+margin-left:15px;
 margin-right:20px;
 float:none;
 display:block;
@@ -2622,7 +2623,7 @@ display:block;
 
 
 body.i18n-zh-hans #main-menu-links .view-menu-category .views-field-name a{
-margin-left:31px;
+margin-left:25px;
 }
 
 #main-menu-links .view-menu-category .views-row-last .views-field-name a{
@@ -3171,6 +3172,11 @@ clear: both;
 margin-left: 20px;
 margin-right: 20px;
 }
+
+body.i18n-zh-hans .course-bottom .description{
+margin-right:115px;
+}
+
 .course-bottom .gmpa{
 float:left;
 margin-top: -20px !important;
@@ -3244,3 +3250,23 @@ width:100%;
 height:auto;
 }
 
+.language-switcher-locale-url {
+ float:right;
+list-style:none;
+padding:0px;
+margin:0px;
+}
+
+.language-switcher-locale-url  li{
+ list-style:none;
+}
+.language-switcher-locale-url  li a{
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2.4em;
+    padding: 10px 0px 10px 25px;
+    text-decoration: none;
+    display: block;
+}

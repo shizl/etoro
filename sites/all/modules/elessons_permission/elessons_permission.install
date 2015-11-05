@@ -33,10 +33,6 @@ if(!$elessons){
 	$ftd->vid = $vid;           
 	taxonomy_term_save($ftd);
 
-	$plat = new stdClass();
-	$plat->name = 'Plat eToro';
-	$plat->vid = $vid;
-	taxonomy_term_save($plat);
 }
    
 //add field 
