@@ -2587,7 +2587,26 @@ margin:0 auto;
 text-align:center;
 }
 }
+@media (max-width: 1050px){
 
+#content-bottom .course-bottom  {
+    background-color: #ffffff;
+    text-align: center;
+    float: none;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: 278px;
+    margin:0 auto;
+}
+#content-bottom .course-bottom h2{
+padding-top:35px;
+}
+#content-bottom .course-bottom .gmpa .opa{
+text-align:center;
+}
+
+}
 
 #main-menu-links .view-menu-category{
 display:none;
@@ -3135,7 +3154,7 @@ z-index:1;
 
 
 
-@media (min-width:950px){
+@media (min-width:1050px){
 
 .course-bottom {
 width:100% !important;
