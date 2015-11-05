@@ -673,11 +673,11 @@ line-height: 30px;
     margin-bottom: 20px;
 }
 #banner #block-pingan-login-pingan-login-box .opa {
-    margin-left: 35px;
+    margin-left: 25px;
 
 }
 #banner #block-pingan-login-pingan-login-box button {
-    width: 36%;
+    width: 40%;
     height: 35px;
 }
 #banner #block-pingan-login-pingan-login-box .popLogin{
@@ -692,6 +692,9 @@ color:#c5271e;
     text-decoration: underline;
     color: #be2b28;
     font-size: 14px;
+}
+#content-bottom #block-pingan-login-pingan-login-box .opa{
+margin-left:25px;
 }
 
 #banner {
@@ -2599,6 +2602,7 @@ padding-top:35px;
 }
 #content-bottom .course-bottom .gmpa .opa{
 text-align:center;
+margin-left:0px;
 }
 
 }
