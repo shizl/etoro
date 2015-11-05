@@ -314,12 +314,20 @@ margin-top:20px;
 float:none;
 }
 
-.page-activity .view-activity .views-field-field-activity-image, .page-information  .view-information .views-field-field-image {
+.page-activity .view-activity .views-field-field-activity-image, .page-information  .view-information .views-field-field-image, .view-course-details .view-content .views-field-nothing .img {
 float:none;
 width:100%;
 height:auto;
 }
-
+.view-course-details .view-content .views-field-nothing .all {
+margin-top:20px;
+}
+.view-course-details .view-content .views-field-nothing .all .title,.view-course-details .view-content .views-field-nothing .all .body{
+margin-left: 0px;
+}
+.page-activity .views-field-nothing .all, .page-information .views-field-nothing .all{
+margin-left:0px;
+}
 
 
 }
