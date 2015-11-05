@@ -1,4 +1,7 @@
 jQuery(window).load(function(){
+	if(jQuery(window).height()<550){
+        jQuery(".loginPop").css("margin","1% auto");
+      }
 	jQuery(".popRegister").click(function(){
 		jQuery(".titleRegister").show();
 		jQuery(".titleLogin").hide();
