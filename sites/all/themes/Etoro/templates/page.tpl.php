@@ -30,7 +30,9 @@
     <?php print render($page['header']); ?>
   </div>
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a href="#"><i class="icon-user"></i></a> | <a href="#">EN</a> </div>
+<?php global $language;  ?>
+
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a href="/user"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a href="/zh-hans">CN</a>':'<a href="/en">EN</a>'; ?> </div>
 
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
