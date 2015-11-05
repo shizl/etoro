@@ -190,7 +190,7 @@ function pingan_login_block_view($delta = '') {
         $account=user_load($user->uid);
          $html='<div class="gmpa">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Create practice account').'" >';
+          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Create Practice Account').'" >';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" > <p class="opa"><a class="go_etoro_account" href="javascript:void();">'.t('Make First Time Deposit').'</a></p>';
         }else{
@@ -517,11 +517,11 @@ function pingan_login_callback(){
         }
         $html='<div class="success_msg">';
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro" value="'.t('Create practice account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/tohome\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Create Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/tohome\'">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
         }
         $html.='</div>';
         //drupal_goto("/user");
