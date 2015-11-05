@@ -144,24 +144,64 @@ function pingan_login_block_view($delta = '') {
   switch ($delta) {
     case 'pingan_login_box':
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
-    drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
+    //drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
+     drupal_add_js('jQuery(window).load(function(){
+  jQuery(".popRegister").click(function(){
+    jQuery(".titleRegister").show();
+    jQuery(".titleLogin").hide();
+    jQuery("body").css("overflow","hidden");
+
+    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->language.'/pingan_login/mobile/register?refurl="+document.location.href);
+    jQuery(".loginBody").show();
+    
+  });
+  jQuery(".popLogin").click(function(){
+    jQuery(".titleRegister").hide();
+    jQuery(".titleLogin").show();
+    jQuery("body").css("overflow","hidden");
+    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->language.'/pingan_login/mobile/login?refurl="+document.location.href);
+    jQuery(".loginBody").show();
+    
+  });
+  jQuery(".go_etoro_register").click(function(){
+    jQuery(".titleRegister").show();
+    jQuery("body").css("overflow","hidden");
+    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->language.'/pingan_login/etoro_register?refurl="+document.location.href);
+  
+    jQuery(".loginBody").show();
+  });
+  jQuery(".go_etoro").click(function(){
+    document.location.href="/'.$GLOBALS['language']->language.'/pingan_login/etoro_register?refurl="+document.location.href
+  });
+  jQuery(".go_etoro_account").click(function(){
+    document.location.href="/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro?refurl="+document.location.href
+  });
+  
+  
+  jQuery(".popClose").click(function(){
+    jQuery("body").css("overflow","auto");
+    jQuery(".loginBody").hide();
+  });
+})
+', 'inline');
       $block['title'] = t('Do You Want to Learn More?');
       
       if($user->uid>0){
         $account=user_load($user->uid);
          $html='<div class="gmpa">';
         if(empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Open practice account').'" >';
+          $html.='<input type="button" class="go_etoro_register practice-account" value="'.t('Create practice account').'" >';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" > <p class="opa"><a class="go_etoro_account" href="javascript:void();">'.t('Make First Time Deposit').'</a></p>';
         }else{
-          $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Go to my practice account').'" >';
+          $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
         $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="user_name">'.t('Username').':'.$user->name.'</div><div class="user_mail"> '.t('Email').':'.$user->mail.'</div>'.$html;
       }else{
-        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" onclick="location.href=\'http://cn.etoro.com\'" value="'.t('Go to my pratice account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="600" style="border: 0;" height="310" src="" class="popSrc"></iframe></div></div></div>';
       }
+
       break;
   }
   return $block;
@@ -368,7 +408,7 @@ function pingan_login_etoro_callback(){
   cursor:pointer;
   height:31px;
   }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/torefurl\'"></body></html>';
+</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'"></body></html>';
   exit;
 }
 /**
@@ -478,11 +518,11 @@ function pingan_login_callback(){
         }
         $html='<div class="success_msg">';
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/tohome\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Open practice account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/tohome\'">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/pingan_login/redirect/torefurl\'">';
+           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/pingan_login/redirect/torefurl\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Go to my practice account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
         }
         $html.='</div>';
         //drupal_goto("/user");
