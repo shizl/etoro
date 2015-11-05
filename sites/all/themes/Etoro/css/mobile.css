@@ -321,9 +321,11 @@ height:auto;
 }
 .view-course-details .view-content .views-field-nothing .all {
 margin-top:20px;
+width:100%;
 }
 .view-course-details .view-content .views-field-nothing .all .title,.view-course-details .view-content .views-field-nothing .all .body{
 margin-left: 0px;
+width:100%;
 }
 .page-activity .views-field-nothing .all, .page-information .views-field-nothing .all{
 margin-left:0px;
