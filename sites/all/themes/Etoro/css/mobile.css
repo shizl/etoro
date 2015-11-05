@@ -141,6 +141,11 @@ text-align:center;
 #block-pingan-login-pingan-login-box {
 margin-bottom:30px;
 }
+#block-pingan-login-pingan-login-box .gmpa .opa{
+text-align:center;
+}
+
+
 
 #block-views-information-block .views-field-view-node,
 #block-views-information-block-1 .views-field-view-node{
