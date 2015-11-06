@@ -3303,7 +3303,7 @@ height:14px !important;
 }
 
 .node-article .field-name-field-image img,
-. node-type-activity .field-name-field-image img{
+.node-type-activity .field-name-field-activity-image img{
 width:100%;
 height:auto;
 }
