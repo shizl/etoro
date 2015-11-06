@@ -1,25 +1,30 @@
 jQuery(window).load(function(){
+	if(jQuery(window).height()<550){
+        jQuery(".loginPop").css("margin","1% auto");
+      }else{
+      	jQuery(".loginPop").css("margin","15% auto");
+      }
 	jQuery(".popRegister").click(function(){
-		jQuery('.titleRegister').show();
-		jQuery('.titleLogin').hide();
+		jQuery(".titleRegister").show();
+		jQuery(".titleLogin").hide();
 		jQuery("body").css("overflow","hidden");
 
-		jQuery(".loginBody").find(".popSrc").attr('src',"/pingan_login/mobile/register?refurl="+document.location.href);
+		jQuery(".loginBody").find(".popSrc").attr("src","/pingan_login/mobile/register?refurl="+document.location.href);
 		jQuery(".loginBody").show();
 		
 	});
 	jQuery(".popLogin").click(function(){
-		jQuery('.titleRegister').hide();
-		jQuery('.titleLogin').show();
+		jQuery(".titleRegister").hide();
+		jQuery(".titleLogin").show();
 		jQuery("body").css("overflow","hidden");
-		jQuery(".loginBody").find(".popSrc").attr('src',"/pingan_login/mobile/login?refurl="+document.location.href);
+		jQuery(".loginBody").find(".popSrc").attr("src","/pingan_login/mobile/login?refurl="+document.location.href);
 		jQuery(".loginBody").show();
 		
 	});
 	jQuery(".go_etoro_register").click(function(){
-		jQuery('.titleRegister').show();
+		jQuery(".titleRegister").show();
 		jQuery("body").css("overflow","hidden");
-		jQuery(".loginBody").find(".popSrc").attr('src',"/pingan_login/etoro_register?refurl="+document.location.href);
+		jQuery(".loginBody").find(".popSrc").attr("src","/pingan_login/etoro_register?refurl="+document.location.href);
 	
 		jQuery(".loginBody").show();
 	});

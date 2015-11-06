@@ -664,7 +664,7 @@ display:none;
     z-index: 50;
     box-shadow: 0px 3px 10px -5px #333;
     border-radius: 10px;
-    height: 315px !important;
+   
     
 }
 #banner #block-pingan-login-pingan-login-box p{
@@ -673,11 +673,11 @@ line-height: 30px;
     margin-bottom: 20px;
 }
 #banner #block-pingan-login-pingan-login-box .opa {
-    margin-left: 35px;
+    margin-left: 25px;
 
 }
 #banner #block-pingan-login-pingan-login-box button {
-    width: 36%;
+    width: 40%;
     height: 35px;
 }
 #banner #block-pingan-login-pingan-login-box .popLogin{
@@ -693,12 +693,10 @@ color:#c5271e;
     color: #be2b28;
     font-size: 14px;
 }
-#banner #block-pingan-login-pingan-login-box #radius {
-
-width: 230px;
-    margin-top: 15px;
-    margin-bottom: 30px;
+#content-bottom #block-pingan-login-pingan-login-box .opa{
+margin-left:25px;
 }
+
 #banner {
 
 position:relative;
@@ -2501,6 +2499,13 @@ margin-top:15px;
 
 }
 @media (max-width: 950px){
+#block-pingan-login-pingan-login-box .opa{
+text-align:center;
+margin-left:0px;
+}
+#content-bottom #block-pingan-login-pingan-login-box .opa {
+    margin-left: 0px;
+}
 .webform-client-form .form-actions{
 
 text-align:center;
@@ -2604,6 +2609,7 @@ padding-top:35px;
 }
 #content-bottom .course-bottom .gmpa .opa{
 text-align:center;
+margin-left:0px;
 }
 
 }
@@ -2723,7 +2729,7 @@ overflow: hidden;
 
 width:100%;
 overflow: hidden;
-height: 170px;
+height: auto;
 }
 .view-course-details .view-content .views-field-nothing .all{
 
@@ -2877,14 +2883,34 @@ border-top:solid 1px #D6D6D6;
 background:#f6f6f6;
 
 }
-.page-information .views-exposed-form #edit-combine-wrapper{
+.views-exposed-form #edit-tid{
+margin-right:15px;
+
+}
+.views-exposed-form #edit-field-level-tid{
+
+margin-left:15px
+}
+.page-information .views-exposed-form #edit-combine-wrapper,
+.page-activity .views-exposed-form #edit-combine-wrapper{
 
     margin-left: 0px;
     margin-top: 4px;
 }
-.page-information .views-exposed-form .views-exposed-widget .form-submit{
+.page-information .views-exposed-form .views-exposed-widget .form-item-combine,
+.page-activity .views-exposed-form .views-exposed-widget .form-item-combine{
 
-margin-top: 26px;
+padding: 13px 40px 0px 0px;
+}
+.views-exposed-form .form-item-date-completed-min,
+.views-exposed-form .form-item-date-completed-max{
+
+float:left;
+}
+.page-information .views-exposed-form .views-exposed-widget .form-submit,
+.page-activity .views-exposed-form .views-exposed-widget .form-submit{
+
+margin-top: 19px;
 
 }
 .views-submit-button input{
@@ -2903,17 +2929,34 @@ text-indent: -9999px;
 background:url(../images/sousuo.png) center no-repeat rgb(110, 179, 10);
 }
  .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 22px;
-    margin-left: -43px;
+    margin-top: 2px;
+    margin-left: -53px;
 }
 .views-exposed-form .views-exposed-widget{
 
-padding:0px;
+padding: 10px 2px 10px 10px;
 
+}
+.page-activity .views-exposed-widget{
+
+padding: 0px 2px 10px 10px;
+}
+.page-course-list .views-exposed-form .views-exposed-widget{
+
+padding: 0px 2px 0px 10px;
+}
+.view-course-enrollment-vbo-admin #edit-submit-course-enrollment-vbo-admin,
+.view-course-report #edit-submit-course-report{
+
+margin-left: -12px;
+margin-top: 27px;
+}
+.view-id-information .views-exposed-form .views-exposed-widget{
+padding: 0px 0px 10px 10px;
 }
 .views-exposed-form .views-exposed-widget .form-item-combine{
 
-padding: 20px 40px 20px 16px;
+padding: 0px 40px 15px 8px;
 
 }
  #edit-field-level-tid-wrapper,
@@ -2924,11 +2967,11 @@ padding: 0px;
 width: 33.3%;
 
     margin-top: 4px;
-    margin-bottom: 15px;
+    
 }
  select{
-margin: 22px 0px 22px 0px;
-width: 87%;
+margin: 15px 0px 15px 0px;
+width: 90%;
 background-color: #ffffff;
 }
 .form-type-select{
@@ -3085,7 +3128,6 @@ margin: 0px 0px 0px 20px;
 .page-information .views-field-nothing .body a{
 
     float:right;
-    margin-top: 50px;
     font-size: 13px;
     color: #c5271e;
 
@@ -3109,12 +3151,13 @@ border-bottom: solid 1px #DEDEDE;
 .page-information .views-field-nothing .title {
 margin-top:-2px;
 float:left;
+color: #c5271e;
 }
 .page-activity .views-field-nothing .title a,
 .page-information .views-field-nothing .title a{
     font-size: 16px;
     font-weight: bold;
-    color: #666666;
+    color: #c5271e;
 
 }
 .page-activity .views-field-field-activity-image,
