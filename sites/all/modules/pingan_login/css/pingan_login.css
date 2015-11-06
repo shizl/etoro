@@ -61,6 +61,7 @@ color: #ffffff;
   min-width: 100px;
   height: 31px;
   line-height: 40px;
+  float: right;
   text-align: left;
    }
 
@@ -70,6 +71,8 @@ color: #ffffff;
   font-size: 14px;}
 .login_input{width: 100%;margin-top: 20px;}
 .course-bottom .login_input{width: 130px;margin-left:15px;margin-right:15px;margin-top:-40px; float: left;}
+.course-bottom .login_input .sign_out {height: 20px;
+  line-height: 20px;}
 #block-pingan-login-pingan-login-box .popLogin{
 background:#ffffff;
 border-radius: 4px;
