@@ -2400,8 +2400,8 @@ border:none;
 
 }
 #block-views-social-trading-block img,#block-views-social-trading-block-1 img{
-width: 235px;
-    height: 190px;
+width: 100%;
+height:auto;
 
 }
 #block-views-social-trading-block h2 img ,#block-views-social-trading-block-1 h2 img {
@@ -2625,7 +2625,6 @@ text-align:center;
     margin-top: 35px;
     margin-bottom: 35px;
     height: 278px;
-    margin:0 auto;
 }
 #content-bottom .course-bottom h2{
 padding-top:35px;
@@ -3060,6 +3059,7 @@ float:right;
 
 #block-course-outline .control{
 text-align:right;
+margin-top:15px;
 }
 #block-course-outline .control a{
 width:33px;
@@ -3088,6 +3088,19 @@ margin-bottom:15px;
 padding-bottom:15px;
 border-bottom:1px solid #ccc;
 height:98px;
+position:relative;
+
+}
+
+#block-course-outline .item .views-field-php{
+ display: block;
+    height: 55px;
+    left: 42%;
+    position: absolute;
+    text-indent: -9999px;
+    top: 20%;
+    width: 55px;
+    z-index: 1;
 }
 
 
@@ -3287,7 +3300,7 @@ float:left;
 margin-left:20px !important;
 margin-top: 10px !important;
 }
-
+/*
 body.node-type-course #content-bottom,
 body.node-type-elesson #content-bottom{
 background:#fff;
@@ -3295,7 +3308,7 @@ background:#fff;
 body.node-type-course #content-bottom .section{
 border-top:1px solid #ccc;
 }
-
+*/
 }
 
 
@@ -3345,5 +3358,25 @@ margin:0px;
 background:url('../images/back_top.png') no-repeat 0 0;
 width:45px;
 height:45px;
+}
+
+.user_info{
+display:none;
+position: absolute;
+width:100%;
+z-index:999;
+}
+.user_info .menu_box{
+width:100% !important;
+float:none !important;
+text-align:center;
+margin-top:0px !important;
+background:#f3f4f5 !important;
+}
+.user_info .menu_box h2{
+margin-top:0px !important;
+}
+.menu_box .opa{
+text-align:center !important;
 }
 
