@@ -202,9 +202,10 @@ function pingan_login_block_view($delta = '') {
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="user_name">'.t('Username').':'.$user->name.'</div><div class="user_mail"> '.t('Email').':'.$user->mail.'</div>'.$html;
+        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/user/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->language.'/user/logout">'.t('Log out').'</a></div></div>'.$html;
       }else{
-        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
       }
 
       break;
@@ -319,12 +320,12 @@ function pingan_login_etoro_register(){
   
   echo '<html><head>
   <style>
-body{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+body{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
-input{padding: 5px;
-  height: 30px;
-  line-height: 20px;
-  background:#fff;
+input{padding: 5px !important;
+  height: 30px !important;
+  line-height: 20px !important;
+  background:#fff !important;
 }
 .registration-service .form-field{
   margin-bottom:10px !important;
