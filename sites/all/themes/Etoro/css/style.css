@@ -323,8 +323,17 @@ list-style:none;
 }
 /* ------------------ Header ------------------ */
 #block-block-5 .content{
-padding:20px;
+padding:10px 20px;
 
+}
+#block-block-5 h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.i18n-zh-hans #block-block-5 h2{
+font-size: 20px;
 }
 #block-block-3 a,
 #block-system-user-menu a{
@@ -673,11 +682,11 @@ line-height: 30px;
     margin-bottom: 20px;
 }
 #banner #block-pingan-login-pingan-login-box .opa {
-    margin-left: 35px;
+    margin-left: 25px;
 
 }
 #banner #block-pingan-login-pingan-login-box button {
-    width: 36%;
+    width: 40%;
     height: 35px;
 }
 #banner #block-pingan-login-pingan-login-box .popLogin{
@@ -692,6 +701,9 @@ color:#c5271e;
     text-decoration: underline;
     color: #be2b28;
     font-size: 14px;
+}
+#content-bottom #block-pingan-login-pingan-login-box .opa{
+margin-left:25px;
 }
 
 #banner {
@@ -1915,6 +1927,7 @@ fieldset legend {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
+  font-size: 16px;
 }
 fieldset.collapsed legend {
   -khtml-border-radius: 4px;
@@ -2160,6 +2173,16 @@ div.vertical-tabs .vertical-tabs-panes fieldset.vertical-tabs-pane {
 
 /* --------------- Search Form ---------------- */
 
+
+@media (max-width: 580px){
+#edit-name-wrapper{
+width:90%;
+}
+.view-course-enrollment-vbo-admin #edit-submit-course-enrollment-vbo-admin{
+    margin-left: -12px;
+    margin-top: 22px !important;
+}
+}
 #block-search-form {
   padding-bottom: 7px;
 }
@@ -2496,6 +2519,13 @@ margin-top:15px;
 
 }
 @media (max-width: 950px){
+#block-pingan-login-pingan-login-box .opa{
+text-align:center;
+margin-left:0px;
+}
+#content-bottom #block-pingan-login-pingan-login-box .opa {
+    margin-left: 0px;
+}
 .webform-client-form .form-actions{
 
 text-align:center;
@@ -2581,8 +2611,30 @@ width:100%;
 margin:0 auto;
 text-align:center;
 }
+#block-block-5 h2,#block-block-5 #contact-info{
+text-align:center;
 }
+}
+@media (max-width: 1050px){
 
+#content-bottom .course-bottom  {
+    background-color: #ffffff;
+    text-align: center;
+    float: none;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: 278px;
+    margin:0 auto;
+}
+#content-bottom .course-bottom h2{
+padding-top:35px;
+}
+#content-bottom .course-bottom .gmpa .opa{
+text-align:center;
+margin-left:0px;
+}
+}
 
 #main-menu-links .view-menu-category{
 display:none;
@@ -2699,7 +2751,7 @@ overflow: hidden;
 
 width:100%;
 overflow: hidden;
-height: 170px;
+height: auto;
 }
 .view-course-details .view-content .views-field-nothing .all{
 
@@ -2853,6 +2905,10 @@ border-top:solid 1px #D6D6D6;
 background:#f6f6f6;
 
 }
+.page-information #edit-field-categories-tid{
+
+margin-left: 20px;
+}
 .views-exposed-form #edit-tid{
 margin-right:15px;
 
@@ -2861,16 +2917,11 @@ margin-right:15px;
 
 margin-left:15px
 }
-.page-information .views-exposed-form #edit-combine-wrapper,
-.page-activity .views-exposed-form #edit-combine-wrapper{
 
-    margin-left: 0px;
-    margin-top: 4px;
-}
 .page-information .views-exposed-form .views-exposed-widget .form-item-combine,
 .page-activity .views-exposed-form .views-exposed-widget .form-item-combine{
 
-padding: 13px 40px 0px 0px;
+padding: 17px 40px 6px 7px;
 }
 .views-exposed-form .form-item-date-completed-min,
 .views-exposed-form .form-item-date-completed-max{
@@ -2939,6 +2990,8 @@ width: 33.3%;
     margin-top: 4px;
     
 }
+
+
  select{
 margin: 15px 0px 15px 0px;
 width: 90%;
@@ -3098,7 +3151,6 @@ margin: 0px 0px 0px 20px;
 .page-information .views-field-nothing .body a{
 
     float:right;
-    margin-top: 50px;
     font-size: 13px;
     color: #c5271e;
 
@@ -3168,7 +3220,7 @@ z-index:1;
 
 
 
-@media (min-width:950px){
+@media (min-width:1050px){
 
 .course-bottom {
 width:100% !important;
@@ -3262,7 +3314,8 @@ background:#d11211;
 height:14px !important;
 }
 
-.node-article .field-name-field-image img{
+.node-article .field-name-field-image img,
+.node-type-activity .field-name-field-activity-image img{
 width:100%;
 height:auto;
 }
@@ -3287,3 +3340,10 @@ margin:0px;
     text-decoration: none;
     display: block;
 }
+
+#backtotop {
+background:url('../images/back_top.png') no-repeat 0 0;
+width:45px;
+height:45px;
+}
+

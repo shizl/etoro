@@ -83,7 +83,7 @@ height:260px;
 font-size:20px;
 }
 #block-pingan-login-pingan-login-box .opa{
-margin-left: 25px;
+margin-left: 21px;
 text-align:left;
 margin-bottom: 35px;
 margin-top: 20px;
@@ -93,7 +93,7 @@ font-size: 15px
 color:#c5271e;
 }
 #block-pingan-login-pingan-login-box .gmpa{
-margin-top:19px;
+margin-top:15px;
 }
 #block-pingan-login-pingan-login-box #radius{
     width: 83%;
@@ -139,3 +139,6 @@ color: #999;
   cursor:pointer;
   height:31px;
   }
+.user_name{
+margin-top:10px;
+}
