@@ -1927,6 +1927,7 @@ fieldset legend {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
+  font-size: 16px;
 }
 fieldset.collapsed legend {
   -khtml-border-radius: 4px;
@@ -2172,6 +2173,16 @@ div.vertical-tabs .vertical-tabs-panes fieldset.vertical-tabs-pane {
 
 /* --------------- Search Form ---------------- */
 
+
+@media (max-width: 580px){
+#edit-name-wrapper{
+width:90%;
+}
+.view-course-enrollment-vbo-admin #edit-submit-course-enrollment-vbo-admin{
+    margin-left: -12px;
+    margin-top: 22px !important;
+}
+}
 #block-search-form {
   padding-bottom: 7px;
 }
@@ -2894,6 +2905,10 @@ border-top:solid 1px #D6D6D6;
 background:#f6f6f6;
 
 }
+.page-information #edit-field-categories-tid{
+
+margin-left: 20px;
+}
 .views-exposed-form #edit-tid{
 margin-right:15px;
 
@@ -2902,16 +2917,11 @@ margin-right:15px;
 
 margin-left:15px
 }
-.page-information .views-exposed-form #edit-combine-wrapper,
-.page-activity .views-exposed-form #edit-combine-wrapper{
 
-    margin-left: 0px;
-    margin-top: 4px;
-}
 .page-information .views-exposed-form .views-exposed-widget .form-item-combine,
 .page-activity .views-exposed-form .views-exposed-widget .form-item-combine{
 
-padding: 13px 40px 0px 0px;
+padding: 17px 40px 6px 7px;
 }
 .views-exposed-form .form-item-date-completed-min,
 .views-exposed-form .form-item-date-completed-max{
@@ -2980,6 +2990,8 @@ width: 33.3%;
     margin-top: 4px;
     
 }
+
+
  select{
 margin: 15px 0px 15px 0px;
 width: 90%;

@@ -156,6 +156,24 @@ function etoro_field__taxonomy_term_reference($variables) {
 }
 
  function etoro_form_alter(&$form, $form_state, $form_id) {
+        if($form['#id'] == 'views-exposed-form-information-page'){
+           global $language;
+                if ($language->language == "en"){
+                     $form['combine']['#attributes'] = array('placeholder' => array(t('Filter by keywords')));
+                }else{
+                      $form['combine']['#attributes'] = array('placeholder' => array(t('关键字过滤')));
+                               }
+               }
+
+         if($form['#id'] == 'views-exposed-form-activity-page'){
+           global $language;
+                if ($language->language == "en"){
+                     $form['combine']['#attributes'] = array('placeholder' => array(t('Filter by keywords')));
+                }else{
+                      $form['combine']['#attributes'] = array('placeholder' => array(t('关键字过滤')));
+                               }
+               }
+         
 	if($form['#id'] == 'views-exposed-form-course-details-page') {
             
                  global $language;

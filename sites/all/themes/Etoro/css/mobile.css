@@ -359,14 +359,14 @@ margin-left:0px;
 
 
 }
-@media (max-width: 558px){
+@media (max-width: 578px){
 #edit-date-completed-wrapper{
 
 width:220px;
 }
 #views-exposed-form-course-report-page-1 #edit-submit-course-report{
 
-margin-top:72px;
+margin-top:72px !important;
 }
 #edit-date-completed-wrapper label{
 
@@ -386,7 +386,7 @@ margin-top:-20px;
 }
 #views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-submit-course-enrollment-vbo-admin{
 
-margin-top:2px;
+margin-top:2px !important;
 }
 }
 @media (max-width: 481px) {
@@ -394,11 +394,19 @@ margin-top:2px;
 
 padding: 0px 40px 10px 3px;
 }
-.page-information .views-exposed-form .views-exposed-widget .form-item-combine, .page-activity .views-exposed-form .views-exposed-widget .form-item-combine {
-    padding: 6px 40px 10px 10px;
+.page-information #edit-field-categories-tid {
+    margin-left: 15px;
+    margin-top: 6px;
+}
+.page-information .views-exposed-form .views-exposed-widget .form-item-combine {
+    padding: 6px 40px 4px 20px;
+}
+.page-activity .views-exposed-form .views-exposed-widget .form-item-combine{
+ padding: 6px 40px 4px 7px;
+
 }
 .page-information .views-exposed-form .views-exposed-widget .form-submit, .page-activity .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 12px;
+    margin-top: 16px;
 }
 .page-information .views-exposed-form #edit-combine-wrapper{
      
@@ -424,7 +432,7 @@ margin-top:-20px;
 }
 #views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-submit-course-enrollment-vbo-admin{
 
-margin-top:2px;
+margin-top:2px !important;
 }
 #edit-date-completed-wrapper{
 
