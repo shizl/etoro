@@ -3302,7 +3302,8 @@ background:#d11211;
 height:14px !important;
 }
 
-.node-article .field-name-field-image img{
+.node-article .field-name-field-image img,
+. node-type-activity .field-name-field-image img{
 width:100%;
 height:auto;
 }
