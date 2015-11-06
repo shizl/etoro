@@ -33,7 +33,7 @@
 
 <?php global $language;  ?>
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a href="/user"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a href="/zh-hans">CN</a>':'<a href="/en">EN</a>'; ?> </div>
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a  href="/zh-hans">中文</a>':'<a  href="/en">EN</a>'; ?> </div>
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
         <div class="section clearfix">
@@ -57,7 +57,7 @@
  ?>
        </div>
       </div> <!-- /#main-menu -->
-
+<div class="user_info"></div>
 <div id="menu-category" style="display:none;">
 <?php
   $category = module_invoke('views', 'block_view', 'menu_category-block');
@@ -122,8 +122,6 @@
 <div id="block-pingan-login-pingan-login-box">
 <h2><?php  $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box');print_r($block['title']);?></h2>
   <?php print_r($block['content']);  ?>
-
-
 </div>
 
 </div>

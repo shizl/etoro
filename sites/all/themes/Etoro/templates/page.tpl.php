@@ -24,15 +24,16 @@
       </div> <!-- /#name-and-slogan -->
     <?php endif; ?>
 
-
-
-
     <?php print render($page['header']); ?>
   </div>
 
 <?php global $language;  ?>
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a href="/user"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a href="/zh-hans">CN</a>':'<a href="/en">EN</a>'; ?> </div>
+<?php
+
+?>
+
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a class="zh-lan" href="/zh-hans">中文</a>':'<a class="en-lan" href="/en">EN</a>'; ?> </div>
 
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
