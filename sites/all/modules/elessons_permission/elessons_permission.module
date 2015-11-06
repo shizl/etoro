@@ -114,9 +114,6 @@ function overrite_navigation(){
   if ($node) {
     $course = course_get_course($node, $user, TRUE);
     $links = $course->getNavigation();
-echo '<pre>';
- print_r($course);exit;
-
 
     $links['back'] = '<a href="/en/node/'.$node->nid.'">'.t('Back to course').'</a>';
     $items = array();

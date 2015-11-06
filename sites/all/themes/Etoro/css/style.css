@@ -3336,3 +3336,23 @@ width:45px;
 height:45px;
 }
 
+.user_info{
+display:none;
+position: absolute;
+width:100%;
+z-index:999;
+}
+.user_info .menu_box{
+width:100% !important;
+float:none !important;
+text-align:center;
+margin-top:0px !important;
+background:#f3f4f5 !important;
+}
+.user_info .menu_box h2{
+margin-top:0px !important;
+}
+.menu_box .opa{
+text-align:center !important;
+}
+

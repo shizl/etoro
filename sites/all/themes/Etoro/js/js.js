@@ -15,6 +15,7 @@ jQuery(document).ready(function(){
 
 
 
+
 	zh_lan = jQuery('.language-switcher-locale-url li.zh-hans a').attr('href');
 	en_lan = jQuery('.language-switcher-locale-url li.en a').attr('href');
         jQuery('#mobile-menu .zh-lan').attr('href',zh_lan);
@@ -203,6 +204,16 @@ jQuery('.reorder').click(function(){
  jQuery('#main-menu').toggle();
 
 });
+
+   block_html = jQuery('#block-pingan-login-pingan-login-box').html();
+   jQuery('.user_info').html('<div id="block-pingan-login-pingan-login-box" class="menu_box">'+block_html+'</div>');
+
+jQuery('.get_user').click(function(){
+
+ jQuery('.user_info').toggle();
+
+});
+
 
 	var screenwidth=jQuery("body").outerWidth();
 	var width = (screenwidth>1280)?1280:screenwidth;
