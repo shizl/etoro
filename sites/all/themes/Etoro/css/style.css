@@ -323,8 +323,17 @@ list-style:none;
 }
 /* ------------------ Header ------------------ */
 #block-block-5 .content{
-padding:20px;
+padding:10px 20px;
 
+}
+#block-block-5 h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.i18n-zh-hans #block-block-5 h2{
+font-size: 20px;
 }
 #block-block-3 a,
 #block-system-user-menu a{
