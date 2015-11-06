@@ -1,20 +1,24 @@
 
+jQuery(document).ready(function(){
 
-jQuery(window).load(function(){
-
-
-  jQuery('.jcarousel-container .views-field-php').each(function(){
-
+  jQuery('.views-field-php').each(function(){
 
    if(jQuery(this).find('.field-content').text()=='lock'){
      jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
-     jQuery(this).parent().append('<div class="bg" style="background:rgba(0,0,0,0.3); width:100%;height:85%;position: absolute;top:0px;"></div>');
+     jQuery(this).parent().append('<div class="bg" style="background:rgba(0,0,0,0.3); width:100%;height:100%;position: absolute;top:0px;"></div>');
    }else{
      jQuery(this).hide();
    }
 
   });
 
+
+
+
+	zh_lan = jQuery('.language-switcher-locale-url li.zh-hans a').attr('href');
+	en_lan = jQuery('.language-switcher-locale-url li.en a').attr('href');
+        jQuery('#mobile-menu .zh-lan').attr('href',zh_lan);
+        jQuery('#mobile-menu .en-lan').attr('href',en_lan);
 
 
 
@@ -200,10 +204,22 @@ jQuery('.reorder').click(function(){
 
 });
 
-//jQuery(window).resize(function(){
+	var screenwidth=jQuery("body").outerWidth();
+	var width = (screenwidth>1280)?1280:screenwidth;
+	var tempwidth = jQuery("body").outerWidth();
+    jQuery(window).resize(function ()
+	{
+		width = (width < 1280) ? jQuery("body").outerWidth() : 1280;
 
-//    location.href=location.href;
-//});
+		if ((tempwidth >= 1150 && width < 1150) || (tempwidth < 1150 && width >= 1150))
+		{
+			setTimeout(function () { window.location.reload(true); }, 50);
+		}
+		if ((tempwidth >= 830 && width < 830) || (tempwidth < 830 && width >= 830))
+		{
+			setTimeout(function () { window.location.reload(true); }, 50);
+		}
+	});
 
 var top = 0;
 
@@ -251,6 +267,7 @@ top  -= 113;
 
 
 });
+
 
 
 

@@ -114,6 +114,9 @@ function overrite_navigation(){
   if ($node) {
     $course = course_get_course($node, $user, TRUE);
     $links = $course->getNavigation();
+echo '<pre>';
+ print_r($course);exit;
+
 
     $links['back'] = '<a href="/en/node/'.$node->nid.'">'.t('Back to course').'</a>';
     $items = array();
@@ -135,13 +138,45 @@ function overrite_navigation(){
 
 function overrite_outline(){
 
+  global $user;
   $node = course_get_context();
+  $account = user_load($user->uid);
   $item = ''; 
+
   if(isset($node->course['objects'])){
       $num = 1;
-    foreach($node->course['objects'] as $courseObject ){
+    foreach($node->course['objects'] as $courseObject){
       $lessonid = $courseObject->instance;
       $lesson = node_load($lessonid);
+
+    $lock = '';
+
+	 if(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid']== 19){
+             //return true;
+	 }elseif(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid'] == 20){
+		if($user->uid !=0){
+             //return true;
+		}else{
+            $lock = 'lock';
+		}
+         }elseif(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid']  == 21){
+		
+   	if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
+            // return true;
+		}else{
+             $lock = 'lock';
+		}
+
+         }elseif(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid']== 22){
+   	if(!empty($account->field_ftd_date['und'][0]['value']) && $account->field_ftd_date['und'][0]['value']!=''){
+             //return true;
+		}else{
+            $lock = 'lock';
+		}		
+	 }else{
+            // return true;
+	 }
+
 
       $time = !empty($lesson->field_time_length['und'][0]['value'])?$lesson->field_time_length['und'][0]['value']:'0';
       $min = Intval($time/60);
@@ -150,7 +185,7 @@ function overrite_outline(){
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
-	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$lesson->language.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$lesson->language.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a></div>';
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$lesson->language.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$lesson->language.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
       $num++;
 
     }

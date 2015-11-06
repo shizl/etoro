@@ -33,7 +33,7 @@
 
 <?php global $language;  ?>
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a href="/user"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a href="/zh-hans">CN</a>':'<a href="/en">EN</a>'; ?> </div>
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a href="/user"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a  href="/zh-hans">中文</a>':'<a  href="/en">EN</a>'; ?> </div>
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
         <div class="section clearfix">
