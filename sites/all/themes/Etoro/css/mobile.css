@@ -627,7 +627,10 @@ margin-left:0px;
 
 #block-views-information-block .views-row-2 .views-field-view-node,
 #block-views-information-block .views-row-3 .views-field-view-node,
-#block-views-information-block .views-row-4 .views-field-view-node{
+#block-views-information-block .views-row-4 .views-field-view-node,
+#block-views-information-block-1 .views-row-2 .views-field-view-node,
+#block-views-information-block-1 .views-row-3 .views-field-view-node,
+#block-views-information-block-1 .views-row-4 .views-field-view-node{
 margin:3% !important;
 }
 
