@@ -71,7 +71,10 @@ color: #ffffff;
   color: #be2b28;
   font-size: 14px;
 }
-.login_input{width: 100%;margin-top: 20px;}
+.login_input{  width: 100%;
+  margin-top: 20px;
+  display: inline-block;
+  margin-bottom: 15px;}
 .course-bottom .login_input{width: 130px;margin-left:15px;margin-right:15px;margin-top:-40px; float: left;}
 .course-bottom h2{ line-height: 40px;
   margin-top: 0px;}
