@@ -42,22 +42,31 @@ height: 100%;
 	width: 40px;height: 30px;
 	cursor: pointer;
 }
-#block-pingan-login-pingan-login-box button{
+#block-pingan-login-pingan-login-box button,.my_account{
   min-width: 100px;
-  width: 43%;
+  width: 48%;
   height: 31px;
   margin-top: 0px;
   margin-bottom: 10px;
-
+  margin-right: 2%;
 }
-#block-pingan-login-pingan-login-box .popRegister,.my_account{
+.my_account{background:#f8750e;
+border-radius: 4px;
+border: 1px solid wheat;
+color: #ffffff;}
+
+#block-pingan-login-pingan-login-box .popRegister{
 background:#f8750e;
 border-radius: 4px;
 border: 1px solid wheat;
 color: #ffffff;
+margin-left:2%;
+  margin-right: 0;
 }
 .sign_out{  
-  width: 40%;
+  width: 48%;
+  margin-left:2%;
+    margin-right: 0;
   min-width: 100px;
   height: 31px;
   line-height: 40px;
@@ -71,8 +80,8 @@ color: #ffffff;
   color: #be2b28;
   font-size: 14px;
 }
-.login_input{  width: 100%;
-  margin-top: 20px;
+.login_input{  width: 83%;
+
   display: inline-block;
   margin-bottom: 15px;}
 
@@ -120,8 +129,7 @@ margin-top:15px;
 #block-pingan-login-pingan-login-box #radius{
     width: 83%;
     margin: 0 auto;
-   
-    margin-bottom: 19px; 
+    margin-bottom: 25px;
     border-bottom: solid 1px #ccc;
 }
 #block-pingan-login-pingan-login-box .practice-account{
@@ -143,6 +151,9 @@ line-height:18px;
 
 font-size:14px;
 color: #999;
+line-height: 30px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 
 }
 .go_etoro_register {

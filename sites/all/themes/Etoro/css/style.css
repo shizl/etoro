@@ -1678,14 +1678,11 @@ margin-top:10px;
   float: left; /* LTR */
   vertical-align: bottom;
   min-height:50px;
-  width:99px;
+  width:auto;
   
   text-align: center;
 }
-.tabs .primary li:last-child {
 
-width:120px;
-}
 .not-logged-in .tabs .primary li:last-child{
 
 width:175px;
@@ -1708,7 +1705,7 @@ background:url(../images/1122.png) no-repeat center 0px;
   background: #ffffff;
    border:none;
     display: block;
-  padding:0px;
+  padding:0px 20px;
   margin:0px;
    margin-top: 18px;
    border-right:1px solid #999999;
@@ -3268,7 +3265,6 @@ box-shadow: 0px  0px 5px -2px #333;
 border-radius: 5px;
 padding:15px;
 }
-
 .course-bottom h2{
 float:left;
 margin-left: 20px;
@@ -3288,7 +3284,7 @@ line-height: 40px;
 float:left;
 clear: both;
 margin-left: 20px;
-margin-right: 20px;
+
 }
 
 body.i18n-zh-hans .course-bottom .description{
@@ -3307,10 +3303,11 @@ width:auto !important;
 padding:7px !important;
 float:left;
 }
-.course-bottom #radius{
+.course-bottom #radius,.course-bottom #radius1{
   width: 1px !important;
   float: left;
   border-bottom: none;
+  margin-left:5%;
   border-left: 1px solid #ccc;
   margin-top: -40px !important;
   height: 65px !important;
@@ -3416,10 +3413,11 @@ margin-top:0px !important;
 .menu_box .opa{
 text-align:center !important;
 }
-.field-type-registration {
 
+#registration-form{
 background:#f7f7f7;
 overflow:hidden;
+padding:15px;
 }
 .field-type-registration #registration-form{
 
