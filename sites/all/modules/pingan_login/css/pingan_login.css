@@ -44,7 +44,7 @@ height: 100%;
 }
 #block-pingan-login-pingan-login-box button{
   min-width: 100px;
-  width: 40%;
+  width: 43%;
   height: 31px;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -121,7 +121,7 @@ margin-top:15px;
 #block-pingan-login-pingan-login-box #radius{
     width: 83%;
     margin: 0 auto;
-    height: 10px !important;
+   
     margin-bottom: 19px; 
     border-bottom: solid 1px #ccc;
 }
