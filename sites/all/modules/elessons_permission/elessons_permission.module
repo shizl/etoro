@@ -162,17 +162,11 @@ function course_navigation(){
 
 if($current_key!= intval(count($arr)-1)){
   $next_nid = $arr[$current_key+1];
-  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Enter').'</a></li>';
 }else{
   $next = '';
 }
 
-if($current_key!=0){
-  $prev_nid = $arr[$current_key-1];
-  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
-}else{
- $prev = '';
-}
  
  return '<ul id="course-nav">'.$prev.$next.'</ul>';
 
