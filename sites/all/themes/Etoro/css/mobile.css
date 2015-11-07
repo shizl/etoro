@@ -129,6 +129,11 @@ background:none;
  width:300px;
 margin:0 auto;
 }
+#block-pingan-login-pingan-login-box h2{
+
+padding-top:35px;
+}
+
 }
 @media(max-width: 950px){
 
@@ -372,7 +377,10 @@ width:100%;
 .page-activity .views-field-nothing .all, .page-information .views-field-nothing .all{
 margin-left:0px;
 }
-
+.region-right-sidebar #block-pingan-login-pingan-login-box .content{
+margin:0 auto;
+width:300px;;
+}
 
 }
 @media (max-width: 578px){

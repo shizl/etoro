@@ -1578,6 +1578,12 @@ height:auto;
 margin-top:0px;
 }
 
+.region-right-sidebar #block-pingan-login-pingan-login-box .content{
+margin:0px;
+width:auto;
+}
+
+
 #footer ul,
 #footer li {
   list-style: none;
@@ -2594,10 +2600,7 @@ height:auto;
 margin-top:25px;
 margin-bottom:25px;
 }
-#block-pingan-login-pingan-login-box h2{
 
-padding-top:35px;
-}
 
 #block-block-1{
 
