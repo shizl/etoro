@@ -3171,10 +3171,8 @@ margin: 0px 0px 0px 20px;
 }
 .page-activity .views-field-nothing .date,
 .page-information .views-field-nothing .date{
-
-
 color:#666666;
-float: right;
+clear:both;
 }
 .page-activity .views-field-nothing .body ,
 .page-information .views-field-nothing .body{
