@@ -2631,8 +2631,7 @@ text-align:center;
     width: 100%;
       text-align: center;
       float: none;
-  }*/
-  /*end*/
+  }
 
 #content-bottom .course-bottom  {
      background-color: #ffffff;
@@ -2652,7 +2651,8 @@ text-align:center;
 margin-left:0px;
 }
 }
-
+*/
+  /*end*/
 #main-menu-links .view-menu-category{
 display:none;
 border: 1px solid #ec8424;
@@ -3251,6 +3251,7 @@ z-index:1;
 
 @media (min-width:1050px){
 
+
 .course-bottom {
 width:100% !important;
 height:auto !important;
@@ -3262,8 +3263,18 @@ padding:15px;
 .course-bottom h2{
 float:left;
 margin-left: 20px;
+line-height: 40px;
+  margin-top: 0px;
 }
+.course-bottom .login_input{    width: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: -40px;
+    float: left;}
 
+.course-bottom .login_input .sign_out {height: 20px;
+  line-height: 20px;}
+  
 .course-bottom .description{
 float:left;
 clear: both;
