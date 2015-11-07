@@ -72,6 +72,8 @@ color: #ffffff;
 }
 .login_input{width: 100%;margin-top: 20px;}
 .course-bottom .login_input{width: 130px;margin-left:15px;margin-right:15px;margin-top:-40px; float: left;}
+.course-bottom h2{ line-height: 40px;
+  margin-top: 0px;}
 .course-bottom .login_input .sign_out {height: 20px;
   line-height: 20px;}
 #block-pingan-login-pingan-login-box .popLogin{

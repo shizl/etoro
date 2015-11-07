@@ -131,6 +131,17 @@ background:none;
 
 }
 @media(max-width: 950px){
+
+      
+.course-bottom .description{line-height: 14px;
+  margin-top: 30px;}
+  .course-bottom .login_input{  width: 83%;
+  margin: auto;
+  margin-top: 20px;float: none;}
+  .course-bottom .login_input button,.course-bottom .login_input .sign_out{
+    width: 100%;
+  }
+
 #block-menu-menu-ooter-menu ul{
 text-align:center;
 }
