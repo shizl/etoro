@@ -202,9 +202,10 @@ function pingan_login_block_view($delta = '') {
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="user_name">'.t('Username').':'.$user->name.'</div><div class="user_mail"> '.t('Email').':'.$user->mail.'</div>'.$html;
+        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/user/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->language.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
       }else{
-        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button> &nbsp; <button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Create Practice Account').'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
       }
 
       break;
@@ -318,6 +319,30 @@ function pingan_login_etoro_register(){
   }
   
   echo '<html><head>
+  <style>
+body{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+input{padding: 5px !important;
+  height: 30px !important;
+  line-height: 20px !important;
+  background:#fff !important;
+}
+.registration-service .form-field{
+  margin-bottom:10px !important;
+}
+.form-submit{
+    width: 83%;
+  background: #c5271e;
+  display: block;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 5px 9px;
+  color: #ffffff;
+  border: 0;
+  line-height: 20px;
+  font-size: 14px;
+}
+  </style>
 <script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
 <script>
@@ -412,7 +437,7 @@ function pingan_login_etoro_callback(){
   cursor:pointer;
   height:31px;
   }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Go to Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'"></body></html>';
+</style></head><body><input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'"></body></html>';
   exit;
 }
 /**

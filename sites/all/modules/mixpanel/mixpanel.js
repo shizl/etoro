@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
   // Only supported in version 2!
   if (version === '2.0' && uid) {
     // Super basic support for 'People'.
-    mixpanel.people.identify(Drupal.settings.mixpanel.defaults.uid);
-    mixpanel.people.set(Drupal.settings.mixpanel.people);
+  //  mixpanel.people.identify(Drupal.settings.mixpanel.defaults.uid);
+  //  mixpanel.people.set(Drupal.settings.mixpanel.people);
   }
 });
