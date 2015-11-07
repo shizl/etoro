@@ -61,6 +61,7 @@ color: #ffffff;
   min-width: 100px;
   height: 31px;
   line-height: 40px;
+    display: inline-block;
   float: right;
   text-align: left;
    }
