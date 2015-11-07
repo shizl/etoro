@@ -125,7 +125,10 @@ display:none;
 #block-views-course-description-block .views-row{
 background:none;
 }
-
+#block-pingan-login-pingan-login-box .content{
+ width:300px;
+margin:0 auto;
+}
 }
 @media(max-width: 950px){
 

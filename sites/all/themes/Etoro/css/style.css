@@ -2519,11 +2519,6 @@ margin-top:15px;
 }
 @media (max-width: 950px){
 
-#block-pingan-login-pingan-login-box .content{
- width:300px;
-margin:0 auto;
-}
-
 
 #block-pingan-login-pingan-login-box .opa{
 text-align:center;
@@ -2655,6 +2650,19 @@ padding-top:35px;
 text-align:center;
 margin-left:0px;
 }*/
+
+
+.course-bottom {
+    background-color: #ffffff;
+    text-align: center;
+    float: none;
+    width: 100% !important;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: 278px;
+    
+    margin:0 auto;
+}
 
 }
 
@@ -3083,7 +3091,7 @@ float:right;
 
 #block-course-outline .control{
 text-align:right;
-margin-top:15px;
+margin-top:27px;
 }
 #block-course-outline .control a{
 width:33px;
