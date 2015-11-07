@@ -865,6 +865,7 @@ font-family:Arial;
     width: 15%;
     border-right: solid 1px  #ffdbc3;
     top:27%;
+ text-align: center;
     
 }
 #block-views-course-description-block .views-field-description{
@@ -2517,6 +2518,13 @@ margin-top:15px;
 
 }
 @media (max-width: 950px){
+
+#block-pingan-login-pingan-login-box .content{
+ width:300px;
+margin:0 auto;
+}
+
+
 #block-pingan-login-pingan-login-box .opa{
 text-align:center;
 margin-left:0px;
