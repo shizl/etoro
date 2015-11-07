@@ -2618,15 +2618,31 @@ text-align:center;
 }
 }
 @media (max-width: 1050px){
+/*login block*/
+/*.course-bottom .gmpa{  float: left;
+  margin-top: 0px !important;
+  width: 100%;}   
+.course-bottom .description{line-height: 14px;
+  margin-top: 10px;}
+  .course-bottom .login_input{   width: 83%;
+  margin: 20px auto 15px auto;
+  float: none;
+ }
+  .course-bottom .login_input button,.course-bottom .login_input .sign_out{
+    width: 100%;
+      text-align: center;
+      float: none;
+  }
 
 #content-bottom .course-bottom  {
-    background-color: #ffffff;
-    text-align: center;
-    float: none;
-    width: 100%;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    height: 278px;
+     background-color: #ffffff;
+  text-align: center;
+  display: inline-block;
+  float: none;
+  width: 100%;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  height: auto;
 }
 #content-bottom .course-bottom h2{
 padding-top:35px;
@@ -2634,9 +2650,11 @@ padding-top:35px;
 #content-bottom .course-bottom .gmpa .opa{
 text-align:center;
 margin-left:0px;
-}
+}*/
+
 }
 
+  /*end*/
 #main-menu-links .view-menu-category{
 display:none;
 border: 1px solid #ec8424;
@@ -3172,10 +3190,8 @@ margin: 0px 0px 0px 20px;
 }
 .page-activity .views-field-nothing .date,
 .page-information .views-field-nothing .date{
-
-
 color:#666666;
-float: right;
+clear:both;
 }
 .page-activity .views-field-nothing .body ,
 .page-information .views-field-nothing .body{
@@ -3237,6 +3253,7 @@ z-index:1;
 
 @media (min-width:1050px){
 
+
 .course-bottom {
 width:100% !important;
 height:auto !important;
@@ -3248,8 +3265,18 @@ padding:15px;
 .course-bottom h2{
 float:left;
 margin-left: 20px;
+line-height: 40px;
+  margin-top: 0px;
 }
+.course-bottom .login_input{    width: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: -40px;
+    float: left;}
 
+.course-bottom .login_input .sign_out {height: 20px;
+  line-height: 20px;}
+  
 .course-bottom .description{
 float:left;
 clear: both;
@@ -3264,7 +3291,7 @@ margin-right:115px;
 .course-bottom .gmpa{
 float: left;
   margin-top: -40px !important;
-  margin-left: 20px;
+  margin-left: 5%;
   width: 200px;
 
 }
@@ -3278,8 +3305,8 @@ float:left;
   float: left;
   border-bottom: none;
   border-left: 1px solid #ccc;
-  margin-top: -25px !important;
-  height: 35px !important;
+  margin-top: -40px !important;
+  height: 65px !important;
 }
 .course-bottom button{
 float:left;
@@ -3301,7 +3328,7 @@ margin-top:-15px;
 
 .course-bottom .opa{
 float:left;
-margin-left:20px !important;
+margin-left:0px !important;
 margin-top: 10px !important;
 }
 /*
@@ -3382,4 +3409,46 @@ margin-top:0px !important;
 .menu_box .opa{
 text-align:center !important;
 }
+.field-type-registration {
+
+background:#f7f7f7;
+overflow:hidden;
+}
+.field-type-registration #registration-form{
+
+padding:15px;
+}
+#registration-form select {
+
+margin: 0px 0px 0px 0px;
+}
+#registration-form select,
+#registration-form input{
+width:75%;
+
+}
+#registration-form .form-type-select{
+
+text-align:left;
+}
+#registration-form label{
+color: #666666;
+width:150px;
+font-weight: normal;
+}
+#registration-form input.form-submit{
+
+background: #c5271e;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 17px 17px;
+    margin-left: 21.5%;
+    width: auto;
+}
+#registration-form .description{
+color: #B7B7B7;
+
+}
+
 
