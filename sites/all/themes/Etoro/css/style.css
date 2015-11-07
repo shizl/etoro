@@ -1677,14 +1677,11 @@ margin-top:10px;
   float: left; /* LTR */
   vertical-align: bottom;
   min-height:50px;
-  width:99px;
+  width:auto;
   
   text-align: center;
 }
-.tabs .primary li:last-child {
 
-width:120px;
-}
 .not-logged-in .tabs .primary li:last-child{
 
 width:175px;
@@ -1707,7 +1704,7 @@ background:url(../images/1122.png) no-repeat center 0px;
   background: #ffffff;
    border:none;
     display: block;
-  padding:0px;
+  padding:0px 30px;
   margin:0px;
    margin-top: 18px;
    border-right:1px solid #999999;
@@ -3408,10 +3405,11 @@ margin-top:0px !important;
 .menu_box .opa{
 text-align:center !important;
 }
-.field-type-registration {
 
+#registration-form{
 background:#f7f7f7;
 overflow:hidden;
+padding:15px;
 }
 .field-type-registration #registration-form{
 
