@@ -3261,9 +3261,10 @@ margin-right:115px;
 }
 
 .course-bottom .gmpa{
-float:left;
-margin-top: -20px !important;
-margin-left:20px;
+float: left;
+  margin-top: -40px !important;
+  margin-left: 20px;
+  width: 200px;
 
 }
 .course-bottom .gmpa input{
@@ -3272,11 +3273,12 @@ padding:7px !important;
 float:left;
 }
 .course-bottom #radius{
-width:1px !important;
-float:left;
-border-bottom:none;
-border-left:1px solid #ccc;
-margin-top:-13px !important;
+  width: 1px !important;
+  float: left;
+  border-bottom: none;
+  border-left: 1px solid #ccc;
+  margin-top: -25px !important;
+  height: 35px !important;
 }
 .course-bottom button{
 float:left;
