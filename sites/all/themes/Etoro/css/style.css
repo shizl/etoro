@@ -3397,4 +3397,46 @@ margin-top:0px !important;
 .menu_box .opa{
 text-align:center !important;
 }
+.field-type-registration {
+
+background:#f7f7f7;
+overflow:hidden;
+}
+.field-type-registration #registration-form{
+
+padding:15px;
+}
+#registration-form select {
+
+margin: 0px 0px 0px 0px;
+}
+#registration-form select,
+#registration-form input{
+width:75%;
+
+}
+#registration-form .form-type-select{
+
+text-align:left;
+}
+#registration-form label{
+color: #666666;
+width:150px;
+font-weight: normal;
+}
+#registration-form input.form-submit{
+
+background: #c5271e;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 17px 17px;
+    margin-left: 21.5%;
+    width: auto;
+}
+#registration-form .description{
+color: #B7B7B7;
+
+}
+
 
