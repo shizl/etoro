@@ -138,43 +138,19 @@ function elessons_permission_block_view($delta = ''){
 function course_navigation(){
   
  $node = course_get_context();
- $results = db_query('select * from {{course_node}}');
  $arr = array(); 
- $current_key = 0 ;
- 
-  foreach($results as $result){
-   $content = node_load($result->nid);
+ $results = db_query('select * from {{course_outline}} where nid = :nid',array(':nid'=>$node->nid));
 
-  if($content->language==$node->language){
+   foreach($results as $result){
          $row = array();
-         $row = $result->nid;
-	 $arr[] = $row;
-   }
+         $row = $result->instance;
+	 $arr[] = $row;	
+    }
 
-  }
- 
-  foreach($arr as $key => $nodes){
-   if($nodes == $node->nid){
-     $current_key = $key;
-   }
+  $enter_nid = $arr[0];
+  $enter = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$enter_nid.'">'.t('Enter').'</a></li>';
 
-  }
-
-if($current_key!= intval(count($arr)-1)){
-  $next_nid = $arr[$current_key+1];
-  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
-}else{
-  $next = '';
-}
-
-if($current_key!=0){
-  $prev_nid = $arr[$current_key-1];
-  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
-}else{
- $prev = '';
-}
- 
- return '<ul id="course-nav">'.$prev.$next.'</ul>';
+ return '<ul id="course-nav">'.$enter.'</ul>';
 
 }
 
