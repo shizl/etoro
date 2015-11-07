@@ -203,6 +203,8 @@ jQuery('.reorder').click(function(){
 
  jQuery('#main-menu').toggle();
 
+ jQuery('.user_info').hide();
+
 });
 
    block_html = jQuery('#block-pingan-login-pingan-login-box').html();
@@ -211,6 +213,7 @@ jQuery('.reorder').click(function(){
 jQuery('.get_user').click(function(){
 
  jQuery('.user_info').toggle();
+ jQuery('#main-menu').hide();
 
 });
 
