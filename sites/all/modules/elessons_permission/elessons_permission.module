@@ -97,40 +97,129 @@ if($block->module=='course'){
     case 'outline':
        $data['content'] = overrite_outline();	
     break;
-    case 'navigation':
-       $data['content'] = overrite_navigation();
-    break;
   }
   
  }
 
-
 }
 
-function overrite_navigation(){
-  
-  global $user;
-  $node = course_get_context();
-  if ($node) {
-    $course = course_get_course($node, $user, TRUE);
-    $links = $course->getNavigation();
+function elessons_permission_block_info(){
 
-    $links['back'] = '<a href="/en/node/'.$node->nid.'">'.t('Back to course').'</a>';
-    $items = array();
-    foreach($links as $key => $value) {
-      $items[] = array(
-        'class' => array('course-nav-' . $key),
-        'data' => $value,
-      );
-    }
+  $blocks['course_navigation'] = array(
+    'info' => t('Course navigation'),
+    'status' => TRUE,
+    'region' => -1,
+  );
 
-    // Add javascript poller to update the next step button.
-    drupal_add_js(drupal_get_path('module', 'course') . '/js/nav.js', array('cache' => FALSE, 'preprocess' => FALSE));
+  $blocks['lesson_navigation'] = array(
+    'info' => t('Lesson navigation'),
+    'status' => TRUE,
+    'region' => -1,
+  );
 
-    return theme('item_list', array('items' => $items, 'title' => NULL, 'type' => 'ul', 'attributes' => array('id' => 'course-nav')));
+  return $blocks;
+}
+
+function elessons_permission_block_view($delta = ''){
+
+  $block = array();
+  switch ($delta) {
+    case 'course_navigation':
+    $block['content'] = course_navigation();
+    break;
+    case 'lesson_navigation':
+    $block['content'] = lesson_navigation();
+    break;
   }
-  
+
+  return $block;
 }
+
+function course_navigation(){
+  
+ $node = course_get_context();
+ $results = db_query('select * from {{course_node}}');
+ $arr = array(); 
+ $current_key = 0 ;
+ 
+  foreach($results as $result){
+   $content = node_load($result->nid);
+
+  if($content->language==$node->language){
+         $row = array();
+         $row = $result->nid;
+	 $arr[] = $row;
+   }
+
+  }
+ 
+  foreach($arr as $key => $nodes){
+   if($nodes == $node->nid){
+     $current_key = $key;
+   }
+
+  }
+
+if($current_key!= intval(count($arr)-1)){
+  $next_nid = $arr[$current_key+1];
+  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+}else{
+  $next = '';
+}
+
+if($current_key!=0){
+  $prev_nid = $arr[$current_key-1];
+  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
+}else{
+ $prev = '';
+}
+ 
+ return '<ul id="course-nav">'.$prev.$next.'</ul>';
+
+}
+
+function lesson_navigation(){
+
+ $node = course_get_context();
+ $results = db_query('select * from {{course_outline}} where nid = :nid',array(':nid'=>$node->nid));
+
+ $arr = array(); 
+ $current_key = 0 ;
+ 
+  foreach($results as $result){
+
+         $row = array();
+         $row = $result->instance;
+	 $arr[] = $row;
+  }
+ 
+
+  foreach($arr as $key => $nodes){
+   if($nodes == arg(1)){
+     $current_key = $key;
+   }
+  }
+
+if($current_key!= intval(count($arr)-1)){
+  $next_nid = $arr[$current_key+1];
+  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+}else{
+  $next = '';
+}
+
+if($current_key!=0){
+  $prev_nid = $arr[$current_key-1];
+  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
+}else{
+ $prev = '';
+}
+ 
+ return '<ul id="course-nav">'.$prev.$next.'</ul>';
+
+
+
+}
+
 
 
 function overrite_outline(){
