@@ -2617,15 +2617,33 @@ text-align:center;
 }
 }
 @media (max-width: 1050px){
+/*login block*/
+.course-bottom .gmpa{  float: left;
+  margin-top: 0px !important;
+
+  width: 100%;}   
+.course-bottom .description{line-height: 14px;
+  margin-top: 10px;}
+  .course-bottom .login_input{   width: 83%;
+  margin: 20px auto 15px auto;
+  float: none;
+ }
+  .course-bottom .login_input button,.course-bottom .login_input .sign_out{
+    width: 100%;
+      text-align: center;
+      float: none;
+  }
+  /*end*/
 
 #content-bottom .course-bottom  {
-    background-color: #ffffff;
-    text-align: center;
-    float: none;
-    width: 100%;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    height: 278px;
+     background-color: #ffffff;
+  text-align: center;
+  display: inline-block;
+  float: none;
+  width: 100%;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  height: auto;
 }
 #content-bottom .course-bottom h2{
 padding-top:35px;
