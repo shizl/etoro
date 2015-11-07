@@ -603,7 +603,8 @@ background:none;
   background: #f0f0f0;
   background: rgba(240, 240, 240, 1.0);
 }
-#block-views-social-trading-block .views-row,#block-views-social-trading-block-1 .views-row{
+#block-views-social-trading-block .views-row,#block-views-social-trading-block-1 .views-row,
+#block-views-social-trading-block-2 .views-row{
 padding: 20px;
 float:left;
 }
@@ -611,7 +612,7 @@ float:left;
 
 
 
-#block-views-social-trading-block .views-row img ,#block-views-social-trading-block-1 .views-row img{
+#block-views-social-trading-block .views-row img {
 height:140px
 
 }
@@ -619,7 +620,7 @@ height:140px
 
 margin-top:40px;
 }
-#block-views-social-trading-block ,#block-views-social-trading-block-1 {
+#block-views-social-trading-block ,#block-views-social-trading-block-1,#block-views-social-trading-block-2 {
 text-align:center;
 }
 
@@ -627,14 +628,14 @@ text-align:center;
 margin-top: -15px;
 
 }
-#block-views-social-trading-block h2 ,#block-views-social-trading-block-1 h2{
+#block-views-social-trading-block h2 ,#block-views-social-trading-block-1 h2 ,#block-views-social-trading-block-2 h2{
 font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
     background: url(../images/hengxian.png) center 40px no-repeat;
     height: 42px;
 }
-#block-views-social-trading-block a,#block-views-social-trading-block-1 a{
+#block-views-social-trading-block a,#block-views-social-trading-block-1 a ,#block-views-social-trading-block-2 a{
 
 color:#8b8b8b;
 }
@@ -1866,7 +1867,7 @@ fieldset {
   border-radius: 4px;
 }
 .fieldset-wrapper {
-  margin-top: 25px;
+  margin-top: 35px;
 }
 .node-form .vertical-tabs .fieldset-wrapper {
   margin-top: 0;
@@ -2399,19 +2400,19 @@ height:auto;
 border:none;
 
 }
-#block-views-social-trading-block img,#block-views-social-trading-block-1 img{
+#block-views-social-trading-block img,#block-views-social-trading-block-1 img ,#block-views-social-trading-block-2 img{
 width: 100%;
 height:auto;
 
 }
-#block-views-social-trading-block h2 img ,#block-views-social-trading-block-1 h2 img {
+#block-views-social-trading-block h2 img ,#block-views-social-trading-block-1 h2 img ,#block-views-social-trading-block-2 h2 img{
 width:auto;
 height:auto;
 
     margin-right: 5px;
     margin-top: -5px;
 }
-#block-views-social-trading-block .views-field-title ,#block-views-social-trading-block-1 .views-field-title{
+#block-views-social-trading-block .views-field-title ,#block-views-social-trading-block-1 .views-field-title,#block-views-social-trading-block-2 .views-field-title{
 margin-top: 15px;
 
 }
@@ -2701,7 +2702,7 @@ height:190px;
 #mobile-menu{
 display:none;
 }
-#block-views-social-trading-block-1 {
+#block-views-social-trading-block-1 ,#block-views-social-trading-block-2 {
 display:none;
 }
 
@@ -3362,7 +3363,6 @@ height:45px;
 
 .user_info{
 display:none;
-position: absolute;
 width:100%;
 z-index:999;
 }
