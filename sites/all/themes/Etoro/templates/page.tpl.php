@@ -29,9 +29,6 @@
 
 <?php global $language;  ?>
 
-<?php
-
-?>
 
 <div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a class="zh-lan" href="/zh-hans">中文</a>':'<a class="en-lan" href="/en">EN</a>'; ?> </div>
 
@@ -59,6 +56,7 @@
 
        </div>
 
+
 <div id="menu-category" style="display:none;">
 <?php
   $category = module_invoke('views', 'block_view', 'menu_category-block');
@@ -67,6 +65,9 @@
 </div>
 
       </div> <!-- /#main-menu -->
+
+<div class="user_info"></div>
+
     <?php endif; ?>
 </div> <!-- /.section, /#header -->
 <div id="banner"><?php print render($page['banner']); ?> </div>
@@ -78,6 +79,8 @@
   <?php endif; ?>
 
   
+
+
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
 
@@ -128,10 +131,14 @@
 
 <?php if(!empty($node) && ($node->type == 'elesson' || $node->type =='course')): ?>
 
-<?php  $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box') ; ?>
+<?php  
+$block =module_invoke('pingan_login', 'block_view', 'pingan_login_box') ; ?>
 <div id="block-pingan-login-pingan-login-box" class="course-bottom">
+<div class="content">
+
 <h2><?php print render($block['title']); ?></h2>
 <?php print render($block['content']); ?> 
+</div>
 </div>
 <?php endif ?>
 

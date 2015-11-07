@@ -111,6 +111,12 @@ function elessons_permission_block_info(){
     'region' => -1,
   );
 
+  $blocks['lesson_navigation'] = array(
+    'info' => t('Lesson navigation'),
+    'status' => TRUE,
+    'region' => -1,
+  );
+
   return $blocks;
 }
 
@@ -121,15 +127,16 @@ function elessons_permission_block_view($delta = ''){
     case 'course_navigation':
     $block['content'] = course_navigation();
     break;
+    case 'lesson_navigation':
+    $block['content'] = lesson_navigation();
+    break;
   }
 
   return $block;
 }
 
-
 function course_navigation(){
   
-  global $user;
  $node = course_get_context();
  $results = db_query('select * from {{course_node}}');
  $arr = array(); 
@@ -155,23 +162,63 @@ function course_navigation(){
 
 if($current_key!= intval(count($arr)-1)){
   $next_nid = $arr[$current_key+1];
-  $next = '<li><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
 }else{
   $next = '';
 }
 
 if($current_key!=0){
   $prev_nid = $arr[$current_key-1];
-  $prev = '<li><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
+  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
 }else{
  $prev = '';
 }
  
- return '<ul>'.$prev.$next.'</ul>';
+ return '<ul id="course-nav">'.$prev.$next.'</ul>';
 
 }
 
+function lesson_navigation(){
 
+ $node = course_get_context();
+ $results = db_query('select * from {{course_outline}} where nid = :nid',array(':nid'=>$node->nid));
+
+ $arr = array(); 
+ $current_key = 0 ;
+ 
+  foreach($results as $result){
+
+         $row = array();
+         $row = $result->instance;
+	 $arr[] = $row;
+  }
+ 
+
+  foreach($arr as $key => $nodes){
+   if($nodes == arg(1)){
+     $current_key = $key;
+   }
+  }
+
+if($current_key!= intval(count($arr)-1)){
+  $next_nid = $arr[$current_key+1];
+  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+}else{
+  $next = '';
+}
+
+if($current_key!=0){
+  $prev_nid = $arr[$current_key-1];
+  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
+}else{
+ $prev = '';
+}
+ 
+ return '<ul id="course-nav">'.$prev.$next.'</ul>';
+
+
+
+}
 
 
 

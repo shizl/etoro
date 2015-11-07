@@ -2521,6 +2521,13 @@ margin-top:15px;
 
 }
 @media (max-width: 950px){
+
+#block-pingan-login-pingan-login-box .content{
+ width:300px;
+margin:0 auto;
+}
+
+
 #block-pingan-login-pingan-login-box .opa{
 text-align:center;
 margin-left:0px;
