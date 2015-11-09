@@ -3272,8 +3272,10 @@ float:left;
 margin-left: 20px;
 line-height: 40px;
   margin-top: 0px;
+width:250px;
 }
-.course-bottom .login_input{    width: 100px;
+.course-bottom .login_input{    
+width: 100px;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: -40px;
@@ -3287,6 +3289,8 @@ float:left;
 clear: both;
 margin-left: 20px;
 margin-top:0px !important;
+width:250px;
+text-align:left;
 }
 
 body.i18n-zh-hans .course-bottom .description{
