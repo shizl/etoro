@@ -129,11 +129,22 @@ background:none;
  width:300px;
 margin:0 auto;
 }
-#block-pingan-login-pingan-login-box h2{
+
+.menu_box  h2{
 
 padding-top:35px;
 }
-
+.course-bottom {
+    background-color: #ffffff;
+    text-align: center;
+    float: none;
+    width: 100% !important;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: 278px;
+    
+    margin:0 auto;
+}
 }
 @media(max-width: 950px){
 
@@ -149,7 +160,9 @@ text-align:center;
 #block-pingan-login-pingan-login-box {
 margin-bottom:30px;
 }
-
+#block-pingan-login-pingan-login-box h2 {
+padding-top:30px;
+}
 
 #block-views-information-block .views-field-view-node,
 #block-views-information-block-1 .views-field-view-node{
@@ -179,7 +192,6 @@ float:none;
 #block-views-information-block-1 .views-row-4 .views-field-title{
 width:95%;
 float:none;
-margin-top:10px;
 }
 
 #block-views-information-block .views-row-2 .views-field-field-image,
@@ -641,9 +653,6 @@ margin:0 auto;
 }
 
 
-#block-views-activity-block .views-field-title {
-width:75%;
-}
 #footer li a {
 padding:0px;
 }

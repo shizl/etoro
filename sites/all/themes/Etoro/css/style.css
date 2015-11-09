@@ -1120,6 +1120,7 @@ margin-top: 40px;
     background-color: white;
 margin-bottom: 35px;
 position: relative;
+height:248px;
 }
 #block-views-activity-block a{
 
@@ -1148,11 +1149,12 @@ font-size: 20px;
 }
 
 #block-views-activity-block .views-field-field-activity-date{
- width: 85%;
+ width: 70%;
+ float:left;
 }
-#block-views-activity-block .views-field-field-activity-date span,
-#block-views-activity-block .views-field-title span{
-margin-left:15px;
+
+#block-views-activity-block .views-field-field-activity-date-1{
+margin-right:15px;
 }
 #block-views-activity-block .views-field-view-node a{
 
@@ -1192,8 +1194,7 @@ padding: 12px 30px;
     color: #ffffff;
 }
 #block-views-activity-block .views-field-title{
-
-width:85%;
+width:70%;
 
 }
 #block-views-activity-block .views-field-title a{
@@ -2655,17 +2656,7 @@ margin-left:0px;
 }*/
 
 
-.course-bottom {
-    background-color: #ffffff;
-    text-align: center;
-    float: none;
-    width: 100% !important;
-    margin-top: 35px;
-    margin-bottom: 35px;
-    height: 278px;
-    
-    margin:0 auto;
-}
+
 
 }
 
@@ -3266,7 +3257,7 @@ z-index:1;
 
 
 
-@media (min-width:1050px){
+@media (min-width:1149px){
 
 
 .course-bottom {
@@ -3295,7 +3286,7 @@ line-height: 40px;
 float:left;
 clear: both;
 margin-left: 20px;
-
+margin-top:0px !important;
 }
 
 body.i18n-zh-hans .course-bottom .description{
@@ -3345,6 +3336,7 @@ margin-top:-15px;
 float:left;
 margin-left:0px !important;
 margin-top: 10px !important;
+margin-bottom:0px !important;
 }
 /*
 body.node-type-course #content-bottom,
