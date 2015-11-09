@@ -452,7 +452,26 @@ margin-top:22px;
 #views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-mail-wrapper{
 
 margin-top:-20px;
+width:80%;
+}
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-mail-wrapper input,
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-name-wrapper input{
 
+width:100%;
+}
+.views-exposed-form .form-item-date-completed-min,
+.views-exposed-form .form-item-date-completed-max{
+
+width:100%;
+}
+.views-exposed-form .form-item-date-completed-min input,
+.views-exposed-form .form-item-date-completed-max input{
+
+width:100%;
+}
+#views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-name-wrapper{
+
+width:80%;
 }
 #views-exposed-form-course-enrollment-vbo-admin-page-1 #edit-submit-course-enrollment-vbo-admin{
 
@@ -484,7 +503,7 @@ select {
 }
 #edit-combine-wrapper {
 margin-top:8px;
-
+width: 80%;
 }
 .views-submit-button {
     

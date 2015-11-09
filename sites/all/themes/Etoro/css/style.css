@@ -1845,6 +1845,7 @@ a.button {
   -moz-border-radius: 20px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
+  width:auto;
 }
 a.button:link,
 a.button:visited,
@@ -1964,7 +1965,8 @@ input {
 }
 input,
 textarea {
-  font-size: 0.929em;
+  font-size: 0.9em;
+  width:auto;
 }
 textarea {
   line-height: 1.5;
@@ -2180,8 +2182,9 @@ div.vertical-tabs .vertical-tabs-panes fieldset.vertical-tabs-pane {
 
 
 @media (max-width: 580px){
-#edit-name-wrapper{
-width:90%;
+#edit-name-wrapper,
+{
+width:80%;
 }
 .view-course-enrollment-vbo-admin #edit-submit-course-enrollment-vbo-admin{
     margin-left: -12px;
