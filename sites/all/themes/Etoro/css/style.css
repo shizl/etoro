@@ -2454,6 +2454,7 @@ webform-client-form .form-textarea-wrapper,
 .webform-client-form select.form-select {
     width: 95% !important;
 }
+
 #edit-combine-wrapper input.form-text{
 
 width:auto;
@@ -2533,16 +2534,8 @@ margin-left:0px;
 #content-bottom #block-pingan-login-pingan-login-box .opa {
     margin-left: 0px;
 }
-.webform-client-form .form-actions{
 
-text-align:center;
 
-}
-.webform-client-form-254 input.form-submit,
-.webform-client-form-255 input.form-submit{
-
-margin-left:0px !important;
-}
 #block-views-information-block .views-row-1,
 #block-views-information-block-1 .views-row-1 {
     width: 100% !important;
@@ -2617,6 +2610,32 @@ text-align:center;
 }
 #block-block-5 h2,#block-block-5 #contact-info{
 text-align:center;
+}
+}
+
+@media (max-width: 830px){
+#registration-form .form-actions {
+
+margin-left:10.2em !important;
+}
+}
+
+
+@media (max-width: 1059px){
+#registration-form input.form-submit{
+
+margin-left:0px !important;
+}
+
+}
+@media (max-width: 766px){
+
+#registration-form .form-actions{
+
+margin-left:0px !important;
+}
+#registration-form select, #registration-form input {
+    width: 95% !important;
 }
 }
 @media (max-width: 1050px){
@@ -2908,6 +2927,20 @@ width: 60%;
 
 }
 }
+@media (max-width: 830px) {
+
+.webform-client-form-254 .form-textarea-wrapper,
+.webform-client-form-255 .form-textarea-wrapper {
+float:left;
+width: 95% !important;
+
+}
+.webform-client-form-254 input.form-submit,
+.webform-client-form-255 input.form-submit{
+
+margin-left:0px !important;
+}
+}
 .webform-client-form-254 .webform-component-textarea,
 .webform-client-form-255 .webform-component-textarea {
 
@@ -2922,7 +2955,7 @@ color:#ffffff;
 font-size:18px;
 border-radius:4px;
 padding: 11px 35px;
-margin-left: 18.5%;
+margin-left: 6.5em;
 width:auto;
 }
 .view-id-transcript{
@@ -3177,7 +3210,7 @@ height:170px;
 overflow:hidden;
 margin-top: 30px;
 
-}
+}95%
 
 .page-activity .views-field-field-activity-image,
 .page-activity .views-field-nothing,
@@ -3432,7 +3465,7 @@ padding:15px;
 }
 .field-type-registration #registration-form{
 
-padding:15px;
+padding: 40px 30px;
 }
 #registration-form select {
 
@@ -3459,8 +3492,8 @@ background: #c5271e;
     font-size: 15px;
     border-radius: 4px;
     padding: 17px 17px;
-    margin-left: 21.5%;
-    width: auto;
+    margin-left: 10.2em;
+    width: auto !important;
 }
 #registration-form .description{
 color: #B7B7B7;
