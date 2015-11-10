@@ -6,6 +6,7 @@ jQuery(document).ready(function(){
    if(jQuery(this).find('.field-content').text()=='lock'){
      jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
      jQuery(this).parent().append('<div class="bg" style="background:rgba(0,0,0,0.1); width:100%;height:100%;position: absolute;top:0px;"></div>');
+     jQuery(this).parent().find('.views-field-title a').removeAttr('href');
    }else{
      jQuery(this).hide();
    }
