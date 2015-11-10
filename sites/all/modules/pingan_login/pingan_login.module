@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Allow users to login using an external email account.

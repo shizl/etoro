@@ -33,7 +33,7 @@
 
 <?php global $language;  ?>
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->language=='en'?'<a  href="/zh-hans">中文</a>':'<a  href="/en">EN</a>'; ?> </div>
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->prefix=='en'?'<a  href="/cn">中文</a>':'<a  href="/en">EN</a>'; ?> </div>
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
         <div class="section clearfix">
@@ -78,7 +78,7 @@
 	 <?php 
            global $language ;
           
-           if ($language->language == 'en'){
+           if ($language->prefix == 'en'){
 	   $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'en') ");
            //echo '<pre>';
 	   //print_r($fids);exit;
@@ -93,7 +93,7 @@
   	    		</li>';
 		}
                      }
-              if ($language->language == 'zh-hans'){
+              if ($language->prefix == 'cn'){
 
                    $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'zh-hans') ");
           

@@ -137,6 +137,9 @@ function elessons_permission_block_view($delta = ''){
 
 function course_navigation(){
   
+global $language;
+
+
  $node = course_get_context();
  $arr = array(); 
  $results = db_query('select * from {{course_outline}} where nid = :nid',array(':nid'=>$node->nid));
@@ -148,14 +151,14 @@ function course_navigation(){
     }
 
   $enter_nid = $arr[0];
-  $enter = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$enter_nid.'">'.t('Enter').'</a></li>';
+  $enter = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$enter_nid.'">'.t('Enter').'</a></li>';
 
  return '<ul id="course-nav">'.$enter.'</ul>';
 
 }
 
 function lesson_navigation(){
-
+ global $language;
  $node = course_get_context();
  $results = db_query('select * from {{course_outline}} where nid = :nid',array(':nid'=>$node->nid));
 
@@ -178,14 +181,14 @@ function lesson_navigation(){
 
 if($current_key!= intval(count($arr)-1)){
   $next_nid = $arr[$current_key+1];
-  $next = '<li class="course-nav-next"><a href="/'.$node->language.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
 }else{
   $next = '';
 }
 
 if($current_key!=0){
   $prev_nid = $arr[$current_key-1];
-  $prev = '<li class="course-nav-back"><a href="/'.$node->language.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
+  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
 }else{
  $prev = '';
 }
@@ -200,7 +203,7 @@ if($current_key!=0){
 
 function overrite_outline(){
 
-  global $user;
+  global $user,$language;
   $node = course_get_context();
   $account = user_load($user->uid);
   $item = ''; 
@@ -247,7 +250,7 @@ function overrite_outline(){
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
-	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$lesson->language.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$lesson->language.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$language->prefix.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
       $num++;
 
     }

@@ -19,7 +19,7 @@ function MFT_Course_menu() {
 
     if ($node->type=="elesson"){
        global $language;
-       if($language->language == "en"){
+       if($language->prefix == "en"){
             if($node->field_type ==null){
                    return;
              }
@@ -77,7 +77,7 @@ function MFT_Course_menu() {
                 }
            }
        }
-        }elseif ($language->language == "zh-hans"){
+        }elseif ($language->prefix == "cn"){
               if($node->field_type ==null){
                 return;
               }
