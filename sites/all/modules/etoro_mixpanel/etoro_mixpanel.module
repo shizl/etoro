@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Allow users to login using an external email account.
+ *
+ * Users can login to the site using an IMAP/POP/NNTP server. If the email
+ * address is associated with a Drupal user, that user is logged in. If not,
+ * a new user is created.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function etoro_mixpanel_menu() {
+  $items['admin/config/people/etoro_mixpanel'] = array(
+    'title' => 'Etoro Mixpanel',
+    'description' => 'Etoro Mixpanel.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('etoro_mixpanel_settings_form'),
+    'access arguments' => array('administer users'),
+  );
+
+  $items['etoro_mixpanel/callback'] = array(
+    'title' => 'Pingan Login',
+    'description' => 'Pingan Login page',
+    'page callback' => 'etoro_mixpanel_callback',
+    'access callback' => true,
+   
+  );
+  return $items;
+}
+
+
+/**
+  * etoro_mixpanel  callback function 
+  */
+function etoro_mixpanel_callback(){
+  global $user;
+  $user=user_load($user->uid);
+
+}
+function etoro_mixpanel_settings_form($form, &$form_state) {
+  
+  $form['etoro_mixpanel_token'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Etoro mixpanel Token'),
+    '#description' => t('Etoro mixpanel Token'),
+    '#default_value' => variable_get('etoro_mixpanel_token',""),
+  );
+ 
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save settings'),
+  );
+
+  return $form;
+}
+
+/**
+ * Submit the settings form
+ */
+function etoro_mixpanel_settings_form_submit($form, &$form_state) {
+
+  variable_set('etoro_mixpanel_token', $form_state['values']['etoro_mixpanel_token']);
+  
+  drupal_set_message(t('Settings saved.'));
+}
+
+
+?>
