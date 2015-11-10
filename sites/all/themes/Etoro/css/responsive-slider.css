@@ -153,22 +153,31 @@
     display: none;
   }
 }
-.responsive-slider .pages {
+#widget_pager_bottom_home_banner-block  {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
 }
-.responsive-slider .pages .page {
+#widget_pager_bottom_home_banner-block .views-slideshow-pager-field-item {
   display: inline-block;
   color: transparent;
-  width: 5px;
-  height: 5px;
+  width: 12px;
+  height: 12px;
   border: 3px solid #fff;
+  background:#ffffff;
+  margin-left:5px;
   border-radius: 50%;
   opacity: 0.5;
 }
-.responsive-slider .pages .page.active {
+#widget_pager_bottom_home_banner-block .views-slideshow-pager-field-item :hover{
+
+cursor: pointer;
+}
+#widget_pager_bottom_home_banner-block .active {
   opacity: 1;
+  height:14px;
+  width:14px;
+  background:#d11211;
 }
