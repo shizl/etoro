@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Schema definition, install, uninstall, and requirements check.
+ */
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function etoro_mixpanel_uninstall() {
+  
+  variable_del('etoro_mixpanel_token');
+   
+}

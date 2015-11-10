@@ -152,34 +152,46 @@ function pingan_login_block_view($delta = '') {
         jQuery(".loginPop").css("margin","15% auto");
       }
   jQuery(".popRegister").click(function(){
+    jQuery(".loadform").show();
     jQuery(".titleRegister").show();
     jQuery(".titleLogin").hide();
     jQuery("body").css("overflow","hidden");
 
-    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->language.'/pingan_login/mobile/register?refurl="+document.location.href);
+    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/mobile/register?refurl="+document.location.href);
     jQuery(".loginBody").show();
+    jQuery(".popSrc").load(function(){
+      jQuery(".loadform").hide();
+    });
     
   });
   jQuery(".popLogin").click(function(){
+     jQuery(".loadform").show();
     jQuery(".titleRegister").hide();
     jQuery(".titleLogin").show();
     jQuery("body").css("overflow","hidden");
-    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->language.'/pingan_login/mobile/login?refurl="+document.location.href);
+    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/mobile/login?refurl="+document.location.href);
     jQuery(".loginBody").show();
+    jQuery(".popSrc").load(function(){
+      jQuery(".loadform").hide();
+    });
+    
     
   });
   jQuery(".go_etoro_register").click(function(){
+     jQuery(".loadform").show();
     jQuery(".titleRegister").show();
     jQuery("body").css("overflow","hidden");
-    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->language.'/pingan_login/etoro_register?refurl="+document.location.href);
-  
+    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register?refurl="+document.location.href);
     jQuery(".loginBody").show();
+    jQuery(".popSrc").load(function(){
+      jQuery(".loadform").hide();
+    });
   });
   jQuery(".go_etoro").click(function(){
-    document.location.href="/'.$GLOBALS['language']->language.'/pingan_login/etoro_register?refurl="+document.location.href
+    document.location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register?refurl="+document.location.href
   });
   jQuery(".go_etoro_account").click(function(){
-    document.location.href="/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro?refurl="+document.location.href
+    document.location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro?refurl="+document.location.href
   });
   
   
@@ -201,11 +213,11 @@ function pingan_login_block_view($delta = '') {
         }else{
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
-        $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div id="radius1"></div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/users/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->language.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
+        $html.='</div><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><div class="loadform"></div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
+        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div id="radius1"></div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/users/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->prefix.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
       }else{
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
-        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" style="border: 0;" height="95%" src="" class="popSrc"></iframe></div></div></div>';
       }
 
       break;
@@ -262,7 +274,7 @@ function pingan_login_login($type=""){
                     'source_page_url'=>$_SESSION['refurl']);
     mixpanel_track("toa_login_click", $values);
   }
-  $_SESSION['user_lan']=$GLOBALS['language']->language;
+  $_SESSION['user_lan']=$GLOBALS['language']->prefix;
 
   $time=date("Y-m-d h:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
@@ -283,7 +295,7 @@ function pingan_login_register($type=""){
                     'source_page_url'=>$_SESSION['refurl']);
     mixpanel_track("toa_register_click", $values);
   } 
-  $_SESSION['user_lan']=$GLOBALS['language']->language;
+  $_SESSION['user_lan']=$GLOBALS['language']->prefix;
   $time=date("Y-m-d h:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro").($type=="mobile" ? "&paramType=app":"")."&signtype=MD5");
 
@@ -354,7 +366,7 @@ function(T){
 var registration=new T.RegistrationService.Registration({
 "container":"#form",
 "version":"ver16",
-"culture":"'.($GLOBALS['language']->language=='en' ? "en-gb":"zh-cn").'",
+"culture":"'.($GLOBALS['language']->prefix=='en' ? "en-gb":"zh-cn").'",
 "checkUserIP":false,
 "socialConnect":false,
 "funnelFromID":12,
@@ -387,7 +399,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
 }); 
 registration.on("on:success", function (event) {
-location.href="/'.$GLOBALS['language']->language.'/pingan_login/etoro_callback"
+location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
@@ -437,7 +449,7 @@ function pingan_login_etoro_callback(){
   cursor:pointer;
   height:31px;
   }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'"></body></html>';
+</style></head><body><input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></body></html>';
   exit;
 }
 /**
@@ -445,7 +457,7 @@ function pingan_login_etoro_callback(){
   */
 function pingan_login_callback(){
  // print_r($_REQUEST);
-  $GLOBALS['language']->language= $_SESSION['user_lan'];
+  $GLOBALS['language']->prefix= $_SESSION['user_lan'];
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
@@ -547,11 +559,11 @@ function pingan_login_callback(){
         }
         $html='<div class="success_msg">';
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro" value="'.t('Create Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/tohome\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Create Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome\'">';
         }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
+           $html.='<input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">';
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->language.'/pingan_login/redirect/torefurl\'">';
+          $html.='<input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">';
         }
         $html.='</div>';
         //drupal_goto("/user");
