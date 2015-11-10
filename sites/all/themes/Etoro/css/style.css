@@ -644,7 +644,8 @@ color:#8b8b8b;
 margin-top:20px;
 }
 .views-slideshow-controls-bottom {
-display:none;
+   z-index: 9999;
+   position: relative;
 }
 /* --------------- Secondary Menu ------------ */
 
@@ -660,7 +661,7 @@ display:none;
 .views-field-field-banner-image img{
 
     width: 100%;
-    height: 450px;
+    
 }
 
 #banner #block-pingan-login-pingan-login-box{
@@ -3495,5 +3496,13 @@ background: #c5271e;
 color: #B7B7B7;
 
 }
+#views_slideshow_cycle_teaser_section_home_banner-block{
 
+width:100%;
+
+}
+#views_slideshow_cycle_teaser_section_home_banner-block .views_slideshow_slide{
+width:100%;
+
+}
 

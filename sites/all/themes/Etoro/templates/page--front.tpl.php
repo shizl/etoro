@@ -71,6 +71,7 @@
 
 
 <div id="banner"><?php print render($page['banner']); ?> 
+<!--
 <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
         <div class="slides" data-group="slides">
       		<ul>
@@ -119,6 +120,7 @@
         </div>        
         
     	</div>
+-->
 <div id="block-pingan-login-pingan-login-box">
 <div class="content">
 <h2><?php  $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box');print_r($block['title']);?></h2>
