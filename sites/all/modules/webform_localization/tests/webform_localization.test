@@ -164,7 +164,6 @@ class WebformLocalizationWebTestCase extends DrupalWebTestCase {
     unset($components['checkboxes_zero']);
     unset($components['grid_keyed']);
     unset($components['select_zero']);
-    unset($components['textfield_profile']);
 
     $cid = 0;
     foreach ($components as $key => $component_info) {
