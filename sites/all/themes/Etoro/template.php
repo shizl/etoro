@@ -160,6 +160,7 @@ function etoro_field__taxonomy_term_reference($variables) {
          if($form['#id'] == 'registration-form'){
             global $language;
            if ($language->prefix == "cn"){
+
            $form['state']['#options']['complete'] = '完成';
                }else{
                 return;
