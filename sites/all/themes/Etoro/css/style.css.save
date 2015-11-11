@@ -661,12 +661,7 @@ margin-top:20px;
 .views-field-field-banner-image img{
 
     width: 100%;
-
-    height:auto;
-
-
-   
-
+    
 }
 
 #banner #block-pingan-login-pingan-login-box{
@@ -1565,8 +1560,8 @@ ul.links {
 #footer {
   letter-spacing: 0.2px;
   min-height:60px;
-  
-  
+  border-top: 1px solid #555;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 #block-block-5{
 
@@ -3168,7 +3163,7 @@ position:relative;
     text-indent: -9999px;
     top: 20%;
     width: 55px;
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -3293,7 +3288,7 @@ text-indent: -9999px;
     position: absolute;
     top: 29%;
     left: 39%;
-z-index:2;
+z-index:1;
 
 }
 
@@ -3501,11 +3496,10 @@ background: #c5271e;
 color: #B7B7B7;
 
 }
-
+<<<<<<< HEAD
 .description{
 display:none;
-}
-#views_slideshow_cycle_teaser_section_home_banner-block{
+=======ews_slideshow_cycle_teaser_section_home_banner-block{
 
 width:100%;
 
