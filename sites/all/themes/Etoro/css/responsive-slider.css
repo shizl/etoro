@@ -181,3 +181,9 @@ cursor: pointer;
   width:14px;
   background:#d11211;
 }
+#widget_pager_bottom_home_banner-block .views-slideshow-pager-field-item .views-content-counter{
+
+width:14px;
+height:14px;
+text-indent:-9999px;
+}
