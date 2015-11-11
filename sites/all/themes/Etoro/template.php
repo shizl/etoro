@@ -156,6 +156,15 @@ function etoro_field__taxonomy_term_reference($variables) {
 }
 
  function etoro_form_alter(&$form, $form_state, $form_id) {
+          
+         if($form['#id'] == 'registration-form'){
+            global $language;
+           if ($language->prefix == "cn"){
+           $form['state']['#options']['complete'] = '完成';
+               }else{
+                return;
+                 }
+         }
         if($form['#id'] == 'views-exposed-form-information-page'){
            global $language;
                 if ($language->language == "en"){
