@@ -661,7 +661,7 @@ margin-top:20px;
 .views-field-field-banner-image img{
 
     width: 100%;
-    height: auto;
+    
 }
 
 #banner #block-pingan-login-pingan-login-box{
@@ -3496,11 +3496,10 @@ background: #c5271e;
 color: #B7B7B7;
 
 }
-
+<<<<<<< HEAD
 .description{
 display:none;
-}
-#views_slideshow_cycle_teaser_section_home_banner-block{
+=======ews_slideshow_cycle_teaser_section_home_banner-block{
 
 width:100%;
 
