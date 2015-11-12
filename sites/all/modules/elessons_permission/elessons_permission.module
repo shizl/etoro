@@ -183,7 +183,7 @@ function lesson_navigation(){
 if($current_key!= intval(count($arr)-1)){
 $next_nid = $arr[$current_key+1]['nid'];
 $content = node_load($next_nid);
-  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').': '.t('Lesson ').($current_key+2).$content->title.'</a></li>';
+  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').': '.t('Lesson ').($current_key+2).' '.$content->title.'</a></li>';
 }else{
   $next = '';
 }
@@ -191,7 +191,7 @@ $content = node_load($next_nid);
 if($current_key!=0){
 $prev_nid = $arr[$current_key-1]['nid'];
 $content = node_load($prev_nid);
-  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').': '.t('Lesson ').($current_key).$content->title.'</a></li>';
+  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').': '.t('Lesson ').($current_key).' '.$content->title.'</a></li>';
 }else{
  $prev = '';
 }
