@@ -169,6 +169,9 @@ function course_outline_overview_form($form, &$form_state) {
     '#weight' => 20,
   );
 
+  // Sort course object types
+  asort($object_types);
+
   $form['more']['object_type'] = array(
     '#type' => 'select',
     '#options' => $object_types,
@@ -377,6 +380,9 @@ function course_outline_overview_form_submit(&$form, &$form_state) {
       $courseObject = course_get_course_object($object);
     }
     $options = $courseObject->getOptions();
+    foreach ($options as $option => $value) {
+      $courseObject->setOption($option, $value);
+    }
 
     // Renumber weights to the way draggable table would do it in case of no JS.
     $courseObject->setOption('weight', $object['weight']);
@@ -421,14 +427,11 @@ function course_outline_list($node) {
 
   $course = course_get_course($node, $user, TRUE);
 
-
-
   // Iterate over objects.
   $workflow = array();
   $prev_obj = NULL;
   $img = NULL;
   foreach ($course->getObjects() as $key => $courseObject) {
-
     $step = array();
     $step['id'] = 'course-object-' . $courseObject->getId();
     $step['image'] = 'misc/menu-collapsed.png';
@@ -468,7 +471,6 @@ function course_outline_list($node) {
       $step['class'][] = 'required';
     }
 
-
     $step['class'][] = drupal_html_class($courseObject->getComponent() . '_' . $courseObject->getModule());
 
     $img = theme('image', array('path' => $step['image']));
@@ -481,7 +483,6 @@ function course_outline_list($node) {
       'class' => $step['class'],
     );
 
-
     // Allow other modules to modify this list item.
     $courseObject->overrideOutlineListItem($item);
 
@@ -490,9 +491,6 @@ function course_outline_list($node) {
 
     // We have to clone it, otherwise $courseObject becomes the next object.
     $prev_obj = clone $courseObject;
-
-
-
   }
 
   if ($course->getTracker()->getOption('complete')) {
@@ -501,6 +499,7 @@ function course_outline_list($node) {
       'id' => 'complete',
     );
   }
+
   $output = '';
   if ($workflow) {
     return theme('course_outline', array('node' => $node, 'items' => $workflow));

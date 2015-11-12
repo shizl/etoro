@@ -14,7 +14,7 @@ class CourseObjectAccessGrade extends CourseObjectAccess {
     $defaults = parent::optionsDefinition();
 
     $defaults += array(
-      'course_grade' => NULL,
+      'course_grade_range' => array('low' => NULL, 'high' => NULL),
       'course_grade_hidden' => NULL,
       'conditional_object' => NULL,
     );
@@ -22,24 +22,57 @@ class CourseObjectAccessGrade extends CourseObjectAccess {
     return $defaults;
   }
 
-  function take() {
-    $config = $this->getOptions();
-    if ($config['course_grade']) {
-      if ($config['conditional_object']) {
-        // Check object grade.
-        $target = course_object_load($config['conditional_object']);
-        if ($config['course_grade'] > $target->getOption('grade_result')) {
-          $this->getCourseObject()->setAccessMessage('grade', t('You must have a grade of at least @grade% in %object to take this activity.', array(
-            '@grade' => $this->getOption('course_grade'),
-            '%object' => $target->getTitle(),
-          )));
-          return FALSE;
+  public function optionsValidate($form, &$form_state) {
+    if (!empty($form_state['course_grade_range']['low']) || !empty($form_state['course_grade_range']['high'])) {
+      // If user filled out at least one.
+      if (is_numeric($form_state['course_grade_range']['low']) && is_numeric($form_state['course_grade_range']['high'])) {
+        // User filled out both.
+        if ($form_state['course_grade_range']['low'] > $form_state['course_grade_range']['high']) {
+          form_error($form['course_grade_range'], t('High range cannot be lower than the low range.'));
         }
       }
+      else {
+        // User did not fill out both.
+        form_error($form['course_grade_range'], t('You must enter a numeric value for both the low and high grade range.'));
+      }
+    }
+  }
 
-      // Check course grade.
-      if ($config['course_grade'] > $this->getCourseObject()->getCourse()->getTracker()->getOption('grade_result')) {
-        $this->getCourseObject()->setAccessMessage('grade', t('You must have a grade of at least @grade% to take this activity.', array('@grade' => $this->getOption('course_grade'))));
+  function take() {
+    $config = $this->getOptions();
+
+    if (is_numeric($config['course_grade_range']['low']) && is_numeric($config['course_grade_range']['high'])) {
+      $grade = NULL;
+      $conditional_object = NULL;
+
+      if ($this->getOption('conditional_object')) {
+        // Check object grade.
+        $conditional_object = course_object_load($config['conditional_object']);
+        $grade = $conditional_object->getFulfillment()->getOption('grade_result');
+      }
+      else {
+        $grade = $this->getCourseObject()->getCourse()->getTracker()->getOption('grade_result');
+      }
+
+      $low_range = $grade >= $config['course_grade_range']['low'];
+      $high_range = $grade <= $config['course_grade_range']['high'];
+
+      if ($low_range && $high_range) {
+        return TRUE;
+      }
+      else if (isset($conditional_object)) {
+        $this->getCourseObject()->setAccessMessage('grade', t('%title requires a grade between @grade_low% and @grade_high% to continue.', array(
+          '@grade_low' => $config['course_grade_range']['low'],
+          '@grade_high' => $config['course_grade_range']['high'],
+          '%title' => $conditional_object->getTitle(),
+        )));
+        return FALSE;
+      }
+      else {
+        $this->getCourseObject()->setAccessMessage('grade', t('You must have a grade between @grade_low% and @grade_high% to continue.', array(
+          '@grade_low' => $config['course_grade_range']['low'],
+          '@grade_high' => $config['course_grade_range']['high']
+        )));
         return FALSE;
       }
     }
@@ -58,12 +91,24 @@ class CourseObjectAccessGrade extends CourseObjectAccess {
   function optionsForm(&$form, &$form_state) {
     $config = $this->getOptions();
 
-    $form['course_grade'] = array(
-      '#title' => t('Grade required'),
+    $form['#description'] = t('The user will not be able to access this object unless the course grade is within the set range.');
+
+    $form['course_grade_range'] = array(
+      '#type' => 'container',
+    );
+
+    $form['course_grade_range']['low'] = array(
+      '#title' => t('Percentage low'),
       '#type' => 'textfield',
       '#size' => 4,
-      '#description' => t('The user will not be able to access this object until this course grade is met.'),
-      '#default_value' => $config['course_grade'],
+      '#default_value' => $config['course_grade_range']['low'],
+    );
+
+    $form['course_grade_range']['high'] = array(
+      '#title' => t('Percentage high'),
+      '#type' => 'textfield',
+      '#size' => 4,
+      '#default_value' => $config['course_grade_range']['high'],
     );
 
     $options = $this->getObjectOptions();
@@ -84,6 +129,19 @@ class CourseObjectAccessGrade extends CourseObjectAccess {
     );
 
     return $form;
+  }
+
+  /**
+   * Helper method to get possible graded objects.
+   */
+  public function getObjectOptions() {
+    $options = array('');
+    foreach ($this->getCourseObject()->getCourse()->getObjects() as $courseObject) {
+      if ($courseObject->getId() != $this->getCourseObject()->getId() && $courseObject->isGraded()) {
+        $options[$courseObject->getId()] = $courseObject->getTitle();
+      }
+    }
+    return $options;
   }
 
 }

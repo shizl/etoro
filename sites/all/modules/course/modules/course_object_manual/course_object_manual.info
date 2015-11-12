@@ -6,9 +6,9 @@ dependencies[] = course
 files[] = course_object_manual.classes.inc
 files[] = course_object_manual.test
 
-; Information added by Drupal.org packaging script on 2015-05-28
-version = "7.x-1.6"
+; Information added by Drupal.org packaging script on 2015-11-10
+version = "7.x-1.7"
 core = "7.x"
 project = "course"
-datestamp = "1432824803"
+datestamp = "1447195460"
 

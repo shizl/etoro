@@ -6,10 +6,11 @@ class CourseObjectQuiz extends CourseObjectNode {
    * Create the quiz node and set it as this object's instance.
    */
   function create($node = NULL) {
-    $quiz = new stdClass;
-    $quiz->auto_created = TRUE;
-    $quiz->type = 'quiz';
-    parent::create($quiz);
+    if (!$node) {
+      $node = new stdClass;
+    }
+    $node->auto_created = TRUE;
+    parent::create($node);
   }
 
   /**
@@ -92,7 +93,7 @@ class CourseObjectQuiz extends CourseObjectNode {
     $warnings = parent::getWarnings();
 
     if ($this->getInstanceId()) {
-      if (!quiz_get_number_of_questions($this->node->vid)) {
+      if (!quiz_get_number_of_questions($this->node->vid, $this->node->nid)) {
         if (course_quiz_quiz_version() >= 5) {
           $link = l('add questions', "node/{$this->getInstanceId()}/quiz/questions");
         }
@@ -131,7 +132,7 @@ class CourseObjectQuiz extends CourseObjectNode {
         }
         return array(
           'title' => t('Quiz results'),
-          'content' =>  $out,
+          'content' => $out,
         );
       case 'statistics':
         module_load_include('inc', 'quiz_stats', 'quiz_stats.admin');
@@ -149,7 +150,13 @@ class CourseObjectQuiz extends CourseObjectNode {
   public function unenroll() {
     parent::unenroll();
     $fulfillment = $this->getFulfillment();
-    quiz_delete_results((array) $fulfillment->getOption('quiz_result_ids'));
+    $result_ids = (array) $fulfillment->getOption('quiz_result_ids');
+    if (course_quiz_quiz_version() >= 5) {
+      entity_delete_multiple('quiz_result', $result_ids);
+    }
+    else {
+      quiz_delete_results($result_ids);
+    }
   }
 
   function getNodeTypes() {

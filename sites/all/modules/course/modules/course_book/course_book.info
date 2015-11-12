@@ -10,9 +10,9 @@ configure = admin/course/book
 files[] = course_book.classes.inc
 files[] = course_book.test
 
-; Information added by Drupal.org packaging script on 2015-05-28
-version = "7.x-1.6"
+; Information added by Drupal.org packaging script on 2015-11-10
+version = "7.x-1.7"
 core = "7.x"
 project = "course"
-datestamp = "1432824803"
+datestamp = "1447195460"
 
