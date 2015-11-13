@@ -166,29 +166,32 @@ function lesson_navigation(){
  $current_key = 0 ;
  
   foreach($results as $result){
-
+ 
          $row = array();
-         $row = $result->instance;
+         $row['nid'] = $result->instance; 
 	 $arr[] = $row;
   }
  
 
   foreach($arr as $key => $nodes){
-   if($nodes == arg(1)){
+   if($nodes['nid'] == arg(1)){
      $current_key = $key;
    }
   }
 
+
 if($current_key!= intval(count($arr)-1)){
-  $next_nid = $arr[$current_key+1];
-  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').'</a></li>';
+$next_nid = $arr[$current_key+1]['nid'];
+$content = node_load($next_nid);
+  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').': '.t('Lesson ').($current_key+2).' '.$content->title.'</a></li>';
 }else{
   $next = '';
 }
 
 if($current_key!=0){
-  $prev_nid = $arr[$current_key-1];
-  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').'</a></li>';
+$prev_nid = $arr[$current_key-1]['nid'];
+$content = node_load($prev_nid);
+  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').': '.t('Lesson ').($current_key).' '.$content->title.'</a></li>';
 }else{
  $prev = '';
 }

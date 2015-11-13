@@ -2698,7 +2698,7 @@ position: absolute;
 top: 53px;
 z-index: 1000;
 background:#fff;
-width:350px;
+width:285px;
 text-align: left;
 }
 
@@ -2748,8 +2748,8 @@ display:block;
 
 
 #main-menu-links .view-menu-category .views-field-field-thumbnail img{
-width:190px;
-height:190px;
+width:135px;
+height:135px;
 }
 
 #mobile-menu{
@@ -3514,6 +3514,7 @@ width:100%;
 width:100%;
 }
 
+
 .page-node-213 #content{
 
 width:100%;
@@ -3627,4 +3628,9 @@ margin-top:35px;
 height:392px;
 }
 
+=======
+#logo img{
+    width: 440px;
+    height: 38px;
+>>>>>>> 21bb7a392dd83584119f6e18f018d82be12caec8
 }

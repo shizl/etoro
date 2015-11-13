@@ -15,8 +15,17 @@ test_dependencies[] = rules
 php = 5
 package = Course
 configure = admin/course
-files[] = includes/course.core.inc
-files[] = includes/course_object.core.inc
+files[] = includes/CourseController.inc
+files[] = includes/CourseHandler.inc
+files[] = includes/Course.inc
+files[] = includes/CourseObjectAccess.inc
+files[] = includes/CourseObjectController.inc
+files[] = includes/CourseObjectBroken.inc
+files[] = includes/CourseObjectFulfillment.inc
+files[] = includes/CourseObjectFulfillmentController.inc
+files[] = includes/CourseObject.inc
+files[] = includes/CourseObjectNode.inc
+files[] = includes/CourseReport.inc
 files[] = plugins/course_object_access/conditional.inc
 files[] = plugins/course_object_access/grade.inc
 files[] = plugins/course_object_access/timing.inc
@@ -38,9 +47,9 @@ files[] = views/handlers/views_handler_filter_course.inc
 files[] = views/handlers/views_join_course.inc
 files[] = views/plugins/views_plugin_argument_validate_course.inc
 
-; Information added by Drupal.org packaging script on 2015-05-28
-version = "7.x-1.6"
+; Information added by Drupal.org packaging script on 2015-11-10
+version = "7.x-1.7"
 core = "7.x"
 project = "course"
-datestamp = "1432824803"
+datestamp = "1447195460"
 

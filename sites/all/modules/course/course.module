@@ -369,6 +369,7 @@ function course_ajaj_fulfullment_check($node, $courseObject, $js = FALSE) {
   }
   module_load_include('inc', 'course', 'includes/course.block');
   // Bust cache.
+  /** @deprecated do not use getUser() */
   course_get_course($node, $courseObject->getCourse()->getUser(), TRUE);
   $block = block_load('course', 'navigation');
   $block_rend = _block_render_blocks(array($block));
@@ -557,17 +558,7 @@ function course_object_options_form_submit(&$form, &$form_state) {
  * Menu loader for course objects, in the context of a course.
  */
 function course_object_load($coid) {
-  global $user;
-  $nid = arg(0) == 'node' && is_numeric(arg(1)) ? arg(1) : 0;
-  // Stored course object.
-  $courseObject = course_get_course_object_by_id($coid, $user);
-
-  if ($courseObject && $nid) {
-    // If we're loading this from a menu loader, set the course.
-    $courseObject->setCourse($nid);
-  }
-
-  return $courseObject;
+  return course_get_course_object_by_id($coid);
 }
 
 /**
@@ -810,7 +801,7 @@ function course_node_update($node) {
     }
 
     // 'Credits' is a numeric field so we need to ensure that it is a number.
-    $record['credits'] = isset($records['credits']) ? floatval($record['credits']) : 0;
+    $record['credits'] = isset($record['credits']) ? floatval($record['credits']) : 0;
 
     // Default the enrollment type if necessary.
     if (empty($record['enrollment_type'])) {
@@ -1212,8 +1203,8 @@ function course_field_attach_form($entity_type, $entity, &$form, &$form_state, $
 
   // After creating a new course, redirect the user to the course outline
   // overview form.
-  if (empty($node->nid)) {
-    $form['buttons']['submit']['#submit'][] = 'course_form_submit';
+  if (empty($entity->nid)) {
+    $form['actions']['submit']['#submit'][] = 'course_form_submit';
   }
 }
 
@@ -1362,6 +1353,7 @@ function course_take_course($node) {
         // At least one field must be shown when enrolling. Display the user
         // enrollment form.
         if (empty($enrollment->type)) {
+          $enrollment = new stdClass;
           $enrollment->nid = $node->nid;
           $enrollment->uid = $user->uid;
           $enrollment->type = $node->course['enrollment_type'];
@@ -1526,39 +1518,12 @@ function _course_get_course_object_by_uniqid($uniqid, $account = NULL, $course =
  *   A loaded CourseObject or FALSE if no object found.
  */
 function course_get_course_object_by_id($coid, $account = NULL, $course = NULL) {
-  if (!$account) {
-    global $user;
-    $account = $user;
-  }
-
-  $available = course_get_handlers('object');
-
   if (!is_numeric($coid)) {
     return _course_get_course_object_by_uniqid($coid, $account, $course);
   }
-
-
-  if ($row = entity_load_single('course_object', $coid)) {
-    $object_definition = array();
-    if (!empty($available[$row->module][$row->object_type])) {
-      $object_definition = $available[$row->module][$row->object_type];
-    }
-    if (empty($object_definition['class'])) {
-      $object_definition['class'] = 'CourseObjectBroken';
-    }
-    if (!class_exists($object_definition['class'])) {
-      drupal_set_message(t("Could not find class for %m-%c!", array('%m' => $row->module, '%c' => $row->object_type)), 'error');
-      return FALSE;
-    }
-    else {
-      if (!$course) {
-        $course = new Course(node_load($row->nid), $account);
-      }
-      return new $object_definition['class']($row, $account, $course);
-    }
-  }
-  else {
-    return FALSE;
+  if ($courseObject = entity_load_single('course_object', $coid)) {
+    $courseObject->setUser($account);
+    return $courseObject;
   }
 }
 
@@ -1619,7 +1584,7 @@ function course_get_course_object($module, $object_type = NULL, $instance = NULL
     // Get the course context.
     if (!$course) {
       if ($courseNode = course_determine_context($module, $object_type, $instance, TRUE, FALSE)) {
-        $course = new Course($courseNode, $account);
+        $course = entity_load_single('course', $courseNode->nid);
       }
     }
 
@@ -1665,7 +1630,7 @@ function course_get_course_object($module, $object_type = NULL, $instance = NULL
     $class = 'CourseObjectBroken';
   }
 
-  $courseObject = new $class($outline_entry, $account, $course);
+  $courseObject = entity_create('course_object', (array) $outline_entry);
   if ($courseObject) {
     return $courseObject;
   }
@@ -1685,23 +1650,18 @@ function course_get_course_object($module, $object_type = NULL, $instance = NULL
  * @return Course
  */
 function course_get_course($node, $account = NULL, $flush = FALSE) {
-  if (!$node) {
-    return FALSE;
-  }
-
+  /** @deprecated */
   if (!$account) {
     global $user;
     $account = $user;
   }
 
-  $courses = &drupal_static(__FUNCTION__, array());
-
-  if ($flush || !isset($courses[$node->nid]) || !isset($courses[$node->nid][$account->uid])) {
-    $course = new Course($node, $account);
-    $courses[$node->nid][$account->uid] = $course;
+  if ($entities = entity_load('course', array($node->nid), FALSE, $flush)) {
+    $course = $entities[$node->nid];
+    /** @deprecated */
+    $course->setUser($account);
+    return $course;
   }
-
-  return $courses[$node->nid][$account->uid];
 }
 
 /**
@@ -1991,6 +1951,13 @@ function course_edit_enrollment_action($object, $context) {
     }
   }
 
+  // Update start date
+  if ($context['timestamp']) {
+    if ($unixtime = strtotime($context['timestamp'])) {
+      $enrollment->timestamp = $unixtime;
+    }
+  }
+
   $course = course_get_course($node, $account);
   foreach ($course->getObjects() as $key => $courseObject) {
     $coid = $courseObject->getId();
@@ -2106,6 +2073,14 @@ function course_edit_enrollment_action_form($a1, $context) {
     '#default_value' => !empty($course_report->date_completed) ? format_date($course_report->date_completed, 'custom', 'Y-m-d H:i') : NULL,
   );
 
+  $form['timestamp'] = array(
+    '#title' => t('Set started date to'),
+    '#type' => module_exists('date_popup') ? 'date_popup' : 'date_text',
+    '#date_format' => 'Y-m-d H:i',
+    '#description' => t('The date the user started the course.'),
+    '#default_value' => !empty($enroll->timestamp) ? format_date($enroll->timestamp, 'custom', 'Y-m-d H:i') : NULL,
+  );
+
   if (isset($node)) {
     // Get course objects, with or without a single user account information.
     $course = course_get_course($node, $account);
@@ -2157,6 +2132,7 @@ function course_edit_enrollment_action_submit($form, $form_state) {
     'enroll_end' => $form_state['values']['enroll_end'],
     'status' => $form_state['values']['status'],
     'complete' => $form_state['values']['complete'],
+    'timestamp' => $form_state['values']['timestamp'],
     'date_completed' => $form_state['values']['date_completed'],
     'course_objects' => $form_state['values']['course_objects'],
   );
@@ -2198,7 +2174,7 @@ function course_init() {
     }
   }
 
-  if (class_exists('Course')) {
+  if (class_exists('Course') && $courseNode) {
     // Check that Course exists for a special use case where Autoload hasn't yet
     // cached the Course class.
 
@@ -2819,7 +2795,6 @@ function course_entity_info() {
       'entity class' => 'Entity',
       'controller class' => 'EntityAPIController',
       'base table' => 'course_enrollment',
-      'uri callback' => 'course_enrollment_uri',
       'fieldable' => TRUE,
       'entity keys' => array(
         'id' => 'eid',
@@ -2859,10 +2834,9 @@ function course_entity_info() {
     ),
     'course_report' => array(
       'label' => t('Course report'),
-      'entity class' => 'Entity',
+      'entity class' => 'CourseReport',
       'controller class' => 'EntityAPIController',
       'base table' => 'course_report',
-      'uri callback' => 'course_report_uri',
       'fieldable' => TRUE,
       'entity keys' => array(
         'id' => 'crid',
@@ -2883,12 +2857,12 @@ function course_entity_info() {
     'course_object' => array(
       'label' => t('Course object'),
       'entity class' => 'Entity',
-      'controller class' => 'EntityAPIController',
+      'controller class' => 'CourseObjectController',
       'base table' => 'course_outline',
-      'uri callback' => 'course_object_uri',
       'fieldable' => TRUE,
       'entity keys' => array(
         'id' => 'coid',
+        'uuid' => 'uuid',
       ),
       'label callback' => 'course_object_label',
       'views controller class' => 'EntityDefaultViewsController',
@@ -2902,27 +2876,28 @@ function course_entity_info() {
         ),
       ),
       'access callback' => 'course_access',
+      'uuid' => TRUE,
     ),
     'course_object_fulfillment' => array(
       'label' => t('Course object fulfillment'),
-      'entity class' => 'Entity',
-      'controller class' => 'EntityAPIController',
+      'entity class' => 'CourseObjectFulfillment',
+      'controller class' => 'CourseObjectFulfillmentController',
       'base table' => 'course_outline_fulfillment',
-      'uri callback' => 'course_object_fulfillment_uri',
       'fieldable' => FALSE,
       'entity keys' => array(
         'id' => 'cofid',
+        'uuid' => 'uuid',
       ),
       'label callback' => 'course_object_fulfillment_label',
       'views controller class' => 'EntityDefaultViewsController',
       'access callback' => 'course_access',
+      'uuid' => TRUE,
     ),
     'course' => array(
       'label' => t('Course'),
-      'entity class' => 'Entity',
-      'controller class' => 'EntityAPIController',
+      'entity class' => 'Course',
+      'controller class' => 'CourseController',
       'base table' => 'course_node',
-      'uri callback' => 'course_uri',
       'fieldable' => FALSE,
       'entity keys' => array(
         'id' => 'nid',
@@ -2962,21 +2937,32 @@ function course_entity_info() {
  * Define our special schema fields and relationships.
  */
 function course_entity_property_info_alter(&$info) {
+  $info['node']['properties']['course']['label'] = 'Course';
+  $info['node']['properties']['course']['description'] = 'The course associated with this node.';
+  $info['node']['properties']['course']['type'] = 'course';
+  $info['node']['properties']['course']['schema field'] = 'nid';
+
   $info['course']['properties']['close']['type'] = 'date';
   $info['course']['properties']['nid']['type'] = 'node';
+  $info['course']['properties']['nid']['required'] = TRUE;
   $info['course']['properties']['open']['type'] = 'date';
 
   $info['course_enrollment']['properties']['created']['type'] = 'date';
   $info['course_enrollment']['properties']['enroll_end']['type'] = 'date';
   $info['course_enrollment']['properties']['nid']['type'] = 'node';
+  $info['course_enrollment']['properties']['nid']['required'] = TRUE;
   $info['course_enrollment']['properties']['timestamp']['type'] = 'date';
   $info['course_enrollment']['properties']['uid']['type'] = 'user';
+  $info['course_enrollment']['properties']['uid']['required'] = TRUE;
   $info['course_enrollment']['properties']['type']['type'] = 'course_enrollment_type';
 
   $info['course_object']['properties']['duration']['type'] = 'duration';
   $info['course_object']['properties']['enabled']['type'] = 'boolean';
   $info['course_object']['properties']['hidden']['type'] = 'boolean';
   $info['course_object']['properties']['nid']['type'] = 'node';
+  $info['course_object']['properties']['nid']['required'] = TRUE;
+  $info['course_object']['properties']['module']['required'] = TRUE;
+  $info['course_object']['properties']['object_type']['required'] = TRUE;
   $info['course_object']['properties']['required']['type'] = 'boolean';
 
   $info['course_object_fulfillment']['properties']['coid']['type'] = 'course_object';
@@ -2984,30 +2970,15 @@ function course_entity_property_info_alter(&$info) {
   $info['course_object_fulfillment']['properties']['date_completed']['type'] = 'date';
   $info['course_object_fulfillment']['properties']['date_started']['type'] = 'date';
   $info['course_object_fulfillment']['properties']['uid']['type'] = 'user';
+  $info['course_object_fulfillment']['properties']['uid']['required'] = TRUE;
 
   $info['course_report']['properties']['date_completed']['type'] = 'date';
   $info['course_report']['properties']['nid']['type'] = 'node';
   $info['course_report']['properties']['uid']['type'] = 'user';
+  $info['course_report']['properties']['nid']['required'] = TRUE;
+  $info['course_report']['properties']['uid']['required'] = TRUE;
   $info['course_report']['properties']['coid']['type'] = 'course_object';
   $info['course_report']['properties']['complete']['type'] = 'boolean';
-}
-
-/**
- * Generate URI from enrollment entity.
- */
-function course_enrollment_uri($enrollment) {
-  return array(
-    'path' => 'node/' . $enrollment->nid,
-  );
-}
-
-/**
- * Generate URI from course_report entity.
- */
-function course_report_uri($course_report) {
-  return array(
-    'path' => 'node/' . $course_report->nid,
-  );
 }
 
 /**

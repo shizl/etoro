@@ -83,6 +83,7 @@ class CourseObjectBook extends CourseObjectNode {
     }
 
     if ($this->getOption('book_tracking') == 'all') {
+      // Possibly a bug here. book_toc doesn't return inaccessible book pages.
       $mlids = array_keys(book_toc($this->node->nid, 99));
       $viewed = array_keys(array_filter($this->getFulfillment()->getOption('book_fulfillment')));
       if (!array_diff($mlids, $viewed)) {
@@ -158,6 +159,20 @@ class CourseObjectBook extends CourseObjectNode {
         node_access_acquire_grants($node);
       }
     }
+  }
+
+  /**
+   * Override of CourseObjectNode::freeze().
+   *
+   * Do not freeze the parent book ID.
+   *
+   * course_book_node_insert() stumbles if this is set and we are cloning a
+   * book.
+   */
+  public function freeze() {
+    $ice = parent::freeze();
+    unset($ice->node->book['bid']);
+    return $ice;
   }
 
 }
