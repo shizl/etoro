@@ -2698,7 +2698,7 @@ position: absolute;
 top: 53px;
 z-index: 1000;
 background:#fff;
-width:350px;
+width:285px;
 text-align: left;
 }
 
@@ -2748,8 +2748,8 @@ display:block;
 
 
 #main-menu-links .view-menu-category .views-field-field-thumbnail img{
-width:190px;
-height:190px;
+width:135px;
+height:135px;
 }
 
 #mobile-menu{
