@@ -3513,10 +3513,6 @@ width:100%;
 #views_slideshow_cycle_teaser_section_home_banner-block .views_slideshow_slide{
 width:100%;
 }
-#logo img{
-    width: 440px;
-    height: 38px;
-}
 .page-node-213 #content{
 
 width:100%;
@@ -3630,5 +3626,7 @@ margin-top:35px;
 height:392px;
 }
 
->>>>>>> a8e75f2f76df6d4c90242d8e7193d532149ecbb9
+#logo img{
+    width: 440px;
+    height: 38px;
 }
