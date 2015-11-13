@@ -43,7 +43,7 @@ function MFT_Course_menu() {
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
                   $replace_language = str_replace('language','en',$replace_lesson);
 
-                  $output ="<script src='//www.mte-media.com/admin2/js/mte.js'></script><div id='players'><div id='mfp_player'></div><div id='vid_player_container'></div><div id='ebk_player'></div><div id='cal'></div></div>".$replace_language."";
+                  $output ="$replace_language";
 		//$node->field_lesson_id['video'] = array(
 		   //'#markup' => $output,
  		   //'#weight'=>-1,
@@ -96,7 +96,7 @@ function MFT_Course_menu() {
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
                   $replace_language = str_replace('language','cn',$replace_lesson);
-                  $output ="<script src='//www.mte-media.com/admin2/js/mte.js'></script><div id='players'><div id='mfp_player'></div><div id='vid_player_container'></div><div id='ebk_player'></div><div id='cal'></div></div>".$replace_language."";
+                  $output ="$replace_language";
 		//$node->content['video'] = array(
 		  // '#markup' => $output,
  		   //'#weight'=>-1,
