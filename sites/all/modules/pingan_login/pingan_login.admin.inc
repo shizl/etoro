@@ -124,6 +124,6 @@ function pingan_login_affiliate_settings_form($form, &$form_state) {
  */
 function affiliate_variable_ajax_callback($form, &$form_state) {
   variable_set('pingan_affiliate_variable_filter', $form_state['values']['pingan_affiliate_variable_filter']);
-  echo 111;
+  echo 111;exit;
   drupal_set_message(t('Settings saved.'));
 }

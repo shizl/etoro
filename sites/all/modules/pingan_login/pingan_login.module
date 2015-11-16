@@ -283,7 +283,7 @@ function pingan_login_login($type=""){
   }
   $_SESSION['user_lan']=$GLOBALS['language']->prefix;
 
-  $time=date("Y-m-d h:i:s");
+  $time=date("Y-m-d H:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_login_mobile_url'):variable_get('pingan_login_pc_url'))."?appId=".variable_get('pingan_appid')."&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."etoro")."&signtype=MD5");
 }
 /**
@@ -303,7 +303,7 @@ function pingan_login_register($type=""){
     mixpanel_track("toa_register_click", $values);
   } 
   $_SESSION['user_lan']=$GLOBALS['language']->prefix;
-  $time=date("Y-m-d h:i:s");
+  $time=date("Y-m-d H:i:s");
   header("Location: ".($type=="mobile" ? variable_get('pingan_register_mobile_url'):variable_get('pingan_register_pc_url'))."?appId=".variable_get('pingan_appid')."&withMobile=1&timestamp=".$time."&signature=".md5("etoroappId=".variable_get('pingan_appid')."&timestamp=".$time."&withMobile=1etoro")."&signtype=MD5");
 
 }
