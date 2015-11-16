@@ -1119,6 +1119,10 @@ display:none;
 margin-top:12px;
 
 }
+.node-course img {
+
+cursor: pointer;
+}
 #block-views-activity-block{
 width:67%;
 float:left;

@@ -141,6 +141,8 @@ global $language;
 
 
  $node = course_get_context();
+ //echo '<pre>';
+//print_r($node);exit;
  $arr = array(); 
  $results = db_query('select * from {{course_outline}} where nid = :nid',array(':nid'=>$node->nid));
 
@@ -153,7 +155,16 @@ global $language;
   $enter_nid = $arr[0];
   $enter = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$enter_nid.'">'.t('Enter').'</a></li>';
 
- return '<ul id="course-nav">'.$enter.'</ul>';
+ return '<ul id="course-nav">'.$enter.'</ul> 
+                
+<script type="text/javascript">
+ jQuery(".field-name-field-image  img").click(function(){
+  window.location.href="/'.$language->prefix.'/node/'.$enter_nid.'";
+  });
+</script>
+ ';
+
+
 
 }
 

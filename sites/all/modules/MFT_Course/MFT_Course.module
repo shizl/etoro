@@ -44,7 +44,7 @@ function MFT_Course_menu() {
                    //print_r($courseid);
                    //print_r($node->field_lesson_id); exit; 
                   
-                  $text = variable_get('SlideVideo');
+                  $text = variable_get('evideo');
 
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
@@ -108,7 +108,7 @@ function MFT_Course_menu() {
                     }
 
 
-                   $text = variable_get('SlideVideo');
+                   $text = variable_get('evideo');
 
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
