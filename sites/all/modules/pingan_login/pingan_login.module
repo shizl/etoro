@@ -351,7 +351,7 @@ input{padding: 5px !important;
 }
 .form-submit{
     width: 83%;
-  background: #c5271e;
+  background: #c5271e !important;
   display: block;
   border-radius: 5px;
   margin: 0 auto;
