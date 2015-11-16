@@ -29,21 +29,17 @@ function MFT_Course_menu() {
              $term = i18n_taxonomy_localize_terms($term);
             if($term->name =="eVideo"){
                       
-                    if (isset($node->field_single_video['und']['0']['value'])&&$node->field_single_video['und']['0']['value'] == 1){
-                          
-                          $source = $node->field_video_link['und']['0']['value'];
-                          
-                          $text = variable_get('SingleVideo');
-                          $replace_source = str_replace('source1',$source,$text);
-                          $output = "$replace_source";
-                          $node->content['field_lesson_id'][0]['#markup'] = $output;     
-                          }
-                   else{
+                 
+                  
                    if($node->field_course_id == null || $node->field_lesson_id == null){
                       return;
                     }else{
                    $courseid = $node->field_course_id['und']['0']['value'];
                    $lessonid = $node->field_lesson_id['und']['0']['value'];
+                   $lsns = "";
+                   if(isset($node->field_sequence['und']['0']['value'])){
+                   $lsns = $node->field_sequence['und']['0']['value'];
+                    }
                    //echo '<pre>';
                    //print_r($courseid);
                    //print_r($node->field_lesson_id); exit; 
@@ -53,15 +49,15 @@ function MFT_Course_menu() {
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
                   $replace_language = str_replace('language','en',$replace_lesson);
-
-                  $output ="$replace_language";
+                  $replace_lsns = str_replace('sequence',$lsns, $replace_language);
+                  $output ="$replace_lsns";
 		//$node->field_lesson_id['video'] = array(
 		   //'#markup' => $output,
  		   //'#weight'=>-1,
 		// );
                       $node->content['field_lesson_id'][0]['#markup'] = $output;
                  }
-              }
+              
            }
          }
               if(isset($node->field_type['und']['0']['tid'])){
@@ -97,35 +93,35 @@ function MFT_Course_menu() {
                	$term = i18n_taxonomy_localize_terms($term);
               if($term->name =="电子视频"){
 
-                   if (isset($node->field_single_video['und']['0']['value'])&&$node->field_single_video['und']['0']['value'] == 1){
-                          
-                          $source = $node->field_video_link['und']['0']['value'];
-                          
-                          $text = variable_get('SingleVideo');
-                          $replace_source = str_replace('source1',$source,$text);
-                          $output = "$replace_source";
-                          $node->content['field_lesson_id'][0]['#markup'] = $output;     
-                          }
-                 else{
+                  
+                
                  if($node->field_course_id == null || $node->field_lesson_id == null){
                                return;
                               }
                    else{
                    $courseid = $node->field_course_id['und']['0']['value'];
                    $lessonid = $node->field_lesson_id['und']['0']['value'];
-                   $text = variable_get('evideo');
+              
+                   $lsns = "";
+                   if(isset($node->field_sequence['und']['0']['value'])){
+                   $lsns = $node->field_sequence['und']['0']['value'];
+                    }
+
+
+                   $text = variable_get('SlideVideo');
 
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
                   $replace_language = str_replace('language','cn',$replace_lesson);
-                  $output ="$replace_language";
+                  $replace_lsns = str_replace('sequence',$lsns, $replace_language);
+                  $output ="$replace_lsns";
 		//$node->content['video'] = array(
 		  // '#markup' => $output,
  		   //'#weight'=>-1,
 		// );  
                        $node->content['field_lesson_id'][0]['#markup'] = $output;   
                   }
-               }
+               
               }
            }
            if(isset($node->field_type['und']['0']['tid'])){
