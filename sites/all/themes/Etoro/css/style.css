@@ -3558,13 +3558,22 @@ line-height: 30px;
 overflow: hidden;
 margin-top: 50px;
 }
+.page-node-213 .our-team .row{
 
+margin-right: 0px; 
+margin-left: 0px;
+}
+.page-node-213 .our-team .title{
+
+background:url(../images/hengxian1.png) 1px repeat-x;
+}
 .page-node-213 .our-team .title h1{
 
     display: block;
     width: 200px;
     margin:0 auto;
     text-align: center;
+    background:#ffffff;
    }
 .page-node-213 .our-team .person{
 
@@ -3573,8 +3582,7 @@ width:45%;
 margin-top:50px;
 font-size: 18px;
     line-height: 30px;
-height:396px;
-overflow:hidden;
+
 }
 .page-node-213 .our-team .person img{
 
@@ -3629,7 +3637,7 @@ width:90%;
 text-align:center;
 margin:0 auto;
 margin-top:35px;
-height:392px;
+
 }
 
 =======
