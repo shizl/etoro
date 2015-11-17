@@ -150,7 +150,7 @@ function pingan_login_block_view($delta = '') {
       function checkwh(){
         if(jQuery(window).width()>900){
               jQuery(".loginPop").css("max-width","550px");
-              jQuery(".loginPop").css("max-height","450px");
+              
             }
 
             if(jQuery(window).height()<550){
