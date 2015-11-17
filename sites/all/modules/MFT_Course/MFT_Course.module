@@ -41,11 +41,13 @@ function MFT_Course_menu() {
                    $lsns = $node->field_sequence['und']['0']['value'];
                     }
                    //echo '<pre>';
-                   //print_r($courseid);
+                  //print_r($node->field_video_type['und']['0']['value']);exit;
                    //print_r($node->field_lesson_id); exit; 
-                  
+                 if (isset($node->field_video_type['und']['0']['value'])&&$node->field_video_type['und']['0']['value'] == "key1"){
+                               $text = variable_get('vodevideo'); 
+                        }else{
                   $text = variable_get('evideo');
-
+                                }
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
                   $replace_language = str_replace('language','en',$replace_lesson);
@@ -108,7 +110,11 @@ function MFT_Course_menu() {
                     }
 
 
-                   $text = variable_get('evideo');
+                  if (isset($node->field_video_type['und']['0']['value'])&&$node->field_video_type['und']['0']['value'] == "key1"){
+                               $text = variable_get('vodevideo'); 
+                        }else{
+                  $text = variable_get('evideo');
+                                }
 
                   $replace_course = str_replace('courseid',$courseid,$text);
                   $replace_lesson = str_replace('lessonid',$lessonid,$replace_course);
