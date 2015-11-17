@@ -40,7 +40,7 @@ height: 100%;
   min-width: 350px;
   width: 30%;
   height: 98%;
-  max-height: 340px;
+  min-height: 340px;
   border: 1px #ccc solid;
   filter:alpha(opacity=100);
   background:#fff !important;
