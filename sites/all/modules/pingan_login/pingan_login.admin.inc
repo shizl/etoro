@@ -91,6 +91,28 @@ function pingan_login_settings_form_submit($form, &$form_state) {
  */
 function pingan_login_affiliate_settings_form($form, &$form_state) {
   
+/* update affiliate_variable */
+
+   $form['affiliate_variable_wrapper']['pingan_affiliate_variable'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Affiliate variable'),
+    '#default_value' => variable_get('pingan_affiliate_variable_filter',0),
+  );
+
+$form['affiliate_variable_wrapper']['update_affiliate_variable'] = array(
+    '#type' => 'submit',
+    '#value' => t('save affiliate variable'),
+  );
+
+
+$form['affiliate_variable_wrapper']= array(
+    '#prefix' => '<div id="affiliate-variable-wrapper">',
+    '#suffix' => '</div>',
+    '#theme' => 'poll_choices',
+  );
+
+/* update pingan_affiliate_variable_filter */
+
   $form['pingan_affiliate_variable_filter'] = array(
     '#type' => 'textfield',
     '#title' => t('Affiliate variable filter'),
@@ -103,18 +125,25 @@ function pingan_login_affiliate_settings_form($form, &$form_state) {
     '#value' => t('Filter Count'),
      '#ajax' => array(
       'callback' => 'affiliate_variable_ajax_callback',
-      'wrapper' => $form_wrapper . '-wrapper',
+      'wrapper' => 'affiliate-count-wrapper',
     ),
   );
-  $form['pingan_affiliate_count'] = array(
+  $form['affiliate_count_wrapper']= array(
+    '#prefix' => '<div id="affiliate-count-wrapper">',
+    '#suffix' => '</div>',
+    '#theme' => 'poll_choices',
+  );
+  $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
     '#type' => 'textfield',
     '#title' => t('Count Level One'),
-    '#default_value' => variable_get('pingan_affiliate_count',0),
+    '#default_value' => variable_get('pingan_affiliate_count',""),
   );
-  $form['pingan_affiliate_allcount'] = array(
+
+  $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
     '#type' => 'textfield',
     '#title' => t('Count All'),
-    '#default_value' => variable_get('pingan_affiliate_allcount',0),
+
+    '#default_value' => variable_get('pingan_affiliate_allcount',""),
   );
   return $form;
 }
@@ -124,6 +153,40 @@ function pingan_login_affiliate_settings_form($form, &$form_state) {
  */
 function affiliate_variable_ajax_callback($form, &$form_state) {
   variable_set('pingan_affiliate_variable_filter', $form_state['values']['pingan_affiliate_variable_filter']);
-  echo 111;exit;
+
+  $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Count Level One'),
+    '#default_value' =>affiliate_count($form_state['values']['pingan_affiliate_variable_filter']),
+  );
+
+  $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Count All'),
+
+    '#default_value' =>affiliate_count(),
+  );
+  return $form['affiliate_count_wrapper'];
+}
+/**
+ * Submit the affiliate_variable form
+ */
+function pingan_login_affiliate_settings_form_submit($form, &$form_state) {
+ variable_set('pingan_affiliate_variable', $form_state['values']['pingan_affiliate_variable']);
   drupal_set_message(t('Settings saved.'));
+}
+
+/**
+*get affiliate_count
+*
+*/
+function affiliate_count($cat=""){
+  $count=0;
+  if($cat!=""){
+      $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."'")->fetchField();
+  }else{
+     $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_affiliateid`")->fetchField();
+  }
+  return $count;
+
 }
