@@ -587,13 +587,11 @@ function pingan_login_callback(){
                   $edit['field_affiliateid']['und'][0]['value']=variable_get('pingan_affiliate_variable',""); 
                   user_save($account, $edit);
                 }else{
-
                   $edit['field_affiliateid']['und'][0]['value']='22222';
-                  
                 }
 
               }else{
-                $edit['field_affiliateid']['und'][0]['value']='11111';
+                $edit['field_affiliateid']['und'][0]['value']=$_SESSION['ref_id'];
 
               } 
 
