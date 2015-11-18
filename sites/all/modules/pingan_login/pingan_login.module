@@ -573,21 +573,22 @@ function pingan_login_callback(){
                 mixpanel_track("toa_login_success", $values);
               }   
          }
-         if(!empty($_SESSION['ref_id'])){
+         if($isReg=1){
                $edit=array();
-           if(empty($account->field_affiliateid['und'][0]['value'])){  
-               $edit['field_affiliateid']['und'][0]['value']='11111';
+           if(empty($_SESSION['ref_id'])){  
+               $edit['field_affiliateid']['und'][0]['value']='A54358';
                 
             }else{
 
-              if($_SESSION['ref_id']=='22222'){
+              if($_SESSION['ref_id']=='A54357'){
                    
                 if(!empty($account->field_type_of_id['und'][0]['value']) && $account->field_type_of_id['und'][0]['value']==1){
-     
+                   variable_set('pingan_affiliate_cur_count',$new_count); 
+                    $edit['field_counter']['und'][0]['value']=$new_count;
                   $edit['field_affiliateid']['und'][0]['value']=variable_get('pingan_affiliate_variable',""); 
-                  user_save($account, $edit);
+                 
                 }else{
-                  $edit['field_affiliateid']['und'][0]['value']='22222';
+                  $edit['field_affiliateid']['und'][0]['value']='A54357';
                 }
 
               }else{
@@ -597,11 +598,10 @@ function pingan_login_callback(){
 
             } 
             $new_count=intval(variable_get('pingan_affiliate_cur_count',""))>0 ? intval(variable_get('pingan_affiliate_cur_count',""))+1:1;
-             variable_set('pingan_affiliate_cur_count',$new_count); 
+
              $edit['field_ref_url']['und'][0]['value']=$_SESSION['ref_url'];
              $edit['field_pa_aff_id']['und'][0]['value']=$_SESSION['ref_id'];
-             $edit['field_counter']['und'][0]['value']=$new_count;  
-             $edit['field_ref_date‎']['und'][0]['value']=date("Y-m-d H:i:s");   
+              
             user_save($account, $edit);
         }
 
