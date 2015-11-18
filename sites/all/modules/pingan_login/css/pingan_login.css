@@ -29,11 +29,11 @@
  background: url('load.gif') center center no-repeat #fff;
 }
 .popBody{
-height: 100%;
-height: 100%;
-    position: relative;
+  height: 100%;
+  height: 100%;
+  position: relative;
 }
-.popSrc{position: relative;height: 340px;}
+.popSrc{position: relative; height: 360px;}
 .loginPop{ 
    position: relative;
   margin: 15% auto;
