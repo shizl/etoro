@@ -3517,44 +3517,54 @@ width:100%;
 #views_slideshow_cycle_teaser_section_home_banner-block .views_slideshow_slide{
 width:100%;
 }
-.page-node-213 #content{
+.page-node-213 #content,
+.page-node-214 #content{
 width:100%;
 }
-.page-node-213 h1{
+.page-node-213 h1,
+.page-node-214 h1{
 margin-top:0px;
 }
-.page-node-213 .top-video .video{
+.page-node-213 .top-video .video,
+.page-node-214 .top-video .video{
 width:460px;
 float:left;
 }
-.page-node-213 .top-video .top-right{
+.page-node-213 .top-video .top-right,
+.page-node-214 .top-video .top-right{
 float:right;
 width: 500px;
 line-height: 30px;
 }
-.page-node-213 .main-content{
+.page-node-213 .main-content,
+.page-node-214 .main-content{
 clear:both;
 padding-top:5px;
 }
-.page-node-213 .main-content span{
+.page-node-213 .main-content span,
+.page-node-214 .main-content span{
 margin-top:35px;
 display:block;
 line-height: 30px;
 }
-.page-node-213 .our-team {
+.page-node-213 .our-team,
+.page-node-214 .our-team {
 overflow: hidden;
 margin-top: 50px;
 }
-.page-node-213 .our-team .row{
+.page-node-213 .our-team .row,
+.page-node-214 .our-team .row{
 margin-top: 50px;
 margin-right: 0px; 
 margin-left: 0px;
 }
-.page-node-213 .our-team .title{
+.page-node-213 .our-team .title,
+.page-node-214 .our-team .title{
 
 background:url(../images/hengxian1.png) 1px repeat-x;
 }
-.page-node-213 .our-team .title h1{
+.page-node-213 .our-team .title h1,
+.page-node-214 .our-team .title h1{
 
     display: block;
     width: 200px;
@@ -3562,32 +3572,41 @@ background:url(../images/hengxian1.png) 1px repeat-x;
     text-align: center;
     background:#ffffff;
    }
-.page-node-213 .our-team .person{
+.page-node-213 .our-team .person,
+.page-node-214 .our-team .person{
 width:45%;
 }
-.page-node-213 .our-team .person img{
+.page-node-213 .our-team .person img,
+.page-node-214 .our-team .person img{
 width:80%;
 height:auto;
 }
-.page-node-213 .our-team .left-text{
+.page-node-213 .our-team .left-text,
+.page-node-214 .our-team .left-text{
 float:left;
 }
-.page-node-213 .our-team .right-text{
+.page-node-213 .our-team .right-text,
+.page-node-214 .our-team .right-text{
 float:right;
 }
 .page-node-213 .our-team .team-top,
-.page-node-213 .our-team .team-bottom{
+.page-node-213 .our-team .team-bottom,
+.page-node-214 .our-team .team-top,
+.page-node-214 .our-team .team-bottom{
 clear:both;
 overflow:hidden;
 }
-.page-node-213 .our-team .team-bottom{
+.page-node-213 .our-team .team-bottom,
+.page-node-214 .our-team .team-bottom{
 
 border-top: solid 2px #DEDEDE;
 margin-top:50px;
 }
 @media (max-width: 1090px){
 .page-node-213 .top-video .video,
-.page-node-213 .top-video .top-right{
+.page-node-213 .top-video .top-right,
+.page-node-214 .top-video .video,
+.page-node-214 .top-video .top-right{
 
 float:none;
 margin:0 auto;
@@ -3595,7 +3614,8 @@ text-align:center;
 width:90%;
 margin-top:25px;
 }
-.page-node-213 .main-content {
+.page-node-213 .main-content,
+.page-node-214 .main-content{
 text-align:center;
 width:90%;
 margin:0 auto;
@@ -3604,7 +3624,8 @@ margin:0 auto;
 
 @media (max-width: 550px){
 
-.page-node-213 .our-team .person{
+.page-node-213 .our-team .person,
+.page-node-214 .our-team .person{
 
 float:none !important;
 width:90%;
