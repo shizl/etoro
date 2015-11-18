@@ -85,7 +85,32 @@
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
 
     <?php if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+      <div id="breadcrumb"><?php
+global $language;
+
+ 	if($language->language=="en"){
+ 	 $home =  '<a href="/en">Home</a>';
+	}else{
+    	$home = '<a href="/cn">首页</a>';
+	}
+
+if(isset($node)&&$node->type=="elesson"){
+  
+$course_id = db_query('select nid from {{course_outline}} where instance = '.$node->nid.'')->fetchField();
+$course_data=node_load($course_id);
+//print_r($course_data->title);exit;
+print '<div class="breadcrumb">
+<span class="inline odd first">'.$home.'</span> 
+<span class="delimiter">»</span>
+<span class= "inline even">'.$course_data->title.'</span>
+<span class="delimiter">»</span>
+<span class="inline even last">'.$node->title.'</span>
+</div>';
+
+}else
+{ print $breadcrumb;}
+
+ ?></div>
     <?php endif; ?>
 
    
