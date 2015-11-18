@@ -145,67 +145,74 @@ function pingan_login_block_view($delta = '') {
     case 'pingan_login_box':
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     //drupal_add_js(drupal_get_path('module', "pingan_login") . "/js/pingan_login.js");
-     drupal_add_js('jQuery(window).load(function(){
+     drupal_add_js('
 
+      function checkwh(){
         if(jQuery(window).width()>900){
-            jQuery(".loginPop").css("width","550px");
-            jQuery(".loginPop").css("height","450px");
-            jQuery(".loginPop").css("max-height","450px");
-          }
+              jQuery(".loginPop").css("max-width","550px");
+              
+            }
 
-      if(jQuery(window).height()<550){
-        jQuery(".loginPop").css("margin","1% auto");
-      }else{
-        jQuery(".loginPop").css("margin","15% auto");
+            if(jQuery(window).height()<550){
+              jQuery(".loginPop").css("margin","1% auto");
+            }else{
+              jQuery(".loginPop").css("margin","15% auto");
+            }
       }
-  jQuery(".popRegister").click(function(){
-    jQuery(".loadform").show();
-    jQuery(".titleRegister").show();
-    jQuery(".titleLogin").hide();
-    jQuery("body").css("overflow","hidden");
+      jQuery(window).resize(function(){
+         checkwh();
+      });
+    jQuery(window).load(function(){
 
-    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/mobile/register?refurl="+document.location.href);
-    jQuery(".loginBody").show();
-    jQuery(".popSrc").load(function(){
-      jQuery(".loadform").hide();
+        checkwh();
+    jQuery(".popRegister").click(function(){
+      jQuery(".loadform").show();
+      jQuery(".titleRegister").show();
+      jQuery(".titleLogin").hide();
+      jQuery("body").css("overflow","hidden");
+
+      jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/mobile/register?refurl="+document.location.href);
+      jQuery(".loginBody").show();
+      jQuery(".popSrc").load(function(){
+        jQuery(".loadform").hide();
+      });
+      
+    });
+    jQuery(".popLogin").click(function(){
+       jQuery(".loadform").show();
+      jQuery(".titleRegister").hide();
+      jQuery(".titleLogin").show();
+      jQuery("body").css("overflow","hidden");
+      jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/mobile/login?refurl="+document.location.href);
+      jQuery(".loginBody").show();
+      jQuery(".popSrc").load(function(){
+        jQuery(".loadform").hide();
+      });
+      
+      
+    });
+    jQuery(".go_etoro_register").click(function(){
+       jQuery(".loadform").show();
+      jQuery(".titleRegister").show();
+      jQuery("body").css("overflow","hidden");
+      jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register?refurl="+document.location.href);
+      jQuery(".loginBody").show();
+      jQuery(".popSrc").load(function(){
+        jQuery(".loadform").hide();
+      });
+    });
+    jQuery(".go_etoro").click(function(){
+      document.location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register?refurl="+document.location.href
+    });
+    jQuery(".go_etoro_account").click(function(){
+      document.location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro?refurl="+document.location.href
     });
     
-  });
-  jQuery(".popLogin").click(function(){
-     jQuery(".loadform").show();
-    jQuery(".titleRegister").hide();
-    jQuery(".titleLogin").show();
-    jQuery("body").css("overflow","hidden");
-    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/mobile/login?refurl="+document.location.href);
-    jQuery(".loginBody").show();
-    jQuery(".popSrc").load(function(){
-      jQuery(".loadform").hide();
-    });
     
-    
-  });
-  jQuery(".go_etoro_register").click(function(){
-     jQuery(".loadform").show();
-    jQuery(".titleRegister").show();
-    jQuery("body").css("overflow","hidden");
-    jQuery(".loginBody").find(".popSrc").attr("src","/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register?refurl="+document.location.href);
-    jQuery(".loginBody").show();
-    jQuery(".popSrc").load(function(){
-      jQuery(".loadform").hide();
+    jQuery(".popClose").click(function(){
+      jQuery("body").css("overflow","auto");
+      jQuery(".loginBody").hide();
     });
-  });
-  jQuery(".go_etoro").click(function(){
-    document.location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register?refurl="+document.location.href
-  });
-  jQuery(".go_etoro_account").click(function(){
-    document.location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro?refurl="+document.location.href
-  });
-  
-  
-  jQuery(".popClose").click(function(){
-    jQuery("body").css("overflow","auto");
-    jQuery(".loginBody").hide();
-  });
 })
 ', 'inline');
       $block['title'] = t('Do You Want to Learn More?');
