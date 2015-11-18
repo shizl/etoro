@@ -471,7 +471,7 @@ function pingan_login_etoro_callback(){
   */
 function pingan_login_callback(){
  // print_r($_REQUEST);
-  $GLOBALS['language']->prefix= $_SESSION['user_lan'];
+  $GLOBALS['language']->prefix= !empty($_SESSION['user_lan']) ? $_SESSION['user_lan']:$GLOBALS['language']->prefix;
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
