@@ -21,7 +21,7 @@
 }
 .loadform{
   width: 100%;
-  height: 350px;
+  height: 340px;
   position: absolute;
   top:40px;
   left:0;
@@ -33,7 +33,7 @@ height: 100%;
 height: 100%;
     position: relative;
 }
-.popSrc{position: relative;height: 350px; top:40px;}
+.popSrc{position: relative;height: 340px;}
 .loginPop{ 
    position: relative;
   margin: 15% auto;
