@@ -1,0 +1,19 @@
+
+load 'deploy'
+# Uncomment if you are using Rails' asset pipeline
+    # load 'deploy/assets'
+load 'config/deploy' # remove this line to skip loading any of the default tasks
+load 'config/drupal' # remove this line to skip loading any of the default tasks
+role :web, "120.26.104.22"   # Your HTTP server, Apache/etc
+set :application, "etoro"
+set :pty, true
+set :branch,      "master"
+set :deploy_to,   "/data/www/etoro/live"
+set :deploy_via, :remote_cache
+
+set :user,        "gilbert"
+set :password,    "gilbert2015+"
+set :port,        "22522"
+set :use_sudo, false
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
