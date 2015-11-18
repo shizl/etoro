@@ -3518,15 +3518,9 @@ width:100%;
 width:100%;
 }
 .page-node-213 #content{
-
 width:100%;
 }
-.page-node-213 span{
-
-color:#666666;
-}
 .page-node-213 h1{
-
 margin-top:0px;
 }
 .page-node-213 .top-video .video{
@@ -3534,22 +3528,17 @@ width:460px;
 float:left;
 }
 .page-node-213 .top-video .top-right{
-
 float:right;
 width: 500px;
-font-size:18px;
 line-height: 30px;
 }
 .page-node-213 .main-content{
-
 clear:both;
 padding-top:5px;
 }
 .page-node-213 .main-content span{
-
 margin-top:35px;
 display:block;
-font-size: 18px;
 line-height: 30px;
 }
 .page-node-213 .our-team {
@@ -3557,7 +3546,7 @@ overflow: hidden;
 margin-top: 50px;
 }
 .page-node-213 .our-team .row{
-
+margin-top: 50px;
 margin-right: 0px; 
 margin-left: 0px;
 }
@@ -3574,39 +3563,26 @@ background:url(../images/hengxian1.png) 1px repeat-x;
     background:#ffffff;
    }
 .page-node-213 .our-team .person{
-
-
 width:45%;
-margin-top:50px;
-font-size: 18px;
-    line-height: 30px;
-
 }
 .page-node-213 .our-team .person img{
-
 width:80%;
 height:auto;
-
 }
 .page-node-213 .our-team .left-text{
-
 float:left;
-
 }
 .page-node-213 .our-team .right-text{
-
 float:right;
 }
 .page-node-213 .our-team .team-top,
 .page-node-213 .our-team .team-bottom{
-
 clear:both;
 overflow:hidden;
-
 }
 .page-node-213 .our-team .team-bottom{
 
-border-top:solid 2px #999999 ;
+border-top: solid 2px #DEDEDE;
 margin-top:50px;
 }
 @media (max-width: 1090px){
