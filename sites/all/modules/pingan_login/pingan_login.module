@@ -659,9 +659,10 @@ input{padding: 5px !important;
 }
 .registration-service .form-field{
   margin-bottom:10px !important;
+    font-size: 14px;
 }
 .form-submit{
-    width: 83%;
+    width: 50%;
   background: #c5271e !important;
   display: block;
   border-radius: 5px;
@@ -670,15 +671,20 @@ input{padding: 5px !important;
   color: #ffffff;
   border: 0;
   line-height: 20px;
-  font-size: 14px;
+  font-weight:bolder;
+  font-size: 20x;
 }
-.head{text-align:center;}
-.head .title{font-size:18px;font-weight:bolder;}
-.head .title-des{font-size:14px;font-weight:bolder;}
-.head .continue{font-size:12px;font-weight:bolder;}
+.head{text-align:center; line-height:30px;}
+.head .title{font-size:20px;font-weight:bolder;font-style: italic;}
+.head .title-des{font-size:14px;font-weight:bolder;font-style: italic;}
+.head .continue,.btn a{font-size:12px; text-decoration: initial;}
+.btn{text-align:center;}
+.btn .skip{font-size:14px;font-weight:bolder;}
+.btn .btn-des{margin:10px 0 25px 0;}
   </style>
 }
-}
+
+
 <script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
 <script>
@@ -717,7 +723,10 @@ registration.on("rendered", function(event) {
   $(".username input").val("'.(!empty($user->name) ? $user->name:'').'");
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
-})
+  $(".form-field-checkbox privacy").hide();
+  $(".field-etoro_1327").attr("checked",true);
+  $(".user_privacy").attr("href", $(".field-etoro_1327 a").attr("href"));
+});
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
   $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
@@ -734,7 +743,9 @@ registration.show();
 <div id="regbox">
 <form id="form"></form>
 </div>
-<div class="btn"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Start Learning').'</a></div>
+<div class="btn">
+<div class="btn-des"><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions').'</a></div>
+<a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>').'</a></div>
 </body>
 </html>
 ';
