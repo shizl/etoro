@@ -634,21 +634,11 @@ function pingan_login_callback(){
 
 
           if(module_exists('mixpanel')){
-            if(!empty($_REQUEST['refurl'])){
-              $_SESSION['refurl']=$_REQUEST['refurl'];
-              $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
-                'username'=>$user->name,
-                'source_page_url'=>$_SESSION['refurl']);
-              mixpanel_track("etoro_skip_register", $values);
-           
-            }else{
-              global $base_url;
-              $_SESSION['refurl']=$base_url;
-
+       
               $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
                             'source_page_url'=>$_SESSION['refurl']);
               mixpanel_track("etoro_register_click", $values);
-            }
+           
           }
 
           
