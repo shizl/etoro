@@ -148,13 +148,7 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
   );
   return $form['affiliate_count_wrapper'];
 }
-/**
- * Submit the affiliate_variable form
- */
-function pingan_login_affiliate_settings_form_submit($form, &$form_state) {
- variable_set('pingan_affiliate_variable', $form_state['values']['pingan_affiliate_variable']);
-  drupal_set_message(t('Settings saved.'));
-}
+
 
 /**
 *get affiliate_count
