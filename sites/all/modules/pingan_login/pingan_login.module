@@ -728,7 +728,7 @@ registration.on("rendered", function(event) {
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
   $(".privacy").hide();
-  $(".field-message").addClass("valid");
+  $(".privacy .field-message").addClass("valid");
   $(".privacy").addClass("valid");
   $(".privacy").removeClass("invalid");
   $("#field-etoro_1327").attr("checked","checked");
