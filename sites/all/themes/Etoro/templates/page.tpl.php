@@ -102,7 +102,7 @@ $course_data=node_load($course_id);
 print '<div class="breadcrumb">
 <span class="inline odd first">'.$home.'</span> 
 <span class="delimiter">»</span>
-<span class= "inline even">'.$course_data->title.'</span>
+<span class= "inline even"><a href="/'.$language->prefix.'/node/'.$course_data->nid.'">'.$course_data->title.'</a></span>
 <span class="delimiter">»</span>
 <span class="inline even last">'.$node->title.'</span>
 </div>';
