@@ -938,7 +938,6 @@ font-size: 20px;
     text-align:center;
 }
 #block-views-information-block{
-
 overflow:hidden;
 }
 #block-views-information-block .views-row-2 .views-field-field-image,
@@ -950,6 +949,19 @@ overflow:hidden;
 {
 width:30%;
 
+}
+#block-views-information-block .views-row .views-field-title,
+#block-views-information-block-1 .views-row .views-field-title{
+     white-space: nowrap; 
+      text-overflow: ellipsis; 
+    overflow: hidden; 
+     width: 50%; 
+     -o-text-overflow: ellipsis;
+     -icab-text-overflow: ellipsis;
+     -khtml-text-overflow: ellipsis;
+     -moz-text-overflow: ellipsis; 
+     -webkit-text-overflow: ellipsis;
+     
 }
 #block-views-information-block .views-row .views-field-title a,
 #block-views-information-block-1 .views-row .views-field-title a{
