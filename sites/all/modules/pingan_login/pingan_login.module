@@ -583,6 +583,7 @@ function pingan_login_callback(){
               if($_SESSION['ref_id']=='A54357'){
                    
                 if(!empty($account->field_type_of_id['und'][0]['value']) && $account->field_type_of_id['und'][0]['value']==1){
+                  $new_count=intval(variable_get('pingan_affiliate_cur_count',""))>0 ? intval(variable_get('pingan_affiliate_cur_count',""))+1:1;
                    variable_set('pingan_affiliate_cur_count',$new_count); 
                     $edit['field_counter']['und'][0]['value']=$new_count;
                   $edit['field_affiliateid']['und'][0]['value']=variable_get('pingan_affiliate_variable',""); 
@@ -597,7 +598,7 @@ function pingan_login_callback(){
               } 
 
             } 
-            $new_count=intval(variable_get('pingan_affiliate_cur_count',""))>0 ? intval(variable_get('pingan_affiliate_cur_count',""))+1:1;
+            
 
              $edit['field_ref_url']['und'][0]['value']=!empty($_SESSION['ref_url']) ? $_SESSION['ref_url']:"";
              $edit['field_pa_aff_id']['und'][0]['value']=!empty($_SESSION['ref_id']) ? $_SESSION['ref_id']:"";
