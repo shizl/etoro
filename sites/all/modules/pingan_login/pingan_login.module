@@ -75,8 +75,15 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
-  
- $items['pingan_login/%/register'] = array(
+ 
+ $items[' pingan_login/checklogin'] = array(
+    'title' => 'Pingan Login status check',
+    'description' => 'Pingan Login status check',
+    
+    'page callback' => 'pingan_login_check',
+    'access callback' => true,
+  );
+  $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
     'page arguments' => array(1),
@@ -129,7 +136,20 @@ function etoro_toaFtd() {
   echo json_encode($data);
   exit;
 }
+/**
+*check user is login
+*/
+function pingan_login_check(){
+ global $user;
+ if($user->uid>0){
+  
+  echo 1;//is logined
+ }else{
+  echo 0;//not login
+ }
 
+
+}
 /**
 * Implements hook_block_info().
 */
@@ -220,6 +240,11 @@ function pingan_login_block_view($delta = '') {
     jQuery(".popClose").click(function(){
       jQuery("body").css("overflow","auto");
       jQuery(".loginBody").hide();
+      jQuery("/'.$GLOBALS['language']->prefix.'/pingan_login/checklogin",{},function(data){
+          if(data==1){
+            window.document.reload();
+          }
+      });
     });
 })
 ', 'inline');
