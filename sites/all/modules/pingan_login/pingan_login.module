@@ -679,9 +679,8 @@ input{padding: 5px !important;
 .head .title-des{font-size:14px;font-weight:bolder;font-style: italic;}
 .head .continue,.btn a{font-size:12px; text-decoration: initial;}
 .btn{text-align:center;}
-.btn .skip{font-size:14px;font-weight:bolder;}
-.btn .btn-des{margin:10px 0 25px 0;}
-  
+.btn .skip{font-size:16px;margin:15px 0 20px 0;}
+.btn .btn-des{margin:10px 0 20px 0;}
 
   </style>
 
