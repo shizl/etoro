@@ -748,7 +748,7 @@ registration.on("rendered", function(event) {
 });
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
-  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。",array(),array("langcode"=>$GLOBALS['language']->language)).'")
+  $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
 location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
