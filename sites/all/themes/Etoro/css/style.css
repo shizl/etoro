@@ -3643,3 +3643,14 @@ margin-top:35px;
     width: 440px;
     height: 38px;
 }
+#block-views-home-banner-block{
+display:none;
+}
+.banner_ img{
+width:100%;
+display:none;
+}
+.banner_ .banner_1150{
+display:block;
+}
+
