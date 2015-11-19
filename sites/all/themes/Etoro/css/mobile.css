@@ -226,10 +226,13 @@ margin:0 !important;
 }
 @media(max-width: 830px){
 
-#block-views-home-banner-block{
+.banner_ .banner_830{
+display:block;
+}
+.banner_ .banner_1150,
+.banner_ .banner_480{
 display:none;
 }
-
 #block-views-course-description-block .views-field-field-thumbnail{
 left: 0;
 position: absolute;
@@ -442,6 +445,15 @@ margin-top:2px !important;
 }
 }
 @media (max-width: 481px) {
+
+.banner_ .banner_480{
+display:block;
+}
+.banner_ .banner_1150,
+.banner_ .banner_830{
+display:none;
+}
+
 .views-exposed-form .views-exposed-widget .form-item-combine{
 
 padding: 0px 40px 10px 3px;
