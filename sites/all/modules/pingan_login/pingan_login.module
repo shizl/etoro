@@ -681,9 +681,9 @@ input{padding: 5px !important;
 .btn{text-align:center;}
 .btn .skip{font-size:14px;font-weight:bolder;}
 .btn .btn-des{margin:10px 0 25px 0;}
-  </style>
-}
+  
 
+  </style>
 
 <script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
 <script src="'.variable_get('pingan_login_etoro_url').'"></script>
@@ -723,9 +723,9 @@ registration.on("rendered", function(event) {
   $(".username input").val("'.(!empty($user->name) ? $user->name:'').'");
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
-  $(".form-field-checkbox privacy").hide();
-  $(".field-etoro_1327").attr("checked",true);
-  $(".user_privacy").attr("href", $(".field-etoro_1327 a").attr("href"));
+  $(".privacy").hide();
+  $(".field-etoro_1327").prop("checked",true);
+  $(".user_privacy").attr("href", $(".privacy a").attr("href"));
 });
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
