@@ -674,11 +674,12 @@ input{padding: 5px !important;
   font-weight:bolder;
   font-size: 20x;
 }
-.head{text-align:center; line-height:30px;}
+.head{text-align:center; line-height:30px;  margin-bottom: 20px;}
 .head .title{font-size:20px;font-weight:bolder;font-style: italic;}
-.head .title-des{font-size:14px;font-weight:bolder;font-style: italic;}
-.head .continue,.btn a{font-size:12px; text-decoration: initial;}
-.btn{text-align:center;}
+.head .title-des{font-size:16px;font-weight:bolder;font-style: italic;}
+.head .continue a,.btn a{font-size:14px; text-decoration: initial;}
+.btn{text-align:center;  display: inherit;
+  margin: 15px;}
 .btn .skip{font-size:16px;margin:15px 0 20px 0;}
 .btn .btn-des{margin:10px 0 20px 0;}
 
@@ -723,6 +724,8 @@ registration.on("rendered", function(event) {
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
   $(".privacy").hide();
+  $(".privacy").addClass("valid");
+  $(".privacy").removeClass("invalid");
   $(".field-etoro_1327").prop("checked",true);
   $(".user_privacy").attr("href", $(".privacy a").attr("href"));
 });
