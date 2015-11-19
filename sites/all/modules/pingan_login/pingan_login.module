@@ -746,7 +746,7 @@ registration.on("rendered", function(event) {
 });
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
-  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。",array(),array("langcode"=>$GLOBALS['language']->prefix)).'")
+  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
 location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
@@ -756,13 +756,13 @@ registration.show();
 </script>
 </head>
 <body>
-<div class="head"><div class="title">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</div><div class="title-des">'.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</a></div></div>
+<div class="head"><div class="title">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="title-des">'.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
 <div id="regbox">
 <form id="form"></form>
 </div>
 <div class="btn">
-<div class="btn-des"><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</a></div>
-<a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</a></div>
+<div class="btn-des"><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
+<a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
 </body>
 </html>
 ';
@@ -770,16 +770,16 @@ registration.show();
         
         }else{
          if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }else{
-          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }
       }
         
         //drupal_goto("/user");
 
     }else{
-      $html.='<div class="error_msg">'.t('Login failse.<br>error code:',array(),array("langcode"=>$GLOBALS['language']->prefix)).$xmlObject->message.' '.$xmlObject->message.'</div>';
+      $html.='<div class="error_msg">'.t('Login failse.<br>error code:',array(),array("langcode"=>$GLOBALS['language']->language)).$xmlObject->message.' '.$xmlObject->message.'</div>';
      
     }
     echo '<html><head><style>.go_etoro {
