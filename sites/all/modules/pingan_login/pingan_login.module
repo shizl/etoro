@@ -620,15 +620,134 @@ function pingan_login_callback(){
           $edit = array();
           user_module_invoke('login', $edit, $user);
         }
-        $html='<div class="success_msg">';
+        
         if($isReg || empty($account->field_practice_account_date['und'][0]['value'])){
-          $html.='<input type="button" class="go_etoro" value="'.t('Create Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_register\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome\'">';
-        }else if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html.='<input type="button" class="go_etoro_account" value="'.t('Make First Time Deposit').'" onclick=""> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">';
+
+
+          if(module_exists('mixpanel')){
+            if(!empty($_REQUEST['refurl'])){
+              $_SESSION['refurl']=$_REQUEST['refurl'];
+              $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
+                'username'=>$user->name,
+                'source_page_url'=>$_SESSION['refurl']);
+              mixpanel_track("etoro_skip_register", $values);
+           
+            }else{
+              global $base_url;
+              $_SESSION['refurl']=$base_url;
+
+              $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
+                            'source_page_url'=>$_SESSION['refurl']);
+              mixpanel_track("etoro_register_click", $values);
+            }
+          }
+
+          
+          $userBirthdate="";
+          if(!empty($user->field_date_of_birth['und'][0]['value'])){
+            $userBirthdate=date("[d, m, Y]",strtotime($user->field_date_of_birth['und'][0]['value']));
+          }
+  
+  echo '<html><head>
+  <style>
+body{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+input{padding: 5px !important;
+  height: 30px !important;
+  line-height: 20px !important;
+  background:#fff !important;
+}
+.registration-service .form-field{
+  margin-bottom:10px !important;
+}
+.form-submit{
+    width: 83%;
+  background: #c5271e !important;
+  display: block;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 5px 9px;
+  color: #ffffff;
+  border: 0;
+  line-height: 20px;
+  font-size: 14px;
+}
+.head{text-align:center;}
+.head .title{font-size:18px;font-weight:bolder;}
+.head .title-des{font-size:14px;font-weight:bolder;}
+.head .continue{font-size:12px;font-weight:bolder;}
+  </style>
+}
+}
+<script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
+<script src="'.variable_get('pingan_login_etoro_url').'"></script>
+<script>
+RegistrationService({
+"isDebug":false,
+"loadCSS":true,
+},
+function(T){
+var registration=new T.RegistrationService.Registration({
+"container":"#form",
+"version":"ver16",
+"culture":"'.($GLOBALS['language']->prefix=='en' ? "en-gb":"zh-cn").'",
+"checkUserIP":false,
+"socialConnect":false,
+"funnelFromID":12,
+"successRedirect":false,
+"funnelID":12,  
+"overriddenValues":{"toa_id": "'.(!empty($user->field_toaid['und'][0]['value']) ? $user->field_toaid['und'][0]['value']:'').'",
+       "gender": "'.(!empty($user->field_gender['und'][0]['value']) && $user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
+       '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
+       "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
+       "is_toa_phone_verified": true,
+       "toaFullname": "'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'",
+       "chinese_id_number": "'.(!empty($user->field_chineseidnumber['und'][0]['value']) ?$user->field_chineseidnumber['und'][0]['value']:'').'",
+       "chinese_id_type": "'.(!empty($user->field_chineseidtype['und'][0]['value']) ?$user->field_chineseidtype['und'][0]['value']:'').'"
+      }  
+});  
+
+registration.on("after:render", function (event) {
+
+}); 
+registration.on("before:render", function (event) {
+});
+registration.on("rendered", function(event) {
+  $(".phone input").val("'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'");
+  $(".username input").val("'.(!empty($user->name) ? $user->name:'').'");
+  $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
+  $(".phoneprefixes select").val("86");
+})
+registration.on("on:submit", function (event) {}); 
+registration.on("on:error", function (event) {
+  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
+}); 
+registration.on("on:success", function (event) {
+location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
+}); 
+registration.show();
+});
+</script>
+</head>
+<body>
+<div class="head"><div class="title">'.t('You Successfuly Logged in !').'</div><div class="title-des">'.t('Now open a practive account in eToro for free').'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>').'</a></div></div>
+<div id="regbox">
+<form id="form"></form>
+</div>
+<div class="btn"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Start Learning').'</a></div>
+</body>
+</html>
+';
+  exit;
+        
         }else{
-          $html.='<input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">';
+         if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
+           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning').'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+        }else{
+          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }
-        $html.='</div>';
+      }
+        
         //drupal_goto("/user");
 
     }else{
