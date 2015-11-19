@@ -599,8 +599,8 @@ function pingan_login_callback(){
             } 
             $new_count=intval(variable_get('pingan_affiliate_cur_count',""))>0 ? intval(variable_get('pingan_affiliate_cur_count',""))+1:1;
 
-             $edit['field_ref_url']['und'][0]['value']=$_SESSION['ref_url'];
-             $edit['field_pa_aff_id']['und'][0]['value']=$_SESSION['ref_id'];
+             $edit['field_ref_url']['und'][0]['value']=!empty($_SESSION['ref_url']) ? $_SESSION['ref_url']:"";
+             $edit['field_pa_aff_id']['und'][0]['value']=!empty($_SESSION['ref_id']) ? $_SESSION['ref_id']:"";
               
             user_save($account, $edit);
         }
