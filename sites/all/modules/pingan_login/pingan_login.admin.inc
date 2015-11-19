@@ -122,7 +122,6 @@ function pingan_login_affiliate_settings_form($form, &$form_state) {
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
     '#type' => 'textfield',
     '#title' => t('Count All'),
-
     '#default_value' => variable_get('pingan_affiliate_allcount',""),
   );
   return $form;
@@ -137,14 +136,14 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
   $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
     '#type' => 'textfield',
     '#title' => t('Count Level One'),
-    '#default_value' =>affiliate_count($form_state['values']['pingan_affiliate_variable_filter']),
+    '#value' =>affiliate_count($form_state['values']['pingan_affiliate_variable_filter']),
   );
 
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
     '#type' => 'textfield',
     '#title' => t('Count All'),
 
-    '#default_value' =>affiliate_count(),
+    '#value' =>affiliate_count(),
   );
   return $form['affiliate_count_wrapper'];
 }
