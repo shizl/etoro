@@ -573,7 +573,7 @@ function pingan_login_callback(){
                 mixpanel_track("toa_login_success", $values);
               }   
          }
-         if($isReg=1){
+         if($isReg==1){
                $edit=array();
            if(empty($_SESSION['ref_id'])){  
                $edit['field_affiliateid']['und'][0]['value']='A54358';
