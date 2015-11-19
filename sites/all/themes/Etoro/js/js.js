@@ -7,15 +7,17 @@ jQuery(document).ready(function(){
      jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
       jQuery(this).parent().append('<div class="bg" style="background:rgba(0,0,0,0.1); width:100%;height:100%;position: absolute;top:0px;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);z-index:1;"></div>');
      jQuery(this).parent().find('.views-field-title a').removeAttr('href');
+
    }else{
      jQuery(this).hide();
    }
 
   });
 
-
-
-
+  jQuery('.jcarousel .views-field-php').each(function(){
+     desc = jQuery(this).parent().find('.views-field-description .field-content').text();
+     jQuery(this).attr('title',desc);
+  });
 
 	zh_lan = jQuery('.language-switcher-locale-url li.zh-hans a').attr('href');
 	en_lan = jQuery('.language-switcher-locale-url li.en a').attr('href');
