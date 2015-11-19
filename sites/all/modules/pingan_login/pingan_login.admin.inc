@@ -59,7 +59,7 @@ function pingan_login_settings_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Affiliate variable'),
 
-    '#default_value' => variable_get('pingan_affiliate_variable',0),
+    '#default_value' => variable_get('pingan_affiliate_variable',""),
   );
 
   $form['submit'] = array(
@@ -90,26 +90,6 @@ function pingan_login_settings_form_submit($form, &$form_state) {
  * Admin settings form.
  */
 function pingan_login_affiliate_settings_form($form, &$form_state) {
-  
-/* update affiliate_variable */
-
-   $form['affiliate_variable_wrapper']['pingan_affiliate_variable'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Affiliate variable'),
-    '#default_value' => variable_get('pingan_affiliate_variable_filter',0),
-  );
-
-$form['affiliate_variable_wrapper']['update_affiliate_variable'] = array(
-    '#type' => 'submit',
-    '#value' => t('save affiliate variable'),
-  );
-
-
-$form['affiliate_variable_wrapper']= array(
-    '#prefix' => '<div id="affiliate-variable-wrapper">',
-    '#suffix' => '</div>',
-    '#theme' => 'poll_choices',
-  );
 
 /* update pingan_affiliate_variable_filter */
 
