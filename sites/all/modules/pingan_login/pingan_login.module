@@ -662,17 +662,18 @@ input{padding: 5px !important;
     font-size: 14px;
 }
 .form-submit{
+  margin-top:15px;
     width: 50%;
   background: #c5271e !important;
   display: block;
   border-radius: 5px;
   margin: 0 auto;
-  padding: 5px 9px;
+  padding: 10px 9px !important;
   color: #ffffff;
   border: 0;
-  line-height: 20px;
+  height:40px;
   font-weight:bolder;
-  font-size: 20x;
+  font-size: 20x !important;
 }
 .head{text-align:center; line-height:30px;  margin-bottom: 20px;}
 .head .title{font-size:20px;font-weight:bolder;font-style: italic;}
