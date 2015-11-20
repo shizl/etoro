@@ -18,7 +18,7 @@ body {
   padding: 0;
   border: 0;
   outline: 0;
-  
+  position: relative;
 }
 a:link,
 a:visited {
@@ -2445,7 +2445,7 @@ height:auto;
 #block-views-social-trading-block .views-field-title ,#block-views-social-trading-block-1 .views-field-title,#block-views-social-trading-block-2 .views-field-title{
 margin-top: 15px;
 }
-#block-views-social-trading-block .views-field-description ,#block-views-social-trading-block-1 .views-field-description,#block-views-social-trading-block-2 .views-field-description{
+#block-views-social-trading-block .views-field-description ,#block-views-social-trading-block-1 .views-field-description,#block-views-social-trading-block-2 .views-field-description ,.item .views-field-description{
 display:none;
 }
 
@@ -3666,3 +3666,14 @@ display:none;
 display:block;
 }
 
+.jcarousel .views-field-description ,.item .views-field-description{
+ width:50%;
+ height:40%;
+ top:30%;
+ left:25%;
+ position:fixed;
+ border:1px solid #ccc;
+ background-color:#fff;
+ padding:10px;
+ z-index:1001;
+}

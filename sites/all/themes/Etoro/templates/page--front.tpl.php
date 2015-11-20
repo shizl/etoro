@@ -202,6 +202,3 @@
   </div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->
-<script src="/sites/all/themes/Etoro/js/jquery.js"></script>
- <script src="/sites/all/themes/Etoro/js/jquery.event.move.js"></script>
-    <script src="/sites/all/themes/Etoro/js/responsive-slider.js"></script>
