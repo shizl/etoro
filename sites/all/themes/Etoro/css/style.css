@@ -3655,13 +3655,23 @@ display:block;
 }
 
 .jcarousel .views-field-description-i18n ,.item .views-field-description-i18n{
- width:50%;
+
+ width: 30%;
  height:40%;
  top:30%;
- left:25%;
+ left:35%;
+margin:0 auto;
  position:fixed;
  border:1px solid #ccc;
  background-color:#fff;
  padding:10px;
  z-index:1001;
+text-align:center;
 }
+
+.jcarousel .views-field-description-i18n span ,.item .views-field-description-i18n span{
+ float:left;
+ cursor: pointer;
+display:block;
+}
+
