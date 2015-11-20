@@ -3315,7 +3315,7 @@ text-indent: -9999px;
     top: 29%;
     left: 39%;
 z-index:2;
-
+ cursor: pointer;
 }
 
 
@@ -3681,10 +3681,13 @@ margin:0 auto;
  z-index:1001;
 text-align:center;
 }
-
-.jcarousel .views-field-description-i18n span ,.item .views-field-description-i18n span{
- float:left;
- cursor: pointer;
-display:block;
+.jcarousel .views-field-description-i18n .content ,.item .views-field-description-i18n .content{
+margin-top:30px;
 }
+.jcarousel .views-field-description-i18n .close_ ,.item .views-field-description-i18n .close_{
+ text-align:left;
 
+}
+.jcarousel .views-field-description-i18n .close_ span ,.item .views-field-description-i18n .close_ span{
+ cursor: pointer;
+}
