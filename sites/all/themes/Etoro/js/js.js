@@ -12,11 +12,11 @@ jQuery(document).ready(function(){
 	  closeOnClick:true, 
 	 onShow: function() {
 
-           dom.parent().find('.views-field-description').show();
+           dom.parent().find('.views-field-description-i18n').show();
 
 	 },
 	onHide: function() {
-           dom.parent().find('.views-field-description').hide();
+           dom.parent().find('.views-field-description-i18n').hide();
 	}, 
 	});
  });
@@ -33,13 +33,6 @@ jQuery(document).ready(function(){
    }
 
   });
-
-  jQuery('.jcarousel .views-field-php').each(function(){
-     desc = jQuery(this).parent().find('.views-field-description .field-content').text();
-     jQuery(this).attr('title',desc);
-  });
-
-
 
 	zh_lan = jQuery('.language-switcher-locale-url li.zh-hans a').attr('href');
 	en_lan = jQuery('.language-switcher-locale-url li.en a').attr('href');
