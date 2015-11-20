@@ -75,8 +75,15 @@ function pingan_login_menu() {
     'access callback' => true,
     
   );
-  
- $items['pingan_login/%/register'] = array(
+ 
+ $items[' pingan_login/checklogin'] = array(
+    'title' => 'Pingan Login status check',
+    'description' => 'Pingan Login status check',
+    
+    'page callback' => 'pingan_login_check',
+    'access callback' => true,
+  );
+  $items['pingan_login/%/register'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Register page',
     'page arguments' => array(1),
@@ -129,7 +136,20 @@ function etoro_toaFtd() {
   echo json_encode($data);
   exit;
 }
+/**
+*check user is login
+*/
+function pingan_login_check(){
+ global $user;
+ if($user->uid>0){
 
+  echo 1;//is logined
+ }else{
+  echo 0;//not login
+ }
+
+
+}
 /**
 * Implements hook_block_info().
 */
@@ -220,6 +240,11 @@ function pingan_login_block_view($delta = '') {
     jQuery(".popClose").click(function(){
       jQuery("body").css("overflow","auto");
       jQuery(".loginBody").hide();
+      jQuery.post("/'.$GLOBALS['language']->prefix.'/pingan_login/checklogin",{},function(data){
+          if(data==1){
+            window.document.reload();
+          }
+      });
     });
 })
 ', 'inline');
@@ -429,7 +454,7 @@ registration.on("rendered", function(event) {
 })
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
-  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。").'")
+  $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
 location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
@@ -495,6 +520,8 @@ function pingan_login_etoro_callback(){
 function pingan_login_callback(){
  // print_r($_REQUEST);
   $GLOBALS['language']->prefix= !empty($_SESSION['user_lan']) ? $_SESSION['user_lan']:$GLOBALS['language']->prefix;
+  $GLOBALS['language']->language=!empty($_SESSION['user_lan']) && $_SESSION['user_lan']=='cn' ? 'zh-hans':'en';
+
   $requestxml=decrypt($_REQUEST['3desAssert'],variable_get('pingan_key'));
   //print_r($requestxml);exit;
   $xmlObject = simplexml_load_string($requestxml);
@@ -632,21 +659,11 @@ function pingan_login_callback(){
 
 
           if(module_exists('mixpanel')){
-            if(!empty($_REQUEST['refurl'])){
-              $_SESSION['refurl']=$_REQUEST['refurl'];
-              $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
-                'username'=>$user->name,
-                'source_page_url'=>$_SESSION['refurl']);
-              mixpanel_track("etoro_skip_register", $values);
-           
-            }else{
-              global $base_url;
-              $_SESSION['refurl']=$base_url;
-
+       
               $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
                             'source_page_url'=>$_SESSION['refurl']);
               mixpanel_track("etoro_register_click", $values);
-            }
+           
           }
 
           
@@ -746,7 +763,7 @@ registration.on("rendered", function(event) {
 });
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
-  $("#regbox").html("'.t("注册失败，网络连接错误。请联系管理员。",array(),array("langcode"=>$GLOBALS['language']->prefix)).'")
+  $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
 location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
@@ -756,13 +773,13 @@ registration.show();
 </script>
 </head>
 <body>
-<div class="head"><div class="title">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</div><div class="title-des">'.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</a></div></div>
+<div class="head"><div class="title">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="title-des">'.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
 <div id="regbox">
 <form id="form"></form>
 </div>
 <div class="btn">
-<div class="btn-des"><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</a></div>
-<a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->prefix)).'</a></div>
+<div class="btn-des"><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
+<a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
 </body>
 </html>
 ';
@@ -770,16 +787,16 @@ registration.show();
         
         }else{
          if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }else{
-          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->prefix)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }
       }
         
         //drupal_goto("/user");
 
     }else{
-      $html.='<div class="error_msg">'.t('Login failse.<br>error code:',array(),array("langcode"=>$GLOBALS['language']->prefix)).$xmlObject->message.' '.$xmlObject->message.'</div>';
+      $html.='<div class="error_msg">'.t('Login failse.<br>error code:',array(),array("langcode"=>$GLOBALS['language']->language)).$xmlObject->message.' '.$xmlObject->message.'</div>';
      
     }
     echo '<html><head><style>.go_etoro {
