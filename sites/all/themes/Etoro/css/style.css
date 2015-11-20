@@ -2445,7 +2445,7 @@ height:auto;
 #block-views-social-trading-block .views-field-title ,#block-views-social-trading-block-1 .views-field-title,#block-views-social-trading-block-2 .views-field-title{
 margin-top: 15px;
 }
-#block-views-social-trading-block .views-field-description ,#block-views-social-trading-block-1 .views-field-description,#block-views-social-trading-block-2 .views-field-description ,.item .views-field-description{
+#block-views-social-trading-block .views-field-description-i18n ,#block-views-social-trading-block-1 .views-field-description-i18n,#block-views-social-trading-block-2 .views-field-description-i18n ,.item .views-field-description-i18n{
 display:none;
 }
 
@@ -3666,7 +3666,7 @@ display:none;
 display:block;
 }
 
-.jcarousel .views-field-description ,.item .views-field-description{
+.jcarousel .views-field-description-i18n ,.item .views-field-description-i18n{
  width:50%;
  height:40%;
  top:30%;
