@@ -275,7 +275,7 @@ function overrite_outline(){
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
-	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$language->prefix.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-field-description-i18n">'.$message.'</div><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$language->prefix.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-field-description-i18n">'.t('<span>Close</span>').$message.'</div><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
       $num++;
 
     }

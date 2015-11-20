@@ -21,6 +21,22 @@ jQuery(document).ready(function(){
 	});
  });
 
+jQuery('.jcarousel .views-field-description-i18n span').click(function(){
+
+ jQuery('body .overlay').remove();
+ jQuery(this).parent().parent().hide();
+ jQuery('#page-wrapper').removeClass('overlay-trigger');
+ jQuery('body').css({'overflow':'inherit'});
+});
+
+jQuery('.item .views-field-description-i18n span').click(function(){
+ jQuery('body .overlay').remove();
+ jQuery(this).parent().hide();
+ jQuery('#page-wrapper').removeClass('overlay-trigger');
+ jQuery('body').css({'overflow':'inherit'});
+});
+
+
   jQuery('.views-field-php').each(function(){
 
    if(jQuery(this).find('.field-content').text()=='lock'){
