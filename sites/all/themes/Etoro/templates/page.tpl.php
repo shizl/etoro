@@ -186,3 +186,5 @@ $block =module_invoke('pingan_login', 'block_view', 'pingan_login_box') ; ?>
   </div></div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->
+
+

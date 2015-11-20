@@ -1,6 +1,26 @@
 
 jQuery(document).ready(function(){
 
+ jQuery('.views-field-php').click(function(){
+
+  var dom = jQuery(this);
+
+	jQuery('#page-wrapper').overlay({
+	 //preventDefault();
+	  effect: 'fade',
+	  opacity: 0.6,
+	  closeOnClick:true, 
+	 onShow: function() {
+
+           dom.parent().find('.views-field-description').show();
+
+	 },
+	onHide: function() {
+           dom.parent().find('.views-field-description').hide();
+	}, 
+	});
+ });
+
   jQuery('.views-field-php').each(function(){
 
    if(jQuery(this).find('.field-content').text()=='lock'){
@@ -18,6 +38,8 @@ jQuery(document).ready(function(){
      desc = jQuery(this).parent().find('.views-field-description .field-content').text();
      jQuery(this).attr('title',desc);
   });
+
+
 
 	zh_lan = jQuery('.language-switcher-locale-url li.zh-hans a').attr('href');
 	en_lan = jQuery('.language-switcher-locale-url li.en a').attr('href');
