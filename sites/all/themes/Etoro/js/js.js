@@ -4,7 +4,7 @@ jQuery(document).ready(function(){
 
 // add new div for views-field-description-i18n field
 
- /*  jQuery('.jcarousel .views-field-description-i18n').each(function(){
+   jQuery('.jcarousel .views-field-description-i18n').each(function(){
       if(jQuery(this).parent().attr("class")!="views-lesson-body"){
         jQuery(this).before('<div class="views-lesson-body"><div class="views-field views-field-description-i18n">'+jQuery(this).html()+'</div></div>');
         jQuery(this).remove();
@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
         
       }
    });
-*/
+
  jQuery('.views-field-php').click(function(){
 
         var dom = jQuery(this);
