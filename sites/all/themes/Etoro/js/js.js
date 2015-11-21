@@ -1,25 +1,7 @@
 
 jQuery(document).ready(function(){
 
- jQuery('.views-field-php').parent("li").click(function(){
-
-  var dom = jQuery(this);
-
-	jQuery('#page-wrapper').overlay({
-	 //preventDefault();
-	  effect: 'fade',
-	  opacity: 0.7,
-	  closeOnClick:true, 
-	 onShow: function() {
-
-           dom.find('.views-field-description-i18n').show();
-
-	 },
-	onHide: function() {
-           dom.find('.views-field-description-i18n').hide();
-	}, 
-	});
- });
+ 
 
 jQuery('.jcarousel .views-field-description-i18n span').click(function(){
 
@@ -41,14 +23,34 @@ jQuery('.item .views-field-description-i18n span').click(function(){
 
    if(jQuery(this).find('.field-content').text()=='lock'){
      jQuery(this).css({'background':'url(/sites/all/themes/Etoro/images/lock.png) no-repeat 0 0'});
-      jQuery(this).parent().append('<div class="bg" style="background:rgba(0,0,0,0.1); width:100%;height:100%;position: absolute;top:0px;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);z-index:1;"></div>');
+      jQuery(this).parent().append('<div class="bg" style="  cursor: pointer; background:rgba(0,0,0,0.1); width:100%;height:100%;position: absolute;top:0px;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);z-index:1;"></div>');
      jQuery(this).parent().find('.views-field-title a').removeAttr('href');
+     
+     jQuery('.bg').click(function(){
 
+        var dom = jQuery(this);
+
+        jQuery('#page-wrapper').overlay({
+         //preventDefault();
+          effect: 'fade',
+          opacity: 0.7,
+          closeOnClick:true, 
+         onShow: function() {
+
+                 dom.parent().find('.views-field-description-i18n').show();
+
+         },
+        onHide: function() {
+                 dom.parent().find('.views-field-description-i18n').hide();
+        }, 
+        });
+      });
    }else{
      jQuery(this).hide();
    }
 
   });
+
 
 	zh_lan = jQuery('.language-switcher-locale-url li.zh-hans a').attr('href');
 	en_lan = jQuery('.language-switcher-locale-url li.en a').attr('href');
