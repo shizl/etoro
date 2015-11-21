@@ -13,7 +13,7 @@
  * Implements hook_menu().
  */
 function pingan_login_menu() {
-  $items['admin/config/people/pingan_login'] = array(
+  $items['admin/config/etoro/pingan_login'] = array(
     'title' => 'Pingan Login',
     'description' => 'Pingan Login settings.',
     'page callback' => 'drupal_get_form',
@@ -21,7 +21,7 @@ function pingan_login_menu() {
     'access arguments' => array('administer users'),
     'file' => 'pingan_login.admin.inc',
   );
-  $items['admin/config/people/affiliate'] = array(
+  $items['admin/config/etoro/affiliate'] = array(
     'title' => 'Affiliate settings',
     'description' => 'Affiliate settings.',
     'page callback' => 'drupal_get_form',

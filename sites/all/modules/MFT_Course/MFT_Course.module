@@ -2,7 +2,7 @@
 
 
 function MFT_Course_menu() {
-  $items['admin/config/people/MFT_Course'] = array(
+  $items['admin/config/etoro/MFT_Course'] = array(
     'title' => 'MFT_Course',
     'description' => 'MFT_Course settings.',
     'page callback' => 'drupal_get_form',

@@ -2,7 +2,7 @@ name = "Pingan Login"
 description = "pingan user login our systerm."
 package = eToro Features
 core = 7.x
-configure = admin/config/people/pingan_login
+configure = admin/config/etoro/pingan_login
 
 ; Information added by drupal.org packaging script on 2015-10-10
 version = "7.x-1.0"
