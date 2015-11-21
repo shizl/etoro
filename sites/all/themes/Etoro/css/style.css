@@ -3687,7 +3687,7 @@ display: block !important;
     top: 30%;
     /*left: 35%;*/
     margin: 0 auto;
-    position: fixed;
+    position: relative;
     border: 1px solid #ccc;
     background-color: #fff;                           
     z-index: 1001;
