@@ -12,11 +12,11 @@ jQuery(document).ready(function(){
           closeOnClick:true, 
          onShow: function() {
 
-                 dom.parent().find('.views-field-description-i18n').show();
+                 dom.parent().find('.views-lesson-body').show();
 
          },
         onHide: function() {
-                 dom.parent().find('.views-field-description-i18n').hide();
+                 dom.parent().find('.views-lesson-body').hide();
         }, 
         });
       });
@@ -55,11 +55,11 @@ jQuery('.item .views-field-description-i18n span').click(function(){
           closeOnClick:true, 
          onShow: function() {
 
-                 dom.parent().find('.views-field-description-i18n').show();
+                 dom.parent().find('.views-lesson-body').show();
 
          },
         onHide: function() {
-                 dom.parent().find('.views-field-description-i18n').hide();
+                 dom.parent().find('.views-lesson-body').hide();
         }, 
         });
       });

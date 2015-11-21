@@ -3669,7 +3669,7 @@ display:none;
 display:block;
 }
 
-.jcarousel .views-lesson-body{
+ .views-lesson-body{
   position: fixed;
   top:0;
   left:0;
@@ -3678,6 +3678,9 @@ display:block;
   height: 100%;
   overflow: hidden;
   z-index:9999; 
+}
+ .views-lesson-body .views-field-description-i18n{
+display: block !important;
 }
 .jcarousel .views-field-description-i18n ,.item .views-field-description-i18n{
     height: 40%;
