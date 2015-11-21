@@ -3711,6 +3711,7 @@ margin-top:10px;
  text-align:left;
 
 }
+
 .views-field-description-i18n #block-pingan-login-pingan-login-box{
   width: 100%;
   margin-top: -20px;
@@ -3719,7 +3720,7 @@ margin-top:10px;
  
 }
 .views-field-description-i18n #block-pingan-login-pingan-login-box h2{
-height:30px !important; line-height:30px !important;  padding-top:0 !important;
+height:30px !important; line-height:30px !important;  padding-top:10px !important;
 }
 .jcarousel .views-field-description-i18n .close_ span ,.item .views-field-description-i18n .close_ span{
  cursor: pointer;
