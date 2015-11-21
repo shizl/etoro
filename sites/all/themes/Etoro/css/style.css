@@ -3685,9 +3685,10 @@ display:block;
  .views-lesson-body .views-field-description-i18n{
 display: block !important;
 }
+
 .jcarousel .views-field-description-i18n ,.item .views-field-description-i18n{
-    height: 40%;
-    top: 30%;
+    height: 60%;
+    top: 20%;
     /*left: 35%;*/
     margin: 0 auto;
     position: relative;
@@ -3698,17 +3699,24 @@ display: block !important;
     max-width: 550px;
     min-width: 350px;
     border: 1px #ccc solid;
-    min-height: 340px;
+    min-height: 370px;
     max-height: 400px;
     padding: 1%;
     width: 60%;
 }
 .jcarousel .views-field-description-i18n .content ,.item .views-field-description-i18n .content{
-margin-top:30px;
+margin-top:10px;
 }
 .jcarousel .views-field-description-i18n .close_ ,.item .views-field-description-i18n .close_{
  text-align:left;
 
+}
+.views-field-description-i18n #block-pingan-login-pingan-login-box{
+  width: 100%;
+  margin-top: -20px;
+   margin-bottom: 0px;
+  height: 200px !important;
+ 
 }
 .jcarousel .views-field-description-i18n .close_ span ,.item .views-field-description-i18n .close_ span{
  cursor: pointer;

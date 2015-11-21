@@ -59,7 +59,8 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 <!--login box js start-->
-  function checkwh(){
+<script type="text/javascript"> 
+ function checkwh(){
         if(jQuery(window).width()>900){
               jQuery(".loginPop").css("max-width","550px"); 
             }
@@ -129,7 +130,7 @@
       });
     });
 })
-
+</script>
 <!--login box js end-->
 </body>
 </html>
