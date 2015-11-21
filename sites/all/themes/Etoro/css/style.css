@@ -3718,6 +3718,9 @@ margin-top:10px;
   height: 200px !important;
  
 }
+.views-field-description-i18n #block-pingan-login-pingan-login-box h2{
+height:30px !important; line-height:30px !important;  padding-top:0 !important;
+}
 .jcarousel .views-field-description-i18n .close_ span ,.item .views-field-description-i18n .close_ span{
  cursor: pointer;
 }
