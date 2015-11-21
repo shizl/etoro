@@ -1,7 +1,25 @@
 
 jQuery(document).ready(function(){
 
- 
+ jQuery('.views-field-php').click(function(){
+
+        var dom = jQuery(this);
+
+        jQuery('#page-wrapper').overlay({
+         //preventDefault();
+          effect: 'fade',
+          opacity: 0.7,
+          closeOnClick:true, 
+         onShow: function() {
+
+                 dom.parent().find('.views-field-description-i18n').show();
+
+         },
+        onHide: function() {
+                 dom.parent().find('.views-field-description-i18n').hide();
+        }, 
+        });
+      });
 
 jQuery('.jcarousel .views-field-description-i18n span').click(function(){
 
