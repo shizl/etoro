@@ -3672,7 +3672,7 @@ display:block;
 .jcarousel .views-field-description-i18n ,.item .views-field-description-i18n{
     height: 40%;
     top: 30%;
-    left: 35%;
+    /*left: 35%;*/
     margin: 0 auto;
     position: fixed;
     border: 1px solid #ccc;
@@ -3680,6 +3680,7 @@ display:block;
     z-index: 1001;
    text-align: center;                                    
     max-width: 550px;
+    min-width: 350px;
     border: 1px #ccc solid;
     min-height: 340px;
     max-height: 400px;

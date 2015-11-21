@@ -1,22 +1,22 @@
 
 jQuery(document).ready(function(){
 
- jQuery('.views-field-php').click(function(){
+ jQuery('.views-field-php').parent("li").click(function(){
 
   var dom = jQuery(this);
 
 	jQuery('#page-wrapper').overlay({
 	 //preventDefault();
 	  effect: 'fade',
-	  opacity: 0.6,
+	  opacity: 0.7,
 	  closeOnClick:true, 
 	 onShow: function() {
 
-           dom.parent().find('.views-field-description-i18n').show();
+           dom.find('.views-field-description-i18n').show();
 
 	 },
 	onHide: function() {
-           dom.parent().find('.views-field-description-i18n').hide();
+           dom.find('.views-field-description-i18n').hide();
 	}, 
 	});
  });
