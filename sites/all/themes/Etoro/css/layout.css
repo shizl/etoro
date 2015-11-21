@@ -76,8 +76,7 @@ width:90%;
   position: relative;
 }
 .region-header {
-  float: right; /* LTR */
-  margin: 0 5px 10px;
+  float: left; /* LTR */
 }
 
 

@@ -4,7 +4,7 @@
 display:none;
 }
 
-#logo {
+#block-block-7 {
 width:100%;
 margin-top:0px;
 margin-bottom:5px;
@@ -237,11 +237,14 @@ width:60%;
 left:20%;
 }
 
-.banner_ .banner_830{
+.banner_ .banner_830,
+.header_logo .logo_830{
 display:block;
 }
 .banner_ .banner_1150,
-.banner_ .banner_480{
+.banner_ .banner_480,
+.header_logo .logo_1150,
+.header_logo .logo_480{
 display:none;
 }
 #block-views-course-description-block .views-field-field-thumbnail{
@@ -460,11 +463,14 @@ margin-top:2px !important;
 width:80%;
 left:10%;
 }
-.banner_ .banner_480{
+.banner_ .banner_480,
+.header_logo .logo_480{
 display:block;
 }
 .banner_ .banner_1150,
-.banner_ .banner_830{
+.banner_ .banner_830,
+.header_logo .logo_1150,
+.header_logo .logo_830{
 display:none;
 }
 
