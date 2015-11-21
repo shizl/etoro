@@ -166,31 +166,31 @@ div.jp-type-single  .jp-controls li a{
 
 div.jp-type-single  .jp-close {
   width: 24px !important; height:24px !important;
-  background: url("shut_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/shut_n.png") ;
 }
 
 div.jp-type-single  .jp-close:hover {
   width: 24px !important; height:24px !important;
-  background: url("shut_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/shut_o.png") ;
 }
 
 
 div.jp-type-single  .jp-play {
   /*background: url("play_n.png") 0px -20px no-repeat;*/
-  background: url("play_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/play_n.png") ;
 }
 
 div.jp-type-single  .jp-play:hover {
   /*background: url("play_o.png") -50px -20px no-repeat;*/
-  background: url("play_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/play_o.png") ;
 }
 
 div.jp-type-single  .jp-pause {
-  background: url("pause_n.png") 0px -60px no-repeat;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/pause_n.png") 0px -60px no-repeat;
 }
 
 div.jp-type-single  .jp-pause:hover {
-  background: url("pause_o.png") -50px -60px no-repeat;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/pause_o.png") -50px -60px no-repeat;
 }
 
 /* The right border is normally in the ul background image. */
@@ -201,13 +201,13 @@ div.jp-audio-stream .jp-pause {
 
 div.jp-type-single  .jp-stop {
   /*background: url("jplayer.white.png") 0px -40px no-repeat;*/
-  background: url("stop_o.png");
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/stop_o.png");
   
 }
 
 div.jp-type-single  .jp-stop:hover {
   /*background: url("jplayer.white.png") -50px -40px no-repeat;*/
-  background: url("stop_n.png") no-repeat;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/stop_n.png") no-repeat;
 }
 
 /* @end */
@@ -221,7 +221,7 @@ div.jp-type-playlist .jp-controls li a{
 
 div.jp-type-playlist .jp-close {
   width: 24px !important; height:24px !important;
-  background: url("shut_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/shut_n.png") ;
   background-position-y: -2px;
   background-repeat: no-repeat;
 
@@ -229,83 +229,83 @@ div.jp-type-playlist .jp-close {
 
 div.jp-type-playlist .jp-close:hover {
   width: 24px; height:24px;
-  background: url("shut_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/shut_o.png") ;
   background-position-y: -2px;
   background-repeat: no-repeat;
 }
 
 div.jp-type-playlist .jp-play {
   /*background: url("jplayer.white.png") -12px -20px no-repeat;*/
-  background: url("play_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/play_n.png") ;
 }
 
 div.jp-type-playlist .jp-play:hover {
   /*background: url("jplayer.white.png") -62px -20px no-repeat;*/
-  background: url("play_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/play_o.png") ;
 }
 
 div.jp-type-playlist .jp-pause {
   /*background: url("jplayer.white.png") -12px -60px no-repeat;*/
-  background: url("pause_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/pause_n.png") ;
 }
 
 div.jp-type-playlist .jp-pause:hover {
   /*background: url("jplayer.white.png") -62px -60px no-repeat;*/
-  background: url("pause_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/pause_o.png") ;
 }
 
 div.jp-type-playlist .jp-stop {
   /*background: url("jplayer.white.png") -12px -40px no-repeat;*/
-  background: url("stop_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/stop_n.png") ;
 }
 
 div.jp-type-playlist .jp-stop:hover {
   /*background: url("jplayer.white.png") -62px -40px no-repeat;*/
-  background: url("stop_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/stop_o.png") ;
 }
 
 div.jp-type-playlist .jp-previous {
-  background: url("back_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/back_n.png") ;
 }
 
 div.jp-type-playlist .jp-previous-grey {
-  background: url("back_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/back_o.png") ;
 }
 
 
 div.jp-type-playlist .jp-previous:hover {
-  background: url("back_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/back_o.png") ;
 }
 
 div.jp-type-playlist .jp-next {
-  background: url("next_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/next_n.png") ;
 }
 
 div.jp-type-playlist .jp-next-grey {
-  background: url("next_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/next_o.png") ;
 }
 
 div.jp-type-playlist .jp-next:hover {
-  background: url("next_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/next_o.png") ;
 }
 
 
 div.jp-type-playlist .jp-full-screen {
-  background: url("full_n.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/full_n.png") ;
   margin-left: 20px;
 }
 
 div.jp-type-playlist .jp-full-screen:hover {
-  background: url("full_o.png");
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/full_o.png");
 }
 
 div.jp-type-playlist .jp-restore-screen {
-  background: url("full_n.png");
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/full_n.png");
   margin-left: 20px;
 }
 
 div.jp-type-playlist .jp-restore-screen:hover {
-  background: url("full_o.png");
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/full_o.png");
 }
 
 /* @end */
@@ -314,11 +314,11 @@ div.jp-type-playlist .jp-restore-screen:hover {
 
 /* The seeking class is added/removed inside jPlayer */
 div.jp-seeking-bg {
-  background: url("jplayer.dark.seeking.gif");
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/jplayer.dark.seeking.gif");
 }
 
 .jp-progress {
-  background: url("bar_u.png");
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/bar_u.png");
   width: 197px;
   height: 13px;
   padding: 0 2px 2px 2px;
@@ -335,7 +335,7 @@ div.jp-video .jp-progress {
 }
 
 .jp-seek-bar {
-  background: url("bar_u.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/bar_u.png") ;
   width:0px;
   height: 100%;
   overflow:hidden;
@@ -343,7 +343,7 @@ div.jp-video .jp-progress {
 }
 
 .jp-play-bar {
-  background: url("bar_o.png") ;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/bar_o.png") ;
   width:0px;
   height: 100%;
   overflow:hidden;
@@ -364,7 +364,7 @@ a.jp-volume-max{float:right;}
 */
 
 div.jp-interface .sound_icon {
-  background: url("sound.png") no-repeat;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/sound.png") no-repeat;
   float:right;
   width:17px; height:17px;
   margin-right:5px;
@@ -596,12 +596,12 @@ a.jp-video-play-icon {
   left:50%;
   top:50%;
 
-  background: url("jplayer.dark.video.play.png") 0 0 no-repeat;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/jplayer.dark.video.play.png") 0 0 no-repeat;
   text-indent:-9999px;
 }
 
 div.jp-video-play:hover a.jp-video-play-icon {
-  background: url("jplayer.dark.video.play.png") 0 -100px no-repeat;
+  background: url("http://www.mte-media.com/admin2/style/vid_skin/jplayer.dark.video.play.png") 0 -100px no-repeat;
 }
 
 
@@ -724,7 +724,7 @@ div.jp-jplayer {
 }
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-  background-image: url('fancybox_sprite.png');
+  background-image: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_sprite.png');
 }
 
 #fancybox-loading {
@@ -742,7 +742,7 @@ div.jp-jplayer {
 #fancybox-loading div {
   width: 44px;
   height: 44px;
-  background: url('fancybox_loading.gif') center center no-repeat;
+  background: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_loading.gif') center center no-repeat;
 }
 
 .fancybox-close {
@@ -762,7 +762,7 @@ div.jp-jplayer {
   height: 100%;
   cursor: pointer;
   text-decoration: none;
-  background: transparent url('blank.gif'); /* helps IE */
+  background: transparent url('http://www.mte-media.com/admin2/style/vid_skin/blank.gif'); /* helps IE */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   z-index: 8040;
 }
@@ -832,7 +832,7 @@ div.jp-jplayer {
   overflow: hidden;
   display: none;
   z-index: 8010;
-  background: url('fancybox_overlay.png');
+  background: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {
@@ -911,12 +911,12 @@ div.jp-jplayer {
      only screen and (min-device-pixel-ratio: 1.5){
 
   #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-    background-image: url('fancybox_sprite@2x.png');
+    background-image: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_sprite@2x.png');
     background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
   }
 
   #fancybox-loading div {
-    background-image: url('fancybox_loading@2x.gif');
+    background-image: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_loading@2x.gif');
     background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
   }
 }
@@ -1031,7 +1031,7 @@ div.jp-jplayer {
 }
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-  background-image: url('fancybox_sprite.png');
+  background-image: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_sprite.png');
 }
 
 #fancybox-loading {
@@ -1049,7 +1049,7 @@ div.jp-jplayer {
 #fancybox-loading div {
   width: 44px;
   height: 44px;
-  background: url('fancybox_loading.gif') center center no-repeat;
+  background: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_loading.gif') center center no-repeat;
 }
 
 .fancybox-close {
@@ -1069,7 +1069,7 @@ div.jp-jplayer {
   height: 100%;
   cursor: pointer;
   text-decoration: none;
-  background: transparent url('blank.gif'); /* helps IE */
+  background: transparent url('http://www.mte-media.com/admin2/style/vid_skin/blank.gif'); /* helps IE */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   z-index: 8040;
 }
@@ -1139,7 +1139,7 @@ div.jp-jplayer {
   overflow: hidden;
   display: none;
   z-index: 8010;
-  background: url('fancybox_overlay.png');
+  background: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {
@@ -1218,16 +1218,16 @@ div.jp-jplayer {
      only screen and (min-device-pixel-ratio: 1.5){
 
   #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-    background-image: url('fancybox_sprite@2x.png');
+    background-image: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_sprite@2x.png');
     background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
   }
 
   #fancybox-loading div {
-    background-image: url('fancybox_loading@2x.gif');
+    background-image: url('http://www.mte-media.com/admin2/style/vid_skin/fancybox_loading@2x.gif');
     background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
   }
 }
 
 /*/////////////////////////*/
 
-#players, #players .jp-jplayer,#players .jp-jplayer,#jp_video_0{width: 100% !important; height: auto !important;margin: 0;padding: 0}
+#jp_container_1,#players, #players .jp-jplayer,#players .jp-jplayer,#jp_video_0{width: 100% !important; height: auto !important; margin: 0;padding: 0}
