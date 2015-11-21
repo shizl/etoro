@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
 
    jQuery('.jcarousel .views-field-description-i18n').each(function(){
       if(jQuery(this).parent().attr("class")!="views-lesson-body"){
-        jQuery(this).before('<div class="views-lesson-body">'+jQuery(this)+'</div>');
+        jQuery(this).before('<div class="views-lesson-body"><div class="views-field views-field-description-i18n">'+jQuery(this).html()+'</div></div>');
         jQuery(this).remove();
         
         
