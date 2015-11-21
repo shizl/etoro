@@ -19,8 +19,8 @@
   height: 100%;
   overflow: hidden;
   background: #000;
-  background: rgba(0,0,0,0.7);
-  filter:alpha(opacity=70);
+  background: rgba(0,0,0,0.6);
+  filter:alpha(opacity=60);
   z-index: 1;
 }
 .loadform{
