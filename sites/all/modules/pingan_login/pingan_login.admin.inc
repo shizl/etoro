@@ -127,12 +127,14 @@ function pingan_login_affiliate_settings_form($form, &$form_state) {
   $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
     '#type' => 'textfield',
     '#title' => t('Count Level One'),
+    '#disabled'=>true,
     '#default_value' => variable_get('pingan_affiliate_count',""),
   );
 
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
     '#type' => 'textfield',
     '#title' => t('Count All'),
+    '#disabled'=>true,
     '#default_value' => variable_get('pingan_affiliate_allcount',""),
   );
   return $form;
@@ -157,14 +159,15 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
   $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
     '#type' => 'textfield',
     '#title' => t('Count Level One'),
-    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0,
+    '#disabled'=>true,
+    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter'],'1'):0,
   );
 
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
     '#type' => 'textfield',
     '#title' => t('Count All'),
-
-    '#value' =>affiliate_count(),
+    '#disabled'=>true,
+    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0,,
   );
   return $form['affiliate_count_wrapper'];
 }
@@ -174,12 +177,11 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
 *get affiliate_count
 *
 */
-function affiliate_count($cat=""){
+function affiliate_count($cat="",$type='all'){
   $count=0;
-  if($cat!=""){
-      $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."'")->fetchField();
-  }else{
-     $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_affiliateid`")->fetchField();
+   $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."'")->fetchField();
+  if($type=='1'){
+      $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_type_of_id` WHERE `entity_id` in (SELECT `entity_id` FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."') and `field_type_of_id`='1'")->fetchField();
   }
   return $count;
 
