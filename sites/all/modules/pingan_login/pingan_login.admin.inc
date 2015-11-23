@@ -181,7 +181,7 @@ function affiliate_count($cat="",$type='all'){
   $count=0;
    $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."'")->fetchField();
   if($type=='1'){
-      $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_type_of_id` WHERE `entity_id` in (SELECT `entity_id` FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."') and `field_type_of_id`='1'")->fetchField();
+      $count=db_query("SELECT count(`entity_id`) FROM `field_data_field_type_of_id` WHERE `entity_id` in (SELECT `entity_id` FROM `field_data_field_affiliateid` WHERE `field_affiliateid_value`='".$cat."') and `field_type_of_id_value`='1'")->fetchField();
   }
   return $count;
 
