@@ -45,7 +45,7 @@
   width: 60%;
   height: 98%;
   min-height: 340px;
-   max-height: 520px;
+   max-height: 540px;
   border: 1px #ccc solid;
   filter:alpha(opacity=100);
   background:#fff !important;
@@ -54,21 +54,21 @@
 
 }
 .titleLogin,.titleRegister{
-  background: #F15B25;
+  
   text-align: center;
   display: none;
   color: #fff;
-  height: 20px;
+  height: 40px;
   font-size: 20px;
   font-weight: bold;
-  line-height: 20px;
+  line-height: 40px;
 }
 .popClose{
 	position: absolute;
   top: 0px;
   right: 0px;
   width: 40px;
-background: url('close.png') center center no-repeat;
+  background: url('close.png') center center no-repeat;
   line-height: 30px;
   height: 40px;
   z-index: 5;
