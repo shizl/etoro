@@ -1479,4 +1479,5 @@ body,#bg,#lesson,#canvas,#lesson vedio,#jp_container_1,#players, #players .jp-jp
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
+  overflow: hidden;
 }
