@@ -167,7 +167,7 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Count All'),
     '#disabled'=>true,
-    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0,,
+    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0,
   );
   return $form['affiliate_count_wrapper'];
 }
