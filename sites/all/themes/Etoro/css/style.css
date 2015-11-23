@@ -3728,3 +3728,12 @@ height:30px !important; line-height:30px !important;  padding-top:10px !importan
 #block-block-7{
     margin-top: 27px;
 }
+
+.views-field-description-i18n #block-pingan-login-pingan-login-box h2{
+display:block !important;
+}
+.views-field-description-i18n #block-pingan-login-pingan-login-box{
+box-shadow:none;
+margin-top:0px;
+}
+

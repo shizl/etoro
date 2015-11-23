@@ -9,12 +9,24 @@ jQuery(document).ready(function(){
         jQuery(this).before('<div class="views-lesson-body"><div class="views-field views-field-description-i18n">'+jQuery(this).html()+'</div></div>');
         jQuery(this).remove();        
       }
+
    });
- jQuery('.views-field-description-i18n').each(function(){
+
+
+
+jQuery('.jcarousel .views-field-description-i18n').each(function(){
 		
 	if(jQuery(this).find(".field-content").html()!=""){
 		jQuery(this).find(".field-content").after('<div id="block-pingan-login-pingan-login-box" >'+jQuery('#block-pingan-login-pingan-login-box').html()+'</div>');
 	}
+
+});
+ jQuery('.item .views-field-description-i18n').each(function(){
+		
+	if(jQuery(this).find(".field-content").html()!=""){
+		jQuery(this).find(".field-content").after('<div id="block-pingan-login-pingan-login-box" >'+jQuery('#block-pingan-login-pingan-login-box').html()+'</div>');
+	}
+
 });
 
 
