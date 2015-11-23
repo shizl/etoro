@@ -73,6 +73,7 @@
   height: 40px;
   z-index: 5;
 	cursor: pointer;
+    text-indent: -9999px;
 }
 #block-pingan-login-pingan-login-box button,.my_account{
   min-width: 95px;
