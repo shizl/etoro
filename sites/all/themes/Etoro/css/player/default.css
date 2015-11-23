@@ -1472,4 +1472,5 @@ button .btn:hover{background: grey !important;}
 
 /*/////////////////////////*/
 
-body,#bg,#lesson,#jp_container_1,#players, #players .jp-jplayer,#players .jp-jplayer,#jp_video_0{width: 100% !important; height: auto !important; margin: 0;padding: 0}
+
+body,#bg,#lesson,#canvas,#lesson vedio,#jp_container_1,#players, #players .jp-jplayer,#players .jp-jplayer,#jp_video_0{width: 100% !important; height: auto !important; margin: 0;padding: 0}
