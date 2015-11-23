@@ -1481,3 +1481,4 @@ body,#bg,#lesson,#canvas,#lesson vedio,#jp_container_1,#players, #players .jp-jp
   border: 0 !important;
   overflow: hidden;
 }
+.jp-video-play{display: none !important;}

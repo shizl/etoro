@@ -174,7 +174,7 @@ function pingan_login_block_view($delta = '') {
       $block['title'] = t('Do You Want to Learn More?');
      if(empty($_SESSION['ref_id']) || empty($_SESSION['ref_url'])){
 
-        $_SESSION['ref_id']= !empty($_REQUEST['ref']) ? $_REQUEST['ref']:"";
+        $_SESSION['ref_id']= !empty($_REQUEST['etoro']) ? $_REQUEST['etoro']:"";
         $_SESSION['ref_url']= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         
      } 
@@ -312,7 +312,8 @@ function pingan_login_etoro_register(){
    button{
   -webkit-appearance:none;-webkit-border-radius:0
 }
-body{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
+body{  padding: 0;
+  margin: 0;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 input{padding: 5px !important;
   height: 30px !important;
@@ -627,9 +628,27 @@ input{
 .form-submit-container{
     margin-top: 25px !important;
 }
+.popClose{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+background: url(\'/close.png\') center center no-repeat;
+  line-height: 30px;
+  height: 40px;
+  z-index: 5;
+  cursor: pointer;
+}
 .head{text-align:center; line-height:30px;  margin-bottom: 20px;}
-.head .title{font-size:20px;font-weight:bolder;font-style: italic;}
-.head .title-des{font-size:16px;font-weight:bolder;font-style: italic;}
+.head .title{  background: #F15B25;
+  text-align: center;
+  color: #fff;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  font-style: italic; }
+.head .title-des{font-size:16px;font-weight:bolder;font-style: italic;background:#FFC091}
 .head .continue a,.btn a{font-size:14px; text-decoration: initial;}
 .btn{text-align:center;  display: inherit;
   margin: 15px;}
