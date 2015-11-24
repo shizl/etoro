@@ -76,7 +76,6 @@ function pingan_login_settings_form_submit($form, &$form_state) {
  // variable_set('pingan_login_pc_url', $form_state['values']['pingan_login_pc_url']);
   variable_set('pingan_login_mobile_url', $form_state['values']['pingan_login_mobile_url']);
   variable_set('pingan_login_etoro_url', $form_state['values']['pingan_login_etoro_url']);
-   variable_set('pingan_affiliate_variable', $form_state['values']['pingan_affiliate_variable']);
   drupal_set_message(t('Settings saved.'));
 }
 
