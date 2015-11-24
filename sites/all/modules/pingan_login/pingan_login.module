@@ -357,6 +357,7 @@ var registration=new T.RegistrationService.Registration({
        '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
        "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
        "is_toa_phone_verified": true,
+       "affiliate_id": "'.(!empty($user->field_affiliateid['und'][0]['value']) ? $user->field_affiliateid['und'][0]['value']:'').'",
        "toaFullname": "'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'",
        "chinese_id_number": "'.(!empty($user->field_chineseidnumber['und'][0]['value']) ?$user->field_chineseidnumber['und'][0]['value']:'').'",
        "chinese_id_type": "'.(!empty($user->field_chineseidtype['und'][0]['value']) ?$user->field_chineseidtype['und'][0]['value']:'').'"
@@ -417,23 +418,54 @@ function pingan_login_etoro_callback(){
  button{
   -webkit-appearance:none;-webkit-border-radius:0
 }
-  .go_etoro {
-  background: #ffffff;
-  border-radius: 4px;
-    color: #c5271e;
-  border: 1px solid #D4D2CF;
-  height:31px;
-  cursor:pointer;
-  margin-right:20px;
+body{
+  color:#000;
+  text-align: center;
+}
+.title{
+ line-height:40px;
+  font-size:20px;
+font-weight:bolder;
+ background: #F15B25;
+
+}
+.title-des{ line-height:40px;
+  font-size:20px;
+font-weight:bolder;
+}
+.continue{
+  line-height:40px;
+  font-size:18px;
+}
+.btn-msg{line-height:30px;
+  font-size:16px;
+  color:#ccc;
+}
+.btn-msg a{font-weight:bolder;
+  color:#333;
+  text-decoration: none;
 }
 .go_account{  background: #e9821d;
   border-radius: 4px;
   border: 1px solid wheat;
-  color: #ffffff;
+  color: #fff;
   cursor:pointer;
-  height:31px;
-  }
-</style></head><body><input type="button" class="go_etoro" value="'.t('Access Practice Account').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></body></html>';
+  
+  font-size:20px;
+  font-weight:bolder;
+  line-height:40px;
+  height:40px;
+  width:200px;
+  margin:20px auto;
+}
+</style></head><body>
+<div class="head"><div class="title">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="title-des">'.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
+
+ <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
+<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').'" <a href="'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
+
+</div>
+ </body></html>';
   exit;
 }
 /**
@@ -668,6 +700,7 @@ var registration=new T.RegistrationService.Registration({
        '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
        "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
        "is_toa_phone_verified": true,
+       "affiliate_id": "'.(!empty($user->field_affiliateid['und'][0]['value']) ? $user->field_affiliateid['und'][0]['value']:'').'",
        "toaFullname": "'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'",
        "chinese_id_number": "'.(!empty($user->field_chineseidnumber['und'][0]['value']) ?$user->field_chineseidnumber['und'][0]['value']:'').'",
        "chinese_id_type": "'.(!empty($user->field_chineseidtype['und'][0]['value']) ?$user->field_chineseidtype['und'][0]['value']:'').'"
