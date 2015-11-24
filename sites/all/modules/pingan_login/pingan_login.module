@@ -473,7 +473,7 @@ font-style: italic;
   margin:20px auto;
 }
 </style></head><body>
-<div class="head"><div class="title">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="title-des">'.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
+<div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
  <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
 <div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a href="'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
@@ -739,12 +739,7 @@ registration.on("rendered", function(event) {
   $(".username input").val("'.(!empty($user->name) ? $user->name:'').'");
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
-  //$(".privacy").hide();
-  //$(".privacy .field-message").addClass("valid");
-  //$(".privacy").addClass("valid");
-  //$(".privacy").removeClass("invalid");
- // $("#field-etoro_1327").attr("checked","checked");
-  //$(".user_privacy").attr("href", $(".privacy a").attr("href"));
+
 });
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
@@ -758,7 +753,7 @@ registration.show();
 </script>
 </head>
 <body>
-<div class="head"><div class="title">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="title-des">'.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
+<div class="head"><div class="title-des">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
 <div id="regbox">
 <form id="form"></form>
 </div>
