@@ -171,7 +171,13 @@ function pingan_login_block_view($delta = '') {
   switch ($delta) {
     case 'pingan_login_box':
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
+    if($user->uid>0){
+      $block['title']=t('Hello').' '.(!empty($account->field_toafullname['und'][0]['value']) ? $account->field_toafullname['und'][0]['value']:'');
+
+    }else{
       $block['title'] = t('Do You Want to Learn More?');
+    }
+      
      if(empty($_SESSION['ref_id']) || empty($_SESSION['ref_url'])){
 
         $_SESSION['ref_id']= !empty($_REQUEST['etoro']) ? $_REQUEST['etoro']:"";
@@ -190,7 +196,7 @@ function pingan_login_block_view($delta = '') {
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<div class="description">'.t('Register to access more materials').'</div><div id="radius1"></div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/users/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->prefix.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
+        $block['content'] = '<div class="description">'.t("Welcome to eToro").'</div><div id="radius1"></div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/users/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->prefix.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
@@ -321,6 +327,9 @@ input{padding: 5px !important;
 }
 .registration-service .form-field{
   margin-bottom:10px !important;
+}
+.privacy input{
+  top:0px !important;
 }
 .form-submit{
     width: 83%;
@@ -679,11 +688,14 @@ input{
 .btn{text-align:center;  display: inherit;
   margin: 15px;}
 .btn .skip{font-size:16px;margin:15px 0 20px 0;}
-.btn .btn-des{margin:10px 0 20px 0;
-display:none;
+.btn .btn-des{
+    margin:10px 0 20px 0;
+    display:none;
 }
+
 .privacy input{
     height: 15px !important;
+    top:0px !important;
 }
 
   </style>
