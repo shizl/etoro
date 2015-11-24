@@ -1473,7 +1473,7 @@ button .btn:hover{background: grey !important;}
 /*/////////////////////////*/
 
 
-body,#bg,#lesson,#canvas,#lesson vedio,#jp_container_1,#players,#canvas_container, #players .jp-jplayer,#mfp_player,#players .jp-jplayer,#jp_video_0{
+body,#bg,#lesson,#canvas,#lesson vedio,#vid_cnt vedio,#jp_container_1,#players,#canvas_container, #players .jp-jplayer,#mfp_player,#players .jp-jplayer,#jp_video_0{
   width: 100% !important;
   height: auto !important;
   margin: 0 !important;
