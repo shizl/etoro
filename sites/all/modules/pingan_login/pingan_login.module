@@ -423,15 +423,20 @@ body{
   text-align: center;
 }
 .title{
+  font-style: italic; 
  line-height:40px;
   font-size:20px;
 font-weight:bolder;
+color:#fff;
  background: #F15B25;
 
 }
-.title-des{ line-height:40px;
-  font-size:20px;
-font-weight:bolder;
+.title-des{ 
+font-style: italic; 
+  line-height: 30px;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bolder;
 }
 .continue{
   line-height:40px;
@@ -439,13 +444,13 @@ font-weight:bolder;
 }
 .btn-msg{line-height:30px;
   font-size:16px;
-  color:#ccc;
+  color:#444;
 }
 .btn-msg a{font-weight:bolder;
   color:#333;
   text-decoration: none;
 }
-.go_account{  background: #e9821d;
+.go_account{  background: #C5271F;
   border-radius: 4px;
   border: 1px solid wheat;
   color: #fff;
@@ -462,7 +467,7 @@ font-weight:bolder;
 <div class="head"><div class="title">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="title-des">'.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
  <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
-<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').'" <a href="'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
+<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a href="'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
 
 </div>
  </body></html>';
@@ -632,7 +637,8 @@ body{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 input{
- -webkit-appearance:none;-webkit-border-radius:0
+ -webkit-appearance:none;
+ -webkit-border-radius:0;
   padding: 5px !important;
   height: 30px !important;
   line-height: 20px !important;
@@ -674,7 +680,12 @@ input{
 .btn{text-align:center;  display: inherit;
   margin: 15px;}
 .btn .skip{font-size:16px;margin:15px 0 20px 0;}
-.btn .btn-des{margin:10px 0 20px 0;}
+.btn .btn-des{margin:10px 0 20px 0;
+display:none;
+}
+.privacy input{
+    height: 15px !important;
+}
 
   </style>
 
@@ -717,12 +728,12 @@ registration.on("rendered", function(event) {
   $(".username input").val("'.(!empty($user->name) ? $user->name:'').'");
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
-  $(".privacy").hide();
-  $(".privacy .field-message").addClass("valid");
-  $(".privacy").addClass("valid");
-  $(".privacy").removeClass("invalid");
-  $("#field-etoro_1327").attr("checked","checked");
-  $(".user_privacy").attr("href", $(".privacy a").attr("href"));
+  //$(".privacy").hide();
+  //$(".privacy .field-message").addClass("valid");
+  //$(".privacy").addClass("valid");
+  //$(".privacy").removeClass("invalid");
+ // $("#field-etoro_1327").attr("checked","checked");
+  //$(".user_privacy").attr("href", $(".privacy a").attr("href"));
 });
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
@@ -741,7 +752,7 @@ registration.show();
 <form id="form"></form>
 </div>
 <div class="btn">
-<div class="btn-des"><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
+<div class="btn-des" ><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
 <a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
 </body>
 </html>
