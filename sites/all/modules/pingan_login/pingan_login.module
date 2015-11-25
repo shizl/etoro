@@ -755,7 +755,7 @@ registration.show();
 </script>
 </head>
 <body>
-<div class="head"><div class="title-des">'.t('You Successfuly Logged in !',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Now open a practive account in eToro for free',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
+<div class="head"><div class="title-des">'.t('You\'re almost there!',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Sign up now for a FREE Etoro Account and start practicing',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
 <div id="regbox">
 <form id="form"></form>
 </div>
@@ -765,8 +765,7 @@ registration.show();
 </body>
 </html>
 ';
-  exit;
-        
+  exit;  
         }else{
          if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
            $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
