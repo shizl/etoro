@@ -37,22 +37,30 @@
   height: 100%;
   position: relative;
 }
-.popSrc{position: relative; height: 98%;}
+.popSrc{position: relative; height: 64%;}
 .loginPop{
    position: relative;
-  margin: 15% auto;
+  margin: 5% auto !important;
   min-width: 350px;
   width: 60%;
-  height: 98%;
+  height: 90%;
   min-height: 340px;
-   max-height: 580px;
+  max-height: 560px;
   border: 1px #ccc solid;
   filter:alpha(opacity=100);
   background:#fff !important;
  /*padding: 1%;*/
   z-index:2; 
-
 }
+.popBody .copy_right {
+ font-size:16px;
+color:red;
+padding-left:20px;
+padding-right:20px;
+}
+
+
+
 .titleLogin,.titleRegister{
    background: #F15B25;
   text-align: center;
