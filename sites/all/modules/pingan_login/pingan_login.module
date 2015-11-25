@@ -202,7 +202,7 @@ function pingan_login_block_view($delta = '') {
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
-        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe></div></div></div>';
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right">'.t('After signing in, TOA will share your user name and ID information with Etoro.').'</div> </div></div></div>';
       }
 
       break;
@@ -368,7 +368,7 @@ var registration=new T.RegistrationService.Registration({
        '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
        "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
        "is_toa_phone_verified": true,
-       "affiliate_id": "'.(!empty($user->field_affiliateid['und'][0]['value']) ? $user->field_affiliateid['und'][0]['value']:'').'",
+       "affiliate_id": "'.(!empty($user->field_affiliate_id['und'][0]['value']) ? $user->field_affiliate_id['und'][0]['value']:'').'",
        "toaFullname": "'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'",
        "chinese_id_number": "'.(!empty($user->field_chineseidnumber['und'][0]['value']) ?$user->field_chineseidnumber['und'][0]['value']:'').'",
        "chinese_id_type": "'.(!empty($user->field_chineseidtype['und'][0]['value']) ?$user->field_chineseidtype['und'][0]['value']:'').'"
@@ -580,7 +580,7 @@ function pingan_login_callback(){
          if($isReg==1){
                $edit=array();
            if(empty($_SESSION['ref_id'])){  
-               $edit['field_affiliateid']['und'][0]['value']='A54358';
+               $edit['field_affiliate_id']['und'][0]['value']='A54358';
                 
             }else{
 
@@ -590,14 +590,14 @@ function pingan_login_callback(){
                   $new_count=intval(variable_get('pingan_affiliate_cur_count',""))>0 ? intval(variable_get('pingan_affiliate_cur_count',""))+1:1;
                    variable_set('pingan_affiliate_cur_count',$new_count); 
                     $edit['field_counter']['und'][0]['value']=$new_count;
-                  $edit['field_affiliateid']['und'][0]['value']=variable_get('pingan_affiliate_variable',""); 
+                  $edit['field_affiliate_id']['und'][0]['value']=variable_get('pingan_affiliate_variable',""); 
                  
                 }else{
-                  $edit['field_affiliateid']['und'][0]['value']='A54357';
+                  $edit['field_affiliate_id']['und'][0]['value']='A54357';
                 }
 
               }else{
-                $edit['field_affiliateid']['und'][0]['value']=$_SESSION['ref_id'];
+                $edit['field_affiliate_id']['und'][0]['value']=$_SESSION['ref_id'];
 
               } 
 
@@ -724,7 +724,7 @@ var registration=new T.RegistrationService.Registration({
        '.($userBirthdate!="" ? '"birth_date":'.$userBirthdate.',':'').'
        "toaPhone": "'.(!empty($user->field_toaphone['und'][0]['value']) ? $user->field_toaphone['und'][0]['value']:'').'",
        "is_toa_phone_verified": true,
-       "affiliate_id": "'.(!empty($user->field_affiliateid['und'][0]['value']) ? $user->field_affiliateid['und'][0]['value']:'').'",
+       "affiliate_id": "'.(!empty($user->field_affiliate_id['und'][0]['value']) ? $user->field_affiliate_id['und'][0]['value']:'').'",
        "toaFullname": "'.(!empty($user->field_toafullname['und'][0]['value']) ? $user->field_toafullname['und'][0]['value']:'').'",
        "chinese_id_number": "'.(!empty($user->field_chineseidnumber['und'][0]['value']) ?$user->field_chineseidnumber['und'][0]['value']:'').'",
        "chinese_id_type": "'.(!empty($user->field_chineseidtype['und'][0]['value']) ?$user->field_chineseidtype['und'][0]['value']:'').'"
