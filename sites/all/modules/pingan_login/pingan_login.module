@@ -173,7 +173,7 @@ function pingan_login_block_view($delta = '') {
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     if($user->uid>0){
       $account=user_load($user->uid);
-      $block['title']=t('Hello').' '.(!empty($account->field_toafullname['und'][0]['value']) ? $account->field_toafullname['und'][0]['
+      $block['title']=t('Hello !').' '.(!empty($account->field_toafullname['und'][0]['value']) ? $account->field_toafullname['und'][0]['
         ']:$account->name);
 
     }else{
