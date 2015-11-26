@@ -66,8 +66,11 @@
             }
             if(jQuery(window).height()<550){
               jQuery(".loginPop").css("margin","1% auto");
+              jQuery(".popSrc").css("height","70% !important;");
+              
             }else{
               jQuery(".loginPop").css("margin","15% auto");
+              jQuery(".popSrc").css("height","85% !important;");
             }
       }
       jQuery(window).resize(function(){
