@@ -720,6 +720,7 @@ var registration=new T.RegistrationService.Registration({
 "socialConnect":false,
 "funnelFromID":12,
 "successRedirect":false,
+"googleAnalytics":false,
 "funnelID":12,  
 "overriddenValues":{"toa_id": "'.(!empty($user->field_toaid['und'][0]['value']) ? $user->field_toaid['und'][0]['value']:'').'",
        "gender": "'.(!empty($user->field_gender['und'][0]['value']) && $user->field_gender['und'][0]['value']!="F" ? "2":"1").'",
