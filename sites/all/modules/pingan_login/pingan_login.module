@@ -202,7 +202,7 @@ function pingan_login_block_view($delta = '') {
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
-        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right">'.t('After signing in, TOA will share your user name and ID information with Etoro.').'</div> </div></div></div>';
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right" id="etoro_copy_right">'.t('After signing in, TOA will share your user name and ID information with Etoro.').'</div> </div></div></div>';
       }
 
       break;
@@ -691,8 +691,9 @@ input{
   margin: 15px;}
 .btn .skip{font-size:16px;margin:15px 0 20px 0;}
 .btn .btn-des{
-    margin:10px 0 20px 0;
-    display:none;
+    margin-top:10px;
+    color:#666;
+
 }
 
 .privacy input{
@@ -752,8 +753,8 @@ location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
+parent.document.getElementById("etoro_copy_right).style.display= "none";
 
-jQuery(parent.document).(".copy_right").hide();
 </script>
 </head>
 <body>
@@ -762,8 +763,11 @@ jQuery(parent.document).(".copy_right").hide();
 <form id="form"></form>
 </div>
 <div class="btn">
-<div class="btn-des" ><a href="" class="user_privacy" >'.t('By signing up I agree to the terms and conditions',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
+
 <a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
+
+<div class="btn-des" >'.t('After signing in,TOA will share you username and ID imformation with Etoro. ',array(),array("langcode"=>$GLOBALS['language']->language)).'</div>
+
 </body>
 </html>
 ';
