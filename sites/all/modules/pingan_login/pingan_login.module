@@ -653,6 +653,7 @@ input{
   height: 30px !important;
   line-height: 20px !important;
   background:#fff !important;
+  width:175px !important;
 }
 .registration-service .form-field{
   margin-bottom:10px !important;
@@ -673,7 +674,7 @@ input{
   font-size: 20px !important;
 }
 .form-submit-container{
-    margin-top: 25px !important;
+    margin-top: 15px !important;
 }
 
 .head{text-align:center; line-height:30px;  margin-bottom: 20px;}
@@ -742,8 +743,27 @@ registration.on("rendered", function(event) {
   $(".username input").val("'.(!empty($user->name) ? $user->name:'').'");
   $(".email input").val("'.(!empty($user->mail) ? $user->mail:'').'");
   $(".phoneprefixes select").val("86");
+checkwidth();
+$(window).resize(function(){
+checkwidth();
+});
+
+
+$(".registration-service .form-field-choice").css("width","175px !important");
 
 });
+function checkwidth(){
+  if($(window).width()<515){
+  $(".invalid .error").css("left","180px !important");
+  $(".invalid .error").css("top","10px !important"); 
+   $(".registration-form").css("width","60%");
+  }else{
+
+     $(".invalid .error").css("left","339px !important");
+    $(".invalid .error").css("top","-10px !important"); 
+     $(".registration-form .form-field").css("width","100%");
+  }
+}
 registration.on("on:submit", function (event) {}); 
 registration.on("on:error", function (event) {
   $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
@@ -753,7 +773,9 @@ location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
-parent.document.getElementById("etoro_copy_right").style.display= "none";
+
+window.parent.document.getElementById("etoro_copy_right").style.display= "none";
+
 </script>
 </head>
 <body>

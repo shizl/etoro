@@ -37,7 +37,7 @@
   height: 100%;
   position: relative;
 }
-.popSrc{position: relative; height: 64%;}
+.popSrc{position: relative; height: 85%;}
 .loginPop{
    position: relative;
   margin: 5% auto !important;
@@ -45,7 +45,7 @@
   width: 60%;
   height: 90%;
   min-height: 340px;
-  max-height: 560px;
+  max-height: 590px;
   border: 1px #ccc solid;
   filter:alpha(opacity=100);
   background:#fff !important;
