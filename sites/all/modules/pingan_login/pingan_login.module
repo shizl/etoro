@@ -766,8 +766,6 @@ parent.document.getElementById("etoro_copy_right).style.display= "none";
 
 <a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
 
-<div class="btn-des" >'.t('After signing in,TOA will share you username and ID imformation with Etoro. ',array(),array("langcode"=>$GLOBALS['language']->language)).'</div>
-
 </body>
 </html>
 ';
