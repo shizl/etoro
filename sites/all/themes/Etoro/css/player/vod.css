@@ -1230,7 +1230,7 @@ div.jp-jplayer {
 
 /*/////////////////////////*/
 
-body,#jp_container_1,#players,#vid_cnt vedio, #players .jp-jplayer,#players .jp-jplayer,#jp_video_0 {
+body,#jp_container_1,#players,#vid_cnt video, #players .jp-jplayer,#players .jp-jplayer,#jp_video_0 {
 	width: 100% !important;
 	 height: auto !important;
 	margin: 0 !important;
