@@ -89,39 +89,37 @@
 
         checkwh();
     jQuery(".popRegister").unbind('click').click(function(){
-      jQuery(".loadform").show();
-      jQuery(".titleRegister").show();
-      jQuery(".titleLogin").hide();
+      jQuery(this).parent().parent("div").find(".loadform").show();
+      jQuery(this).parent().parent("div").find(".titleRegister").show();
+      jQuery(this).parent().parent("div").find(".titleLogin").hide();
       jQuery("body").css("overflow","hidden");
-
-      jQuery(".loginBody").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href);
-      jQuery(".loginBody").show();
-      jQuery(".popSrc").load(function(){
-        jQuery(".loadform").hide();
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".loginBody").show();
+      jQuery(this).parent().parent("div").find(".popSrc").load(function(){
+        jQuery(this).parent().parent("div").find(".loadform").hide();
       });
       
     });
     jQuery(".popLogin").unbind('click').click(function(){
-       jQuery(".loadform").show();
-      jQuery(".titleRegister").hide();
-      jQuery(".titleLogin").show();
+       jQuery(this).parent().parent("div").find(".loadform").show();
+      jQuery(this).parent().parent("div").find(".titleRegister").hide();
+      jQuery(this).parent().parent("div").find(".titleLogin").show();
       jQuery("body").css("overflow","hidden");
-      jQuery(".loginBody").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/login?refurl="+document.location.href);
-      jQuery(".loginBody").show();
-      jQuery(".popSrc").load(function(){
-        jQuery(".loadform").hide();
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/login?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".loginBody").show();
+      jQuery(this).parent().parent("div").find(".popSrc").load(function(){
+        jQuery(this).parent().parent("div").find(".loadform").hide();
       });
-      
       
     });
     jQuery(".go_etoro_register").unbind('click').click(function(){
-       jQuery(".loadform").show();
-      jQuery(".titleRegister").show();
+       jQuery(this).parent().parent("div").find(".loadform").show();
+      jQuery(this).parent().parent("div").find(".titleRegister").show();
       jQuery("body").css("overflow","hidden");
-      jQuery(".loginBody").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href);
-      jQuery(".loginBody").show();
-      jQuery(".popSrc").load(function(){
-        jQuery(".loadform").hide();
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".loginBody").show();
+      jQuery(this).parent().parent("div").find(".popSrc").load(function(){
+      	jQuery(this).parent().parent("div").find(".loadform").hide();
       });
     });
     jQuery(".go_etoro").unbind('click').click(function(){
