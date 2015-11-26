@@ -88,7 +88,7 @@
     jQuery(window).load(function(){
 
         checkwh();
-    jQuery(".popRegister").bind("click",function(){
+    jQuery(".popRegister").unbind('click').click(function(){
       jQuery(".loadform").show();
       jQuery(".titleRegister").show();
       jQuery(".titleLogin").hide();
@@ -99,9 +99,9 @@
       jQuery(".popSrc").load(function(){
         jQuery(".loadform").hide();
       });
-      $('.popRegister').unbind("click");
+      
     });
-    jQuery(".popLogin").bind("click",function(){
+    jQuery(".popLogin").unbind('click').click(function(){
        jQuery(".loadform").show();
       jQuery(".titleRegister").hide();
       jQuery(".titleLogin").show();
@@ -111,10 +111,10 @@
       jQuery(".popSrc").load(function(){
         jQuery(".loadform").hide();
       });
-      $('.popLogin').unbind("click");
+      
       
     });
-    jQuery(".go_etoro_register").bind("click",function(){
+    jQuery(".go_etoro_register").unbind('click').click(function(){
        jQuery(".loadform").show();
       jQuery(".titleRegister").show();
       jQuery("body").css("overflow","hidden");
@@ -123,19 +123,16 @@
       jQuery(".popSrc").load(function(){
         jQuery(".loadform").hide();
       });
-      $('.go_etoro_register').unbind("click");
     });
-    jQuery(".go_etoro").bind("click",function(){
-      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href;
-      $('.go_etoro').unbind("click");
+    jQuery(".go_etoro").unbind('click').click(function(){
+      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href
     });
-    jQuery(".go_etoro_account").bind("click",function(){
-      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href;
-      $('.go_etoro_account').unbind("click");
+    jQuery(".go_etoro_account").unbind('click').click(function(){
+      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href
     });
     
     
-    jQuery(".popClose").bind("click",function(){
+    jQuery(".popClose").unbind('click').click(function(){
       jQuery("body").css("overflow","auto");
       jQuery(".loginBody").hide();
       jQuery.post("/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/checklogin",{},function(data){
@@ -143,7 +140,6 @@
             window.document.reload();
           }
       });
-      $('.popClose').unbind("click");
     });
 })
 </script>
