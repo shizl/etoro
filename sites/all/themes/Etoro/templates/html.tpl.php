@@ -99,7 +99,7 @@
       jQuery(".popSrc").load(function(){
         jQuery(".loadform").hide();
       });
-      
+      $('.popRegister').unbind("click");
     });
     jQuery(".popLogin").bind("click",function(){
        jQuery(".loadform").show();
@@ -111,7 +111,7 @@
       jQuery(".popSrc").load(function(){
         jQuery(".loadform").hide();
       });
-      
+      $('.popLogin').unbind("click");
       
     });
     jQuery(".go_etoro_register").bind("click",function(){
@@ -123,12 +123,15 @@
       jQuery(".popSrc").load(function(){
         jQuery(".loadform").hide();
       });
+      $('.go_etoro_register').unbind("click");
     });
     jQuery(".go_etoro").bind("click",function(){
-      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href
+      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href;
+      $('.go_etoro').unbind("click");
     });
     jQuery(".go_etoro_account").bind("click",function(){
-      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href
+      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href;
+      $('.go_etoro_account').unbind("click");
     });
     
     
@@ -140,6 +143,7 @@
             window.document.reload();
           }
       });
+      $('.popClose').unbind("click");
     });
 })
 </script>
