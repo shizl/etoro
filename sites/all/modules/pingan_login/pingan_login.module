@@ -223,9 +223,9 @@ function pingan_login_redirect($type=""){
     }
     if(!empty($_GET['refurl'])){
       $_SESSION['refurl']=$_GET['refurl'];
-      $goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+      $goUrl='<script> window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'"); //window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }else{
-       $goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+       $goUrl='<script>window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'");//window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
 
     if($type=="toetoro"){
@@ -780,11 +780,7 @@ window.parent.document.getElemnetById("etoro_copy_right").style.display="none";
 <div id="regbox">
 <form id="form"></form>
 </div>
-<div class="btn">
-
-<a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div>
-
-</body>
+<div class="btn"><a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></body>
 </html>
 ';
   exit;  
