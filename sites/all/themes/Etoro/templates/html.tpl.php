@@ -102,7 +102,6 @@
       
     });
     jQuery(".popLogin").unbind('click').click(function(){
-      alert(111);
        jQuery(".loadform").show();
       jQuery(".titleRegister").hide();
       jQuery(".titleLogin").show();
