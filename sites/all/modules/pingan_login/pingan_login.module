@@ -202,7 +202,7 @@ function pingan_login_block_view($delta = '') {
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
-        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right" id="etoro_copy_right">'.t('After signing in, TOA will share your user name and ID information with Etoro.').'</div> </div></div></div>';
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right" id="etoro_copy_right">'.t('After signing up and singing in, TOA will share your username and personal information with Etoro.').'</div> </div></div></div>';
       }
 
       break;
@@ -748,20 +748,17 @@ $(window).resize(function(){
 checkwidth();
 });
 
-
-$(".registration-service .form-field-choice").css("width","175px !important");
-
+$(".registration-service .form-field-choice input").css("width","175px !important");
 });
 function checkwidth(){
   if($(window).width()<515){
   $(".invalid .error").css("left","180px !important");
   $(".invalid .error").css("top","10px !important"); 
-   $(".registration-form").css("width","60%");
+   $(".registration-form .form-field").css("width","60%");
   }else{
-
      $(".invalid .error").css("left","339px !important");
     $(".invalid .error").css("top","-10px !important"); 
-     $(".registration-form .form-field").css("width","100%");
+     $(".registration-form .form-field").css("width","95%");
   }
 }
 registration.on("on:submit", function (event) {}); 
@@ -769,12 +766,12 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
-location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
+location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback";
 }); 
 registration.show();
 });
 
-window.parent.document.getElementById("etoro_copy_right").style.display= "none";
+parent.document.getElementById("etoro_copy_right").style.display="none";
 
 </script>
 </head>
