@@ -753,7 +753,7 @@ location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
 registration.show();
 });
 
-jQuery(window).parent().(".copy_right").hide();
+jQuery(parent.document).(".copy_right").hide();
 </script>
 </head>
 <body>
