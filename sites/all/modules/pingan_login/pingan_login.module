@@ -653,7 +653,6 @@ input{
   height: 30px !important;
   line-height: 20px !important;
   background:#fff !important;
-  width:175px !important;
 }
 .registration-service .form-field{
   margin-bottom:10px !important;
@@ -748,7 +747,7 @@ $(window).resize(function(){
 checkwidth();
 });
 
-$(".registration-service .form-field-choice input").css("width","175px !important");
+$(".registration-service .form-field-choice select").css("width","175px !important");
 });
 function checkwidth(){
   if($(window).width()<515){
