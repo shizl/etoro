@@ -64,14 +64,22 @@
         if(jQuery(window).width()>900){
               jQuery(".loginPop").css("max-width","550px"); 
             }
+          if(jQuery(".loginPop").width()<400){
+            jQuery(".popSrc").css("height","80% !important;");
+          }else{
+
+            jQuery(".popSrc").css("height","85% !important;");
+          }
             if(jQuery(window).height()<550){
               jQuery(".loginPop").css("margin","1% auto");
-              jQuery(".popSrc").css("height","70% !important;");
-              
+ 
             }else{
               jQuery(".loginPop").css("margin","15% auto");
-              jQuery(".popSrc").css("height","85% !important;");
+              
             }
+
+           
+            
       }
       jQuery(window).resize(function(){
          checkwh();
