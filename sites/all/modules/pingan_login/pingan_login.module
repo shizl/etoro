@@ -753,8 +753,7 @@ location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
-parent.document.getElementById("etoro_copy_right).style.display= "none";
-
+parent.document.getElementById("etoro_copy_right").style.display= "none";
 </script>
 </head>
 <body>
