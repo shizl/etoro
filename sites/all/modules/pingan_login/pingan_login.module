@@ -223,12 +223,12 @@ function pingan_login_redirect($type=""){
     }
     if(!empty($_GET['refurl'])){
       $_SESSION['refurl']=$_GET['refurl'];
-     // $goUrl='<script> window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'"); //window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
-   // }else{
-     //  $goUrl='<script>window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'");//window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+      $goUrl='<script> window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'"); //window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+    }else{
+       $goUrl='<script>window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'");//window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
 
-    $goUrl="
+   /* $goUrl="
 <script type=\"text/javascript\" src=\"/".drupal_get_path('module', "pingan_login") . "/js/jquery-1.7.2.min.js\"></script>
     <script>var a = $(\"<a href='".($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com')."' target='_blank'>Etoro</a>\").get(0);  
               
@@ -236,7 +236,7 @@ function pingan_login_redirect($type=""){
   
             e.initEvent('click', true, true);  
             a.dispatchEvent(e);  
-            console.log('event has been changed');</script>";
+            console.log('event has been changed');</script>";*/
 
     if($type=="toetoro"){
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
