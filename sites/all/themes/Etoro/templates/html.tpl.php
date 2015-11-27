@@ -89,38 +89,38 @@
 
         checkwh();
     jQuery(".popRegister").click(function(){
-      jQuery.parent().parent("div").find(".loadform").show();
-      jQuery.parent().parent("div").find(".titleRegister").show();
-      jQuery.parent().parent("div").find(".titleLogin").hide();
+      jQuery(this).parent().parent("div").find(".loadform").show();
+      jQuery(this).parent().parent("div").find(".titleRegister").show();
+      jQuery(this).parent().parent("div").find(".titleLogin").hide();
       jQuery("body").css("overflow","hidden");
 
-      jQuery.parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href);      jQuery(".loginBody").show();
-      jQuery.parent().parent("div").find(".popSrc").load(function(){
-        jQuery.parent().parent("div").find(".loadform").hide();
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href);      jQuery(".loginBody").show();
+      jQuery(this).parent().parent("div").find(".popSrc").load(function(){
+        jQuery(this).parent().parent("div").find(".loadform").hide();
       });
       
     });
     jQuery(".popLogin").click(function(){
-       jQuery.parent().parent("div").find(".loadform").show();
-      jQuery.parent().parent("div").find(".titleRegister").hide();
-      jQuery.parent().parent("div").find(".titleLogin").show();
+       jQuery(this).parent().parent("div").find(".loadform").show();
+      jQuery(this).parent().parent("div").find(".titleRegister").hide();
+      jQuery(this).parent().parent("div").find(".titleLogin").show();
       jQuery("body").css("overflow","hidden");
-      jQuery.parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/login?refurl="+document.location.href);
-      jQuery.parent().parent("div").find(".loginBody").show();
-      jQuery.parent().parent("div").find(".popSrc").load(function(){
-        jQuery.parent().parent("div").find(".loadform").hide();
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/login?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".loginBody").show();
+      jQuery(this).parent().parent("div").find(".popSrc").load(function(){
+        jQuery(this).parent().parent("div").find(".loadform").hide();
       });
       
       
     });
     jQuery(".go_etoro_register").click(function(){
-       jQuery.parent().parent("div").find(".loadform").show();
-      jQuery.parent().parent("div").find(".titleRegister").show();
+       jQuery(this).parent().parent("div").find(".loadform").show();
+      jQuery(this).parent().parent("div").find(".titleRegister").show();
       jQuery("body").css("overflow","hidden");
-      jQuery.parent().parent("div").find(".loginBody").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href);
-      jQuery.parent().parent("div").find(".loginBody").show();
-      jQuery.parent().parent("div").find(".popSrc").load(function(){
-        jQuery.parent().parent("div").find(".loadform").hide();
+      jQuery(this).parent().parent("div").find(".loginBody").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".loginBody").show();
+      jQuery(this).parent().parent("div").find(".popSrc").load(function(){
+        jQuery(this).parent().parent("div").find(".loadform").hide();
       });
     });
     jQuery(".go_etoro").click(function(){
@@ -133,7 +133,7 @@
     
     jQuery(".popClose").click(function(){
       jQuery("body").css("overflow","auto");
-      jQuery.parent().parent("div").parent().find(".loginBody").hide();
+      jQuery(this).parent().parent("div").parent().find(".loginBody").hide();
       jQuery.post("/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/checklogin",{},function(data){
           if(data==1){
             window.document.reload();
