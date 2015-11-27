@@ -137,7 +137,7 @@
       jQuery(".loginBody").hide();
       jQuery.post("/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/checklogin",{},function(data){
           if(data==1){
-            window.document.reload();
+            window.location.reload();
           }
       });
     });
