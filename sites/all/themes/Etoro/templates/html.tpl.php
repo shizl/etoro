@@ -88,15 +88,13 @@
     jQuery(window).load(function(){
 
         checkwh();
-        
+
     jQuery(".popRegister").click(function(){
       jQuery(this).parent().parent("div").find(".loadform").show();
       jQuery(this).parent().parent("div").find(".titleRegister").show();
       jQuery(this).parent().parent("div").find(".titleLogin").hide();
       jQuery("body").css("overflow","hidden");
-
-      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href);      jQuery(".loginBody").show();
-      
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href); 
       jQuery(this).parent().parent("div").find(".loginBody").show();
 
       jQuery(this).parent().parent("div").find(".popSrc").load(function(){
