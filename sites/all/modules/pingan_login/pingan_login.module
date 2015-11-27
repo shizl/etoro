@@ -223,9 +223,9 @@ function pingan_login_redirect($type=""){
     }
     if(!empty($_GET['refurl'])){
       $_SESSION['refurl']=$_GET['refurl'];
-      $goUrl='<script> window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'"); //window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+      $goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }else{
-       $goUrl='<script>window.open("'.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'");//window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+       $goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
 
    /* $goUrl="
