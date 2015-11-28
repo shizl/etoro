@@ -202,7 +202,7 @@ function pingan_login_block_view($delta = '') {
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
-        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="location.href=\'http://cn.etoro.com\'" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right" id="etoro_copy_right">'.t('After signing up and singing in, TOA will share your username and personal information with Etoro.').'</div> </div></div></div>';
+        <div class="login_input"><button class="popLogin">'.t('Login').'</button><button class="popRegister">'.t('Register').'</button></div><div id="radius"> </div><p class="gmpa"><input type="button" class="practice-account" value="'.t('Access Practice Account').'" onclick="window.open(\'http://cn.etoro.com\',\'_blank\')" ></p><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleLogin">'.t('Login').'</div><div class="titleRegister">'.t('Register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe> <div class="copy_right" id="etoro_copy_right">'.t('After signing up and singing in, TOA will share your username and personal information with Etoro.').'</div> </div></div></div>';
       }
 
       break;
@@ -223,10 +223,11 @@ function pingan_login_redirect($type=""){
     }
     if(!empty($_GET['refurl'])){
       $_SESSION['refurl']=$_GET['refurl'];
-      $goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+      //$goUrl='<script>window.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }else{
-       $goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
+       //$goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
+    $goUrl=$type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com';
 
    /* $goUrl="
 <script type=\"text/javascript\" src=\"/".drupal_get_path('module', "pingan_login") . "/js/jquery-1.7.2.min.js\"></script>
@@ -251,7 +252,7 @@ function pingan_login_redirect($type=""){
     
   }
 
-  echo $goUrl;
+ header("Location: ".$goUrl);
 }
 /**
   * login page
@@ -488,8 +489,8 @@ font-style: italic;
 </style></head><body>
 <div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
- <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
-<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
+ <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="window.open(\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\',\'_blank\')">
+<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a target="_blank" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
 
 </div>
  </body></html>';
@@ -797,9 +798,9 @@ registration.show();
   exit;  
         }else{
          if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="window.open(\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\',\'_blank\')"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }else{
-          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\'"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="window.open(\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\',\'_blank\')"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
         }
       }
         
