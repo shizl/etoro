@@ -489,7 +489,7 @@ font-style: italic;
 </style></head><body>
 <div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
- <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="window.open(\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\',\'_blank\')">
+ <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
 <div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a target="_blank" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
 
 </div>

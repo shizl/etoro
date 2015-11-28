@@ -128,7 +128,7 @@
       document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href
     });
     jQuery(".go_etoro_account").click(function(){
-      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href
+      window.open("/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href,"_blank");
     });
     
     
