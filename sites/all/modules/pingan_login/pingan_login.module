@@ -227,7 +227,7 @@ function pingan_login_redirect($type=""){
     }else{
        //$goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
-    $goUrl=$type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com';
+   $type!="toetoro" ? '<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>':header("Location: http://cn.etoro.com");
 
    /* $goUrl="
 <script type=\"text/javascript\" src=\"/".drupal_get_path('module', "pingan_login") . "/js/jquery-1.7.2.min.js\"></script>
@@ -252,7 +252,7 @@ function pingan_login_redirect($type=""){
     
   }
 
- header("Location: ".$goUrl);
+ 
 }
 /**
   * login page
