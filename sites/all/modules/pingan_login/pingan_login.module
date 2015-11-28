@@ -227,8 +227,7 @@ function pingan_login_redirect($type=""){
     }else{
        //$goUrl='<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';
     }
-   $type!="toetoro" ? '<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>':header("Location: http://cn.etoro.com");
-
+   
    /* $goUrl="
 <script type=\"text/javascript\" src=\"/".drupal_get_path('module', "pingan_login") . "/js/jquery-1.7.2.min.js\"></script>
     <script>var a = $(\"<a href='".($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com')."' target='_blank'>Etoro</a>\").get(0);  
@@ -252,7 +251,13 @@ function pingan_login_redirect($type=""){
     
   }
 
- 
+  if($type!="toetoro"){
+
+    echo '<script>window.parent.location.href=\''.($type!="toetoro" ? $_SESSION['refurl']:'http://cn.etoro.com').'\';</script>';exit;
+  }else{
+      header("Location: http://cn.etoro.com");
+
+  }
 }
 /**
   * login page
