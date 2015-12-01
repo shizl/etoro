@@ -173,8 +173,7 @@ function pingan_login_block_view($delta = '') {
     drupal_add_css(drupal_get_path('module', "pingan_login") . "/css/pingan_login.css");
     if($user->uid>0){
       $account=user_load($user->uid);
-      $block['title']=t('Hello !').' '.(!empty($account->field_toafullname['und'][0]['value']) ? $account->field_toafullname['und'][0]['
-        ']:$account->name);
+      $block['title']=t('Hello !').' '.(!empty($account->field_toafullname['und'][0]['value']) ? $account->field_toafullname['und'][0]['value']:$account->name);
 
     }else{
       $block['title'] = t('Do You Want to Learn More?');
@@ -198,7 +197,7 @@ function pingan_login_block_view($delta = '') {
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<div class="description">'.t("Welcome to eToro").'</div><div id="radius1"></div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/users/'.$user->name.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->prefix.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
+        $block['content'] = '<div class="description">'.t("Welcome to eToro").'</div><div id="radius1"></div><div class="login_input"><button class="my_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/user/'.$user->uid.'\'">'.t('My Account').'</button><div class="sign_out"><a href="/'.$GLOBALS['language']->prefix.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>

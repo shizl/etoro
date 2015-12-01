@@ -1698,7 +1698,7 @@ margin-top:10px;
   margin: 0;
   overflow: hidden;
   border: none;
-  background: transparent url(../images/tabs-border.png) repeat-x left bottom;
+ /* background: transparent url(../images/tabs-border.png) repeat-x left bottom;*/
   border-top: solid 1px #dedede;
   border-bottom: solid 1px #e1822a;
 }
