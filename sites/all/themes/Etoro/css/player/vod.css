@@ -1239,3 +1239,4 @@ body,#jp_container_1,#players,#vid_cnt video, #players .jp-jplayer,#players .jp-
   overflow: hidden;
 }
 .jp-video-play{display: none !important;}
+.jp-next,.jp-previous,.jp-close{display: none !important;}
