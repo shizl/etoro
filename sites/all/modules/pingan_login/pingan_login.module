@@ -182,7 +182,7 @@ function pingan_login_block_view($delta = '') {
      if(empty($_SESSION['ref_id']) || empty($_SESSION['ref_url'])){
 
         $_SESSION['ref_id']= !empty($_REQUEST['etoro']) ? $_REQUEST['etoro']:"";
-        $_SESSION['ref_url']= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $_SESSION['ref_url']= 'http://'.$_SERVER['HTTP_HOST'].request_uri();
         
      } 
       if($user->uid>0){
