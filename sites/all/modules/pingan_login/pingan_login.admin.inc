@@ -157,14 +157,14 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
    $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
     
     '#title' => t('Count Level One'),
-    '#markup'=>'<div>'.($form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter'],'1'):0).'<div>',
+    '#markup'=>'<div>'.($form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter'],'1'):0).'</div>',
    
   );
 
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
     
     '#title' => t('Count All'),
-    '#markup'=>'<div>'.($form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0).'<div>',
+    '#markup'=>'<div>'.($form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0).'</div>',
     
   );
   return $form['affiliate_count_wrapper'];
