@@ -240,12 +240,12 @@ function pingan_login_redirect($type=""){
     if($type=="toetoro"){
       $values = array('title'=>'Local Site - eToro - Redirect Click','username'=>$user->name,
                     'source_page_url'=>$_SESSION['refurl']);
-      mixpanel_track("user_etoro_redirect", $values);
+      mixpanel_track("Local Site - eToro - Redirect Click", $values);
     }elseif($type=="tohome"){
       $values = array('title'=>'Local Site - Registration - Skipped eToro',
                     'username'=>$user->name,
                     'source_page_url'=>$_SESSION['refurl']);
-      mixpanel_track("etoro_register_skip", $values);
+      mixpanel_track("Local Site - Registration - Skipped eToro", $values);
     }
     
   }
@@ -270,9 +270,9 @@ function pingan_login_login($type=""){
       global $base_url;
       $_SESSION['refurl']=$base_url;
     }
-    $values = array('title'=>'Login Using TOA - Click',
+    $values = array('title'=>'Local Site - Login Using TOA - Click',
                     'source_page_url'=>$_SESSION['refurl']);
-    mixpanel_track("toa_login_click", $values);
+    mixpanel_track("Local Site - Login Using TOA - Click", $values);
   }
   $_SESSION['user_lan']=$GLOBALS['language']->prefix;
 
@@ -291,9 +291,9 @@ function pingan_login_register($type=""){
       global $base_url;
       $_SESSION['refurl']=$base_url;
     }
-    $values = array('title'=>'Registration Using TOA - Click',
+    $values = array('title'=>'Local Site - Registration Using TOA - Click',
                     'source_page_url'=>$_SESSION['refurl']);
-    mixpanel_track("toa_register_click", $values);
+    mixpanel_track("Local Site - Registration Using TOA - Click", $values);
   } 
   $_SESSION['user_lan']=$GLOBALS['language']->prefix;
   $time=date("Y-m-d H:i:s");
@@ -312,7 +312,7 @@ function pingan_login_etoro_register(){
       $values = array('title'=>'Local Site - Create Practice Account After Skipping - Click',
         'username'=>$user->name,
         'source_page_url'=>$_SESSION['refurl']);
-      mixpanel_track("etoro_skip_register", $values);
+      mixpanel_track("Local Site - Create Practice Account After Skipping - Click", $values);
    
     }else{
       global $base_url;
@@ -437,9 +437,9 @@ function pingan_login_etoro_callback(){
    user_save($user, $edit);
 
   if(module_exists('mixpanel')){
-    $values = array('title'=>'Registration - eToro Success','username'=>$user->name,
+    $values = array('title'=>'Local Site - Registration - eToro Success','username'=>$user->name,
                     'source_page_url'=>$_SESSION['refurl']);
-    mixpanel_track("etoro_register_success", $values);
+    mixpanel_track("Local Site - Registration - eToro Success", $values);
   }
   echo '<html><head><style>
  button{
@@ -559,9 +559,9 @@ function pingan_login_callback(){
                   global $base_url;
                   $_SESSION['refurl']=$base_url;
                 }
-                $values = array('title'=>'Registration - TOA Success','username'=>$account->name,
+                $values = array('title'=>'Local Site - Registration - TOA Success','username'=>$account->name,
                     'source_page_url'=>$_SESSION['refurl']);
-                mixpanel_track("toa_register_success", $values);
+                mixpanel_track("Local Site - Registration - TOA Success", $values);
               }
          }else{
            $isReg=0;
@@ -588,9 +588,9 @@ function pingan_login_callback(){
                   global $base_url;
                   $_SESSION['refurl']=$base_url;
                 }
-                $values = array('title'=>'Login - TOA Success','username'=>$account->name,
+                $values = array('title'=>'Local Site - Login - TOA Success','username'=>$account->name,
                     'source_page_url'=>$_SESSION['refurl']);
-                mixpanel_track("toa_login_success", $values);
+                mixpanel_track("Local Site - Login - TOA Success", $values);
               }   
          }
          if($isReg==1){
@@ -646,9 +646,9 @@ function pingan_login_callback(){
 
           if(module_exists('mixpanel')){
        
-              $values = array('title'=>'Registration - eToro Click','username'=>$user->name,
+              $values = array('title'=>'Local Site - Registration - eToro Click','username'=>$user->name,
                             'source_page_url'=>$_SESSION['refurl']);
-              mixpanel_track("etoro_register_click", $values);
+              mixpanel_track("Local Site - Registration - eToro Click", $values);
            
           }
 
