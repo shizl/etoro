@@ -124,17 +124,15 @@ function pingan_login_affiliate_settings_form($form, &$form_state) {
     '#theme' => 'poll_choices',
   );
   $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Count Level One'),
-    '#disabled'=>true,
-    '#default_value' => variable_get('pingan_affiliate_count',""),
+    '#type'=> 'item',
+   '#title' => t('Count Level One'),
+    '#markup'=> 0,
   );
 
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Count All'),
-    '#disabled'=>true,
-    '#default_value' => variable_get('pingan_affiliate_allcount',""),
+    '#type'=> 'item',
+   '#title' => t('Count All'),
+    '#markup'=>0,
   );
   return $form;
 }
@@ -156,17 +154,15 @@ function affiliate_variable_ajax_callback($form, &$form_state) {
   variable_set('pingan_affiliate_variable_filter', $form_state['values']['pingan_affiliate_variable_filter']);
 
   $form['affiliate_count_wrapper']['pingan_affiliate_count'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Count Level One'),
-    '#disabled'=>true,
-    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter'],'1'):0,
+    '#type'=> 'item',
+   '#title' => t('Count Level One'),
+    '#markup'=> $form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter'],'1'):0,
   );
 
   $form['affiliate_count_wrapper']['pingan_affiliate_allcount'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Count All'),
-    '#disabled'=>true,
-    '#value' =>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0,
+    '#type'=> 'item',
+   '#title' => t('Count All'),
+    '#markup'=>$form_state['values']['pingan_affiliate_variable_filter'] !="" ? affiliate_count($form_state['values']['pingan_affiliate_variable_filter']):0,
   );
   return $form['affiliate_count_wrapper'];
 }
