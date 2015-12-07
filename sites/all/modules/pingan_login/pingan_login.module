@@ -562,7 +562,7 @@ function pingan_login_callback(){
              $cname=!empty($userdata['cnName']) ? $userdata['cnName']:"";
               $edit['field_first_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,1,5,'utf-8'):str_replace(" ".$narray[count($narray)-1],"", $cname):"";
               $edit['field_last_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,0,1,'utf-8'):$narray[count($narray)-1]:"";
-              
+
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
@@ -591,8 +591,10 @@ function pingan_login_callback(){
           if(count($userdata)>2){
               $edit=array();
               
-              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
-              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
+              $narray=split(' ', $cname);
+             $cname=!empty($userdata['cnName']) ? $userdata['cnName']:"";
+              $edit['field_first_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,1,5,'utf-8'):str_replace(" ".$narray[count($narray)-1],"", $cname):"";
+              $edit['field_last_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,0,1,'utf-8'):$narray[count($narray)-1]:"";
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
@@ -602,7 +604,7 @@ function pingan_login_callback(){
               $edit['field_istoaphoneverified']['und'][0]['value']=1;
               $edit['field_chineseidnumber']['und'][0]['value']=!empty($userdata['idNo']) ? $userdata['idNo']:"";
               $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
-
+            $edit['field_practice_account_date']['und'][0]['value']=format_date(time(), 'custom', 'Y-m-d\TH:i:s', $timezone);
               user_save($account, $edit);
             } 
             if(module_exists('mixpanel')){
@@ -644,7 +646,7 @@ function pingan_login_callback(){
 
              $edit['field_ref_url']['und'][0]['value']=!empty($_SESSION['ref_url']) ? $_SESSION['ref_url']:"";
              $edit['field_pa_aff_id']['und'][0]['value']=!empty($_SESSION['ref_id']) ? $_SESSION['ref_id']:"";
-              $edit['field_practice_account_date']['und'][0]['value']=format_date(time(), 'custom', 'Y-m-d\TH:i:s', $timezone);
+              
             user_save($account, $edit);
         }
 
