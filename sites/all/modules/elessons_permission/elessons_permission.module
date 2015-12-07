@@ -271,7 +271,11 @@ function overrite_outline(){
 
       $min = Intval($time/60);
       $sec = $time%60;
-       $title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div><div class="time">'.t('Time').': '.$min.t(' minutes ').$sec.t('   seconds').'</div>';
+       if(!empty($lesson->field_type['und'][0]['tid'])&&$lesson->field_type['und'][0]['tid']==6){  		
+        $title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div><div class="time">'.t('Time').': '.$min.t(' minutes ').$sec.t('   seconds').'</div>';
+        }else{
+  	$title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div>';
+	}
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
