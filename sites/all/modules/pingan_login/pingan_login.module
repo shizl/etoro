@@ -606,6 +606,26 @@ function pingan_login_callback(){
               $edit['field_istoaphoneverified']['und'][0]['value']=1;
               $edit['field_chineseidnumber']['und'][0]['value']=!empty($userdata['idNo']) ? $userdata['idNo']:"";
               $edit['field_chineseidtype']['und'][0]['value']=!empty($userdata['idType']) ? $userdata['idType']:"";
+              if (isset($values['arguments'])) {
+      $arguments = $values['arguments'];
+      unset($values['arguments']);
+    }
+    else {
+      $arguments = array();
+    }
+      if (!empty($arguments['timezone'])) {
+        if (is_array($arguments['timezone'])) {
+          $timezone = $arguments['timezone'][$delta];
+        }
+        else {
+          $timezone = $arguments['timezone'];
+        }
+      }
+      else {
+        $timezone = 'UTC';
+      }
+
+  $edit['field_practice_account_date']['und'][0]['value']=format_date(time(), 'custom', 'Y-m-d\TH:i:s', $timezone);
               user_save($account, $edit);
             } 
             if(module_exists('mixpanel')){
