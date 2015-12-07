@@ -433,7 +433,27 @@ function pingan_login_etoro_callback(){
   }
   $user=user_load($user->uid);
   $edit=array();
-  $edit['field_practice_account_date']['und'][0]['value']=date('Y-m-d h:m:s');
+  if (isset($values['arguments'])) {
+      $arguments = $values['arguments'];
+      unset($values['arguments']);
+    }
+    else {
+      $arguments = array();
+    }
+      if (!empty($arguments['timezone'])) {
+        if (is_array($arguments['timezone'])) {
+          $timezone = $arguments['timezone'][$delta];
+        }
+        else {
+          $timezone = $arguments['timezone'];
+        }
+      }
+      else {
+        $timezone = 'UTC';
+      }
+
+  $edit['field_practice_account_date']['und'][0]['value']=format_date(time(), 'custom', 'Y-m-d\TH:i:s', $timezone);
+
    user_save($user, $edit);
 
   if(module_exists('mixpanel')){
@@ -538,9 +558,11 @@ function pingan_login_callback(){
               $userReg=user_save(null, $account);
               $account=user_load($userReg->uid);
               $edit=array();
-             
-              $edit['field_first_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],1,5,'utf-8'):"";
-              $edit['field_last_name']['und'][0]['value']=!empty($userdata['cnName']) ? mb_substr($userdata['cnName'],0,1,'utf-8'):"";
+              $narray=split(' ', $cname);
+             $cname=!empty($userdata['cnName']) ? $userdata['cnName']:"";
+              $edit['field_first_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,1,5,'utf-8'):str_replace(" ".$narray[count($narray)-1],"", $cname):"";
+              $edit['field_last_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,0,1,'utf-8'):$narray[count($narray)-1]:"";
+              
               $edit['field_gender']['und'][0]['value']=!empty($userdata['sex']) ? $userdata['sex']:"";
               $edit['field_type_of_id']['und'][0]['value']=!empty($userdata['customerLevel']) ? $userdata['customerLevel']:"";
               $edit['field_date_of_birth']['und'][0]['value']=!empty($userdata['birthDate']) ? $userdata['birthDate']:"";
@@ -622,7 +644,7 @@ function pingan_login_callback(){
 
              $edit['field_ref_url']['und'][0]['value']=!empty($_SESSION['ref_url']) ? $_SESSION['ref_url']:"";
              $edit['field_pa_aff_id']['und'][0]['value']=!empty($_SESSION['ref_id']) ? $_SESSION['ref_id']:"";
-              
+              $edit['field_practice_account_date']['und'][0]['value']=format_date(time(), 'custom', 'Y-m-d\TH:i:s', $timezone);
             user_save($account, $edit);
         }
 
