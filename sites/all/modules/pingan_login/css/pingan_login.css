@@ -115,8 +115,8 @@ margin-left:2%;
   height: 31px;
   line-height: 40px;
     display: inline-block;
-  float: right;
-  text-align: left;
+
+  text-align: center;
    }
 
 .sign_out a{
@@ -127,7 +127,7 @@ margin-left:2%;
 .login_input{  width: 83%;
 
   display: inline-block;
-  margin-bottom: 5px;}
+  margin-bottom: 15px;}
 
 #block-pingan-login-pingan-login-box .popLogin{
 background:#ffffff;
@@ -158,8 +158,8 @@ height:260px;
 font-size:20px;
 }
 #block-pingan-login-pingan-login-box .opa{
-margin-left: 21px;
-text-align:left;
+
+text-align:center;
 margin-bottom: 35px;
 margin-top: 20px;
 font-size: 15px

@@ -11,7 +11,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 	 if(!empty($node->field_elessn_permission['und'][0]['tid']) && $node->field_elessn_permission['und'][0]['tid'] == 19){
 	 	$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
                     'source_page_url'=>current_path());
-      	mixpanel_track("user_lesson_view", $values);
+      	mixpanel_track("Local Site - Lesson - Page View", $values);
 	 	
 	   return true;
 
@@ -20,7 +20,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 		if($user->uid !=0){
 			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
                     'source_page_url'=>current_path());
-      		mixpanel_track("user_lesson_view", $values);
+      		mixpanel_track("Local Site - Lesson - Page View", $values);
 			return true;
 		}else{
 		 // drupal_access_denied();
@@ -42,7 +42,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
    		if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
    			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
                     'source_page_url'=>current_path());
-      		mixpanel_track("user_lesson_view", $values);
+      		mixpanel_track("Local Site - Lesson - Page View", $values);
   			return true;
   		}else{
 		      $term = taxonomy_term_load($node->field_permission['und'][0]['tid']);
@@ -60,7 +60,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
  		if(!empty($account->field_ftd_date['und'][0]['value']) && $account->field_ftd_date['und'][0]['value']!=''){
  			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
                   'source_page_url'=>current_path());
-    		mixpanel_track("user_lesson_view", $values);
+    		mixpanel_track("Local Site - Lesson - Page View", $values);
 		  return true;
 		}else{
 
@@ -80,7 +80,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 	 	   $values = array('title'=>'Local Site - Lesson - Page View',
                     'username'=>!empty($account->name) ? $account->name:t("normal account"),
                     'source_page_url'=>current_path());
-      	mixpanel_track("user_lesson_view", $values);
+      	mixpanel_track("Local Site - Lesson - Page View", $values);
 		  return true;
 	 }
 
@@ -271,7 +271,11 @@ function overrite_outline(){
 
       $min = Intval($time/60);
       $sec = $time%60;
-       $title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div><div class="time">'.t('Time').': '.$min.t(' minutes ').$sec.t('   seconds').'</div>';
+       if(!empty($lesson->field_type['und'][0]['tid'])&&$lesson->field_type['und'][0]['tid']==6){  		
+        $title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div><div class="time">'.t('Time').': '.$min.t(' minutes ').$sec.t('   seconds').'</div>';
+        }else{
+  	$title = '<div class="title">'.t('Lesson').$num.': '.$lesson->title.'</div>';
+	}
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
