@@ -2621,9 +2621,9 @@ height:auto;
     width: 100%;
     margin-top: 35px;
     margin-bottom: 35px;
-    height: 278px;
-    
+    height: auto; 
     margin:0 auto;
+    padding-bottom:20px;
 }
 .region-content-bottom{
 
