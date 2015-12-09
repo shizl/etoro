@@ -560,7 +560,7 @@ function pingan_login_callback(){
               $edit=array();
              
               $cname=!empty($userdata['cnName']) ? $userdata['cnName']:"";
-              $narray=@split(' ', $cname);
+              $narray=$cname!="" ? split(' ', $cname):array();
               $edit['field_first_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,1,5,'utf-8'):str_replace(" ".$narray[count($narray)-1],"", $cname):"";
               $edit['field_last_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,0,1,'utf-8'):$narray[count($narray)-1]:"";
 
