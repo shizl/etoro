@@ -680,9 +680,16 @@ margin-top:20px;
     z-index: 50;
     box-shadow: 0px 3px 10px -5px #333;
     border-radius: 10px;
-   
+    height:auto;
+   padding-bottom:20px;
     
 }
+
+.user_info #block-pingan-login-pingan-login-box{
+    height:auto;
+   padding-bottom:20px;
+}
+
 #banner #block-pingan-login-pingan-login-box p{
 line-height: 30px;
     margin-top: 8px;
@@ -1596,9 +1603,9 @@ ul.links {
 width:100%;
 float:none;
 box-shadow: 0px 3px 10px -5px #333;
-min-height:248px;
 height:auto;
 margin-top:0px;
+padding-bottom:20px;
 }
 
 .region-right-sidebar #block-pingan-login-pingan-login-box .content{
