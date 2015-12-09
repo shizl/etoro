@@ -174,9 +174,17 @@ text-align:center;
 #block-pingan-login-pingan-login-box {
 margin-bottom:30px;
 }
+
+
 #block-pingan-login-pingan-login-box h2 {
 padding-top:30px;
 }
+
+.region-right-sidebar #block-pingan-login-pingan-login-box h2{
+padding-top:0px;
+}
+
+
 #block-pingan-login-pingan-login-box .content{
 width:300px;
 margin:0 auto;
