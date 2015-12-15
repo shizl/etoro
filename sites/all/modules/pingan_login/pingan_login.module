@@ -372,6 +372,7 @@ function(T){
 var registration=new T.RegistrationService.Registration({
 "container":"#form",
 "version":"ver16",
+"chinaVersion": true,
 "culture":"'.($GLOBALS['language']->prefix=='en' ? "en-gb":"zh-cn").'",
 "checkUserIP":false,
 "socialConnect":false,
@@ -756,6 +757,7 @@ function(T){
 var registration=new T.RegistrationService.Registration({
 "container":"#form",
 "version":"ver16",
+"chinaVersion": true,
 "culture":"'.($GLOBALS['language']->prefix=='en' ? "en-gb":"zh-cn").'",
 "checkUserIP":false,
 "socialConnect":false,
