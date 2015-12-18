@@ -862,7 +862,7 @@ registration.show();
   height:31px;
   }
 </style><script type="text/javascript">
-window.parent().location.reload();
+window.parent.location.reload();
 </script></head><body><!--'.$html.'--></body></html>';
      exit;
     
