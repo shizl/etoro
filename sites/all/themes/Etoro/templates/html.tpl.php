@@ -52,6 +52,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes" name="viewport"/>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
 

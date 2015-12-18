@@ -12,8 +12,8 @@
 }
 @font-face{
 
-  font-family: Walkway SemiBold;
-  src: url('../font/Walkway SemiBold.ttf');
+  font-family: open sans;
+  src: url('../font/open sans.ttf');
 }
 body {
   
@@ -3567,6 +3567,7 @@ width:100%;
     font-size: 1.5em;
     letter-spacing: 1.1px!important;
     color: #777777;
+    font-family: sans-serif;
 }
 .members .meet-our-team {
     margin-top: 60px;
@@ -3585,16 +3586,24 @@ width:100%;
 .members .row {
     padding-bottom: 55px;
 }
-.members p {
-    font-size: 1.28571em;
+.i18n-en .members p {
+    font-size: 18px;
     font-weight: 300;
     line-height: 125%;
     font-weight: 300!important;
     letter-spacing: 1.1px!important;
-    font-family: Walkway SemiBold;
+    font-family: 'Open Sans', sans-serif;
+}
+.members p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 125%;
+    font-weight: 300!important;
+    letter-spacing: 1.1px!important;
+    
 }
  .members .sub-header {
-    font-size: 1.57143em;
+    font-size: 22px;
     color:#777777;
     
 }
