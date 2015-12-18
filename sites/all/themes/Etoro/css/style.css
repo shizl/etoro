@@ -10,6 +10,11 @@
     src: url('../font/Arial.ttf'); /* IE9+ */
     
 }
+@font-face{
+
+  font-family: Walkway SemiBold;
+  src: url('../font/Walkway SemiBold.ttf');
+}
 body {
   
   
@@ -3551,6 +3556,13 @@ width:100%;
     width: 1000px;
   }
 }
+@media (max-width: 520px) {
+  
+  .forwidth{
+    width: 95% !important;
+
+  }
+}
 .members .sub-header.cn_subheader_fix {
     font-size: 1.5em;
     letter-spacing: 1.1px!important;
@@ -3579,6 +3591,7 @@ width:100%;
     line-height: 125%;
     font-weight: 300!important;
     letter-spacing: 1.1px!important;
+    font-family: Walkway SemiBold;
 }
  .members .sub-header {
     font-size: 1.57143em;
@@ -3657,6 +3670,12 @@ margin-top: 50px;
 margin-top: 50px;
 margin-right: 0px; 
 margin-left: 0px;
+}
+.forwidth{
+
+width:480px;
+margin:0 auto;
+
 }
 .page-node-213 .our-team .title,
 .page-node-214 .our-team .title{
