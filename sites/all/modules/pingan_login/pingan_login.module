@@ -511,13 +511,15 @@ font-style: italic;
   width:200px;
   margin:20px auto;
 }
-</style></head><body>
-<div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
+</style><script type="text/javascript">
+window.parent().location.reload();
+</script></head><body>
+<!--<div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
  <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
 <div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a target="_blank" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
 
-</div>
+</div>-->
  </body></html>';
   exit;
 }
@@ -594,7 +596,7 @@ function pingan_login_callback(){
               $edit=array();
 
             $cname=!empty($userdata['cnName']) ? $userdata['cnName']:"";
-             //$cname="李玉刚";
+             
              $narray=$cname!="" ? explode(' ', $cname):array();
               $edit['field_first_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,1,5,'utf-8'):str_replace(" ".$narray[count($narray)-1],"", $cname):"";
               $edit['field_last_name']['und'][0]['value']=$cname!="" ? preg_match("/^[\x7f-\xff]+$/", $cname) ? mb_substr($cname,0,1,'utf-8'):$narray[count($narray)-1]:"";
@@ -859,7 +861,9 @@ registration.show();
   cursor:pointer;
   height:31px;
   }
-</style></head><body>'.$html.'</body></html>';
+</style><script type="text/javascript">
+window.parent().location.reload();
+</script></head><body><!--'.$html.'--></body></html>';
      exit;
     
 }
