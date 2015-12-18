@@ -512,7 +512,7 @@ font-style: italic;
   margin:20px auto;
 }
 </style><script type="text/javascript">
-window.parent().location.reload();
+window.parent.location.reload();
 </script></head><body>
 <!--<div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
