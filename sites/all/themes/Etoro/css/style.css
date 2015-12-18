@@ -3556,7 +3556,7 @@ width:100%;
     width: 1000px;
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 520px) {
   
   .forwidth{
     width: 95% !important;
