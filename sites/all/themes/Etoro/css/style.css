@@ -3545,9 +3545,85 @@ width:100%;
 .page-node-214 #content{
 width:100%;
 }
+@media (min-width: 1200px) {
+  .page-node-213 .container,
+  .page-node-214 .container{
+    width: 1000px;
+  }
+}
+.members .sub-header.cn_subheader_fix {
+    font-size: 1.5em;
+    letter-spacing: 1.1px!important;
+    color: #777777;
+}
+.members .meet-our-team {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.section-with-line {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 6px;
+}
+.section-with-line .section-title {
+    text-align: center;
+    margin-top: -11px;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.members .row {
+    padding-bottom: 55px;
+}
+.members p {
+    font-size: 1.28571em;
+    font-weight: 300;
+    line-height: 125%;
+    font-weight: 300!important;
+    letter-spacing: 1.1px!important;
+}
+ .members .sub-header {
+    font-size: 1.57143em;
+    color:#777777;
+    
+}
+.page-node-213 .members h2,
+.page-node-214 .members h2 {
+    padding-top: 45px;
+    margin-top: 0px;
+   
+    margin-bottom: 6px !important;
+    font-size: 2.28571em !important;
+    
+    line-height: 100% !important;
+    font-weight: 300!important;
+    letter-spacing: 1.1px!important;
+    font-family: inherit !important;
+}
+.members .position {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.members img {
+    margin-top: 48px;
+}
+.section-with-line .section-title span {
+    background-color: #fff;
+    padding: 0px 25px;
+    color: #aaa;
+    font-weight: 300;
+}
 .page-node-213 h1,
 .page-node-214 h1{
-margin-top:0px;
+    font-size: 2.5em;
+    line-height: 100%;
+    color: #2c2c2c;
+    margin-bottom: 40px;
+}
+.about-us-video {
+    text-align: center;
+    margin: 50px 0;
+    background: #f4f4f4;
 }
 .page-node-213 .top-video .video,
 .page-node-214 .top-video .video{
