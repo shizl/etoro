@@ -58,6 +58,13 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <?php 
+if(module_exists('mixpanel')){  
+    $values = array('title'=>$head_title,
+        'source_page_url'=>'http://'.$_SERVER['HTTP_HOST'].request_uri());
+    mixpanel_track("Local Site -  Page View", $values);
+}
+  ?>
 <!--login box js start-->
 <script type="text/javascript"> 
  function checkwh(){
