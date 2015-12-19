@@ -511,7 +511,9 @@ font-style: italic;
   width:200px;
   margin:20px auto;
 }
-</style><script type="text/javascript">
+</style><script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".loginBody", window.parent.document).hide();
 window.parent.location.reload();
 </script></head><body>
 <!--<div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
@@ -861,7 +863,10 @@ registration.show();
   cursor:pointer;
   height:31px;
   }
-</style><script type="text/javascript">
+</style>
+<script type="text/javascript" src="/'.drupal_get_path('module', "pingan_login") . '/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".loginBody", window.parent.document).hide();
 window.parent.location.reload();
 </script></head><body><!--'.$html.'--></body></html>';
      exit;
