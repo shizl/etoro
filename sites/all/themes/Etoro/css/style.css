@@ -3589,6 +3589,7 @@ width:100%;
 }
 .members .row {
     padding-bottom: 55px;
+    margin:0px;
 }
 .i18n-en .members p {
     font-size: 17px;
