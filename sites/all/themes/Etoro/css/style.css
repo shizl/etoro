@@ -10,6 +10,11 @@
     src: url('../font/Arial.ttf'); /* IE9+ */
     
 }
+@font-face{
+
+  font-family: open sans;
+  src: url('../font/open sans.ttf');
+}
 body {
   
   
@@ -3541,13 +3546,110 @@ width:100%;
 #views_slideshow_cycle_teaser_section_home_banner-block .views_slideshow_slide{
 width:100%;
 }
-.page-node-213 #content,
+.page-node-213 #content
+{
+width:100%;
+font-family: 'Open Sans', sans-serif;
+}
 .page-node-214 #content{
 width:100%;
 }
+@media (min-width: 1200px) {
+  .page-node-213 .container,
+  .page-node-214 .container{
+    width: 1000px;
+  }
+}
+@media (max-width: 520px) {
+  
+  .forwidth{
+    width: 95% !important;
+
+  }
+}
+.members .sub-header.cn_subheader_fix {
+    font-size: 1.5em;
+    letter-spacing: 1.1px!important;
+    color: #777777;
+    font-family: sans-serif;
+}
+.members .meet-our-team {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.section-with-line {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 6px;
+}
+.section-with-line .section-title {
+    text-align: center;
+    margin-top: -11px;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.members .row {
+    padding-bottom: 55px;
+}
+.i18n-en .members p {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 125%;
+    font-weight: 300!important;
+    letter-spacing: 1.1px!important;
+    font-family: 'Open Sans', sans-serif;
+}
+.members p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 125%;
+    font-weight: 300!important;
+    letter-spacing: 1.1px!important;
+    
+}
+ .members .sub-header {
+    font-size: 22px !important;
+    color:#777777;
+    
+}
+.page-node-213 .members h2,
+.page-node-214 .members h2 {
+    padding-top: 45px;
+    margin-top: 0px;
+   
+    margin-bottom: 6px !important;
+    font-size: 30px !important;
+    
+    line-height: 100% !important;
+    font-weight: 300!important;
+    letter-spacing: 1.1px!important;
+    font-family: inherit !important;
+}
+.members .position {
+    font-size: 18px !important;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.members img {
+    margin-top: 48px;
+}
+.section-with-line .section-title span {
+    background-color: #fff;
+    padding: 0px 25px;
+    color: #aaa;
+    font-weight: 300;
+}
 .page-node-213 h1,
 .page-node-214 h1{
-margin-top:0px;
+    font-size: 2.5em;
+    line-height: 100%;
+    color: #2c2c2c;
+    margin-bottom: 40px;
+}
+.about-us-video {
+    text-align: center;
+    margin: 50px 0;
+    background: #f4f4f4;
 }
 .page-node-213 .top-video .video,
 .page-node-214 .top-video .video{
@@ -3581,6 +3683,12 @@ margin-top: 50px;
 margin-top: 50px;
 margin-right: 0px; 
 margin-left: 0px;
+}
+.forwidth{
+
+width:480px;
+margin:0 auto;
+
 }
 .page-node-213 .our-team .title,
 .page-node-214 .our-team .title{
