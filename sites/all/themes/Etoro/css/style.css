@@ -3551,6 +3551,9 @@ width:100%;
 width:100%;
 font-family: 'Open Sans', sans-serif;
 }
+.page-node-214 #content{
+width:100%;
+}
 @media (min-width: 1200px) {
   .page-node-213 .container,
   .page-node-214 .container{
