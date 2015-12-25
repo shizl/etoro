@@ -102,7 +102,7 @@ function etoro_toaFtd() {
   $param=$_REQUEST;
   $data=array();
 //  print_r($param);
-  if(empty($param['token'])  || $param['token']!=md5('etoro_toaftd')){
+  if(empty($param['token'])  || $param['token']!='ec6d2b1116a6a01df418971d463daecd'){ //md5('etoro_toaftd')){
      $data=array("status"=>"0","message"=>t("token is not correct"));
   }elseif(empty($param['toaid'])){
     $data=array("status"=>"0","message"=>t("Requird the toaid"));
