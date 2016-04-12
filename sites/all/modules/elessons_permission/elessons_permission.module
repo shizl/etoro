@@ -131,13 +131,13 @@ global $language;
     }
 
   $enter_nid = $arr[0];
-  $enter = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$enter_nid.'">'.t('Enter').'</a></li>';
+  $enter = '<li class="course-nav-next"><a href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$enter_nid).'">'.t('Enter').'</a></li>';
 
  return '<ul id="course-nav">'.$enter.'</ul> 
                 
 <script type="text/javascript">
  jQuery(".field-name-field-image  img").click(function(){
-  window.location.href="/'.$language->prefix.'/node/'.$enter_nid.'";
+  window.location.href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$enter_nid).'";
   });
 </script>
  ';
@@ -171,8 +171,8 @@ function lesson_navigation(){
 
 if($current_key!= intval(count($arr)-1)){
 $next_nid = $arr[$current_key+1]['nid'];
-$content = node_load($next_nid);
-  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').': '.t('Lesson ').($current_key+2).' '.$content->title.'</a></li>';
+$content = node_load($next_nid); 
+  $next = '<li class="course-nav-next"><a href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$next_nid).'">'.t('Next').': '.t('Lesson ').($current_key+2).' '.$content->title.'</a></li>';
 }else{
   $next = '';
 }
@@ -180,7 +180,7 @@ $content = node_load($next_nid);
 if($current_key!=0){
 $prev_nid = $arr[$current_key-1]['nid'];
 $content = node_load($prev_nid);
-  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').': '.t('Lesson ').($current_key).' '.$content->title.'</a></li>';
+  $prev = '<li class="course-nav-back"><a href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$prev_nid).'">'.t('Previous').': '.t('Lesson ').($current_key).' '.$content->title.'</a></li>';
 }else{
  $prev = '';
 }
@@ -248,7 +248,7 @@ function overrite_outline(){
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
-	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$language->prefix.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-lesson-body"><div class="views-field-description-i18n"><div class="field-content"><div class="close_"><span>'.t('Close').'</span></div><div class="content"><p>'.$message.'</p></div></div></div></div><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid) ||$_SERVER['REQUEST_URI']=='/'.drupal_get_path_alias('node/'.$lesson->nid) ?"active":"").'"  href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-lesson-body"><div class="views-field-description-i18n"><div class="field-content"><div class="close_"><span>'.t('Close').'</span></div><div class="content"><p>'.$message.'</p></div></div></div></div><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
       $num++;
 
     }

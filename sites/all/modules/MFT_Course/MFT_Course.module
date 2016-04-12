@@ -16,7 +16,6 @@ function MFT_Course_menu() {
 
  function MFT_Course_node_view($node,$view_mode,$langcode) {
 
-
     if ($node->type=="elesson"){
        global $language;
        if($language->prefix == "en"){
@@ -86,7 +85,7 @@ function MFT_Course_menu() {
                 }
            }
        }
-        }elseif ($language->prefix == "cn"){
+        }elseif ($language->prefix == ""){
               if($node->field_type ==null){
                 return;
               }
