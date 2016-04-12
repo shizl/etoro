@@ -149,7 +149,7 @@
 <?php 
 	$values = array('title'=>$head_title,
                     'source_page_url'=>current_path());
-      	mixpanel_track("PageViews ", $values);
+      	mixpanel_track("Local Site - PageViews ", $values);
 ?>
 <!--page view event end-->
 </body>

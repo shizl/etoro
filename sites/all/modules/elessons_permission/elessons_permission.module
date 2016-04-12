@@ -279,7 +279,7 @@ function elessons_permission_menu() {
 function elessons_permission_callback(){
 
  global $base_url;
- $values = array('title'=>$_REQUEST['content_url'], 
+ $values = array('title'=>$_REQUEST['content_title'], 
           'source_page_url'=>!empty($_REQUEST['content_url']) ? $base_url.$_REQUEST['content_url']:current_path());
         mixpanel_track("Local Site - ContentLock ", $values);
 
