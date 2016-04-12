@@ -197,7 +197,7 @@ function pingan_login_block_view($delta = '') {
           $html.='<input type="button" class="go_etoro_account practice-account" value="'.t('Access Practice Account').'" >';
         }
         $html.='</div><div class="loginBody"><div class="loginbg"></div><div class="loginPop"><div class="popClose">'.t('Close').'</div><div class="popBody"><div class="titleRegister">'.t('Etoro register').'</div><div class="loadform"></div><iframe width="100%" frameborder="no" border="0" src="" class="popSrc"></iframe></div></div></div>';
-        $block['content'] = '<div class="description">'.t("Welcome to eToro").'</div><div id="radius1"></div><div class="login_input"><div class="sign_out"><a href="/'.$GLOBALS['language']->prefix.'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
+        $block['content'] = '<div class="description">'.t("Welcome to eToro").'</div><div id="radius1"></div><div class="login_input"><div class="sign_out"><a href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/user/logout">'.t('Log out').'</a></div></div><div id="radius"> </div>'.$html;
       }else{
         
         $block['content'] = '<p class="description">'.t('Register to access more materials').'</p><div id="radius1"></div>
@@ -408,7 +408,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
-location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback"
+location.href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/etoro_callback"
 }); 
 registration.show();
 });
@@ -518,8 +518,8 @@ window.parent.location.reload();
 </script></head><body>
 <!--<div class="head"><div class="title-des">'.t('Congratulations!',array(),array("langcode"=>$GLOBALS['language']->language)).'<br> '.t('You successfuly created <br> your Etoro practice account',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue">'.t('Now you can start learning <br > to become a better investor',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 
- <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'">
-<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a target="_blank" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro">www.etoro.com</a>
+ <input type="button" class="go_account" value="'.t('Continue learning').'" onclick="location.href=\''.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/torefurl\'">
+<div class="btn-msg">'.t('You can always visit your eToro practice account by going to :').' <a target="_blank" href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/toetoro">www.etoro.com</a>
 
 </div>-->
  </body></html>';
@@ -814,7 +814,7 @@ registration.on("on:error", function (event) {
   $("#regbox").html("'.t("Registration failure, network connection error. Please contact the administrator.",array(),array("langcode"=>$GLOBALS['language']->language)).'")
 }); 
 registration.on("on:success", function (event) {
-location.href="/'.$GLOBALS['language']->prefix.'/pingan_login/etoro_callback";
+location.href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/etoro_callback";
 }); 
 registration.show();
 });
@@ -824,19 +824,19 @@ registration.show();
 </script>
 </head>
 <body>
-<div class="head"><div class="title-des">'.t('You\'re almost there!',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Sign up now for a FREE Etoro Account and start practicing',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
+<div class="head"><div class="title-des">'.t('You\'re almost there!',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Sign up now for a FREE Etoro Account and start practicing',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
 <div id="regbox">
 <form id="form"></form>
 </div>
-<div class="btn"><a class="skip" href="/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></body>
+<div class="btn"><a class="skip" href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></body>
 </html>
 ';
   exit;  
         }else{
          if(!empty($account->field_practice_account_date['und'][0]['value']) && empty($account->field_ftd_date['und'][0]['value'])){
-           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="window.open(\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\',\'_blank\')"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+           $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Make First Time Deposit',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="window.open(\''.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/toetoro\',\'_blank\')"> <input type="button" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" class="go_account" onclick="location.href=\''.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/torefurl\'"></div>';
         }else{
-          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="window.open(\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/toetoro\',\'_blank\')"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\'/'.$GLOBALS['language']->prefix.'/pingan_login/redirect/torefurl\'"></div>';
+          $html='<div class="success_msg"><input type="button" class="go_etoro" value="'.t('Access Practice Account',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="window.open(\''.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/toetoro\',\'_blank\')"> <input type="button" class="go_account" value="'.t('Start Learning',array(),array("langcode"=>$GLOBALS['language']->language)).'" onclick="location.href=\''.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/torefurl\'"></div>';
         }
       }
         

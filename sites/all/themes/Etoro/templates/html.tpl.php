@@ -145,5 +145,12 @@
 })
 </script>
 <!--login box js end-->
+<!--page view event start-->
+<?php 
+	$values = array('title'=>$head_title,
+                    'source_page_url'=>current_path());
+      	mixpanel_track("PageViews ", $values);
+?>
+<!--page view event end-->
 </body>
 </html>

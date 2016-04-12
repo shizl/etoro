@@ -40,7 +40,11 @@ jQuery('.jcarousel .views-field-description-i18n').each(function(){
           opacity: 0.7,
           closeOnClick:true, 
          onShow: function() {
+          var content_title=dom.prev().prev("a").find(".title").text();
+          var content_url=dom.prev().prev("a").attr("href");
+                jQuery.post("/elessons_permission/callback",{content_title:content_title,content_url:content_url},function(){
 
+                });
                  dom.parent().find('.views-lesson-body').show();
 
          },
@@ -84,7 +88,11 @@ jQuery('.item .views-field-description-i18n span').click(function(){
           opacity: 0.7,
           closeOnClick:true, 
          onShow: function() {
+                var content_title=dom.prev().prev().prev("a").find(".title").text();
+          var content_url=dom.prev().prev().prev("a").attr("href");
+                jQuery.post("/elessons_permission/callback",{content_title:content_title,content_url:content_url},function(){
 
+                });
                  dom.parent().find('.views-lesson-body').show();
 
          },
