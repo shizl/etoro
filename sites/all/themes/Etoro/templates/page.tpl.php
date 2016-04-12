@@ -25,7 +25,7 @@
 <?php global $language;  ?>
 
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->prefix=='en'?'<a class="zh-lan" href="/cn">中文</a>':'<a class="en-lan" href="/en">EN</a>'; ?> </div>
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->prefix=='en'?'<a class="zh-lan" href="/">中文</a>':'<a class="en-lan" href="/en">EN</a>'; ?> </div>
 
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
@@ -86,7 +86,7 @@ global $language;
  	if($language->language=="en"){
  	 $home =  '<a href="/en">Home</a>';
 	}else{
-    	$home = '<a href="/cn">首页</a>';
+    	$home = '<a href="/">首页</a>';
 	}
 
 if(isset($node)&&$node->type=="elesson"){
