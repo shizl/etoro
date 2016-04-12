@@ -5,7 +5,7 @@ load 'deploy'
 load 'config/deploy' # remove this line to skip loading any of the default tasks
 load 'config/drupal' # remove this line to skip loading any of the default tasks
 role :web, "120.25.230.241"   # Your HTTP server, Apache/etc
-set :application, "etoro"
+set :application, "etoro2"
 set :branch,      "dev"
 set :deploy_to,   "/home/www/etoro"
 set :deploy_via, :remote_cache
