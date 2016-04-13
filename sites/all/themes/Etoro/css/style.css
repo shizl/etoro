@@ -3867,7 +3867,8 @@ line-height: normal;
 padding:0px;
 text-align:end;
 }
-.jiathis_style div{
+.jiathis_style div,
+.jiathis_counter {
 -webkit-box-sizing:content-box;
 box-sizing: content-box;
 }
