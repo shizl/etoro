@@ -261,13 +261,7 @@ tr.views-row-last{
 border-bottom: 2px solid #a0d550;
 
 }
-tr,
-tr.even {
-  background: #efefef;
-  background: rgba(0, 0, 0, 0.063);
-  height: 33px;
-  color:#999999;
-}
+
 tr a{
 
 color:#999999;
@@ -3856,4 +3850,24 @@ margin-top:0px;
 
 margin-top:16px;
 
+}
+
+.searchTxtCont input{
+
+padding:0px;
+line-height: normal;
+}
+.jiathis_style tr, 
+.jiathis_style td {
+    
+   border:none;
+padding:0px;
+text-align:end;
+}
+.jiathis_style div{
+-webkit-box-sizing:content-box;
+box-sizing: content-box;
+}
+.jiathis_style table{
+border-collapse: inherit;
 }
