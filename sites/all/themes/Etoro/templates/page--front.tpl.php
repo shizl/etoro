@@ -86,8 +86,7 @@
               		</div>
   	    		</li>';
 		}
-                     }
-              if ($language->prefix == 'cn'){
+                     }else{
 
                    $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'zh-hans') ");
           
