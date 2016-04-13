@@ -3778,10 +3778,6 @@ display:none;
 .header_logo .logo_1150{
 display:block;
 }
-.header_logo a img{
-width:100% !important;
-height:auto !important;
-}
  .views-lesson-body{
   position: fixed;
   top:0;
