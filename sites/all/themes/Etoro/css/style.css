@@ -1657,11 +1657,12 @@ text-align:left;
 display:inline-table;
 }
 
-#block-block-1 {
+#block-block-1,
+#block-block-8 {
 float: right;
 width:16%;
 text-align:right;
-   margin-top:10px;
+   margin-top:16px;
 }
 #block-block-1 a{
 color:#999999;
