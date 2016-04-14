@@ -44,7 +44,7 @@
  */
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language!="en" ? "zh-hans":"en"; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
   <?php print $head; ?>
@@ -95,7 +95,7 @@
       jQuery(this).parent().parent("div").find(".titleRegister").show();
       jQuery(this).parent().parent("div").find(".titleLogin").hide();
       jQuery("body").css("overflow","hidden");
-      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href); 
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","<?php echo $GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix; ?>/pingan_login/mobile/register?refurl="+document.location.href); 
       jQuery(this).parent().parent("div").find(".loginBody").show();
 
       jQuery(this).parent().parent("div").find(".popSrc").load(function(){
@@ -107,7 +107,7 @@
       jQuery(this).parent().parent("div").find(".titleRegister").hide();
       jQuery(this).parent().parent("div").find(".titleLogin").show();
       jQuery("body").css("overflow","hidden");
-      jQuery(this).parent().parent("div").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/mobile/login?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".popSrc").attr("src","<?php echo $GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix; ?>/pingan_login/mobile/login?refurl="+document.location.href);
       jQuery(this).parent().parent("div").find(".loginBody").show();
       jQuery(this).parent().parent("div").find(".popSrc").load(function(){
         jQuery(this).parent().parent("div").find(".loadform").hide();
@@ -119,24 +119,24 @@
        jQuery(this).parent().parent("div").find(".loadform").show();
       jQuery(this).parent().parent("div").find(".titleRegister").show();
       jQuery("body").css("overflow","hidden");
-      jQuery(this).parent().parent("div").find(".loginBody").find(".popSrc").attr("src","/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href);
+      jQuery(this).parent().parent("div").find(".loginBody").find(".popSrc").attr("src","<?php echo $GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href);
       jQuery(this).parent().parent("div").find(".loginBody").show();
       jQuery(this).parent().parent("div").find(".popSrc").load(function(){
         jQuery(this).parent().parent("div").find(".loadform").hide();
       });
     });
     jQuery(".go_etoro").click(function(){
-      document.location.href="/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href
+      document.location.href="<?php echo $GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix; ?>/pingan_login/etoro_register?refurl="+document.location.href
     });
     jQuery(".go_etoro_account").click(function(){
-      window.open("/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href,"_blank");
+      window.open("<?php echo $GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix; ?>/pingan_login/redirect/toetoro?refurl="+document.location.href,"_blank");
     });
     
     
     jQuery(".popClose").click(function(){
       jQuery("body").css("overflow","auto");
       jQuery(".loginBody").hide();
-      jQuery.post("/<?php echo $GLOBALS['language']->prefix; ?>/pingan_login/checklogin",{},function(data){
+      jQuery.post("<?php echo $GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix; ?>/pingan_login/checklogin",{},function(data){
           if(data==1){
             window.location.reload();
           }
@@ -145,5 +145,12 @@
 })
 </script>
 <!--login box js end-->
+<!--page view event start-->
+<?php 
+	$values = array('title'=>$head_title,
+                    'source_page_url'=>current_path());
+      	mixpanel_track("Local Site - PageViews ", $values);
+?>
+<!--page view event end-->
 </body>
 </html>

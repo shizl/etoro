@@ -15,29 +15,7 @@ function elessons_permission_node_view($node, $view_mode, $langcode){
 	 	
 	   return true;
 
-	 }elseif(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 20){
-		
-		if($user->uid !=0){
-			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
-                    'source_page_url'=>current_path());
-      		mixpanel_track("Local Site - Lesson - Page View", $values);
-			return true;
-		}else{
-		 // drupal_access_denied();
-		  //exit;
-
-		      $term = taxonomy_term_load($node->field_permission['und'][0]['tid']);
-		      $term = i18n_taxonomy_localize_terms($term);
-		      $message = $term->description==''?t('You are not authorized to access this page.'):$term->description;
-		      $node->content['message'] = array(
-			'#markup' =>$message,
- 		      );
- 		      hide($node->content['field_lesson_id']);
-		      hide($node->content['body']);	 		 
-
-
-		}
-  }elseif(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 21){
+	 }elseif(!empty($node->field_permission['und'][0]['tid']) && $node->field_permission['und'][0]['tid'] == 21){
 		
    		if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
    			$values = array('title'=>'Local Site - Lesson - Page View','username'=>!empty($account->name) ? $account->name:t("normal account"),
@@ -153,13 +131,14 @@ global $language;
     }
 
   $enter_nid = $arr[0];
-  $enter = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$enter_nid.'">'.t('Enter').'</a></li>';
+
+  $enter = '<li class="course-nav-next"><a href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$enter_nid).'">'.t('Enter').'</a></li>';
 
  return '<ul id="course-nav">'.$enter.'</ul> 
                 
 <script type="text/javascript">
  jQuery(".field-name-field-image  img").click(function(){
-  window.location.href="/'.$language->prefix.'/node/'.$enter_nid.'";
+  window.location.href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$enter_nid).'";
   });
 </script>
  ';
@@ -193,8 +172,9 @@ function lesson_navigation(){
 
 if($current_key!= intval(count($arr)-1)){
 $next_nid = $arr[$current_key+1]['nid'];
-$content = node_load($next_nid);
-  $next = '<li class="course-nav-next"><a href="/'.$language->prefix.'/node/'.$next_nid.'">'.t('Next').': '.t('Lesson ').($current_key+2).' '.$content->title.'</a></li>';
+
+$content = node_load($next_nid); 
+  $next = '<li class="course-nav-next"><a href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$next_nid).'">'.t('Next').': '.t('Lesson ').($current_key+2).' '.$content->title.'</a></li>';
 }else{
   $next = '';
 }
@@ -202,15 +182,13 @@ $content = node_load($next_nid);
 if($current_key!=0){
 $prev_nid = $arr[$current_key-1]['nid'];
 $content = node_load($prev_nid);
-  $prev = '<li class="course-nav-back"><a href="/'.$language->prefix.'/node/'.$prev_nid.'">'.t('Previous').': '.t('Lesson ').($current_key).' '.$content->title.'</a></li>';
+
+  $prev = '<li class="course-nav-back"><a href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/'.$prev_nid).'">'.t('Previous').': '.t('Lesson ').($current_key).' '.$content->title.'</a></li>';
 }else{
  $prev = '';
 }
- 
+
  return '<ul id="course-nav">'.$prev.$next.'</ul>';
-
-
-
 }
 
 
@@ -232,16 +210,7 @@ function overrite_outline(){
    $message = '';
 	 if(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid']== 19){
              //return true;
-	 }elseif(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid'] == 20){
-		if($user->uid !=0){
-             //return true;
-		}else{
-            $lock = 'lock';
-		$term = taxonomy_term_load($lesson->field_permission['und'][0]['tid']);
-		$term = i18n_taxonomy_localize_terms($term);
-		$message = $term->description;
-		}
-         }elseif(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid']  == 21){
+	 }elseif(!empty($lesson->field_permission['und'][0]['tid']) && $lesson->field_permission['und'][0]['tid']  == 21){
 		
    	if(!empty($account->field_practice_account_date['und'][0]['value']) && $account->field_practice_account_date['und'][0]['value']!=''){
             // return true;
@@ -279,7 +248,8 @@ function overrite_outline(){
 	$uri = !empty($lesson->field_image['und'][0]['uri'])?$lesson->field_image['und'][0]['uri']:'';
 	$url = file_create_url($uri);
         $img =  '<img src="'.$url.'">';
-	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid)?"active":"").'"  href="/'.$language->prefix.'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-lesson-body"><div class="views-field-description-i18n"><div class="field-content"><div class="close_"><span>'.t('Close').'</span></div><div class="content"><p>'.$message.'</p></div></div></div></div><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
+
+	$item .= '<div class="item"><a class="'.($_SERVER['REQUEST_URI']=='/'.$language->prefix.'/'.drupal_get_path_alias('node/'.$lesson->nid) ||$_SERVER['REQUEST_URI']=='/'.drupal_get_path_alias('node/'.$lesson->nid) ?"active":"").'"  href="'.($language->prefix==''?'':'/'.$language->prefix).'/'.drupal_get_path_alias('node/' . $lesson->nid).'">'.$img.$title.'</a><div class="views-lesson-body"><div class="views-field-description-i18n"><div class="field-content"><div class="close_"><span>'.t('Close').'</span></div><div class="content"><p>'.$message.'</p></div></div></div></div><div class="views-field-php"><span class="field-content">'.$lock.'</span></div></div>';
       $num++;
 
     }
@@ -290,6 +260,28 @@ function overrite_outline(){
     return $item;
  }
 
-
 }
 
+function elessons_permission_menu() {
+
+   $items['elessons_permission/callback']= array(
+    'title' => 'elessons Permission click',
+    'description' => 'elessons Permission click.',
+    'page callback' => 'elessons_permission_callback',
+    'access callback' => true,
+  );
+  return $items;
+}
+
+/**
+  * elessions permission callback function 
+  */
+function elessons_permission_callback(){
+
+ global $base_url;
+ $values = array('title'=>$_REQUEST['content_title'], 
+          'source_page_url'=>!empty($_REQUEST['content_url']) ? $base_url.$_REQUEST['content_url']:current_path());
+        mixpanel_track("Local Site - ContentLock ", $values);
+
+        echo 1;exit;
+}

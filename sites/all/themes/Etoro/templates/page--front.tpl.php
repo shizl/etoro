@@ -26,7 +26,7 @@
 
 <?php global $language;  ?>
 
-<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->prefix=='en'?'<a  href="/cn">中文</a>':'<a  href="/en">EN</a>'; ?> </div>
+<div id="mobile-menu"> <a class="reorder" href="#"><i class="icon-reorder"></i></a> | <a class="get_user" href="#"><i class="icon-user"></i></a> | <?php echo $language->prefix=='en'?'<a  href="/">中文</a>':'<a  href="/en">EN</a>'; ?> </div>
 <?php if ($main_menu): ?>
       <div id="main-menu" class="navigation">
         <div class="section clearfix">
@@ -86,8 +86,7 @@
               		</div>
   	    		</li>';
 		}
-                     }
-              if ($language->prefix == 'cn'){
+                     }else{
 
                    $fids = db_query("select field_banner_image_fid from {field_data_field_banner_image} where bundle = 'banner' and entity_type = 'node' and entity_id in (select nid from {node} where language = 'zh-hans') ");
           
