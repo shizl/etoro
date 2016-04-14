@@ -824,11 +824,11 @@ registration.show();
 </script>
 </head>
 <body>
-<div class="head"><div class="title-des">'.t('You\'re almost there!',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Sign up now for a FREE Etoro Account and start practicing',array(),array("langcode"=>$GLOBALS['language']->language)).'</div><div class="continue"><a href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/tohome">'.t('or continue to the lessons >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></div>
+<div class="head"><div class="title-des">'.t('You\'re almost there!',array(),array("langcode"=>$GLOBALS['language']->language)).' <br> '.t('Sign up now for a FREE Etoro Account and start practicing',array(),array("langcode"=>$GLOBALS['language']->language)).'</div></div>
 <div id="regbox">
 <form id="form"></form>
 </div>
-<div class="btn"><a class="skip" href="'.($GLOBALS['language']->prefix==''?'':'/'.$GLOBALS['language']->prefix).'/pingan_login/redirect/tohome">'.t('Skip this step >>',array(),array("langcode"=>$GLOBALS['language']->language)).'</a></div></body>
+</body>
 </html>
 ';
   exit;  
